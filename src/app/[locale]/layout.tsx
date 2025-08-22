@@ -1,4 +1,5 @@
-import {hasLocale} from 'next-intl';
+import {hasLocale, NextIntlClientProvider} from 'next-intl';
+import {getLocale, getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import Header from '@/components/Header';
@@ -14,14 +15,17 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  const [activeLocale, messages] = await Promise.all([
+    getLocale(),
+    getMessages()
+  ]);
+
   return (
-    <html lang={locale}>
-      <body>
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <NextIntlClientProvider locale={activeLocale} messages={messages}>
+      <Header />
+      {children}
+      <Footer />
+    </NextIntlClientProvider>
   );
 }
 

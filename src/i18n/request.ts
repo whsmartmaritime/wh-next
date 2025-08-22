@@ -5,12 +5,20 @@ import {routing} from './routing';
 export default getRequestConfig(async ({requestLocale}) => {
   // Typically corresponds to the `[locale]` segment
   const requested = await requestLocale;
-  const locale = hasLocale(routing.locales, requested)
-    ? requested
-    : routing.defaultLocale;
+    const activeLocale = hasLocale(routing.locales, requested)
+      ? (requested as string)
+      : routing.defaultLocale;
  
-  return {
-    locale,
-    messages: (await import(`../../messages/${locale}.json`)).default
-  };
+    // Load messages JSON for the active locale (fallback to default)
+    let messages: Record<string, unknown>;
+    try {
+      messages = (await import(`../../messages/${activeLocale}.json`)).default;
+    } catch {
+      messages = (await import(`../../messages/${routing.defaultLocale}.json`)).default;
+    }
+
+    return {
+      locale: activeLocale,
+      messages
+    };
 });

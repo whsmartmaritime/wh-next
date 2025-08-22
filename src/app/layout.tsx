@@ -1,12 +1,11 @@
 import '../styles/globals.css';
-import {NextIntlClientProvider} from 'next-intl';
- 
+import {getLocale} from 'next-intl/server';
+
 export default async function RootLayout({children}: LayoutProps<'/'>) {
+  const locale = await getLocale();
   return (
-    <html>
-      <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
-      </body>
+    <html lang={locale}>
+      <body>{children}</body>
     </html>
   );
 }
