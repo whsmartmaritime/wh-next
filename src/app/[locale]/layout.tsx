@@ -1,8 +1,9 @@
-import {NextIntlClientProvider, hasLocale} from 'next-intl';
+import {hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
-import { Children } from 'react';
- 
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
 export default async function LocaleLayout({
   children,
   params
@@ -12,7 +13,15 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
- 
-  return children;
+
+  return (
+    <html lang={locale}>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
+    </html>
+  );
 }
 

@@ -1,5 +1,14 @@
 {
+  "Nav": {
+    "home": "Trang chủ",
+    "blog": "Blog",
+    "about": "Giới thiệu",
+    "contact": "Liên hệ"
+  },
   "HomePage": {
-    "title": "Xin chào thế giới!"
+    "title": "Xây website tiếp theo của bạn thật nhanh",
+    "subtitle": "Bộ Next.js + i18n hiện đại, sẵn sàng triển khai.",
+    "ctaPrimary": "Liên hệ",
+    "ctaSecondary": "Tìm hiểu thêm"
   }
 }

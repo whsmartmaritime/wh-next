@@ -1,5 +1,14 @@
 {
+  "Nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
   "HomePage": {
-    "title": "Hello world!"
+    "title": "Build your next website with speed",
+    "subtitle": "Modern Next.js + i18n setup ready to ship.",
+    "ctaPrimary": "Contact us",
+    "ctaSecondary": "Learn more"
   }
 }
