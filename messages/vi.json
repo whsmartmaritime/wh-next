@@ -3,7 +3,23 @@
     "home": "Trang chủ",
     "blog": "Blog",
     "about": "Giới thiệu",
-    "contact": "Liên hệ"
+    "contact": "Liên hệ",
+    "solutions": {"title": "Giải pháp", "items": {
+      "a": {"title": "Tính năng A", "desc": "Tự động hoá quy trình, tiết kiệm thời gian."},
+      "b": {"title": "Tính năng B", "desc": "Mở rộng ổn định với nền tảng của chúng tôi."},
+      "c": {"title": "Tính năng C", "desc": "Tích hợp dễ dàng với hệ thống của bạn."}
+    }},
+    "services": {"title": "Dịch vụ", "items": {
+      "consulting": {"title": "Tư vấn", "desc": "Định hướng chiến lược bởi chuyên gia."},
+      "implementation": {"title": "Triển khai", "desc": "Từ prototype đến sản phẩm hoàn thiện."},
+      "support": {"title": "Hỗ trợ", "desc": "Hỗ trợ 24/7, luôn sẵn sàng."}
+    }},
+    "resources": {"title": "Tài nguyên", "items": {
+      "blog": {"title": "Blog", "desc": "Tin tức, hướng dẫn và chia sẻ."},
+      "docs": {"title": "Tài liệu", "desc": "Tìm hiểu cách xây dựng cùng chúng tôi."},
+      "changelog": {"title": "Changelog", "desc": "Những cập nhật mới nhất."}
+    }},
+    "company": {"title": "Công ty"}
   },
   "HomePage": {
     "title": "Xây website tiếp theo của bạn thật nhanh",

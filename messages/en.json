@@ -3,7 +3,23 @@
     "home": "Home",
     "blog": "Blog",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "solutions": {"title": "Solutions", "items": {
+      "a": {"title": "Feature A", "desc": "Automate workflows and save time."},
+      "b": {"title": "Feature B", "desc": "Scale reliably with our platform."},
+      "c": {"title": "Feature C", "desc": "Integrate with your stack easily."}
+    }},
+    "services": {"title": "Services", "items": {
+      "consulting": {"title": "Consulting", "desc": "Expert guidance for your roadmap."},
+      "implementation": {"title": "Implementation", "desc": "From prototype to production."},
+      "support": {"title": "Support", "desc": "We’ve got your back 24/7."}
+    }},
+    "resources": {"title": "Resources", "items": {
+      "blog": {"title": "Blog", "desc": "News, guides and insights."},
+      "docs": {"title": "Docs", "desc": "Learn how to build with us."},
+      "changelog": {"title": "Changelog", "desc": "What’s new and improved."}
+    }},
+    "company": {"title": "Company"}
   },
   "HomePage": {
     "title": "Build your next website with speed",
