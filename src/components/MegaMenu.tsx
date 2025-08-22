@@ -52,17 +52,17 @@ export default function MegaMenu() {
   ];
 
   return (
-    <div ref={containerRef} style={{position: 'relative'}} onMouseLeave={() => setOpenKey(null)}>
-      <div style={{display: 'flex', gap: 16}}>
+    <div ref={containerRef} className="relative" onMouseLeave={() => setOpenKey(null)}>
+      <div className="flex gap-4">
         {items.map((item) => (
           <div
             key={item.key}
             onMouseEnter={() => setOpenKey(item.panel ? item.key : null)}
             onFocus={() => setOpenKey(item.panel ? item.key : null)}
             tabIndex={0}
-            style={{position: 'relative'}}
+            className="relative"
           >
-            <Link href={item.href ?? '#'} style={{padding: '6px 4px', display: 'inline-block'}}>
+            <Link href={item.href ?? '#'} className="inline-block py-1.5 px-1 hover:text-black/80">
               {t(`${item.key}.title`)}
             </Link>
           </div>
@@ -77,26 +77,19 @@ export default function MegaMenu() {
             key={`${item.key}-panel`}
             role="region"
             aria-hidden={!visible}
-            style={{
-              position: 'absolute',
-              left: 0,
-              right: 0,
-              top: '100%',
-              background: 'white',
-              boxShadow: '0 8px 24px rgba(0,0,0,0.08)',
-              borderTop: '1px solid #eee',
-              padding: visible ? 16 : 0,
-              display: visible ? 'block' : 'none',
-              zIndex: 50
-            }}
+            className={
+              `absolute left-0 right-0 top-full bg-white shadow-xl border-t border-gray-200 z-50 ` +
+              `${visible ? 'opacity-100 translate-y-0 pointer-events-auto py-4' : 'opacity-0 -translate-y-1 pointer-events-none py-0'} ` +
+              `transition-all duration-150`
+            }
             onMouseEnter={() => setOpenKey(item.key)}
           >
-            <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 16}}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {item.panel.map((p) => (
-                <Link key={p.href} href={p.href} style={{padding: 8, borderRadius: 8, display: 'block'}}>
-                  <div style={{fontWeight: 600, marginBottom: 4}}>{t(p.titleKey as never)}</div>
+                <Link key={p.href} href={p.href} className="block p-2 rounded-lg hover:bg-gray-50">
+                  <div className="font-semibold mb-1">{t(p.titleKey as never)}</div>
                   {p.descKey ? (
-                    <div style={{color: '#666', fontSize: 14}}>{t(p.descKey as never)}</div>
+                    <div className="text-gray-600 text-sm">{t(p.descKey as never)}</div>
                   ) : null}
                 </Link>
               ))}

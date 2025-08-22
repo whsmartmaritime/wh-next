@@ -4,9 +4,9 @@ import MegaMenu from './MegaMenu';
 
 export default async function Header() {
   return (
-    <header style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px', borderBottom: '1px solid #eee'}}>
-      <nav style={{display: 'flex', gap: 24, alignItems: 'center'}}>
-        <Link href="/" style={{fontWeight: 600}}>WH</Link>
+    <header className="flex items-center justify-between py-3 px-4 border-b border-gray-200">
+      <nav className="flex items-center gap-6">
+        <Link href="/" className="font-semibold">WH</Link>
         <MegaMenu />
       </nav>
       <LanguageSwitcher />

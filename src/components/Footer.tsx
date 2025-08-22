@@ -1,7 +1,7 @@
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer style={{padding: '24px 16px', borderTop: '1px solid #eee', color: '#666', textAlign: 'center'}}>
+    <footer className="py-6 px-4 border-t border-gray-200 text-gray-600 text-center">
       © {year} WH. All rights reserved.
     </footer>
   );
