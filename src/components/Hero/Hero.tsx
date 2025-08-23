@@ -1,12 +1,14 @@
 import {getTranslations} from 'next-intl/server';
 import BackgroundGradient from '../BackgroundGradient';
 import {BackgroundGrid} from '../BackgroundGrid';
+import { BackgroundScanline } from '../BackgroundScanline/index'
 
 export default async function Hero() {
   const t = await getTranslations('HomePage');
   return (
     <section style={{padding: '64px 16px', textAlign: 'center', position: 'relative', overflow: 'hidden'}}>
       {/* Hiệu ứng nền */}
+      <BackgroundScanline className="absolute inset-0 z-0" />
       <BackgroundGrid
         gridLineStyles={[
           {
