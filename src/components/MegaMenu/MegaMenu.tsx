@@ -78,13 +78,13 @@ export default function MegaMenu() {
             role="region"
             aria-hidden={!visible}
             className={
-              `absolute left-0 right-0 top-full bg-white shadow-xl border-t border-gray-200 z-50 ` +
+              `fixed left-0 right-0 top-[calc(var(--header-height,56px)+1px)] w-screen bg-white shadow-xl border-t border-gray-200 z-50 ` +
               `${visible ? 'opacity-100 translate-y-0 pointer-events-auto py-4' : 'opacity-0 -translate-y-1 pointer-events-none py-0'} ` +
               `transition-all duration-150`
             }
             onMouseEnter={() => setOpenKey(item.key)}
           >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 px-4">
               {item.panel.map((p) => (
                 <Link key={p.href} href={p.href} className="block p-2 rounded-lg hover:bg-gray-50">
                   <div className="font-semibold mb-1">{t(p.titleKey as never)}</div>
