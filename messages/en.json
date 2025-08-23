@@ -26,10 +26,13 @@
     }},
     "company": {"title": "Company"}
   },
-  "HomePage": {
+  "Hero": {
     "title": "Build your next website with speed",
     "subtitle": "Modern Next.js + i18n setup ready to ship.",
     "ctaPrimary": "Contact us",
-    "ctaSecondary": "Learn more"
+    "ctaSecondary": "Learn more",
+    "heroImage1Alt": "Wheelhouse Service Engineer Worked On Board",
+    "heroImage2Alt": "Wheelhouse Service Engineer Worked On Board"
+
   }
 }
