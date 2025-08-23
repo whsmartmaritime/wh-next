@@ -15,10 +15,12 @@ export default async function Header() {
               height="25"
               role="img"
               aria-label="Wheelhouse Maritime logo"
+              aria-labelledby="logoTitle logoDesc"
               xmlns="http://www.w3.org/2000/svg"
               className="text-black dark:text-white"
             >
-              <title>Wheelhouse Maritime logo</title>
+              <title id="logoTitle">Wheelhouse Maris logo</title>
+              <desc id="logoDesc">Logo của Wheelhouse, gồm chữ Wheelhouse, MARIS và các thanh ngang cách điệu, dùng cho nhận diện thương hiệu.</desc>
               <text
                 x="0.29"
                 y="14.97"
