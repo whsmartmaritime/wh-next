@@ -13,7 +13,7 @@ export default function Topbar() {
         {/* Social hoặc nút hành động */}
         <div className="flex items-center gap-3">
           <Link href="/home" className="font-bold tracking-tight text-gray-900 hover:text-black text-base">
-            {t(`TopBar.home`)}
+            {t(`home`)}
           </Link>
           <LanguageSwitcher /> 
         </div>
