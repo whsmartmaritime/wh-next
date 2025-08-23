@@ -1,7 +1,7 @@
 import {Link} from '@/i18n/navigation';
-import Topbar from './Topbar/Topbar';
-import LanguageSwitcher from './LanguageSwitcher';
-import MegaMenu from './MegaMenu';
+import Topbar from '../Topbar/Topbar';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
+import MegaMenu from '../MegaMenu/MegaMenu';
 
 export default async function Header() {
   return (

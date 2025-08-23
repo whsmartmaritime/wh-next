@@ -1,6 +1,6 @@
 import {getTranslations} from 'next-intl/server';
-import BackgroundGradient from './BackgroundGradient';
-import {BackgroundGrid} from './BackgroundGrid';
+import BackgroundGradient from '../BackgroundGradient';
+import {BackgroundGrid} from '../BackgroundGrid';
 
 export default async function Hero() {
   const t = await getTranslations('HomePage');
