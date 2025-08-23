@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Topbar() {
   return (
-    <div className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur border-b border-gray-200 text-sm">
+  <div className="w-full bg-[#EBF5F9] dark:bg-[#00131A] backdrop-blur border-b border-gray-200 dark:border-neutral-700 text-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-1.5">
         {/* Logo hoặc tên site */}
         <Link href="/home" className="font-bold tracking-tight text-gray-900 hover:text-black text-base">
