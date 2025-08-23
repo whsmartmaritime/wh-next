@@ -1,0 +1,19 @@
+import React, { Suspense } from 'react'
+
+import classes from './index.module.scss'
+
+type BackgroundGradientProps = {
+  className?: string
+}
+
+export default function BackgroundGradient(props: BackgroundGradientProps) {
+  const { className } = props
+
+  return (
+    <div className={[className, classes.backgroundGradientWrapper].filter(Boolean).join(' ')}>
+      <Suspense>
+        <video autoPlay loop muted playsInline src="/images/glass-animation.mp4" />
+      </Suspense>
+    </div>
+  )
+}
