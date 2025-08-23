@@ -26,10 +26,12 @@
     }},
     "company": {"title": "Công ty"}
   },
-  "HomePage": {
-    "title": "Xây website tiếp theo của bạn thật nhanh",
-    "subtitle": "Bộ Next.js + i18n hiện đại, sẵn sàng triển khai.",
-    "ctaPrimary": "Liên hệ",
-    "ctaSecondary": "Tìm hiểu thêm"
+  "Hero": {
+    "title": "Wheelhouse, Đối tác tin cậy trong dịch vụ điện tử Hàng hải",
+    "subtitle": "Chuyên môn trong GMDSS, Điều hướng, Kết nối & Dịch vụ trên tàu.",
+    "ctaPrimary": "Liên hệ với chúng tôi",
+    "heroImage1Alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu",
+    "heroImage2Alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
+
   }
 }

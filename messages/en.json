@@ -27,10 +27,9 @@
     "company": {"title": "Company"}
   },
   "Hero": {
-    "title": "Build your next website with speed",
-    "subtitle": "Modern Next.js + i18n setup ready to ship.",
+    "title": "Wheelhouse, Your Partner In Maritime Electronics",
+    "subtitle": "Specialized in GMDSS, Navigation, Connectivity & Onboard Services.",
     "ctaPrimary": "Contact us",
-    "ctaSecondary": "Learn more",
     "heroImage1Alt": "Wheelhouse Service Engineer Worked On Board",
     "heroImage2Alt": "Wheelhouse Service Engineer Worked On Board"
 
