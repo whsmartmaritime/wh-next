@@ -10,7 +10,7 @@ export default function Topbar() {
           <a href="mailto:info@wheelhouse.vn" className="tracking-tight text-gray-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 transition-colors" >Email: info@wheelhouse.vn</a>
           <a href="tel:0123456789" className="tracking-tight text-gray-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 transition-colors">Hotline: 84-865716079</a>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="ml-auto flex items-center gap-3">
           <Link href="/home" className="tracking-tight text-gray-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 text-base transition-colors">
             {t('home')}
           </Link>
