@@ -12,16 +12,16 @@ export default function LanguageSwitcher() {
       <button
         onClick={() => router.replace(pathname, {locale: 'vi'})}
         aria-label="Tiếng Việt"
-        style={{fontWeight: locale === 'vi' ? 700 : 400}}
+        style={{fontWeight: locale === 'vi' ? 700 : 400, fontSize: 15}}
       >
-        VI
+        <span role="img" aria-label="Vietnam flag">🇻🇳</span>
       </button>
       <button
         onClick={() => router.replace(pathname, {locale: 'en'})}
         aria-label="English"
-        style={{fontWeight: locale === 'en' ? 700 : 400}}
+        style={{fontWeight: locale === 'en' ? 700 : 400, fontSize: 15}}
       >
-        EN
+        <span role="img" aria-label="US flag">🇺🇸</span>
       </button>
     </div>
   );
