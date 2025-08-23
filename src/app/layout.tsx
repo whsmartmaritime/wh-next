@@ -1,11 +1,13 @@
 import '../styles/globals.css';
 import {getLocale} from 'next-intl/server';
 
-export default async function RootLayout({children}: LayoutProps<'/'>) {
+export async function generateMetadata() {
   const locale = await getLocale();
-  return (
-    <html lang={locale}>
-      <body>{children}</body>
-    </html>
-  );
+  return {
+    htmlLang: locale,
+  };
+}
+
+export default function RootLayout({children}: {children: React.ReactNode}) {
+  return <>{children}</>;
 }
