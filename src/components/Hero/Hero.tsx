@@ -27,10 +27,10 @@ export default async function Hero() {
     <div className="container-gutter relative z-10 grid grid-cols-1 gap-6 lg:grid-cols-12 items-start">
       {/* Left: text (approx sample: 25% on desktop) */}
         <div className="flex flex-col gap-4 lg:col-span-4 lg:order-1">
-                <h1 className="text-white text-4xl md:text-5xl font-semibold leading-tight tracking-tight">
+                <h1 className="text-white  font-semibold leading-tight tracking-tight">
                   {t('title')}
                 </h1>
-                <p className="text-white/80 text-base md:text-lg">{t('subtitle')}</p>
+                <h2 className="text-white/80 ">{t('subtitle')}</h2>
                 <div className="flex gap-3 pt-2">
                   <a
                     href="#contact"

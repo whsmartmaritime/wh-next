@@ -28,10 +28,11 @@
   --fs-56: 3.5rem;    /* 56px */
   --fs-64: 4rem;      /* 64px */
 
-  --fs-body: var(--fs-16);
-  --fs-h1: var(--fs-40);
-  --fs-h2: var(--fs-32);
-  --fs-h3: var(--fs-28);
+  /* Fluid typography (min, preferred, max) to make sizes responsive between breakpoints */
+  --fs-body: clamp(0.95rem, 1rem + 0.3vw, 1.125rem); /* ~15.2px → 18px */
+  --fs-h1: clamp(2.25rem, 2rem + 2.5vw, 3.5rem);    /* ~36px → 56px */
+  --fs-h2: clamp(1.6rem, 1.5rem + 1.6vw, 2.5rem);   /* ~25.6px → 40px */
+  --fs-h3: clamp(1.375rem, 1.25rem + 1vw, 2rem);    /* ~22px → 32px */
   --fs-h4: var(--fs-24);
   --fs-h5: var(--fs-20);
   --fs-h6: var(--fs-18);
@@ -41,13 +42,6 @@
   :root {
     --gutter-h: 2rem;
     --block-spacing: 3.5rem;
-  /* Typography bumps */
-  --fs-h1: var(--fs-48);
-  --fs-h2: var(--fs-40);
-  --fs-h3: var(--fs-32);
-  --fs-h4: var(--fs-28);
-  --fs-h5: var(--fs-24);
-  --fs-h6: var(--fs-20);
   }
 }
 
@@ -57,21 +51,14 @@
     --block-spacing: 5rem;
     /* Ở mid-break sample chuyển 16 cột -> 8 cột để phần tử lớn hơn */
     --column: calc((100vw - (var(--gutter-h) * 2)) / 8);
-  --fs-body: var(--fs-18);
-  --fs-h1: var(--fs-56);
-  --fs-h2: var(--fs-48);
-  --fs-h3: var(--fs-40);
-  --fs-h4: var(--fs-32);
-  --fs-h5: var(--fs-28);
-  --fs-h6: var(--fs-24);
+  /* Keep clamp() values for responsive typography; only adjust gutter/column here */
   }
 }
 
 @media (min-width: 1280px) {
   :root {
     --gutter-h: 8rem;
-  /* Optional: keep body readable at xl */
-  --fs-body: var(--fs-18);
+  /* Optional: keep body readable at xl (avoid overriding clamp) */
   }
 }
 
