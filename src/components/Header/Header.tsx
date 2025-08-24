@@ -1,8 +1,11 @@
 import {Link} from '@/i18n/navigation';
 import TopBar from '../TopBar/TopBar';
 import MegaMenu from '../MegaMenu/MegaMenu';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
+import { getTranslations } from 'next-intl/server';
 
 export default async function Header() {
+  const t = await getTranslations('Nav');
   return (
     <>
       <TopBar />
@@ -11,8 +14,8 @@ export default async function Header() {
           <Link href="/" className="font-semibold flex items-center justify-start">
             <svg
               viewBox="0 0 100 25"
-              width="100"
-              height="25"
+              width="200"
+              height="50"
               role="img"
               aria-label="Wheelhouse Maritime logo"
               aria-labelledby="logoTitle logoDesc"
@@ -48,6 +51,16 @@ export default async function Header() {
           <div className="flex-1 flex justify-center">
             <MegaMenu />
           </div>
+          <div className="ml-auto flex items-center gap-3">
+                    <Link href="/" className="tracking-tight text-gray-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 text-base transition-colors">
+                      {t('home')}
+                    </Link>
+                    <svg className="w-3 h-3 text-sky-800 dark:text-sky-400" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+                      <path d="M2.20117 0.5L12.7615 0.5V11.06" />
+                      <path d="M0.759766 12.5L12.7601 0.5" />
+                    </svg>
+                    <LanguageSwitcher />
+                  </div>
         </nav>
         
       </header>

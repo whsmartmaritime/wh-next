@@ -14,14 +14,14 @@ export default function LanguageSwitcher() {
         aria-label="Tiếng Việt"
         style={{fontWeight: locale === 'vi' ? 700 : 400, fontSize: 15}}
       >
-        <span role="img" aria-label="Vietnam flag">🇻🇳</span>
+        <span role="img" aria-label="Vietnam flag">VI</span>
       </button>
       <button
         onClick={() => router.replace(pathname, {locale: 'en'})}
         aria-label="English"
         style={{fontWeight: locale === 'en' ? 700 : 400, fontSize: 15}}
       >
-        <span role="img" aria-label="US flag">🇺🇸</span>
+        <span role="img" aria-label="US flag">EN</span>
       </button>
     </div>
   );
