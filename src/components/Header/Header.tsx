@@ -7,7 +7,7 @@ export default async function Header() {
     <>
       <TopBar />
       <header className="sticky top-0 z-50 w-full py-3 px-0 border-b border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 bg-opacity-90 dark:bg-opacity-90 backdrop-blur">
-        <nav className="max-w-7xl mx-auto flex items-center px-4 py-1.5">
+        <nav className="container-gutter flex items-center gap-4 py-1.5">
           <Link href="/" className="font-semibold flex items-center justify-start">
             <svg
               viewBox="0 0 100 25"
