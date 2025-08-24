@@ -45,7 +45,7 @@ export default async function Hero() {
         <div className="relative flex justify-start lg:col-span-8 lg:order-2 lg:col-start-6 lg:justify-end lg:ml-auto lg:pr-[var(--gutter-h)]">
           <div className="relative block w-[calc(var(--column)*14)] h-[calc(var(--column)*8)] lg:w-[calc(var(--column)*8)] lg:h-[calc(var(--column)*5)]">
             {/* Image 1 (top-right, above) - intentionally offset to overflow to the right like sample */}
-            <div className="absolute top-0 right-0 lg:-right-[var(--gutter-h)] lg:translate-x-[calc(var(--gutter-h)*0.5)] lg:translate-y-[calc(var(--gutter-h)*0.1)] transform z-10 rounded-lg backdrop-blur-3xl shadow-[0_3rem_4rem_1rem_rgba(0,0,0,0.5)] overflow-hidden w-[calc(var(--column)*12)] lg:w-[calc(var(--column)*8)] h-[calc(var(--column)*6)] lg:h-[calc(var(--column)*5)] ring-1 ring-white/6 fade-in-1">
+            <div className="absolute top-0 right-0 lg:-right-[calc(var(--gutter-h)*1.2)] lg:translate-x-[calc(var(--gutter-h)*0.8)] lg:translate-y-[calc(var(--gutter-h)*0.45)] transform z-10 rounded-lg backdrop-blur-3xl shadow-[0_3rem_4rem_1rem_rgba(0,0,0,0.5)] overflow-hidden w-[calc(var(--column)*12)] lg:w-[calc(var(--column)*8)] h-[calc(var(--column)*6)] lg:h-[calc(var(--column)*5)] ring-1 ring-white/6 fade-in-1">
               <Image
                 src="/images/Picture1.png"
                 alt={t('heroImage1Alt')}
