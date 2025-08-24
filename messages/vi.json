@@ -18,18 +18,47 @@
       "a": {"title": "Tính năng A", "desc": "Tự động hoá quy trình, tiết kiệm thời gian."},
       "b": {"title": "Tính năng B", "desc": "Mở rộng ổn định với nền tảng của chúng tôi."},
       "c": {"title": "Tính năng C", "desc": "Tích hợp dễ dàng với hệ thống của bạn."}
-    }},
-    "services": {"title": "Dịch vụ", "items": {
-      "consulting": {"title": "Tư vấn", "desc": "Định hướng chiến lược bởi chuyên gia."},
-      "implementation": {"title": "Triển khai", "desc": "Từ prototype đến sản phẩm hoàn thiện."},
-      "support": {"title": "Hỗ trợ", "desc": "Hỗ trợ 24/7, luôn sẵn sàng."}
-    }},
-    "resources": {"title": "Tài nguyên", "items": {
-      "blog": {"title": "Blog", "desc": "Tin tức, hướng dẫn và chia sẻ."},
-      "docs": {"title": "Tài liệu", "desc": "Tìm hiểu cách xây dựng cùng chúng tôi."},
-      "changelog": {"title": "Changelog", "desc": "Những cập nhật mới nhất."}
-    }},
-    "company": {"title": "Công ty"}
+    },
+    "columns": {
+      "one": { "title": "Nền tảng", "links": {"1":"Tổng quan","2":"Tích hợp","3":"Lộ trình"}},
+      "two": { "title": "Giải pháp", "links": {"1":"Tính năng A","2":"Tính năng B","3":"Tính năng C"}},
+      "three": { "title": "Tài nguyên", "links": {"1":"Case Study","2":"Hướng dẫn","3":"Tài liệu API"}}
+    }
+    },
+    "services": {
+      "title": "Dịch vụ",
+      "items": {
+        "consulting": {"title": "Tư vấn", "desc": "Định hướng chiến lược bởi chuyên gia."},
+        "implementation": {"title": "Triển khai", "desc": "Từ prototype đến sản phẩm hoàn thiện."},
+        "support": {"title": "Hỗ trợ", "desc": "Hỗ trợ 24/7, luôn sẵn sàng."}
+      },
+      "columns": {
+        "one": { "title": "Tư vấn", "links": {"1":"Tư vấn chuyên môn","2":"Đánh giá","3":"Hội thảo"}},
+        "two": { "title": "Triển khai", "links": {"1":"Triển khai","2":"Tích hợp","3":"Di cư"}},
+        "three": { "title": "Hỗ trợ", "links": {"1":"Gói SLA","2":"Hỗ trợ 24/7","3":"Cơ sở tri thức"}}
+      }
+    },
+    "resources": {
+      "title": "Tài nguyên",
+      "items": {
+        "blog": {"title": "Blog", "desc": "Tin tức, hướng dẫn và chia sẻ."},
+        "docs": {"title": "Tài liệu", "desc": "Tìm hiểu cách xây dựng cùng chúng tôi."},
+        "changelog": {"title": "Changelog", "desc": "Những cập nhật mới nhất."}
+      },
+      "columns": {
+        "one": { "title": "Blog", "links": {"1":"Mới nhất","2":"Hướng dẫn","3":"Thông báo"}},
+        "two": { "title": "Tài liệu", "links": {"1":"Bắt đầu","2":"API","3":"Hướng dẫn"}},
+        "three": { "title": "Cộng đồng", "links": {"1":"Diễn đàn","2":"Sự kiện","3":"Người đóng góp"}}
+      }
+    },
+    "company": {
+      "title": "Công ty",
+      "columns": {
+        "one": { "title": "Giới thiệu", "links": {"1":"Tổng quan","2":"Đội ngũ","3":"Tuyển dụng"}},
+        "two": { "title": "Thông tin", "links": {"1":"Lịch sử","2":"Giá trị","3":"Liên hệ"}},
+        "three": { "title": "Khác", "links": {"1":"Báo chí","2":"Đối tác","3":"Pháp lý"}}
+      }
+    }
   },
   "Hero": {
     "title": "Wheelhouse, Đối tác tin cậy trong dịch vụ điện tử Hàng hải",

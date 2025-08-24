@@ -1,6 +1,6 @@
 import {Link} from '@/i18n/navigation';
 import TopBar from '../TopBar/TopBar';
-import MegaMenu from '../MegaMenu/MegaMenu';
+import MegaMenu from '../MainMenu/MegaMenu';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import { getTranslations } from 'next-intl/server';
 
@@ -10,7 +10,7 @@ export default async function Header() {
     <>
       <TopBar />
       <header className="sticky top-0 z-50 w-full py-3 px-0 border-b border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 bg-opacity-90 dark:bg-opacity-90 backdrop-blur">
-        <nav className="container-gutter flex items-center gap-4 py-1.5">
+        <nav className="container-gutter flex items-center gap-50 py-1.5">
           <Link href="/" className="font-semibold flex items-center justify-start">
             <svg
               viewBox="0 0 100 25"
@@ -48,7 +48,7 @@ export default async function Header() {
               <rect x="63.43" y="19.82" width="3.03" height="4.84" fill="currentColor" />
             </svg>
           </Link>
-          <div className="flex-1 flex justify-center">
+          <div className="flex-1 flex justify-start">
             <MegaMenu />
           </div>
           <div className="ml-auto flex items-center gap-3">
