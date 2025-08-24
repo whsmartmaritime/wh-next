@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
 /* CSS variables: gutter, block spacing, column (cho các tính toán kích thước ảnh/stack) */
 :root {
   /* Gutter ngang theo sample (không đặt width container, chỉ padding) */
