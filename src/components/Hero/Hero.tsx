@@ -8,7 +8,7 @@ export default async function Hero() {
   const t = await getTranslations('Hero')
 
   return (
-    <section className="relative overflow-visible min-h-[75vh] py-block">
+    <section className="relative overflow-visible min-h-[100vh] py-block">
       {/* Backgrounds (behind content) */}
       <BackgroundScanline className="pointer-events-none absolute inset-0 z-0" />
       <BackgroundGrid
@@ -26,7 +26,7 @@ export default async function Hero() {
       {/* Content */}
     <div className="container-gutter relative z-10 grid grid-cols-1 gap-6 lg:grid-cols-12 items-start">
       {/* Left: text (approx sample: 25% on desktop) */}
-        <div className="flex flex-col gap-4 lg:col-span-4 lg:order-1">
+  <div className="flex flex-col gap-4 mt-6 lg:mt-32 lg:col-span-4 lg:order-1">
                 <h1 className="text-white  font-semibold leading-tight tracking-tight">
                   {t('title')}
                 </h1>
@@ -42,7 +42,7 @@ export default async function Hero() {
               </div>
 
               {/* Right: stacked images (MediaStack-like sizing, image1 allowed to overflow right) */}
-        <div className="relative flex justify-start lg:col-span-8 lg:order-2 lg:col-start-6 lg:justify-end lg:ml-auto lg:pr-[var(--gutter-h)]">
+  <div className="relative flex justify-start mt-6 lg:mt-12 lg:col-span-8 lg:order-2 lg:col-start-6 lg:justify-end lg:ml-auto lg:pr-[var(--gutter-h)]">
           <div className="relative block w-[calc(var(--column)*14)] h-[calc(var(--column)*8)] lg:w-[calc(var(--column)*8)] lg:h-[calc(var(--column)*5)]">
             {/* Image 1 (top-right, above) - intentionally offset to overflow to the right like sample */}
             <div className="absolute top-0 right-0 lg:-right-[calc(var(--gutter-h)*1.2)] lg:translate-x-[calc(var(--gutter-h)*0.8)] lg:translate-y-[calc(var(--gutter-h)*0.45)] transform z-10 rounded-lg backdrop-blur-3xl shadow-[0_3rem_4rem_1rem_rgba(0,0,0,0.5)] overflow-hidden w-[calc(var(--column)*12)] lg:w-[calc(var(--column)*8)] h-[calc(var(--column)*6)] lg:h-[calc(var(--column)*5)] ring-1 ring-white/6 fade-in-1">
