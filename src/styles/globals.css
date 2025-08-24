@@ -2,7 +2,8 @@
 /* CSS variables: gutter, block spacing, column (cho các tính toán kích thước ảnh/stack) */
 :root {
   /* Gutter ngang theo sample (không đặt width container, chỉ padding) */
-  --gutter-h: 1rem;         /* base ~ 16px */
+  /* Use sample's dynamic gutter so --column matches sample proportions */
+  --gutter-h: calc(50vw - 40rem);
   --block-spacing: 2rem;    /* khoảng cách dọc giữa các block */
 
   /* Column theo công thức sample: phụ thuộc gutter */
@@ -135,5 +136,29 @@ body { margin: 0; }
     width: 100%;
     margin-inline: auto;
     padding-inline: var(--gutter-h);
+  }
+
+  /* Fade-in animations used by Hero MediaStack (replicates sample keyframes) */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(4rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-1 {
+    opacity: 0;
+    transform: translateY(4rem);
+    animation: fadeIn 2s cubic-bezier(0, 0.2, 0.2, 1) 0.5s forwards;
+  }
+
+  .fade-in-2 {
+    opacity: 0;
+    transform: translateY(4rem);
+    animation: fadeIn 3s cubic-bezier(0, 0.2, 0.2, 1) 1s forwards;
   }
 }
