@@ -3,6 +3,7 @@ export type PanelColumn = {
   titleKey: string;
   introKey?: string; // intro shown with image in column 4 (per-column)
   imageKey?: string; // optional image key
+  imageKeyDark?: string; // optional image key for dark theme
   hidden?: boolean; // if true => don't render this column
   links: PanelItem[];
 };
