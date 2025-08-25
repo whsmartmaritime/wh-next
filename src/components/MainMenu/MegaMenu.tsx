@@ -16,6 +16,40 @@ export default function MegaMenu() {
   const underlineRef = useRef<HTMLDivElement | null>(null);
   const [underline, setUnderline] = useState<{ left: number; width: number; visible: boolean }>({ left: 0, width: 0, visible: false });
 
+  // Track panel top to sit exactly under header (accounts for TopBar + header, and scroll position)
+  const [panelTop, setPanelTop] = useState<number>(0);
+  const updatePanelTop = () => {
+    if (!containerRef.current) return;
+    // Find the nearest header (sticky) element to align under it
+    const headerEl = containerRef.current.closest('header');
+    if (headerEl) {
+      const rect = headerEl.getBoundingClientRect();
+      // For position: fixed, top uses viewport coordinates
+      setPanelTop(rect.bottom);
+    } else {
+      // Fallback to CSS vars if header not found
+      const root = getComputedStyle(document.documentElement);
+      const headerH = parseFloat(root.getPropertyValue('--header-height')) || 56;
+      const topbarH = parseFloat(root.getPropertyValue('--top-bar-height')) || 0;
+      setPanelTop(headerH + topbarH);
+    }
+  };
+
+  // Update panelTop on mount, on window resize/scroll, and whenever the menu opens
+  useEffect(() => {
+    updatePanelTop();
+    const onResize = () => updatePanelTop();
+    const onScroll = () => {
+      if (openKey) updatePanelTop();
+    };
+    window.addEventListener('resize', onResize);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [openKey]);
+
   // Close on escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -75,11 +109,13 @@ export default function MegaMenu() {
               positionUnderline(target);
               setOpenKey(item.columns ? item.key : null);
               setActiveCol(0);
+              updatePanelTop();
             }}
             onFocus={(e) => {
               const target = (e.currentTarget.querySelector('a') as HTMLElement) ?? null;
               positionUnderline(target);
               setOpenKey(item.columns ? item.key : null);
+              updatePanelTop();
             }}
             onMouseLeave={() => {
               if (!openKey) clearUnderline();
@@ -115,10 +151,10 @@ export default function MegaMenu() {
             aria-hidden={!visible}
             className={
               `fixed left-0 right-0 w-screen z-50 ` +
-              `top-[calc(var(--header-height,56px)+1px)] ` +
               `${visible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-1 pointer-events-none'} ` +
               `transition-all duration-150 shadow-xl border-t text-[var(--color-text)] bg-[var(--panel-bg)] border-[var(--panel-border)] mega-menu-panel`
             }
+            style={{ top: panelTop }}
             onMouseEnter={() => setOpenKey(item.key)}
             onMouseLeave={safeClose}
           >
