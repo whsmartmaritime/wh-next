@@ -173,7 +173,7 @@ export default function MegaMenu() {
                 {/* Column 1: description spans 4 cols */}
                 <div className="col-span-12 md:col-span-2 space-y-3">
                   <h3 className="font-semibold text-lg">{activeItem?.key ? t(`${activeItem.key}.title`) : ''}</h3>
-                  <p className="text-xl md:text-xl leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
+                  <p className="text-xl md:text-2xl leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
                     {activeItem?.descKey ? t(activeItem.descKey as never) : (activeItem?.key ? t(`${activeItem.key}.desc`) : '')}
                   </p>
                 </div>
@@ -229,7 +229,7 @@ export default function MegaMenu() {
                         {imageSrc ? (
                           <img src={imageSrc} alt={String(t((previewCol?.titleKey ?? `${activeItem?.key}.title`) as never))} width={420} height={260} className="rounded-md object-cover" />
                         ) : null}
-                        <p className="text-2xl md:text-3xl leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
+                        <p className="text-xl md:text-2xl leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
                           {previewCol ? t(previewCol.introKey as never) : t(activeItem?.descKey ?? `${activeItem?.key}.desc`)}
                         </p>
                       </>
