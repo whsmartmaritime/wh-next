@@ -11,17 +11,8 @@ export default async function Hero() {
     <section className="relative overflow-visible min-h-[100vh] py-block">
       {/* Backgrounds (behind content) */}
       <BackgroundScanline className="pointer-events-none absolute inset-0 z-0" />
-      <BackgroundGrid
-        gridLineStyles={[
-          { background: 'linear-gradient(to bottom, transparent 80px, var(--theme-border-color) 240px)' },
-          { background: 'linear-gradient(to bottom, transparent 160px, var(--theme-border-color) 240px)' },
-          { background: 'linear-gradient(to bottom, transparent 200px, var(--theme-border-color) 240px)' },
-          { background: 'linear-gradient(to bottom, transparent 160px, var(--theme-border-color) 240px)' },
-          { background: 'linear-gradient(to bottom, transparent 80px, var(--theme-border-color) 240px)' },
-        ]}
-        zIndex={-2}
-      />
       <BackgroundGradient className="pointer-events-none absolute inset-0 -z-10" />
+      <BackgroundGrid className='pointer-events-none absolute inset-0 -z-20' />
 
       {/* Content */}
     <div className="container-gutter relative z-10 grid grid-cols-1 gap-6 lg:grid-cols-12 items-start">
