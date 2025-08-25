@@ -9,9 +9,9 @@ export default async function Header() {
   return (
     <>
       <TopBar />
-      <header className="sticky top-0 z-50 w-full py-3 px-0 border-b border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 bg-opacity-90 dark:bg-opacity-90 backdrop-blur">
-        <nav className="container-gutter grid grid-cols-1 md:grid-cols-4 gap-6">
-          <Link href="/" className="font-semibold flex items-center justify-start">
+      <header className="sticky top-0 z-50 w-full py-0 bg-white dark:bg-black">
+        <nav className="container-gutter flex items-center gap-8 h-[66px] sm:h-[76px] xl:h-[90px] text-black dark:text-white">
+          <Link href="/" className="flex items-center justify-start" aria-label="Wheelhouse Maritime logo">
             <svg
               viewBox="0 0 100 25"
               width="200"
@@ -20,7 +20,7 @@ export default async function Header() {
               aria-label="Wheelhouse Maritime logo"
               aria-labelledby="logoTitle logoDesc"
               xmlns="http://www.w3.org/2000/svg"
-              className="text-black dark:text-white"
+              className="text-current"
             >
               <title id="logoTitle">Wheelhouse Maris logo</title>
               <desc id="logoDesc">Logo của Wheelhouse, gồm chữ Wheelhouse, MARIS và các thanh ngang cách điệu, dùng cho nhận diện thương hiệu.</desc>
@@ -48,23 +48,20 @@ export default async function Header() {
               <rect x="63.43" y="19.82" width="3.03" height="4.84" fill="currentColor" />
             </svg>
           </Link>
-          
           <div className="flex-1 flex justify-start">
             <MegaMenu />
           </div>
-          <div className="col-span-1"></div> {/* Cột trống */}
-          <div className="ml-auto flex items-center gap-3">
-                    <Link href="/" className="tracking-tight text-gray-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 text-base transition-colors">
-                      {t('home')}
-                    </Link>
-                    <svg className="w-3 h-3 text-sky-800 dark:text-sky-400" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
-                      <path d="M2.20117 0.5L12.7615 0.5V11.06" />
-                      <path d="M0.759766 12.5L12.7601 0.5" />
-                    </svg>
-                    <LanguageSwitcher />
-                  </div>
+          <div className="ml-auto flex items-center gap-4">
+            <Link href="/" className="text-inherit font-medium hover:opacity-80 transition-opacity">
+              {t('home')}
+            </Link>
+            <svg className="w-3 h-3 text-current" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
+              <path d="M2.20117 0.5L12.7615 0.5V11.06" />
+              <path d="M0.759766 12.5L12.7601 0.5" />
+            </svg>
+            <LanguageSwitcher />
+          </div>
         </nav>
-        
       </header>
     </>
   );
