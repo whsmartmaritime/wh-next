@@ -1,62 +1,81 @@
-{ 
+{
   "MetaDataHome": {
     "title": "THIẾT BỊ HÀNG HẢI - DỊCH VỤ KỸ THUẬT  | WHEELHOUSE",
     "description": "Chuyên cung cấp thiết bị GMDSS, Nghi Khí Hàng Hải, Thông tin vệ tinh và các Dịch vụ Kỹ Thuật. Wheelhouse giúp tàu biển vận hành an toàn, hiệu quả.",
-    "megaimage": "images/megaimagevi.png"
+    "megaimage": "/images/megaimagevi.png"
   },
   "TopBar": {
     "email": "Email: info@wheelhouse.vn",
     "hotline": "Hotline: 84-865716079",
     "home": "Trang chủ"
-     },
+  },
   "Nav": {
     "home": "Trang chủ",
-    "blog": "Blog",
-    "about": "Giới thiệu",
-    "contact": "Liên hệ",
-    "solutions": {"title": "Giải pháp", "items": {
-      "a": {"title": "Tính năng A", "desc": "Tự động hoá quy trình, tiết kiệm thời gian."},
-      "b": {"title": "Tính năng B", "desc": "Mở rộng ổn định với nền tảng của chúng tôi."},
-      "c": {"title": "Tính năng C", "desc": "Tích hợp dễ dàng với hệ thống của bạn."}
+    "Solutions": {
+      "title": "Giải pháp",
+      "desc": "Thiết bị và giải pháp triển khai. Chúng tôi cung cấp giải pháp để vận hành tàu an toàn và hiệu quả.",
+      "columns": {
+        "one": {
+          "title": "Thiết Bị Hàng Hải",
+          "intro": "Thương hiệu tin cậy, hiệu suất đã được chứng minh.",
+          "image": "/images/megamenu/Navcom_menu.svg",
+          "links": {"1":"Thiết bị GMDSS","2":"Nghi Khí Hàng Hải","3":"Hải Đồ - Ấn Phẩm Điện tử"}
+        },
+        "two": {
+          "title": "Dịch vụ vệ tinh và IOT",
+          "intro": "Giữ kết nối mọi lúc, kể cả khi xa bờ.",
+          "image": "/images/megamenu/Connectivity_menu.svg",
+          "links": {"1":"StarLink","2":"VSAT","3":"Hệ thống IT trên tàu","4":"CCTV & Access Control"}
+        }
+      }
     },
-    "columns": {
-      "one": { "title": "Nền tảng", "links": {"1":"Tổng quan","2":"Tích hợp","3":"Lộ trình"}},
-      "two": { "title": "Giải pháp", "links": {"1":"Tính năng A","2":"Tính năng B","3":"Tính năng C"}},
-      "three": { "title": "Tài nguyên", "links": {"1":"Case Study","2":"Hướng dẫn","3":"Tài liệu API"}}
-    }
-    },
-    "services": {
+    "Services": {
       "title": "Dịch vụ",
-      "items": {
-        "consulting": {"title": "Tư vấn", "desc": "Định hướng chiến lược bởi chuyên gia."},
-        "implementation": {"title": "Triển khai", "desc": "Từ prototype đến sản phẩm hoàn thiện."},
-        "support": {"title": "Hỗ trợ", "desc": "Hỗ trợ 24/7, luôn sẵn sàng."}
-      },
+      "desc": "Dịch vụ lắp đặt, bảo trì và hỗ trợ chuyên nghiệp.",
       "columns": {
-        "one": { "title": "Tư vấn", "links": {"1":"Tư vấn chuyên môn","2":"Đánh giá","3":"Hội thảo"}},
-        "two": { "title": "Triển khai", "links": {"1":"Triển khai","2":"Tích hợp","3":"Di cư"}},
-        "three": { "title": "Hỗ trợ", "links": {"1":"Gói SLA","2":"Hỗ trợ 24/7","3":"Cơ sở tri thức"}}
+        "one": {
+          "title": "Dịch vụ trên tàu",
+          "intro": "Lắp đặt, sửa chữa và bảo dưỡng thiết bị.",
+          "image": "/images/megamenu/ServiceOnDemand_menu.svg",
+          "links": {"1":"Lắp đặt - Bảo dưỡng - Sửa chữa","2":"Tư vấn thiết kế","3":"Đào tạo & Hỗ trợ"}
+        },
+        "two": {
+          "title": "Kiểm tra hàng năm",
+          "intro": "Dịch vụ kiểm tra hàng năm hệ thống GMDSS và VDR/SVDR (APT) được thực hiện theo tiêu chuẩn IMO, nhằm đảm bảo thiết bị liên lạc và ghi dữ liệu hành trình hoạt động chính xác, đầy đủ và sẵn sàng cho mọi tình huống khẩn cấp.",
+          "image": "/images/megamenu/AnnualSurvey_menu.svg",
+          "links": {"1":"Kiểm tra GMDSS","2":"Kiểm tra VDR"}
+        }
       }
     },
-    "resources": {
-      "title": "Tài nguyên",
-      "items": {
-        "blog": {"title": "Blog", "desc": "Tin tức, hướng dẫn và chia sẻ."},
-        "docs": {"title": "Tài liệu", "desc": "Tìm hiểu cách xây dựng cùng chúng tôi."},
-        "changelog": {"title": "Changelog", "desc": "Những cập nhật mới nhất."}
-      },
+    "placeholder1": {
+      "title": "placeholder1 title",
+      "desc": "placeholder1 desc.",
       "columns": {
-        "one": { "title": "Blog", "links": {"1":"Mới nhất","2":"Hướng dẫn","3":"Thông báo"}},
-        "two": { "title": "Tài liệu", "links": {"1":"Bắt đầu","2":"API","3":"Hướng dẫn"}},
-        "three": { "title": "Cộng đồng", "links": {"1":"Diễn đàn","2":"Sự kiện","3":"Người đóng góp"}}
+        "one": { "title": "placeholder1.1.title", "image": "/images/megamenu/placeholder1.1.svg", "intro": "placeholder1.1.intro", "links": {"1":"placeholder1.1.link1","2":"placeholder1.1.link2","3":"placeholder1.1.link3","4":"placeholder1.1.link4"}},
+        "two": { "title": "placeholder1.2.title", "image": "/images/megamenu/placeholder1.2.svg", "intro": "placeholder1.2.intro", "links": {"1":"placeholder1.2.link1","2":"placeholder1.2.link2","3":"placeholder1.2.link3","4":"placeholder1.2.link4"}}
       }
     },
-    "company": {
-      "title": "Công ty",
+    "placeholder2": {
+      "title": "placeholder2 title",
+      "desc": "placeholder2 desc.",
       "columns": {
-        "one": { "title": "Giới thiệu", "links": {"1":"Tổng quan","2":"Đội ngũ","3":"Tuyển dụng"}},
-        "two": { "title": "Thông tin", "links": {"1":"Lịch sử","2":"Giá trị","3":"Liên hệ"}},
-        "three": { "title": "Khác", "links": {"1":"Báo chí","2":"Đối tác","3":"Pháp lý"}}
+        "one": { "title": "placeholder2.1.title", "image": "/images/megamenu/placeholder2.1.svg", "intro": "placeholder2.1.intro", "links": {"1":"placeholder2.1.link1","2":"placeholder2.1.link2","3":"placeholder2.1.link3","4":"placeholder2.1.link4"}},
+        "two": { "title": "placeholder2.2.title", "image": "/images/megamenu/placeholder2.2.svg", "intro": "placeholder2.2.intro", "links": {"1":"placeholder2.2.link1","2":"placeholder2.2.link2","3":"placeholder2.2.link3","4":"placeholder2.2.link4"}}
+      }
+    },
+    "Company": {
+        "title": "Về Chúng Tôi",
+        "desc": "Tìm hiểu về sứ mệnh, đội ngũ và lịch sử công ty.",
+        "columns": {
+          "one": { "title": "Về Chúng Tôi", 
+                    "intro": "Tìm hiểu thêm về công ty và giá trị của chúng tôi.",
+                    "image": "/images/megamenu/About_menu.svg",
+                    "links": {"1":"Về chúng tôi","2":"Liên hệ","3":"Blog"}},
+          "two": { "title": "Khách hàng và Đối tác", 
+                    "intro": "Khám phá các khách hàng chúng tôi phục vụ.",
+                    "image": "/images/megamenu/Our_menu.svg",
+                    "links": {"1":"Khách hàng","2":"Đối tác"}
+        }
       }
     }
   },
@@ -66,6 +85,5 @@
     "ctaPrimary": "Liên hệ với chúng tôi",
     "heroImage1Alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu",
     "heroImage2Alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
-
   }
 }

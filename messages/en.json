@@ -1,4 +1,5 @@
-{ "MetaDataHome": {
+{ 
+  "MetaDataHome": {
     "title": "GMDSS - NAVIGATION - CONNECTIVITY - SERVICES | WHEELHOUSE",
     "description": "Specializing in GMDSS, Navigation, Connectivity, and maritime technical services. Wheelhouse ensures safe and efficient vessel operations.",
     "megaimage": "images/megaimageen.png"
@@ -9,51 +10,76 @@
     "home": "Home"
   },
   "Nav": {
-    "solutions": {
+    "home": "Home",
+    "Solutions": {
       "title": "Solutions",
-      "items": {
-        "a": {"title": "Feature A", "desc": "Automate workflows and save time."},
-        "b": {"title": "Feature B", "desc": "Scale reliably with our platform."},
-        "c": {"title": "Feature C", "desc": "Integrate with your stack easily."}
-      },
+      "desc": "Equipment and deployment. We deliver solutions for safer, easier vessel operations..",
       "columns": {
-        "one": { "title": "Platform", "links": {"1":"Overview","2":"Integrations","3":"Roadmap"}},
-        "two": { "title": "Solutions", "links": {"1":"Feature A","2":"Feature B","3":"Feature C"}},
-        "three": { "title": "Resources", "links": {"1":"Case Studies","2":"Guides","3":"API Docs"}}
+        "one": { "title": "NavCom Equipment", 
+                  "intro": "Trusted brands. Proven performance. Equipment built for safe and efficient operations.",
+                  "image": "/images/megamenu/Navcom_menu.svg",
+                  "links": {"1":"GMDSS Equipment","2":"Navigation Equipment","3":"E-Navigation"}},
+        "two": { "title": "Connectivity and IOT", 
+                  "intro": "Stay connected to work, family, friends—and everything that matters, even far from shore.",
+                  "image": "/images/megamenu/Connectivity_menu.svg",
+                  "links": {"1":"StarLink","2":"VSAT","3":"IT Systems onboard","4":"CCTV & Access Control"}}
       }
     },
-    "services": {
+    "Services": {
       "title": "Services",
-      "items": {
-        "consulting": {"title": "Consulting", "desc": "Expert guidance for your roadmap."},
-        "implementation": {"title": "Implementation", "desc": "From prototype to production."},
-        "support": {"title": "Support", "desc": "We’ve got your back 24/7."}
-      },
+      "desc": "Maneuver? go Wheelhouse. Service? call Wheelhouse.",
       "columns": {
-        "one": { "title": "Consulting", "links": {"1":"Advisory","2":"Assessments","3":"Workshops"}},
-        "two": { "title": "Implementation", "links": {"1":"Deployments","2":"Integrations","3":"Migrations"}},
-        "three": { "title": "Support", "links": {"1":"SLA Plans","2":"24/7 Support","3":"Knowledge Base"}}
+        "one": { "title": "Service On-demand", 
+                  "intro": "Equipment and deployment. We deliver solutions for safer, easier vessel operations.",
+                  "image": "/images/megamenu/ServiceOnDemand_menu.svg",
+                  "links": {"1":"Installation - Maintenance - Repair","2":"Product Advisory","3":"Training & Usage Support"}},
+        "two": { "title": "Annual Survey", 
+                  "intro": "Our annual GMDSS Radio Survey and VDR/SVDR APT services are conducted in compliance with IMO standards, ensuring your vessel’s communication and voyage data systems are fully operational and reliable.",
+                  "image": "/images/megamenu/AnnualSurvey_menu.svg",
+                  "links": {"1":"Radio Survey","2":"VDR Annual Performance Test"}}   
       }
     },
-    "resources": {
-      "title": "Resources",
-      "items": {
-        "blog": {"title": "Blog", "desc": "News, guides and insights."},
-        "docs": {"title": "Docs", "desc": "Learn how to build with us."},
-        "changelog": {"title": "Changelog", "desc": "What’s new and improved."}
-      },
+    "placeholder1": {
+      "title": "placeholder1 title",
+      "desc": "placeholder1 desc.",
       "columns": {
-        "one": { "title": "Blog", "links": {"1":"Latest","2":"Guides","3":"Announcements"}},
-        "two": { "title": "Docs", "links": {"1":"Getting Started","2":"API Reference","3":"Tutorials"}},
-        "three": { "title": "Community", "links": {"1":"Forum","2":"Events","3":"Contributors"}}
+        "one": { "title": "placeholder1.1.title", 
+                  "image": "/images/megamenu/placeholder1.1.svg",
+                  "intro": "placeholder1.1.intro",
+                  "links": {"1":"Iplaceholder1.1.link1","2":"placeholder1.1.link2","3":"placeholder1.1.link3","4":"placeholder1.1.link4"}},
+        "two": { "title": "placeholder1.2.title", 
+                  "image": "/images/megamenu/placeholder1.2.svg",
+                  "intro": "placeholder1.2.intro",
+                  "links": {"1":"placeholder1.2.link1","2":"placeholder1.2.link2","3":"placeholder1.2.link3","4":"placeholder1.2.link4"}}   
       }
     },
-    "company": {
-      "title": "Company",
+    "placeholder2": {
+      "title": "placeholder2 title",
+      "desc": "placeholder2 desc.",
       "columns": {
-        "one": { "title": "About", "links": {"1":"Overview","2":"Team","3":"Careers"}},
-        "two": { "title": "Info", "links": {"1":"History","2":"Values","3":"Contact"}},
-        "three": { "title": "More", "links": {"1":"Press","2":"Partners","3":"Legal"}}
+        "one": { "title": "placeholder2.1.title", 
+                  "image": "/images/megamenu/placeholder2.1.svg",
+                  "intro": "placeholder2.1.intro",
+                  "links": {"1":"Iplaceholder2.1.link1","2":"placeholder2.1.link2","3":"placeholder2.1.link3","4":"placeholder2.1.link4"}},
+        "two": { "title": "placeholder2.2.title", 
+                  "image": "/images/megamenu/placeholder2.2.svg",
+                  "intro": "placeholder2.2.intro",
+                  "links": {"1":"placeholder2.2.link1","2":"placeholder2.2.link2","3":"placeholder2.2.link3","4":"placeholder2.2.link4"}}   
+      }
+    },
+    "Company": {
+        "title": "Company",
+        "desc": "Learn about our mission, team and company history.",
+        "columns": {
+          "one": { "title": "About Us", 
+                    "intro": "Learn more about our company and values.",
+                    "image": "/images/megamenu/About_menu.svg",
+                    "links": {"1":"About Us","2":"Contact Us","3":"Blog"}},
+          "two": { "title": "Our Customers and partners", 
+                    "intro": "Discover the clients we serve.",
+                    "image": "/images/megamenu/Our_menu.svg",
+                    "links": {"1":"Our Customers", "2":"Our Partners"}
+        }
       }
     }
   },
