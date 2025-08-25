@@ -10,8 +10,9 @@ export default async function Header() {
     <>
       <TopBar />
       <header className="sticky top-0 z-50 w-full py-0 bg-white dark:bg-black">
-        <nav className="container-gutter flex items-center gap-8 h-[66px] sm:h-[76px] xl:h-[90px] text-black dark:text-white">
-          <Link href="/" className="flex items-center justify-start" aria-label="Wheelhouse Maritime logo">
+        <nav className="container-gutter grid grid-cols-12 items-center gap-x-6 h-[66px] sm:h-[76px] xl:h-[90px] text-black dark:text-white">
+          {/* Logo */}
+          <Link href="/" className="col-span-5 sm:col-span-4 md:col-span-3 xl:col-span-3 flex items-center" aria-label="Wheelhouse Maritime logo">
             <svg
               viewBox="0 0 100 25"
               width="200"
@@ -24,23 +25,8 @@ export default async function Header() {
             >
               <title id="logoTitle">Wheelhouse Maris logo</title>
               <desc id="logoDesc">Logo của Wheelhouse, gồm chữ Wheelhouse, MARIS và các thanh ngang cách điệu, dùng cho nhận diện thương hiệu.</desc>
-              <text
-                x="0.29"
-                y="14.97"
-                fontSize="16.95"
-                fontFamily="Helvetica, Arial, sans-serif"
-                fontWeight="700"
-                fill="currentColor"
-              >Wheelhouse</text>
-              <text
-                x="69.46"
-                y="24.66"
-                fontSize="6.96"
-                fontFamily="Helvetica, Arial, sans-serif"
-                fontWeight="700"
-                fill="currentColor"
-                letterSpacing="2"
-              >MARIS</text>
+              <text x="0.29" y="14.97" fontSize="16.95" fontFamily="Helvetica, Arial, sans-serif" fontWeight="700" fill="currentColor">Wheelhouse</text>
+              <text x="69.46" y="24.66" fontSize="6.96" fontFamily="Helvetica, Arial, sans-serif" fontWeight="700" fill="currentColor" letterSpacing="2">MARIS</text>
               <rect x="0.29" y="19.82" width="21.19" height="4.84" fill="currentColor" />
               <rect x="23.53" y="19.82" width="12.71" height="4.84" fill="currentColor" />
               <rect x="40.48" y="19.82" width="7.87" height="4.84" fill="currentColor" />
@@ -48,10 +34,14 @@ export default async function Header() {
               <rect x="63.43" y="19.82" width="3.03" height="4.84" fill="currentColor" />
             </svg>
           </Link>
-          <div className="flex-1 flex justify-start">
+
+          {/* Main nav / Mega menu */}
+          <div className="hidden sm:flex sm:col-span-8 md:col-span-7 xl:col-span-7 items-center">
             <MegaMenu />
           </div>
-          <div className="ml-auto flex items-center gap-4">
+
+          {/* Right utilities */}
+          <div className="col-span-7 sm:col-span-4 md:col-span-2 xl:col-span-2 ml-auto flex items-center justify-end gap-4">
             <Link href="/" className="text-inherit font-medium hover:opacity-80 transition-opacity">
               {t('home')}
             </Link>

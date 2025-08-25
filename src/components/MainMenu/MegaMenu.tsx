@@ -188,15 +188,15 @@ export default function MegaMenu() {
             onMouseLeave={safeClose}
           >
             {isOpen && (
-              <div className="container-gutter grid grid-cols-1 md:grid-cols-4 gap-8 pt-6">
-                {/* Column 1: description for the panel */}
-                <div className="space-y-3">
+              <div className="container-gutter grid grid-cols-12 gap-x-8 pt-6">
+                {/* Column 1: description spans 4 cols like sample */}
+                <div className="col-span-12 md:col-span-3 space-y-3">
                   <h3 className="font-semibold text-lg">{activeItem?.key ? t(`${activeItem.key}.title`) : ''}</h3>
                   <p className={`mainmenu-description text-[var(--color-muted)]`}>{activeItem?.descKey ? t(activeItem.descKey as never) : (activeItem?.key ? t(`${activeItem.key}.desc`) : '')}</p>
                 </div>
 
-                {/* Column 2 */}
-                <div className="space-y-2" onMouseEnter={() => setActiveCol(0)} onFocus={() => setActiveCol(0)}>
+                {/* Column 2: first nav group */}
+                <div className="col-span-12 md:col-span-2 md:col-start-4 space-y-2" onMouseEnter={() => setActiveCol(0)} onFocus={() => setActiveCol(0)}>
                   {cols[0] ? (
                     <>
                       <div className="mainmenu-list-label mb-1">{t(cols[0].titleKey as never)}</div>
@@ -209,8 +209,8 @@ export default function MegaMenu() {
                   ) : null}
                 </div>
 
-                {/* Column 3 */}
-                <div className="space-y-2" onMouseEnter={() => setActiveCol(1)} onFocus={() => setActiveCol(1)}>
+                {/* Column 3: second nav group */}
+                <div className="col-span-12 md:col-span-2 md:col-start-6 space-y-2" onMouseEnter={() => setActiveCol(1)} onFocus={() => setActiveCol(1)}>
                   {cols[1] ? (
                     <>
                       <div className="mainmenu-list-label mb-1">{t(cols[1].titleKey as never)}</div>
@@ -223,8 +223,8 @@ export default function MegaMenu() {
                   ) : null}
                 </div>
 
-                {/* Column 4 */}
-                <div className="flex flex-col items-start justify-center space-y-3">
+                {/* Column 4: preview (wrap to next row on small) */}
+                <div className="col-span-12 md:col-span-4 flex flex-col items-start justify-center space-y-3 md:col-start-9">
                   {(() => {
                     const index = activeCol ?? 0;
                     const previewCol = cols[index] ?? cols[0] ?? null;
