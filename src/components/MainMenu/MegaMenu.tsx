@@ -4,7 +4,7 @@ import {Link} from '@/i18n/navigation';
 import {useTranslations} from 'next-intl';
 import { topItems } from '@/components/MainMenu/TopItems';
 import type { TopItem } from '@/components/MainMenu/TopItems';
-import Image from 'next/image';
+// use a plain <img> for SVG previews (avoids next/image optimization issues for svg)
 
 export default function MegaMenu() {
   const t = useTranslations('Nav');
@@ -122,10 +122,12 @@ export default function MegaMenu() {
                     imageSrc = m.startsWith('/') ? m : '/' + m;
                   }
 
+                  console.debug('MegaMenu: resolved imageSrc', imageSrc);
                   return (
                     <>
                       {imageSrc ? (
-                        <Image src={imageSrc} alt={t((previewCol?.titleKey ?? `${item.key}.title`) as never)} width={420} height={260} className="rounded-md object-cover" />
+                        // use regular img so SVGs from /public render reliably
+                        <img src={imageSrc} alt={String(t((previewCol?.titleKey ?? `${item.key}.title`) as never))} width={420} height={260} className="rounded-md object-cover" />
                       ) : null}
                       <p className="text-gray-600 text-sm">{previewCol ? t(previewCol.introKey as never) : t(item.descKey ?? `${item.key}.desc`)}</p>
                     </>
