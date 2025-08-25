@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
-
+import { BackgroundGrid } from '@/components/BackgroundGrid'
 export default async function LocaleLayout({
   children,
   params,
@@ -23,11 +23,14 @@ export default async function LocaleLayout({
 
   // Nested layout: providers + chrome only (no <html>/<body>)
   return (
-    <NextIntlClientProvider locale={activeLocale} messages={messages}>
-      <Header />
-      {children}
-      <Footer />
-    </NextIntlClientProvider>
+    <>
+      <BackgroundGrid className='pointer-events-none absolute inset-0 -z-20' />
+      <NextIntlClientProvider locale={activeLocale} messages={messages}>
+        <Header />
+        {children}
+        <Footer />
+      </NextIntlClientProvider>
+    </>
   );
 }
 
