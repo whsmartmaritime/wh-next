@@ -168,91 +168,94 @@ export default function MegaMenu() {
         />
       )}
 
-      {visibleItems.map((item) => {
-        if (!item.columns) return null;
-        const cols = item.columns.filter(c => !c.hidden);
-        const visible = openKey === item.key;
+      {/* Single persistent panel to avoid background flicker */}
+      {(() => {
+        const activeItem = visibleItems.find(i => i.key === openKey && i.columns);
+        const isOpen = Boolean(activeItem);
+        const cols = isOpen ? (activeItem!.columns!.filter(c => !c.hidden)) : [];
         return (
           <div
-            key={`${item.key}-panel`}
+            key="mega-panel"
             role="region"
-            aria-hidden={!visible}
+            aria-hidden={!isOpen}
             className={
               `fixed left-0 right-0 w-screen z-50 ` +
-              `${visible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-1 pointer-events-none'} ` +
-              `transition-all duration-150 shadow-xl border-t text-[var(--color-text)] bg-[var(--panel-bg)] border-[var(--panel-border)] mega-menu-panel`
+              `${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-1 pointer-events-none'} ` +
+              `transition-opacity duration-150 shadow-xl border-t text-[var(--color-text)] bg-[var(--panel-bg)] border-[var(--panel-border)] mega-menu-panel`
             }
-            style={{ top: panelTop }}
-            onMouseEnter={() => { cancelClose(); setOpenKey(item.key); }}
+            style={{ top: panelTop, willChange: 'opacity, transform', backfaceVisibility: 'hidden', transform: 'translateZ(0)', contain: 'paint' }}
+            onMouseEnter={cancelClose}
             onMouseLeave={safeClose}
           >
-            <div className="container-gutter grid grid-cols-1 md:grid-cols-4 gap-8 pt-6">
-              {/* Column 1: description for the panel */}
-              <div className="space-y-3">
-                <h3 className="font-semibold text-lg">{item.key ? t(`${item.key}.title`) : ''}</h3>
-                <p className={`mainmenu-description text-[var(--color-muted)]`}>{item.descKey ? t(item.descKey as never) : (item.key ? t(`${item.key}.desc`) : '')}</p>
-              </div>
+            {isOpen && (
+              <div className="container-gutter grid grid-cols-1 md:grid-cols-4 gap-8 pt-6">
+                {/* Column 1: description for the panel */}
+                <div className="space-y-3">
+                  <h3 className="font-semibold text-lg">{activeItem?.key ? t(`${activeItem.key}.title`) : ''}</h3>
+                  <p className={`mainmenu-description text-[var(--color-muted)]`}>{activeItem?.descKey ? t(activeItem.descKey as never) : (activeItem?.key ? t(`${activeItem.key}.desc`) : '')}</p>
+                </div>
 
-              {/* Column 2 */}
-              <div className="space-y-2" onMouseEnter={() => setActiveCol(0)} onFocus={() => setActiveCol(0)}>
-                {cols[0] ? (
-                  <>
-                    <div className="mainmenu-list-label mb-1">{t(cols[0].titleKey as never)}</div>
-                    {cols[0].links.filter(l => !l.hidden).map((p) => (
-                      <Link key={p.href} href={p.href} className={"block p-2 rounded-lg"}>
-                        <div className="mainmenu-link">{t(p.titleKey as never)}</div>
-                      </Link>
-                    ))}
-                  </>
-                ) : null}
-              </div>
-
-              {/* Column 3 */}
-              <div className="space-y-2" onMouseEnter={() => setActiveCol(1)} onFocus={() => setActiveCol(1)}>
-                {cols[1] ? (
-                  <>
-                    <div className="mainmenu-list-label mb-1">{t(cols[1].titleKey as never)}</div>
-                    {cols[1].links.filter(l => !l.hidden).map((p) => (
-                      <Link key={p.href} href={p.href} className={"block p-2 rounded-lg"}>
-                        <div className="mainmenu-link">{t(p.titleKey as never)}</div>
-                      </Link>
-                    ))}
-                  </>
-                ) : null}
-              </div>
-
-              {/* Column 4 */}
-              <div className="flex flex-col items-start justify-center space-y-3">
-                {(() => {
-                  const index = activeCol ?? 0;
-                  const previewCol = cols[index] ?? cols[0] ?? null;
-                  let imageSrc: string | null = null;
-                  if (previewCol) {
-                    const key = String((isDark && previewCol.imageKeyDark) ? previewCol.imageKeyDark : previewCol.imageKey ?? '');
-                    if (key.startsWith('/')) imageSrc = key;
-                    else {
-                      const resolved = String(t(key as never));
-                      imageSrc = resolved.startsWith('/') ? resolved : '/' + resolved;
-                    }
-                  } else {
-                    const m = String(meta('megaimage'));
-                    imageSrc = m.startsWith('/') ? m : '/' + m;
-                  }
-
-                  return (
+                {/* Column 2 */}
+                <div className="space-y-2" onMouseEnter={() => setActiveCol(0)} onFocus={() => setActiveCol(0)}>
+                  {cols[0] ? (
                     <>
-                      {imageSrc ? (
-                        <img src={imageSrc} alt={String(t((previewCol?.titleKey ?? `${item.key}.title`) as never))} width={420} height={260} className="rounded-md object-cover" />
-                      ) : null}
-                      <p className={`mainmenu-description text-[var(--color-muted)]`}>{previewCol ? t(previewCol.introKey as never) : t(item.descKey ?? `${item.key}.desc`)}</p>
+                      <div className="mainmenu-list-label mb-1">{t(cols[0].titleKey as never)}</div>
+                      {cols[0].links.filter(l => !l.hidden).map((p) => (
+                        <Link key={p.href} href={p.href} className={"block p-2 rounded-lg"}>
+                          <div className="mainmenu-link">{t(p.titleKey as never)}</div>
+                        </Link>
+                      ))}
                     </>
-                  );
-                })()}
+                  ) : null}
+                </div>
+
+                {/* Column 3 */}
+                <div className="space-y-2" onMouseEnter={() => setActiveCol(1)} onFocus={() => setActiveCol(1)}>
+                  {cols[1] ? (
+                    <>
+                      <div className="mainmenu-list-label mb-1">{t(cols[1].titleKey as never)}</div>
+                      {cols[1].links.filter(l => !l.hidden).map((p) => (
+                        <Link key={p.href} href={p.href} className={"block p-2 rounded-lg"}>
+                          <div className="mainmenu-link">{t(p.titleKey as never)}</div>
+                        </Link>
+                      ))}
+                    </>
+                  ) : null}
+                </div>
+
+                {/* Column 4 */}
+                <div className="flex flex-col items-start justify-center space-y-3">
+                  {(() => {
+                    const index = activeCol ?? 0;
+                    const previewCol = cols[index] ?? cols[0] ?? null;
+                    let imageSrc: string | null = null;
+                    if (previewCol) {
+                      const key = String((isDark && previewCol.imageKeyDark) ? previewCol.imageKeyDark : previewCol.imageKey ?? '');
+                      if (key.startsWith('/')) imageSrc = key;
+                      else {
+                        const resolved = String(t(key as never));
+                        imageSrc = resolved.startsWith('/') ? resolved : '/' + resolved;
+                      }
+                    } else {
+                      const m = String(meta('megaimage'));
+                      imageSrc = m.startsWith('/') ? m : '/' + m;
+                    }
+
+                    return (
+                      <>
+                        {imageSrc ? (
+                          <img src={imageSrc} alt={String(t((previewCol?.titleKey ?? `${activeItem?.key}.title`) as never))} width={420} height={260} className="rounded-md object-cover" />
+                        ) : null}
+                        <p className={`mainmenu-description text-[var(--color-muted)]`}>{previewCol ? t(previewCol.introKey as never) : t(activeItem?.descKey ?? `${activeItem?.key}.desc`)}</p>
+                      </>
+                    );
+                  })()}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         );
-      })}
+      })()}
     </div>
   );
 }
