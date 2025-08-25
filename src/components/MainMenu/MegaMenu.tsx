@@ -4,7 +4,6 @@ import {Link} from '@/i18n/navigation';
 import {useTranslations} from 'next-intl';
 import { topItems } from '@/components/MainMenu/TopItems';
 import type { TopItem } from '@/components/MainMenu/TopItems';
-// use a plain <img> for SVG previews (avoids next/image optimization issues for svg)
 
 export default function MegaMenu() {
   const t = useTranslations('Nav');
@@ -18,6 +17,22 @@ export default function MegaMenu() {
   const tabsRowRef = useRef<HTMLDivElement | null>(null);
   const [underlineYOffset, setUnderlineYOffset] = useState<number>(0);
 
+  // Track panel top to sit exactly under header (accounts for TopBar + header, and scroll position)
+  const [panelTop, setPanelTop] = useState<number>(0);
+  const updatePanelTop = () => {
+    if (!containerRef.current) return;
+    const headerEl = containerRef.current.closest('header');
+    if (headerEl) {
+      const rect = headerEl.getBoundingClientRect();
+      setPanelTop(rect.bottom);
+    } else {
+      const root = getComputedStyle(document.documentElement);
+      const headerH = parseFloat(root.getPropertyValue('--header-height')) || 56;
+      const topbarH = parseFloat(root.getPropertyValue('--top-bar-height')) || 0;
+      setPanelTop(headerH + topbarH);
+    }
+  };
+
   const computeUnderlineYOffset = () => {
     if (!tabsRowRef.current) return;
     const headerEl = tabsRowRef.current.closest('header');
@@ -27,41 +42,6 @@ export default function MegaMenu() {
     const delta = Math.max(0, headerRect.bottom - rowRect.bottom);
     setUnderlineYOffset(delta);
   };
-
-  // Track panel top to sit exactly under header (accounts for TopBar + header, and scroll position)
-  const [panelTop, setPanelTop] = useState<number>(0);
-  const updatePanelTop = () => {
-    if (!containerRef.current) return;
-    // Find the nearest header (sticky) element to align under it
-    const headerEl = containerRef.current.closest('header');
-    if (headerEl) {
-      const rect = headerEl.getBoundingClientRect();
-      // For position: fixed, top uses viewport coordinates
-      setPanelTop(rect.bottom);
-    } else {
-      // Fallback to CSS vars if header not found
-      const root = getComputedStyle(document.documentElement);
-      const headerH = parseFloat(root.getPropertyValue('--header-height')) || 56;
-      const topbarH = parseFloat(root.getPropertyValue('--top-bar-height')) || 0;
-      setPanelTop(headerH + topbarH);
-    }
-  };
-
-  // Update panelTop on mount, on window resize/scroll, and whenever the menu opens
-  useEffect(() => {
-    updatePanelTop();
-    computeUnderlineYOffset();
-    const onResize = () => { updatePanelTop(); computeUnderlineYOffset(); };
-    const onScroll = () => {
-      if (openKey) { updatePanelTop(); computeUnderlineYOffset(); }
-    };
-    window.addEventListener('resize', onResize);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('resize', onResize);
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, [openKey]);
 
   // Close on escape
   useEffect(() => {
@@ -115,6 +95,19 @@ export default function MegaMenu() {
     }, 350)
   }
 
+  useEffect(() => {
+    updatePanelTop();
+    computeUnderlineYOffset();
+    const onResize = () => { updatePanelTop(); computeUnderlineYOffset(); };
+    const onScroll = () => { if (openKey) { updatePanelTop(); computeUnderlineYOffset(); } };
+    window.addEventListener('resize', onResize);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [openKey]);
+
   return (
     <div ref={containerRef} className="relative" onMouseLeave={safeClose} onMouseEnter={cancelClose}>
       <div ref={tabsRowRef} className="flex gap-6 items-center relative">
@@ -136,14 +129,12 @@ export default function MegaMenu() {
               setOpenKey(item.columns ? item.key : null);
               updatePanelTop();
             }}
-            onMouseLeave={() => {
-              if (!openKey) clearUnderline();
-            }}
+            onMouseLeave={() => { if (!openKey) clearUnderline(); }}
             tabIndex={0}
             className="relative"
           >
-            <div className="flex items-center gap-2 h-full">
-              <Link href={item.href ?? '#'} className="mainmenu-tab inline-flex py-2">
+            <div className="flex items-center h-full">
+              <Link href={item.href ?? '#'} className="inline-flex py-2 text-lg font-medium hover:opacity-80 transition-opacity"> {/* chữ menu chưa xổ xuống */}
                 {item.key && t(`${item.key}.title`) || item.href}
               </Link>
             </div>
@@ -152,23 +143,17 @@ export default function MegaMenu() {
         {/* underline */}
         <div
           ref={underlineRef}
-          className="mm-underline pointer-events-none"
-          style={{ left: underline.left, width: (underline.visible || openKey) ? underline.width : 0, opacity: (underline.visible || openKey) ? 1 : 0, transform: `translateY(${underlineYOffset}px)` }}
-        >
-          <div className="mm-underline-fill pointer-events-none" />
-        </div>
+          className="absolute bottom-0 h-0.5 transition-all duration-200 ease-out"
+          style={{ left: underline.left, width: (underline.visible || openKey) ? underline.width : 0, opacity: (underline.visible || openKey) ? 1 : 0, transform: `translateY(${underlineYOffset}px)`, background: 'currentColor' }}
+        />
       </div>
 
-      {/* Hover bridge: small transparent strip right below header to keep menu open during mouse travel */}
+      {/* Hover bridge: keep open while traveling down */}
       {openKey && (
-        <div
-          className="fixed left-0 right-0 z-40"
-          style={{ top: Math.max(0, panelTop - 2), height: 6 }}
-          onMouseEnter={cancelClose}
-        />
+        <div className="fixed left-0 right-0 z-40" style={{ top: Math.max(0, panelTop - 2), height: 6 }} onMouseEnter={cancelClose} />
       )}
 
-      {/* Single persistent panel to avoid background flicker */}
+      {/* Single persistent panel */}
       {(() => {
         const activeItem = visibleItems.find(i => i.key === openKey && i.columns);
         const isOpen = Boolean(activeItem);
@@ -178,31 +163,29 @@ export default function MegaMenu() {
             key="mega-panel"
             role="region"
             aria-hidden={!isOpen}
-            className={
-              `fixed left-0 right-0 w-screen z-50 ` +
-              `${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-1 pointer-events-none'} ` +
-              `transition-opacity duration-150 shadow-xl border-t text-[var(--color-text)] bg-[var(--panel-bg)] border-[var(--panel-border)] mega-menu-panel`
-            }
+            className={`fixed left-0 right-0 w-screen z-50 ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-1 pointer-events-none'} transition-opacity duration-150 shadow-xl border-t bg-white dark:bg-black text-black dark:text-white border-neutral-200 dark:border-neutral-800`}
             style={{ top: panelTop, willChange: 'opacity, transform', backfaceVisibility: 'hidden', transform: 'translateZ(0)', contain: 'paint' }}
             onMouseEnter={cancelClose}
             onMouseLeave={safeClose}
           >
             {isOpen && (
               <div className="container-gutter grid grid-cols-12 gap-x-8 pt-6">
-                {/* Column 1: description spans 4 cols like sample */}
-                <div className="col-span-12 md:col-span-3 space-y-3">
+                {/* Column 1: description spans 4 cols */}
+                <div className="col-span-12 md:col-span-2 space-y-3">
                   <h3 className="font-semibold text-lg">{activeItem?.key ? t(`${activeItem.key}.title`) : ''}</h3>
-                  <p className={`mainmenu-description text-[var(--color-muted)]`}>{activeItem?.descKey ? t(activeItem.descKey as never) : (activeItem?.key ? t(`${activeItem.key}.desc`) : '')}</p>
+                  <p className="text-xl md:text-xl leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
+                    {activeItem?.descKey ? t(activeItem.descKey as never) : (activeItem?.key ? t(`${activeItem.key}.desc`) : '')}
+                  </p>
                 </div>
 
                 {/* Column 2: first nav group */}
                 <div className="col-span-12 md:col-span-2 md:col-start-4 space-y-2" onMouseEnter={() => setActiveCol(0)} onFocus={() => setActiveCol(0)}>
                   {cols[0] ? (
                     <>
-                      <div className="mainmenu-list-label mb-1">{t(cols[0].titleKey as never)}</div>
+                      <div className="uppercase tracking-[0.25em] text-xs opacity-95 mb-1">{t(cols[0].titleKey as never)}</div>
                       {cols[0].links.filter(l => !l.hidden).map((p) => (
-                        <Link key={p.href} href={p.href} className={"block p-2 rounded-lg"}>
-                          <div className="mainmenu-link">{t(p.titleKey as never)}</div>
+                        <Link key={p.href} href={p.href} className="block p-2 rounded-lg">
+                          <div className="text-lg font-bold hover:opacity-80 transition-opacity">{t(p.titleKey as never)}</div>
                         </Link>
                       ))}
                     </>
@@ -213,17 +196,17 @@ export default function MegaMenu() {
                 <div className="col-span-12 md:col-span-2 md:col-start-6 space-y-2" onMouseEnter={() => setActiveCol(1)} onFocus={() => setActiveCol(1)}>
                   {cols[1] ? (
                     <>
-                      <div className="mainmenu-list-label mb-1">{t(cols[1].titleKey as never)}</div>
+                      <div className="uppercase tracking-[0.25em] text-xs opacity-95 mb-1">{t(cols[1].titleKey as never)}</div>
                       {cols[1].links.filter(l => !l.hidden).map((p) => (
-                        <Link key={p.href} href={p.href} className={"block p-2 rounded-lg"}>
-                          <div className="mainmenu-link">{t(p.titleKey as never)}</div>
+                        <Link key={p.href} href={p.href} className="block p-2 rounded-lg">
+                          <div className="text-lg  font-bold hover:opacity-80 transition-opacity">{t(p.titleKey as never)}</div>
                         </Link>
                       ))}
                     </>
                   ) : null}
                 </div>
 
-                {/* Column 4: preview (wrap to next row on small) */}
+                {/* Column 4: preview */}
                 <div className="col-span-12 md:col-span-4 flex flex-col items-start justify-center space-y-3 md:col-start-9">
                   {(() => {
                     const index = activeCol ?? 0;
@@ -246,7 +229,9 @@ export default function MegaMenu() {
                         {imageSrc ? (
                           <img src={imageSrc} alt={String(t((previewCol?.titleKey ?? `${activeItem?.key}.title`) as never))} width={420} height={260} className="rounded-md object-cover" />
                         ) : null}
-                        <p className={`mainmenu-description text-[var(--color-muted)]`}>{previewCol ? t(previewCol.introKey as never) : t(activeItem?.descKey ?? `${activeItem?.key}.desc`)}</p>
+                        <p className="text-2xl md:text-3xl leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
+                          {previewCol ? t(previewCol.introKey as never) : t(activeItem?.descKey ?? `${activeItem?.key}.desc`)}
+                        </p>
                       </>
                     );
                   })()}
