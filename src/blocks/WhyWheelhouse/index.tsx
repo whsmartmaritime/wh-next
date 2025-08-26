@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import Slider, { type SliderImage } from '@/components/Slider';
 import BackgroundGrid from '@/components/BackgroundGrid';
-
+import Button from '@/components/Button';
 export default async function WhyWheelhouse() {
   const t = await getTranslations('WhyWheelhouse');
   // Use existing images from public/images and localized alt from missionTitle
@@ -26,6 +26,11 @@ export default async function WhyWheelhouse() {
             <Slider images={sliderImages} aspectRatio="16/10" />
           </div>
         </div>
+                          <div className="w-full lg:w-[calc(var(--column)*4)] max-w-full">
+                            <Button size="large" className=" text-white w-full justify-between" href="#about">
+                              {t('ctaPrimary')}
+                            </Button>
+                          </div>
       </div>
       {/* Phần dưới: Why Wheelhouse */}
       <div>
