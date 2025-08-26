@@ -2,9 +2,9 @@ import { getTranslations } from 'next-intl/server';
 import Slider, { SliderImage } from '@/components/Slider/Slider';
 
 const sliderImages: SliderImage[] = [
-  { src: '/images/mission1.jpg', alt: 'Mission 1' },
-  { src: '/images/mission2.jpg', alt: 'Mission 2' },
-  { src: '/images/mission3.jpg', alt: 'Mission 3' },
+  { src: '/images/mission1.svg', alt: 'Mission 1' },
+  { src: '/images/mission2.svg', alt: 'Mission 2' },
+  { src: '/images/mission3.svg', alt: 'Mission 3' },
 ];
 
 export default async function OurMission({ locale }: { locale: string }) {

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import BackgroundGradient from '../../components/BackgroundGradient'
 import { BackgroundGrid } from '../../components/BackgroundGrid'
 import { BackgroundScanline } from '../../components/BackgroundScanline'
-import CTAButton from '@/components/Button/CTAButton'
+import CTAButton from '@/components/Button'
 
 export default async function Hero() {
   const t = await getTranslations('Hero')
