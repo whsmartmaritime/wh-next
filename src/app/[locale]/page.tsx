@@ -53,18 +53,7 @@ export default async function HomePage({ params }: { params: { locale: string } 
       {/* Nội dung trang */}
       <div className='relative'>
         <Hero />
-        <MediaContent
-          side="media-right"
-          ratio="1-2"
-          title={tOurMissionAtSea('title', { default: 'Our Mission at Sea' })}
-          body={tOurMissionAtSea('body', { default: 'Stay connected even far from shore.' })}
-          media={{
-            src: '/images/Picture2.png',
-            alt: tOurMissionAtSea('imageAlt2', { default: 'Connectivity solutions' }),
-            description: tOurMissionAtSea('imageDesc2', { default: 'VSAT, Starlink, and onboard IT.' }),
-          }}
-          stretch="right"
-        />
+        
       </div>
     </>
   );
