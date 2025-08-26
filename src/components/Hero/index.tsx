@@ -1,8 +1,8 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-import BackgroundGradient from '../../components/BackgroundGradient'
-import { BackgroundGrid } from '../../components/BackgroundGrid'
-import { BackgroundScanline } from '../../components/BackgroundScanline'
+import BackgroundGradient from '../BackgroundGradient'
+import { BackgroundGrid } from '../BackgroundGrid'
+import { BackgroundScanline } from '../BackgroundScanline'
 import Button from '@/components/Button'
 
 export default async function Hero() {
@@ -13,7 +13,7 @@ export default async function Hero() {
       {/* Backgrounds (behind content) */}
       <BackgroundScanline className="pointer-events-none absolute inset-0 z-0" />
       <BackgroundGradient className="pointer-events-none absolute inset-0 -z-10" />
-      <BackgroundGrid className='pointer-events-none absolute inset-0 -z-20' />
+      <BackgroundGrid />
 
       {/* Content */}
     <div className="container-gutter relative z-10 grid grid-cols-1 gap-6 lg:grid-cols-12 items-start">

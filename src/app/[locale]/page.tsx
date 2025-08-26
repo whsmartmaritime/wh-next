@@ -44,10 +44,10 @@ export default async function HomePage() {
   return (
     <>
       {/* Nền toàn trang */}
-      <BackgroundScanline className="pointer-events-none absolute inset-0 z-0" />
-      <BackgroundGradient className="pointer-events-none absolute inset-0 -z-10" />
-      <BackgroundGrid className='pointer-events-none absolute inset-0 -z-20' />
-
+{/*       <BackgroundScanline />
+      <BackgroundGradient />
+      <BackgroundGrid/>
+ */}
       {/* Nội dung trang */}
       <div className='relative'>
   <Hero />
