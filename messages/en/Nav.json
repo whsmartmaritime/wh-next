@@ -1,0 +1,103 @@
+{
+  "home": "Home",
+  "Solutions": {
+    "title": "Solutions",
+    "desc": "Equipment and deployment. We deliver solutions for safer, easier vessel operations..",
+    "columns": {
+      "one": {
+        "title": "NavCom Equipment",
+        "intro": "Trusted brands. Proven performance. Equipment built for safe and efficient operations.",
+        "image": "/images/megamenu/Navcom_menu.svg",
+        "imageDark": "/images/megamenu/Navcom_menu.svg",
+        "links": {"1": "GMDSS Equipment", "2": "Navigation Equipment", "3": "E-Navigation"}
+      },
+      "two": {
+        "title": "Connectivity and IOT",
+        "intro": "Stay connected to work, family, friends—and everything that matters, even far from shore.",
+        "image": "/images/megamenu/Connectivity_menu.svg",
+        "imageDark": "/images/megamenu/Connectivity_menu.svg",
+        "links": {"1": "StarLink", "2": "VSAT", "3": "IT Systems onboard", "4": "CCTV & Access Control"}
+      }
+    }
+  },
+  "Services": {
+    "title": "Services",
+    "desc": "Maneuver? go Wheelhouse. Service? call Wheelhouse.",
+    "columns": {
+      "one": {
+        "title": "Service On-demand",
+        "intro": "Equipment and deployment. We deliver solutions for safer, easier vessel operations.",
+        "image": "/images/megamenu/ServiceOnDemand_menu.svg",
+        "imageDark": "/images/megamenu/ServiceOnDemand_menu.svg",
+        "links": {"1": "Installation - Maintenance - Repair", "2": "Product Advisory", "3": "Training & Usage Support"}
+      },
+      "two": {
+        "title": "Annual Survey",
+        "intro": "Our annual GMDSS Radio Survey and VDR/SVDR APT services are conducted in compliance with IMO standards, ensuring your vessel’s communication and voyage data systems are fully operational and reliable.",
+        "image": "/images/megamenu/AnnualSurvey_menu.svg",
+        "imageDark": "/images/megamenu/AnnualSurvey_menu.svg",
+        "links": {"1": "Radio Survey", "2": "VDR Annual Performance Test"}
+      }
+    }
+  },
+  "placeholder1": {
+    "title": "placeholder1 title",
+    "desc": "placeholder1 desc.",
+    "columns": {
+      "one": {
+        "title": "placeholder1.1.title",
+        "image": "/images/megamenu/placeholder1.1.svg",
+        "imageDark": "/images/megamenu/placeholder1.1.svg",
+        "intro": "placeholder1.1.intro",
+        "links": {"1": "Iplaceholder1.1.link1", "2": "placeholder1.1.link2", "3": "placeholder1.1.link3", "4": "placeholder1.1.link4"}
+      },
+      "two": {
+        "title": "placeholder1.2.title",
+        "image": "/images/megamenu/placeholder1.2.svg",
+        "imageDark": "/images/megamenu/placeholder1.2.svg",
+        "intro": "placeholder1.2.intro",
+        "links": {"1": "placeholder1.2.link1", "2": "placeholder1.2.link2", "3": "placeholder1.2.link3", "4": "placeholder1.2.link4"}
+      }
+    }
+  },
+  "placeholder2": {
+    "title": "placeholder2 title",
+    "desc": "placeholder2 desc.",
+    "columns": {
+      "one": {
+        "title": "placeholder2.1.title",
+        "image": "/images/megamenu/placeholder2.1.svg",
+        "imageDark": "/images/megamenu/placeholder2.1.svg",
+        "intro": "placeholder2.1.intro",
+        "links": {"1": "Iplaceholder2.1.link1", "2": "placeholder2.1.link2", "3": "placeholder2.1.link3", "4": "placeholder2.1.link4"}
+      },
+      "two": {
+        "title": "placeholder2.2.title",
+        "image": "/images/megamenu/placeholder2.2.svg",
+        "imageDark": "/images/megamenu/placeholder2.2.svg",
+        "intro": "placeholder2.2.intro",
+        "links": {"1": "placeholder2.2.link1", "2": "placeholder2.2.link2", "3": "placeholder2.2.link3", "4": "placeholder2.2.link4"}
+      }
+    }
+  },
+  "Company": {
+    "title": "Company",
+    "desc": "Learn about our mission, team and company history.",
+    "columns": {
+      "one": {
+        "title": "About Us",
+        "intro": "Learn more about our company and values.",
+        "image": "/images/megamenu/About_menu.svg",
+        "imageDark": "/images/megamenu/About_menu.svg",
+        "links": {"1": "About Us", "2": "Contact Us", "3": "Blog"}
+      },
+      "two": {
+        "title": "Our Customers and partners",
+        "intro": "Discover the clients we serve.",
+        "image": "/images/megamenu/Our_menu.svg",
+        "imageDark": "/images/megamenu/Our_menu.svg",
+        "links": {"1": "Our Customers", "2": "Our Partners"}
+      }
+    }
+  }
+}

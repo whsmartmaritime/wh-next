@@ -1,0 +1,79 @@
+{
+  "home": "Trang chủ",
+  "Solutions": {
+    "title": "Giải pháp",
+    "desc": "Thiết bị và giải pháp triển khai. Chúng tôi cung cấp giải pháp để vận hành tàu an toàn và hiệu quả.",
+    "columns": {
+      "one": {
+        "title": "Thiết Bị Hàng Hải",
+        "intro": "Thương hiệu tin cậy, hiệu suất đã được chứng minh.",
+        "image": "/images/megamenu/Navcom_menu.svg",
+        "imageDark": "/images/megamenu/Navcom_menu.svg",
+        "links": {"1": "Thiết bị GMDSS", "2": "Nghi Khí Hàng Hải", "3": "Hải Đồ - Ấn Phẩm Điện tử"}
+      },
+      "two": {
+        "title": "Dịch vụ vệ tinh và IOT",
+        "intro": "Giữ kết nối mọi lúc, kể cả khi xa bờ.",
+        "image": "/images/megamenu/Connectivity_menu.svg",
+        "imageDark": "/images/megamenu/Connectivity_menu.svg",
+        "links": {"1": "StarLink", "2": "VSAT", "3": "Hệ thống IT trên tàu", "4": "CCTV & Access Control"}
+      }
+    }
+  },
+  "Services": {
+    "title": "Dịch vụ",
+    "desc": "Dịch vụ lắp đặt, bảo trì và hỗ trợ chuyên nghiệp.",
+    "columns": {
+      "one": {
+        "title": "Dịch vụ trên tàu",
+        "intro": "Lắp đặt, sửa chữa và bảo dưỡng thiết bị.",
+        "image": "/images/megamenu/ServiceOnDemand_menu.svg",
+        "imageDark": "/images/megamenu/ServiceOnDemand_menu.svg",
+        "links": {"1": "Lắp đặt - Bảo dưỡng - Sửa chữa", "2": "Tư vấn thiết kế", "3": "Đào tạo & Hỗ trợ"}
+      },
+      "two": {
+        "title": "Kiểm tra hàng năm",
+        "intro": "Dịch vụ kiểm tra hàng năm hệ thống GMDSS và VDR/SVDR (APT) được thực hiện theo tiêu chuẩn IMO, nhằm đảm bảo thiết bị liên lạc và ghi dữ liệu hành trình hoạt động chính xác, đầy đủ và sẵn sàng cho mọi tình huống khẩn cấp.",
+        "image": "/images/megamenu/AnnualSurvey_menu.svg",
+        "imageDark": "/images/megamenu/AnnualSurvey_menu.svg",
+        "links": {"1": "Kiểm tra GMDSS", "2": "Kiểm tra VDR"}
+      }
+    }
+  },
+  "placeholder1": {
+    "title": "placeholder1 title",
+    "desc": "placeholder1 desc.",
+    "columns": {
+      "one": {"title": "placeholder1.1.title", "image": "/images/megamenu/placeholder1.1.svg", "imageDark": "/images/megamenu/placeholder1.1.svg", "intro": "placeholder1.1.intro", "links": {"1": "placeholder1.1.link1", "2": "placeholder1.1.link2", "3": "placeholder1.1.link3", "4": "placeholder1.1.link4"}},
+      "two": {"title": "placeholder1.2.title", "image": "/images/megamenu/placeholder1.2.svg", "imageDark": "/images/megamenu/placeholder1.2.svg", "intro": "placeholder1.2.intro", "links": {"1": "placeholder1.2.link1", "2": "placeholder1.2.link2", "3": "placeholder1.2.link3", "4": "placeholder1.2.link4"}}
+    }
+  },
+  "placeholder2": {
+    "title": "placeholder2 title",
+    "desc": "placeholder2 desc.",
+    "columns": {
+      "one": {"title": "placeholder2.1.title", "image": "/images/megamenu/placeholder2.1.svg", "imageDark": "/images/megamenu/placeholder2.1.svg", "intro": "placeholder2.1.intro", "links": {"1": "placeholder2.1.link1", "2": "placeholder2.1.link2", "3": "placeholder2.1.link3", "4": "placeholder2.1.link4"}},
+      "two": {"title": "placeholder2.2.title", "image": "/images/megamenu/placeholder2.2.svg", "imageDark": "/images/megamenu/placeholder2.2.svg", "intro": "placeholder2.2.intro", "links": {"1": "placeholder2.2.link1", "2": "placeholder2.2.link2", "3": "placeholder2.2.link3", "4": "placeholder2.2.link4"}}
+    }
+  },
+  "Company": {
+    "title": "Về Chúng Tôi",
+    "desc": "Tìm hiểu về sứ mệnh, đội ngũ và lịch sử công ty.",
+    "columns": {
+      "one": {
+        "title": "Về Chúng Tôi",
+        "intro": "Tìm hiểu thêm về công ty và giá trị của chúng tôi.",
+        "image": "/images/megamenu/About_menu.svg",
+        "imageDark": "/images/megamenu/About_menu.svg",
+        "links": {"1": "Về chúng tôi", "2": "Liên hệ", "3": "Blog"}
+      },
+      "two": {
+        "title": "Khách hàng và Đối tác",
+        "intro": "Khám phá các khách hàng chúng tôi phục vụ.",
+        "image": "/images/megamenu/Our_menu.svg",
+        "imageDark": "/images/megamenu/Our_menu.svg",
+        "links": {"1": "Khách hàng", "2": "Đối tác"}
+      }
+    }
+  }
+}
