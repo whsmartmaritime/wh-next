@@ -2,10 +2,10 @@ import Hero from '@/blocks/Hero';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
-import MediaContent from '@/blocks/MediaContent/MediaContent';
 import BackgroundGradient from '@/components/BackgroundGradient'
 import { BackgroundGrid } from '@/components/BackgroundGrid'
 import { BackgroundScanline } from '@/components/BackgroundScanline'
+import WhyWheelhouse from '@/blocks/WhyWheelhouse';
 
 export async function generateMetadata(
   props: { params: Promise<{ locale: string }> }
@@ -41,8 +41,6 @@ export async function generateMetadata(
 }
 
 export default async function HomePage({ params }: { params: { locale: string } }) {
-  const tOurMissionAtSea = await getTranslations({ locale: params.locale, namespace: 'OurMissionAtSea' });
-
   return (
     <>
       {/* Nền toàn trang */}
@@ -53,7 +51,7 @@ export default async function HomePage({ params }: { params: { locale: string } 
       {/* Nội dung trang */}
       <div className='relative'>
         <Hero />
-        
+        <WhyWheelhouse locale={params.locale} />
       </div>
     </>
   );

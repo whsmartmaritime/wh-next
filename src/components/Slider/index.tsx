@@ -1,5 +1,3 @@
-
-
 "use client";
 import Image from 'next/image';
 import { useState } from 'react';
@@ -15,7 +13,7 @@ export type SliderProps = {
 	className?: string;
 };
 
-export default function Slider({ images, aspectRatio = '4/3', className }: SliderProps) {
+export default function Slider({ images, aspectRatio = '16/10', className }: SliderProps) {
 	const [current, setCurrent] = useState(0);
 	const next = () => setCurrent((c) => (c + 1) % images.length);
 	const prev = () => setCurrent((c) => (c - 1 + images.length) % images.length);
