@@ -3,6 +3,7 @@ import Image from 'next/image'
 import BackgroundGradient from '../BackgroundGradient'
 import { BackgroundGrid } from '../BackgroundGrid'
 import { BackgroundScanline } from '../BackgroundScanline'
+import CTAButton from '@/components/Button/CTAButton'
 
 export default async function Hero() {
   const t = await getTranslations('Hero')
@@ -22,13 +23,13 @@ export default async function Hero() {
                   {t('title')}
                 </h1>
                 <h2 className="text-white/80 ">{t('subtitle')}</h2>
-                <div className="flex gap-3 pt-2">
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center rounded-md bg-black text-white px-4 py-2 shadow-sm hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 transition-colors"
-                  >
-                    {t('ctaPrimary')}
-                  </a>
+                <div className="pt-2">
+                  {/* Snap CTA to one ground grid "cell" = 4 columns */}
+                  <div className="w-full lg:w-[calc(var(--column)*4)] max-w-full">
+                    <CTAButton className="w-full justify-between" href="#contact">
+                      {t('ctaPrimary')}
+                    </CTAButton>
+                  </div>
                 </div>
               </div>
 

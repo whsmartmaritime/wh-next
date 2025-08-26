@@ -28,7 +28,7 @@ export const BackgroundGrid: React.FC<Props> = ({
       aria-hidden="true"
       className={[
         classes.backgroundGrid,
-        'grid',
+        'grid-16',
         'background-grid',
         ignoreGutter && classes.ignoreGutter,
         className,

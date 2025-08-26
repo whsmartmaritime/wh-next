@@ -50,14 +50,11 @@
 @media (min-width: 1600px) {
   :root {
     --gutter-h: 8rem;
+    --header-height: 90px;
+
   }
 }
 
-@media (min-width: 1601px) {
-  :root {
-    --header-height: 90px;
-  }
-}
 
 /* ≥1920px (extra-large). Khôi phục gutter động và tăng body size */
 @media (min-width: 1920px) {
@@ -169,6 +166,17 @@ body { margin: 0; }
 
 /* Tailwind utilities: dùng gutter thay vì width cứng */
 @layer utilities {
+  /* 16-column grid to match the sample grid system */
+  .grid-16 {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+  }
+  @media (max-width: 1023.98px) {
+    .grid-16 {
+      grid-template-columns: repeat(8, 1fr);
+    }
+  }
+
   /* Padding ngang theo gutter toàn cục */
   .px-gutter { padding-inline: var(--gutter-h); }
   /* Margin ngang theo gutter nếu cần canh lề ngoài */
