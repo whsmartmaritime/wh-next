@@ -9,7 +9,7 @@ export default async function Hero() {
   const t = await getTranslations('Hero')
 
   return (
-    <section className="relative overflow-visible min-h-[100vh] py-block">
+    <section data-theme="dark" className="group relative overflow-visible min-h-[100vh] py-block text-white">
       {/* Backgrounds (behind content) */}
       <BackgroundScanline className="pointer-events-none absolute inset-0 z-0" />
       <BackgroundGradient className="pointer-events-none absolute inset-0 -z-10" />
@@ -26,7 +26,7 @@ export default async function Hero() {
                 <div className="pt-2">
                   {/* Snap CTA to one ground grid "cell" = 4 columns */}
                   <div className="w-full lg:w-[calc(var(--column)*4)] max-w-full">
-                    <CTAButton className="w-full justify-between" href="#contact">
+                    <CTAButton size="large" className="w-full justify-between" href="#contact">
                       {t('ctaPrimary')}
                     </CTAButton>
                   </div>
