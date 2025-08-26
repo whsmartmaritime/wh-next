@@ -17,12 +17,14 @@ export const SvgCTA: React.FC<SvgCTAProps> = ({ children, href, onClick, classNa
   // Height/padding like sample: default ~2.5rem, large ~3rem
   const sizeClasses =
     size === 'large'
-      ? 'h-12 px-6' // 3rem
-      : 'h-10 px-4'; // 2.5rem
+      // Mobile ~44px, md ~48px, lg ~56px. Padding scales up for roomy hero feel
+      ? 'h-11 px-5 md:h-12 md:px-6 lg:h-14 lg:px-8'
+      // Default: base 40px, md 44px
+      : 'h-10 px-4 md:h-11 md:px-5';
 
   // Base: subtle border, smooth color/border/transform transitions, no radius
   const base = [
-    'group inline-flex items-center justify-center gap-3 rounded-none bg-transparent',
+  'group relative inline-flex items-center justify-center rounded-none bg-transparent',
     'text-current',
     'border border-black/20 dark:border-white/20 group-data-[theme=dark]:border-white/20',
     'transition-[color,background-color,border-color,transform] duration-200 ease-out will-change-transform',
@@ -41,14 +43,25 @@ export const SvgCTA: React.FC<SvgCTAProps> = ({ children, href, onClick, classNa
 
   const classes = [base, hover, focus, className].filter(Boolean).join(' ');
 
+  const paddingRight =
+    size === 'large'
+      ? 'pr-12 md:pr-12 lg:pr-16'
+      : 'pr-10 md:pr-12';
+  const arrowRight =
+    size === 'large'
+      ? 'right-2 md:right-3 lg:right-4'
+      : 'right-2 md:right-3';
+
   const content = (
     <>
-      <span className="font-medium leading-none">{children}</span>
-      <ArrowIcon
-        className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-1.5"
-        size={size === 'large' ? 'large' : 'medium'}
-        rotation={arrowRotation}
-      />
+      <span className={["font-medium leading-none", paddingRight].join(' ')}>{children}</span>
+      <span className={["pointer-events-none absolute inset-y-0 flex items-center", arrowRight].join(' ')}>
+        <ArrowIcon
+          className="shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-1.5"
+          size={size === 'large' ? 'large' : 'medium'}
+          rotation={arrowRotation}
+        />
+      </span>
     </>
   );
 
