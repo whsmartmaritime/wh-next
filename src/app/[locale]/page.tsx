@@ -52,7 +52,6 @@ export default async function HomePage() {
       {/* Nền toàn trang (cố định, không che Header/Topbar) */}
       <BackgroundGradient
         className="pointer-events-none fixed inset-0"
-        style={{ zIndex: 0 }}
       />
       <BackgroundGrid
         className="pointer-events-none fixed inset-0"
