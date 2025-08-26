@@ -40,7 +40,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function HomePage({ params }: { params: { locale: string } }) {
+export default async function HomePage() {
   return (
     <>
       {/* Nền toàn trang */}
@@ -50,8 +50,8 @@ export default async function HomePage({ params }: { params: { locale: string } 
 
       {/* Nội dung trang */}
       <div className='relative'>
-        <Hero />
-        <WhyWheelhouse locale={params.locale} />
+  <Hero />
+  <WhyWheelhouse />
       </div>
     </>
   );
