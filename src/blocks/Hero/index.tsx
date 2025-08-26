@@ -1,8 +1,8 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-import BackgroundGradient from '../BackgroundGradient'
-import { BackgroundGrid } from '../BackgroundGrid'
-import { BackgroundScanline } from '../BackgroundScanline'
+import BackgroundGradient from '../../components/BackgroundGradient'
+import { BackgroundGrid } from '../../components/BackgroundGrid'
+import { BackgroundScanline } from '../../components/BackgroundScanline'
 import CTAButton from '@/components/Button/CTAButton'
 
 export default async function Hero() {

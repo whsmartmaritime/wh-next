@@ -14,7 +14,7 @@ export type MediaContentProps = {
   title: React.ReactNode
   body: React.ReactNode
   side?: 'media-left' | 'media-right'
-  ratio?: '1-2' | '5-5' | '2-1'
+  ratio?: '1-2' | '1-1' | '2-1'
   media: Media
   stretch?: 'left' | 'right' | 'none'
   showBackgroundGrid?: boolean
@@ -22,9 +22,9 @@ export type MediaContentProps = {
 }
 
 const ratioToSpans = (ratio: NonNullable<MediaContentProps['ratio']>, side: NonNullable<MediaContentProps['side']>) => {
-  const map: Record<'1-2' | '5-5' | '2-1', { media: string; text: string }> = {
+  const map: Record<'1-2' | '1-1' | '2-1', { media: string; text: string }> = {
     '1-2': { media: 'lg:col-span-4', text: 'lg:col-span-8' },
-    '5-5': { media: 'lg:col-span-6', text: 'lg:col-span-6' },
+    '1-1': { media: 'lg:col-span-6', text: 'lg:col-span-6' },
     '2-1': { media: 'lg:col-span-8', text: 'lg:col-span-4' },
   }
   const spans = map[ratio]
@@ -41,7 +41,7 @@ export const MediaContent: React.FC<MediaContentProps> = ({
   title,
   body,
   side = 'media-left',
-  ratio = '5-5',
+  ratio = '1-1',
   media,
   stretch = 'none',
   showBackgroundGrid = false,

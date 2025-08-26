@@ -1,7 +1,7 @@
 import {Link} from '@/i18n/navigation';
 import TopBar from '../TopBar/TopBar';
 import MegaMenu from '../MainMenu/MegaMenu';
-import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
+import LanguageSwitcher from '../LanguageSwitcher';
 import { getTranslations } from 'next-intl/server';
 
 export default async function Header() {

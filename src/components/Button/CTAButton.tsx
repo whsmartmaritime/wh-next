@@ -1,6 +1,6 @@
 "use client";
 import * as React from 'react';
-import ArrowIcon from '../../icons/ArrowIcon';
+import ArrowIcon from '../icons/ArrowIcon';
 
 export type SvgCTAProps = {
   children: React.ReactNode;

@@ -1,4 +1,4 @@
-import { CrosshairIcon } from 'icons/CrosshairIcon/index'
+import { CrosshairIcon } from '@/components/icons/CrosshairIcon/index'
 import React from 'react'
 
 import classes from './index.module.scss'

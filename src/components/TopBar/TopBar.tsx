@@ -1,6 +1,6 @@
 import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
- import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
+ import LanguageSwitcher from '../LanguageSwitcher';
 export default async function Topbar() {
   const t = await getTranslations('TopBar');
   return (
