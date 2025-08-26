@@ -1,70 +1,70 @@
 @import "tailwindcss";
 /* CSS variables: gutter, block spacing, column (cho các tính toán kích thước ảnh/stack) */
 :root {
-  /* Gutter ngang theo sample (không đặt width container, chỉ padding) */
-  /* Use sample's dynamic gutter so --column matches sample proportions */
-  --gutter-h: calc(50vw - 40rem);
-  --block-spacing: 2rem;    /* khoảng cách dọc giữa các block */
+  /* Gutter + spacing (mobile-first to match sample breakpoints) */
+  --gutter-h: 1rem;            /* <=768px */
+  --block-spacing: 2rem;       /* <=768px */
 
-  /* Column theo công thức sample: phụ thuộc gutter */
-  --column: calc((100vw - (var(--gutter-h) * 2)) / 16);
+  /* Column mặc định theo sample: màn nhỏ dùng 8 cột */
+  --column: calc((100vw - (var(--gutter-h) * 2)) / 8);
 
   /* Màu đường kẻ nền cho BackgroundGrid */
   --grid-line-light: rgba(255, 255, 255, 0.08);
   --grid-line-dark: rgba(255, 255, 255, 0.12);
   --theme-border-color: var(--grid-line-light);
 
-  /* Typography scale */
-  --fs-12: 0.75rem;   /* 12px */
-  --fs-14: 0.875rem;  /* 14px */
-  --fs-16: 1rem;      /* 16px */
-  --fs-18: 1.125rem;  /* 18px */
-  --fs-20: 1.25rem;   /* 20px */
-  --fs-24: 1.5rem;    /* 24px */
-  --fs-28: 1.75rem;   /* 28px */
-  --fs-32: 2rem;      /* 32px */
-  --fs-40: 2.5rem;    /* 40px */
-  --fs-48: 3rem;      /* 48px */
-  --fs-56: 3.5rem;    /* 56px */
-  --fs-64: 4rem;      /* 64px */
-
-  /* Fluid typography (min, preferred, max) to make sizes responsive between breakpoints */
-  --fs-body: clamp(0.95rem, 1rem + 0.3vw, 1.125rem); /* ~15.2px → 18px */
-  --fs-h1: clamp(2.25rem, 2rem + 2.5vw, 3.5rem);    /* ~36px → 56px */
-  --fs-h2: clamp(1.6rem, 1.5rem + 1.6vw, 2.5rem);   /* ~25.6px → 40px */
-  --fs-h3: clamp(1.375rem, 1.25rem + 1vw, 2rem);    /* ~22px → 32px */
-  --fs-h4: var(--fs-24);
-  --fs-h5: var(--fs-20);
-  --fs-h6: var(--fs-18);
+  /* Kích thước body theo sample */
+  --font-body-size: 16px; /* <=1920px */
 
   /* Header sizing (mirror sample) */
   --header-height: 66px; /* mobile base */
   --top-bar-height: 3rem;
 }
 
-@media (min-width: 640px) {
+/* ≥768px */
+@media (min-width: 768px) {
   :root {
     --gutter-h: 2rem;
     --block-spacing: 3.5rem;
-  --header-height: 76px; /* small desktop/tablet */
   }
 }
 
+/* ≥1024px */
 @media (min-width: 1024px) {
   :root {
     --gutter-h: 4rem;
     --block-spacing: 5rem;
-    /* Ở mid-break sample chuyển 16 cột -> 8 cột để phần tử lớn hơn */
-    --column: calc((100vw - (var(--gutter-h) * 2)) / 8);
-  /* Keep clamp() values for responsive typography; only adjust gutter/column here */
+    /* Ở >=1024px sample dùng 16 cột */
+    --column: calc((100vw - (var(--gutter-h) * 2)) / 16);
   }
 }
 
-@media (min-width: 1280px) {
+/* ≥1171px: nâng header lên 76px (đến 1600px) */
+@media (min-width: 1171px) {
+  :root {
+    --header-height: 76px;
+  }
+}
+
+/* ≥1601px: header 90px; gutter 8rem vẫn áp dụng từ 1600 trở lên */
+@media (min-width: 1600px) {
   :root {
     --gutter-h: 8rem;
-  --header-height: 90px; /* large desktop */
-  /* Optional: keep body readable at xl (avoid overriding clamp) */
+  }
+}
+
+@media (min-width: 1601px) {
+  :root {
+    --header-height: 90px;
+  }
+}
+
+/* ≥1920px (extra-large). Khôi phục gutter động và tăng body size */
+@media (min-width: 1920px) {
+  :root {
+    --gutter-h: calc(50vw - 40rem);
+    --font-body-size: 18px;
+  /* header-height 90px đã đặt ở >=1601px */
   }
 }
 
@@ -88,18 +88,78 @@
 
   /* Base typography using CSS variables; Tailwind classes can override per component */
   html { font-size: 100%; }
-  body { font-size: var(--fs-body); line-height: 1.6; }
-  h1 { font-size: var(--fs-h1); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 0.5em; }
-  h2 { font-size: var(--fs-h2); line-height: 1.15; letter-spacing: -0.01em; margin: 0.5em 0 0.5em; }
-  h3 { font-size: var(--fs-h3); line-height: 1.2; margin: 0.75em 0 0.5em; }
-  h4 { font-size: var(--fs-h4); line-height: 1.3; margin: 0.75em 0 0.5em; }
-  h5 { font-size: var(--fs-h5); line-height: 1.35; margin: 0.75em 0 0.5em; }
-  h6 { font-size: var(--fs-h6); line-height: 1.4; margin: 0.75em 0 0.5em; }
-  p { font-size: var(--fs-body); margin: 1em 0; }
-  small { font-size: var(--fs-14); }
+  body { font-size: var(--font-body-size); line-height: 1.4; }
+  /* Map headings to sample */
+  h1 {
+    margin: 3rem 0 2.4rem;
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+  }
+  /* h2–h5 map theo sample */
+  h2 {
+    margin: 2.4rem 0 1.8rem;
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+  }
+  h3 {
+    margin: 1.8rem 0 1.2rem;
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+  }
+  h4 {
+    margin: 1.2rem 0;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+  }
+  h5 {
+    margin: 1.2rem 0;
+    font-size: 1rem;
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -0.05rem;
+  }
+  h6 {
+    margin: 1.2rem 0;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+  p { font-size: var(--font-body-size); margin: 1em 0; }
+  small { font-size: 0.875rem; }
 
   /* Ensure links inherit the computed text color (so dark-mode works) */
   a, a:visited { color: inherit; }
+}
+
+/* Align rem baseline with sample on very large screens: 1rem = 20px (>1600px) */
+@media (min-width: 1601px) {
+  html { font-size: 20px; }
+}
+
+/* Responsive adjustments to match sample mixins */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.125rem; }
+  h5 { font-size: 1rem; }
+}
+
+@media (max-width: 1600px) {
+  h6 { font-size: 12px; }
+  h2 { font-size: 2.25rem; }
+  h4 { font-size: 1.5rem; }
+  h5 { font-size: 1.25rem; }
 }
 
 /* Reset nhỏ + logical properties (thân thiện RTL) */
