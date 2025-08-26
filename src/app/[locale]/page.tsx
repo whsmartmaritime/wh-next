@@ -43,16 +43,36 @@ export async function generateMetadata(
 export default async function HomePage() {
   return (
     <>
-      {/* Nền toàn trang */}
-{/*       <BackgroundScanline />
-      <BackgroundGradient />
-      <BackgroundGrid/>
- */}
-      {/* Nội dung trang */}
-      <div className='relative'>
-  <Hero />
-  <WhyWheelhouse />
+      {/* Nội dung trang (nâng z-index để nổi lên trên nền) */}
+      <div className="relative z-30">
+        <Hero />
+        <WhyWheelhouse />
       </div>
+
+      {/* Nền toàn trang (cố định, không che Header/Topbar) */}
+      <BackgroundGradient
+        className="pointer-events-none fixed inset-0"
+        style={{ zIndex: 0 }}
+      />
+      <BackgroundGrid
+        className="pointer-events-none fixed inset-0"
+        style={{
+          zIndex: 1,
+          // Grid mờ dần ở phía trên
+          WebkitMaskImage:
+            'linear-gradient(to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0.2) 40px, rgba(0,0,0,0.6) 80px, rgba(0,0,0,1) 140px)',
+          maskImage:
+            'linear-gradient(to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0.2) 40px, rgba(0,0,0,0.6) 80px, rgba(0,0,0,1) 140px)',
+        }}
+      />
+      <BackgroundScanline
+        className="pointer-events-none fixed inset-0"
+        style={{
+          zIndex: 2,
+          opacity: 0.12,           // tùy chỉnh độ mạnh scanline
+          mixBlendMode: 'soft-light',
+        }}
+      />
     </>
   );
 }
