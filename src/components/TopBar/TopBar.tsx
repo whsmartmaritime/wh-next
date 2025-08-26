@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 export default async function Topbar() {
   const t = await getTranslations('TopBar');
   return (
-  <div className="w-full bg-[#EBF5F9] dark:bg-[#00131A] backdrop-blur border-b border-gray-200 dark:border-neutral-700 text-sm">
+  <div className="z-50 w-full bg-[#EBF5F9] dark:bg-[#00131A] backdrop-blur border-b border-gray-200 dark:border-neutral-700 text-sm">
       <div className="container-gutter flex items-center justify-between py-1.5">
         <div className="hidden md:flex items-center gap-4">
           <a href="mailto:info@wheelhouse.vn" className="tracking-tight text-gray-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 transition-colors" >{t('email')}</a>
