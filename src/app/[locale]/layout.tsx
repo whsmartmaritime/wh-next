@@ -3,6 +3,7 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { BackgroundGrid } from '@/components/BackgroundGrid'
@@ -26,6 +27,7 @@ export default async function LocaleLayout({
     <>
       <BackgroundGrid className='pointer-events-none absolute inset-0 -z-20' />
       <NextIntlClientProvider locale={activeLocale} messages={messages}>
+        <TopBar />
         <Header />
         {children}
         <Footer />
