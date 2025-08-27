@@ -4,9 +4,12 @@ import Image from 'next/image'
 import { BackgroundGrid } from '../../components/BackgroundGrid'
 import { BackgroundScanline } from '../../components/BackgroundScanline' */
 import CTAButton from '@/components/Button'
+import LogoShowcase, { LogoItem } from './LogoShowcase'
 
 export default async function Hero() {
   const t = await getTranslations('Hero')
+
+
 
   return (
     <section data-theme="dark" className="group relative overflow-visible min-h-[100vh] py-block text-white">
@@ -61,6 +64,23 @@ export default async function Hero() {
           </div>
         </div>
         
+      </div>
+
+      {/* Logo showcase dưới hero content */}
+      <div className="container-gutter relative z-10 mt-10">
+          <LogoShowcase
+            title="Trusted by"
+            basePath="/images/logos"
+            logos={[
+            { src: 'vsat.svg', alt: 'VSAT' },
+            { src: 'vsat.svg', alt: 'VSAT' },
+            { src: 'vsat.svg', alt: 'VSAT' },
+            { src: 'vsat.svg', alt: 'VSAT' },
+            { src: 'vsat.svg', alt: 'VSAT' },
+            { src: 'vsat.svg', alt: 'VSAT' },
+            
+          ]}
+        />
       </div>
     </section>
   )
