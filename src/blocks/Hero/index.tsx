@@ -10,12 +10,12 @@ export default async function Hero() {
 
 
   return (
-    <section data-theme="dark" className="group relative overflow-visible min-h-[100vh] py-block text-white">
+    <section data-theme="dark" className="container-gutter group relative overflow-visible min-h-[100vh] py-block text-white">
       {/* Backgrounds (behind content) */}
-{/*       <BackgroundGrid fadeTop={true} />
- */}
+      <BackgroundGrid fadeTop={true} />
+      
       {/* Content */}
-    <div className="container-gutter relative z-10 grid grid-cols-1 gap-6 lg:grid-cols-12 items-start">
+    <div className="relative z-10 grid grid-cols-1 gap-6 lg:grid-cols-12 items-start">
       {/* Left: text (approx sample: 25% on desktop) */}
   <div className="flex flex-col gap-4 mt-6 lg:mt-32 lg:col-span-4 lg:order-1">
                 <h1 className="text-white  font-semibold leading-tight tracking-tight">
@@ -64,7 +64,7 @@ export default async function Hero() {
 
       {/* Logo showcase dưới hero content */}
       <div className="container-gutter relative z-10 mt-10">
-          <LogoShowcase
+         {/*  <LogoShowcase
             title="Trusted by"
             basePath="/images/logos"
             logos={[
@@ -76,7 +76,7 @@ export default async function Hero() {
             { src: 'vsat.svg', alt: 'VSAT' },
             
           ]}
-        />
+        /> */}
       </div>
     </section>
   )

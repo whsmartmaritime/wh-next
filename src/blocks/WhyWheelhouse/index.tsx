@@ -12,7 +12,7 @@ export default async function WhyWheelhouse() {
   ];
 
   return (
-    <section className="container-gutter py-block space-y-12">
+    <section className="relative container-gutter py-block space-y-12">
       <BackgroundGrid />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
         {/* Title + Desc */}

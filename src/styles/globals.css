@@ -403,10 +403,10 @@
     grid-template-columns: repeat(12, 1fr);
   }
   
-  /* Fade effect cho các đường kẻ grid - dùng mask để mờ dần */
-  .fade-top .grid-line {
-    mask: linear-gradient(to bottom, transparent 0px, black 8vh);
-    -webkit-mask: linear-gradient(to bottom, transparent 0px, black 8vh);
+  /* Fade effect - chỉ áp dụng cho grid-line TRỰC TIẾP bên trong fade-top */
+  .fade-top > .grid-line {
+    mask: linear-gradient(to bottom, transparent 0px, black 50vh);
+    -webkit-mask: linear-gradient(to bottom, transparent 0px, black 50vh);
   }
 
   /* Animations */
