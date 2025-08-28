@@ -2,6 +2,7 @@
 import {useState, useRef, useEffect} from 'react';
 import {Link} from '@/i18n/navigation';
 import {useTranslations} from 'next-intl';
+import Image from 'next/image';
 import { topItems } from '@/components/MainMenu/TopItems';
 import type { TopItem } from '@/components/MainMenu/TopItems';
 
@@ -172,7 +173,6 @@ export default function MegaMenu() {
               <div className="container-gutter grid grid-cols-12 gap-x-8 pt-6">
                 {/* Column 1: description spans 4 cols */}
                 <div className="col-span-12 md:col-span-2 space-y-3">
-                  <h3 className="font-semibold text-lg">{activeItem?.key ? t(`${activeItem.key}.title`) : ''}</h3>
                   <p className="text-base md:text-xl leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
                     {activeItem?.descKey ? t(activeItem.descKey as never) : (activeItem?.key ? t(`${activeItem.key}.desc`) : '')}
                   </p>
@@ -184,7 +184,7 @@ export default function MegaMenu() {
                     <>
                       <div className="uppercase tracking-[0.25em] text-xs opacity-95 mb-1">{t(cols[0].titleKey as never)}</div>
                       {cols[0].links.filter(l => !l.hidden).map((p) => (
-                        <Link key={p.href} href={p.href} className="block p-2 rounded-lg">
+                        <Link key={p.href} href={p.href} className="block rounded-lg">
                           <div className="text-base font-bold hover:opacity-80 transition-opacity">{t(p.titleKey as never)}</div>
                         </Link>
                       ))}
@@ -198,7 +198,7 @@ export default function MegaMenu() {
                     <>
                       <div className="uppercase tracking-[0.25em] text-xs opacity-95 mb-1">{t(cols[1].titleKey as never)}</div>
                       {cols[1].links.filter(l => !l.hidden).map((p) => (
-                        <Link key={p.href} href={p.href} className="block p-2 rounded-lg">
+                        <Link key={p.href} href={p.href} className="block rounded-lg">
                           <div className="text-base  font-bold hover:opacity-80 transition-opacity">{t(p.titleKey as never)}</div>
                         </Link>
                       ))}
@@ -227,14 +227,26 @@ export default function MegaMenu() {
                     return (
                       <>
                         {imageSrc ? (
-                          <img src={imageSrc} alt={String(t((previewCol?.titleKey ?? `${activeItem?.key}.title`) as never))} width={420} height={260} className="rounded-md object-cover" />
+                          <Image
+                            src={imageSrc}
+                            alt={String(
+                              t(
+                                (previewCol?.titleKey ?? `${activeItem?.key}.title`) as never
+                              )
+                            )}
+                            width={420}
+                            height={260}
+                            className="rounded-md object-cover"
+                          />
                         ) : null}
                         <p className="text-base md:text-xl leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
-                          {previewCol ? t(previewCol.introKey as never) : t(activeItem?.descKey ?? `${activeItem?.key}.desc`)}
+                          {previewCol
+                            ? t(previewCol.introKey as never)
+                            : t(activeItem?.descKey ?? `${activeItem?.key}.desc`)}
                         </p>
                       </>
                     );
-                  })()}
+                    })()}
                 </div>
               </div>
             )}
