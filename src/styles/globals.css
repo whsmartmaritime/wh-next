@@ -1,228 +1,417 @@
 @import "tailwindcss";
-/* CSS variables: gutter, block spacing, column (cho các tính toán kích thước ảnh/stack) */
+
+/* =============================================================================
+   CSS CUSTOM PROPERTIES
+   ========================================================================== */
+
 :root {
-  /* Gutter + spacing (mobile-first to match sample breakpoints) */
-  --gutter-h: 1rem;            /* <=768px */
-  --block-spacing: 2rem;       /* <=768px */
-
-  /* Column mặc định theo sample: màn nhỏ dùng 8 cột */
-  --column: calc((100vw - (var(--gutter-h) * 2)) / 8);
-
-  /* Màu đường kẻ nền cho BackgroundGrid */
-  --grid-line-light: rgba(255, 255, 255, 0.08);
-  --grid-line-dark: rgba(255, 255, 255, 0.12);
-  --theme-border-color: var(--grid-line-light);
-
-  /* Kích thước body theo sample */
-  --font-body-size: 16px; /* <=1920px */
-
-  /* Header sizing (mirror sample) */
-  --header-height: 66px; /* mobile base */
-  --top-bar-height: 3rem;
+  /* Color scheme */
+  color-scheme: light;
+  
+  /* Layout variables - Mobile-first */
+  --gutter-h: 1rem; /* 16px mobile default */
+  --block-spacing: 2rem;
+  --header-height: 66px;
+  
+  /* Grid system (12 columns) */
+  --column: calc((100vw - (var(--gutter-h) * 2)) / 12);
+  
+  /* Theme colors */
+  --theme-border-light: rgba(255, 255, 255, 0.08);
+  --theme-border-dark: rgba(255, 255, 255, 0.12);
+  --theme-border-color: var(--theme-border-light);
 }
 
-/* ≥768px */
+/* =============================================================================
+   RESPONSIVE BREAKPOINTS - Match Sample Logic
+   ========================================================================== */
+
+/* Small screens (≥640px) */
+@media (min-width: 640px) {
+  :root {
+    --gutter-h: 1.5rem; /* 24px */
+    --block-spacing: 2.5rem;
+  }
+}
+
+/* Medium screens (≥768px) */
 @media (min-width: 768px) {
   :root {
-    --gutter-h: 2rem;
-    --block-spacing: 3.5rem;
+    --gutter-h: 2rem; /* 32px */
+    --block-spacing: 3.5rem; /* Match sample pattern */
   }
 }
 
-/* ≥1024px */
+/* Large screens (≥1024px) */
 @media (min-width: 1024px) {
   :root {
-    --gutter-h: 4rem;
-    --block-spacing: 5rem;
-    /* Ở >=1024px sample dùng 16 cột */
-    --column: calc((100vw - (var(--gutter-h) * 2)) / 16);
-  }
-}
-
-/* ≥1171px: nâng header lên 76px (đến 1600px) */
-@media (min-width: 1171px) {
-  :root {
+    --gutter-h: 4rem; /* 64px */
+    --block-spacing: 5rem; /* Match sample pattern */
     --header-height: 76px;
   }
 }
 
-/* ≥1601px: header 90px; gutter 8rem vẫn áp dụng từ 1600 trở lên */
+/* Extra large screens (≥1600px) */
 @media (min-width: 1600px) {
   :root {
-    --gutter-h: 8rem;
+    --gutter-h: 8rem; /* 128px */
     --header-height: 90px;
-
   }
 }
 
-
-/* ≥1920px (extra-large). Khôi phục gutter động và tăng body size */
+/* Super large screens (≥1920px) - Dynamic gutter */
 @media (min-width: 1920px) {
   :root {
-    --gutter-h: calc(50vw - 40rem);
-    --font-body-size: 18px;
-  /* header-height 90px đã đặt ở >=1601px */
+    --gutter-h: calc(50vw - 50rem);
   }
 }
 
-/* Dark scheme mapping cho BackgroundGrid */
+/* =============================================================================
+   DARK MODE
+   ========================================================================== */
+
 @media (prefers-color-scheme: dark) {
-  :root {
-  --theme-border-color: var(--grid-line-dark);
-  }
+  :root { --theme-border-color: var(--theme-border-dark); }
 }
 
-/* Tailwind dark mode (class strategy): toggle by adding `class="dark"` on <html> */
+.dark {
+  color-scheme: dark;
+  --theme-border-color: var(--theme-border-dark);
+}
+
+/* =============================================================================
+   BASE STYLES
+   ========================================================================== */
+
 @layer base {
-  :root { color-scheme: light; }
-  body { background-color: #ffffff; color: #000000; }
-
-  .dark { color-scheme: dark; }
-  .dark body { background-color: #000000; color: #ffffff; }
-
-  /* Ensure grid line color switches when .dark is set explicitly */
-  .dark { --theme-border-color: var(--grid-line-dark); }
-
-  /* Base typography using CSS variables; Tailwind classes can override per component */
-  html { font-size: 100%; }
-  body { font-size: var(--font-body-size); line-height: 1.4; }
-  /* Map headings to sample */
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 100%; /* 16px = 1rem (Tailwind standard) */
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    height: 100%;
+    font-size: 1rem; /* text-base */
+    line-height: 1.6;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  
+  .dark body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  /* ==========================================================================
+     TYPOGRAPHY - OPTIMAL SCALING
+     ======================================================================= */
+  
+  /* Base typography - Mobile-first (≤639px) */
   h1 {
-    margin: 3rem 0 2.4rem;
-    font-size: 3rem;
-    line-height: 1;
-    font-weight: 500;
-    letter-spacing: -0.05em;
+    margin: 2rem 0 1rem;
+    font-size: 1.75rem; /* text-3xl - Đủ lớn nhưng không choáng */
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.025em;
   }
-  /* h2–h5 map theo sample */
+  
   h2 {
-    margin: 2.4rem 0 1.8rem;
-    font-size: 2rem;
-    line-height: 1;
-    font-weight: 500;
-    letter-spacing: -0.05em;
+    margin: 1.5rem 0 0.75rem;
+    font-size: 1.5rem; /* text-2xl - Cân đối */
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: -0.025em;
   }
+  
   h3 {
-    margin: 1.8rem 0 1.2rem;
-    font-size: 2rem;
-    line-height: 1;
-    font-weight: 500;
-    letter-spacing: -0.05em;
+    margin: 1.25rem 0 0.5rem;
+    font-size: 1.25rem; /* text-xl - Rõ ràng */
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: -0.025em;
   }
+  
   h4 {
-    margin: 1.2rem 0;
-    font-size: 1.4rem;
-    line-height: 1.2;
-    font-weight: 500;
-    letter-spacing: -0.05em;
+    margin: 1rem 0 0.5rem;
+    font-size: 1.125rem; /* text-lg - Dễ đọc */
+    line-height: 1.5;
+    font-weight: 600;
   }
+  
   h5 {
-    margin: 1.2rem 0;
-    font-size: 1rem;
-    line-height: 1.2;
-    font-weight: 500;
-    letter-spacing: -0.05rem;
+    margin: 1rem 0 0.25rem;
+    font-size: 1rem; /* text-base - Standard */
+    line-height: 1.5;
+    font-weight: 600;
   }
+  
   h6 {
-    margin: 1.2rem 0;
-    font-size: 13px;
-    line-height: 1;
-    font-weight: 400;
-    letter-spacing: 0.25em;
+    margin: 1rem 0;
+    font-size: 0.875rem; /* text-sm */
+    line-height: 1.5;
+    font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
-  p { font-size: var(--font-body-size); margin: 1em 0; }
-  small { font-size: 0.875rem; }
-
-  /* Ensure links inherit the computed text color (so dark-mode works) */
-  a, a:visited { color: inherit; }
+  
+  p {
+    margin: 1em 0;
+    font-size: 0.875rem; /* text-sm - Thoải mái đọc trên mobile */
+    line-height: 1.7;
+  }
+  
+  /* Links */
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.125em;
+  }
+  
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+  
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
 }
 
-/* Align rem baseline with sample on very large screens: 1rem = 20px (>1600px) */
-@media (min-width: 1601px) {
-  html { font-size: 20px; }
+/* =============================================================================
+   RESPONSIVE TYPOGRAPHY - OPTIMAL SCALING
+   ========================================================================== */
+
+/* Tablet (≥640px) - Balanced scaling */
+@media (min-width: 640px) {
+  h1 {
+    font-size: 2.25rem; /* text-4xl - Nổi bật */
+    margin: 2.5rem 0 1.25rem;
+  }
+  
+  h2 {
+    font-size: 1.875rem; /* text-3xl - Cân đối */
+    margin: 2rem 0 1rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* text-2xl - Rõ ràng */
+    margin: 1.75rem 0 0.875rem;
+  }
+  
+  h4 {
+    font-size: 1.25rem; /* text-xl - Dễ đọc */
+    margin: 1.5rem 0 0.75rem;
+  }
+  
+  h5 {
+    font-size: 1.125rem; /* text-lg - Tốt */
+    margin: 1.25rem 0 0.5rem;
+  }
+  
+  p {
+    font-size: 1rem; /* text-base - Standard desktop */
+    line-height: 1.6;
+  }
 }
 
-/* Responsive adjustments to match sample mixins */
-@media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.5rem; }
-  h4 { font-size: 1.125rem; }
-  h5 { font-size: 1rem; }
+/* Desktop (≥1024px) - Professional scaling */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem; /* text-5xl - Ấn tượng */
+    margin: 3rem 0 1.5rem;
+    line-height: 1.1;
+  }
+  
+  h2 {
+    font-size: 2.25rem; /* text-4xl - Mạnh mẽ */
+    margin: 2.5rem 0 1.25rem;
+    line-height: 1.2;
+  }
+  
+  h3 {
+    font-size: 1.875rem; /* text-3xl - Nổi bật */
+    margin: 2rem 0 1rem;
+    line-height: 1.3;
+  }
+  
+  h4 {
+    font-size: 1.5rem; /* text-2xl - Rõ ràng */
+    margin: 1.75rem 0 0.875rem;
+  }
+  
+  h5 {
+    font-size: 1.25rem; /* text-xl - Tốt */
+    margin: 1.5rem 0 0.75rem;
+  }
+  
+  p {
+    font-size: 1.125rem; /* text-lg - Dễ đọc trên màn lớn */
+    line-height: 1.6;
+  }
 }
 
-@media (max-width: 1600px) {
-  h6 { font-size: 12px; }
-  h2 { font-size: 2.25rem; }
-  h4 { font-size: 1.5rem; }
-  h5 { font-size: 1.25rem; }
+/* Large Desktop (≥1280px) - Impressive scaling */
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 3.75rem; /* text-6xl - Hero impact */
+    margin: 4rem 0 2rem;
+  }
+  
+  h2 {
+    font-size: 3rem; /* text-5xl - Strong */
+    margin: 3rem 0 1.5rem;
+  }
+  
+  h3 {
+    font-size: 2.25rem; /* text-4xl - Clear */
+    margin: 2.5rem 0 1.25rem;
+  }
+  
+  h4 {
+    font-size: 1.875rem; /* text-3xl - Good */
+    margin: 2rem 0 1rem;
+  }
+  
+  h5 {
+    font-size: 1.5rem; /* text-2xl - Nice */
+    margin: 1.75rem 0 0.875rem;
+  }
 }
 
-/* Reset nhỏ + logical properties (thân thiện RTL) */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body { margin: 0; }
+/* Extra Large (≥1536px) - Premium scaling */
+@media (min-width: 1536px) {
+  h1 {
+    font-size: 4.5rem; /* 72px - Premium hero */
+    margin: 5rem 0 2.5rem;
+    line-height: 1.05;
+  }
+  
+  h2 {
+    font-size: 3.75rem; /* text-6xl - Impressive */
+    margin: 4rem 0 2rem;
+    line-height: 1.1;
+  }
+  
+  h3 {
+    font-size: 3rem; /* text-5xl - Strong */
+    margin: 3rem 0 1.5rem;
+    line-height: 1.15;
+  }
+  
+  h4 {
+    font-size: 2.25rem; /* text-4xl - Clear */
+    margin: 2.5rem 0 1.25rem;
+  }
+  
+  h5 {
+    font-size: 1.875rem; /* text-3xl - Good */
+    margin: 2rem 0 1rem;
+  }
+  
+  p {
+    font-size: 1.25rem; /* text-xl - Luxurious reading */
+    line-height: 1.7;
+  }
+}
 
-/* Tailwind utilities: dùng gutter thay vì width cứng */
+/* Ultra Wide (≥1920px) - Cinematic scaling */
+@media (min-width: 1920px) {
+  h1 {
+    font-size: 6rem; /* 96px - Cinematic hero */
+    margin: 6rem 0 3rem;
+    line-height: 1.0;
+    letter-spacing: -0.05em; /* Tighter cho text lớn */
+  }
+  
+  h2 {
+    font-size: 4.5rem; /* 72px - Dramatic */
+    margin: 5rem 0 2.5rem;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+  
+  h3 {
+    font-size: 3.75rem; /* text-6xl - Bold */
+    margin: 4rem 0 2rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+  
+  h4 {
+    font-size: 3rem; /* text-5xl - Strong */
+    margin: 3rem 0 1.5rem;
+    line-height: 1.15;
+  }
+  
+  h5 {
+    font-size: 2.25rem; /* text-4xl - Clear */
+    margin: 2.5rem 0 1.25rem;
+  }
+  
+  p {
+    font-size: 1.375rem; /* 22px - Ultra comfortable */
+    line-height: 1.8;
+    max-width: 75ch; /* Giới hạn độ rộng để dễ đọc */
+  }
+}
+
+/* =============================================================================
+   UTILITIES
+   ========================================================================== */
+
 @layer utilities {
-  /* 16-column grid to match the sample grid system */
-  .grid-16 {
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-  }
-  @media (max-width: 1023.98px) {
-    .grid-16 {
-      grid-template-columns: repeat(8, 1fr);
-    }
-  }
-
-  /* Padding ngang theo gutter toàn cục */
+  /* Layout utilities */
   .px-gutter { padding-inline: var(--gutter-h); }
-  /* Margin ngang theo gutter nếu cần canh lề ngoài */
-  .mx-gutter { margin-inline: var(--gutter-h); }
-  /* Padding dọc theo block spacing */
   .py-block { padding-block: var(--block-spacing); }
-
-  /* Container “hiện đại”: full width + căn giữa + gutter responsive
-     Có thể kết hợp thêm max-w-* của Tailwind nếu muốn đặt trần. */
+  .my-block { margin-block: var(--block-spacing); }
+  
   .container-gutter {
     width: 100%;
     margin-inline: auto;
     padding-inline: var(--gutter-h);
   }
+  
+  /* Accessibility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 }
 
-/* Components: mặc định container cho các chỗ chưa theo chuẩn mới */
+/* =============================================================================
+   COMPONENTS
+   ========================================================================== */
+
 @layer components {
-  /* Không ép max-width; nếu đang dùng Tailwind .container với max-width, rule này chỉ bổ sung padding inline */
-  .container {
-    width: 100%;
-    margin-inline: auto;
-    padding-inline: var(--gutter-h);
-  }
-
-  /* Fade-in animations used by Hero MediaStack (replicates sample keyframes) */
+  /* Animations */
   @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(4rem);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(1rem); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  .fade-in-1 {
-    opacity: 0;
-    transform: translateY(4rem);
-    animation: fadeIn 2s cubic-bezier(0, 0.2, 0.2, 1) 0.5s forwards;
+  
+  .fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
-  .fade-in-2 {
-    opacity: 0;
-    transform: translateY(4rem);
-    animation: fadeIn 3s cubic-bezier(0, 0.2, 0.2, 1) 1s forwards;
+  
+  /* Focus ring */
+  .focus-ring:focus-visible {
+    outline: 2px solid rgb(59 130 246);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
   }
 }
