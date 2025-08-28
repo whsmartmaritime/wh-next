@@ -10,7 +10,7 @@
   
   /* Fade effect - chỉ áp dụng cho grid-line TRỰC TIẾP bên trong fade-top */
   .fade-top > .grid-line {
-    mask: linear-gradient(to bottom, transparent 0px, black 8vh);
-    -webkit-mask: linear-gradient(to bottom, transparent 0px, black 8vh);
+    mask: linear-gradient(to bottom, transparent 0px, black 50vh);
+    -webkit-mask: linear-gradient(to bottom, transparent 0px, black 50vh);
   }
 }
