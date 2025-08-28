@@ -135,7 +135,7 @@ export default function MegaMenu() {
             className="relative"
           >
             <div className="flex items-center h-full">
-              <Link href={item.href ?? '#'} className="inline-flex py-2 text-base font-medium hover:opacity-80 transition-opacity"> {/* chữ menu chưa xổ xuống */}
+              <Link href={item.href ?? '#'} className="text-lg xl:text-lg inline-flex py-2 font-medium hover:opacity-80 transition-opacity"> {/* chữ menu chưa xổ xuống */}
                 {item.key && t(`${item.key}.title`) || item.href}
               </Link>
             </div>
@@ -173,7 +173,7 @@ export default function MegaMenu() {
               <div className="container-gutter grid grid-cols-12 gap-x-8 pt-6">
                 {/* Column 1: description spans 4 cols */}
                 <div className="col-span-12 md:col-span-2 space-y-3">
-                  <p className="text-base md:text-xl leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
+                  <p className="leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
                     {activeItem?.descKey ? t(activeItem.descKey as never) : (activeItem?.key ? t(`${activeItem.key}.desc`) : '')}
                   </p>
                 </div>
@@ -185,7 +185,7 @@ export default function MegaMenu() {
                       <div className="uppercase tracking-[0.25em] text-xs opacity-95 mb-1">{t(cols[0].titleKey as never)}</div>
                       {cols[0].links.filter(l => !l.hidden).map((p) => (
                         <Link key={p.href} href={p.href} className="block rounded-lg">
-                          <div className="text-base font-bold hover:opacity-80 transition-opacity">{t(p.titleKey as never)}</div>
+                          <div className="text-lg xl:text-lg py-1.5 font-bold hover:opacity-80 transition-opacity">{t(p.titleKey as never)}</div>
                         </Link>
                       ))}
                     </>
@@ -199,7 +199,7 @@ export default function MegaMenu() {
                       <div className="uppercase tracking-[0.25em] text-xs opacity-95 mb-1">{t(cols[1].titleKey as never)}</div>
                       {cols[1].links.filter(l => !l.hidden).map((p) => (
                         <Link key={p.href} href={p.href} className="block rounded-lg">
-                          <div className="text-base  font-bold hover:opacity-80 transition-opacity">{t(p.titleKey as never)}</div>
+                          <div className="text-lg xl:text-lg py-1.5 font-bold hover:opacity-80 transition-opacity">{t(p.titleKey as never)}</div>
                         </Link>
                       ))}
                     </>
@@ -239,7 +239,7 @@ export default function MegaMenu() {
                             className="rounded-md object-cover"
                           />
                         ) : null}
-                        <p className="text-base md:text-xl leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
+                        <p className="leading-snug tracking-tight text-neutral-600 dark:text-neutral-300">
                           {previewCol
                             ? t(previewCol.introKey as never)
                             : t(activeItem?.descKey ?? `${activeItem?.key}.desc`)}
