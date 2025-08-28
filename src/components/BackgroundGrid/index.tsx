@@ -1,10 +1,6 @@
 import React from 'react'
 
-import classes from './index.module.scss'
-
-type GridLineStyles = {
-  [index: number]: React.CSSProperties
-}
+type GridLineStyles = { [index: number]: React.CSSProperties }
 
 type Props = {
   className?: string
@@ -13,8 +9,9 @@ type Props = {
   style?: React.CSSProperties
   wideGrid?: boolean
   zIndex?: number
-  columns?: number // ép số cột (mặc định 12)
 }
+
+const cn = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ')
 
 export const BackgroundGrid: React.FC<Props> = ({
   className,
@@ -22,47 +19,37 @@ export const BackgroundGrid: React.FC<Props> = ({
   ignoreGutter,
   style,
   wideGrid = false,
-  zIndex = 0,
-  columns = 12, // dùng 12 cột
+  zIndex = -1,
 }: Props) => {
-  // 4 segment trên 12 cột => mỗi segment span 3 track
-  const segments = 4
-  const cellSpan = Math.floor(columns / segments) // 12/4 = 3
+  // Grid lines: 5 normal, 4 wide (adapt sample to 12-col)
+  const lines = wideGrid ? 4 : 5
+  
+  // 12-col positions equivalent to sample 16-col percentages
+  const positions = wideGrid 
+    ? ['1/1', '1/3', '1/11', '1/13']           // 0%, ~17%, ~83%, 100%
+    : ['1/1', '1/4', '1/7', '1/10', '1/13']   // 0%, 25%, 50%, 75%, 100%
+  
+  const visibility = wideGrid
+    ? ['', 'lg:block hidden', 'lg:block hidden', '']                    // wide
+    : ['', 'lg:block hidden', 'md:block hidden', 'lg:block hidden', ''] // normal
 
   return (
     <div
       aria-hidden="true"
-      className={[
-        classes.backgroundGrid,
-        'grid',
-        'background-grid',
-        ignoreGutter && classes.ignoreGutter,
-        className,
-        // wideGrid của sample dành cho 16-col, bỏ qua để tránh lệch
-      ]
-        .filter(Boolean)
-        .join(' ')}
-      style={{
-        ...style,
-        zIndex,
-        // ép grid 12 cột, ghi đè SCSS
-        gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
-      }}
+      className={cn(
+        "absolute top-0 h-full pointer-events-none select-none grid background-grid",
+        ignoreGutter ? "left-0 w-full" : "left-gutter w-[calc(100%-var(--gutter-h)*2)]",
+        className
+      )}
+      style={{ ...style, zIndex }}
     >
-      {Array.from({ length: segments }).map((_, index) => (
+      {Array.from({ length: lines }, (_, i) => (
         <div
-          key={index}
-          className={classes.column}
-          // mỗi “ô” chiếm 3 track để đặt vạch ở 0,3,6,9
-          style={{ gridColumn: `span ${cellSpan} / span ${cellSpan}`, ...(gridLineStyles[index] || {}) }}
+          key={i}
+          className={cn("w-px bg-[var(--theme-border-color)]", visibility[i])}
+          style={{ gridArea: positions[i], ...(gridLineStyles[i] || {}) }}
         />
       ))}
-
-      {/* vẽ vạch biên phải (cột 12) để luôn thấy vạch cuối */}
-      <span
-        className="absolute right-0 top-0 h-full w-px bg-[rgba(0,0,0,0.08)] dark:bg-[rgba(255,255,255,0.18)]"
-        style={gridLineStyles[segments] || {}}
-      />
     </div>
   )
 }
