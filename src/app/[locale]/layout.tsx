@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import '@/styles/typography.css';
 export default async function LocaleLayout({
   children,
   params,

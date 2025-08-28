@@ -4,6 +4,12 @@
    CSS CUSTOM PROPERTIES
    ========================================================================== */
 
+@import "tailwindcss";
+
+/* =============================================================================
+   GLOBAL CSS VARIABLES & BASE STYLES
+   ========================================================================== */
+
 :root {
   /* Color scheme */
   color-scheme: light;
@@ -20,6 +26,122 @@
   --theme-border-light: rgba(255, 255, 255, 0.08);
   --theme-border-dark: rgba(255, 255, 255, 0.12);
   --theme-border-color: var(--theme-border-light);
+}
+
+/* =============================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* Small screens (≥640px) */
+@media (min-width: 640px) {
+  :root {
+    --gutter-h: 1.5rem;
+    --block-spacing: 2.5rem;
+  }
+}
+
+/* Medium screens (≥768px) */
+@media (min-width: 768px) {
+  :root {
+    --gutter-h: 2rem;
+    --block-spacing: 3.5rem;
+  }
+}
+
+/* Large screens (≥1024px) */
+@media (min-width: 1024px) {
+  :root {
+    --gutter-h: 4rem;
+    --block-spacing: 5rem;
+    --header-height: 76px;
+  }
+}
+
+/* Extra large screens (≥1600px) */
+@media (min-width: 1600px) {
+  :root {
+    --gutter-h: 8rem;
+    --header-height: 90px;
+  }
+}
+
+/* Super large screens (≥1920px) */
+@media (min-width: 1920px) {
+  :root {
+    --gutter-h: calc(50vw - 50rem);
+  }
+}
+
+/* =============================================================================
+   DARK MODE
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root { --theme-border-color: var(--theme-border-dark); }
+}
+
+.dark {
+  color-scheme: dark;
+  --theme-border-color: var(--theme-border-dark);
+}
+
+/* =============================================================================
+   BASE STYLES
+   ========================================================================== */
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 100%;
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    min-height: 100%;
+    line-height: 1.6;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+  }
+  
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+/* =============================================================================
+   GLOBAL UTILITIES
+   ========================================================================== */
+
+@layer utilities {
+  .px-gutter { padding-inline: var(--gutter-h); }
+  .py-block { padding-block: var(--block-spacing); }
+  .my-block { margin-block: var(--block-spacing); }
+  
+  .container-gutter {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--gutter-h);
+  }
+  
+  .left-gutter { left: var(--gutter-h); }
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 }
 
 /* =============================================================================
@@ -96,46 +218,33 @@
   
   body {
     margin: 0;
-    height: 100%;
-    font-size: 1rem; /* text-base */
+    min-height: 100%;
     line-height: 1.6;
-    background-color: #ffffff;
-    color: #000000;
     font-family: system-ui, -apple-system, sans-serif;
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
   }
   
-  .dark body {
-    background-color: #000000;
-    color: #ffffff;
-  }
-  
-  /* ==========================================================================
-     TYPOGRAPHY - OPTIMAL SCALING
-     ======================================================================= */
-  
-  /* Base typography - Mobile-first (≤639px) */
+  /* Headings - Mobile first, optimized for readability */
   h1 {
     margin: 2rem 0 1rem;
-    font-size: 1.75rem; /* text-3xl - Đủ lớn nhưng không choáng */
+    font-size: 1.75rem; /* text-3xl - Mobile friendly */
     line-height: 1.2;
     font-weight: 700;
-    letter-spacing: -0.025em;
   }
   
   h2 {
     margin: 1.5rem 0 0.75rem;
-    font-size: 1.5rem; /* text-2xl - Cân đối */
+    font-size: 1.5rem; /* text-2xl - Proportional */
     line-height: 1.3;
     font-weight: 600;
-    letter-spacing: -0.025em;
   }
   
   h3 {
     margin: 1.25rem 0 0.5rem;
-    font-size: 1.25rem; /* text-xl - Rõ ràng */
+    font-size: 1.25rem; /* text-xl - Clear hierarchy */
     line-height: 1.4;
     font-weight: 600;
-    letter-spacing: -0.025em;
   }
   
   h4 {
@@ -202,169 +311,40 @@
   }
   
   h3 {
-    font-size: 1.5rem; /* text-2xl - Rõ ràng */
-    margin: 1.75rem 0 0.875rem;
-  }
-  
-  h4 {
-    font-size: 1.25rem; /* text-xl - Dễ đọc */
+    font-size: 1.5rem; /* text-2xl - Tỉ lệ tốt */
     margin: 1.5rem 0 0.75rem;
   }
   
-  h5 {
-    font-size: 1.125rem; /* text-lg - Tốt */
-    margin: 1.25rem 0 0.5rem;
-  }
-  
   p {
-    font-size: 1rem; /* text-base - Standard desktop */
-    line-height: 1.6;
+    font-size: 1rem; /* text-base - Chuẩn desktop */
   }
 }
 
-/* Desktop (≥1024px) - Professional scaling */
+/* Desktop (≥1024px) - Premium scaling */
 @media (min-width: 1024px) {
   h1 {
-    font-size: 3rem; /* text-5xl - Ấn tượng */
-    margin: 3rem 0 1.5rem;
-    line-height: 1.1;
-  }
-  
-  h2 {
-    font-size: 2.25rem; /* text-4xl - Mạnh mẽ */
-    margin: 2.5rem 0 1.25rem;
-    line-height: 1.2;
-  }
-  
-  h3 {
-    font-size: 1.875rem; /* text-3xl - Nổi bật */
-    margin: 2rem 0 1rem;
-    line-height: 1.3;
-  }
-  
-  h4 {
-    font-size: 1.5rem; /* text-2xl - Rõ ràng */
-    margin: 1.75rem 0 0.875rem;
-  }
-  
-  h5 {
-    font-size: 1.25rem; /* text-xl - Tốt */
-    margin: 1.5rem 0 0.75rem;
-  }
-  
-  p {
-    font-size: 1.125rem; /* text-lg - Dễ đọc trên màn lớn */
-    line-height: 1.6;
-  }
-}
-
-/* Large Desktop (≥1280px) - Impressive scaling */
-@media (min-width: 1280px) {
-  h1 {
-    font-size: 3.75rem; /* text-6xl - Hero impact */
-    margin: 4rem 0 2rem;
-  }
-  
-  h2 {
-    font-size: 3rem; /* text-5xl - Strong */
+    font-size: 3rem; /* text-5xl - Hero size */
     margin: 3rem 0 1.5rem;
   }
   
-  h3 {
-    font-size: 2.25rem; /* text-4xl - Clear */
-    margin: 2.5rem 0 1.25rem;
-  }
-  
-  h4 {
-    font-size: 1.875rem; /* text-3xl - Good */
-    margin: 2rem 0 1rem;
-  }
-  
-  h5 {
-    font-size: 1.5rem; /* text-2xl - Nice */
-    margin: 1.75rem 0 0.875rem;
-  }
-}
-
-/* Extra Large (≥1536px) - Premium scaling */
-@media (min-width: 1536px) {
-  h1 {
-    font-size: 4.5rem; /* 72px - Premium hero */
-    margin: 5rem 0 2.5rem;
-    line-height: 1.05;
-  }
-  
   h2 {
-    font-size: 3.75rem; /* text-6xl - Impressive */
-    margin: 4rem 0 2rem;
-    line-height: 1.1;
-  }
-  
-  h3 {
-    font-size: 3rem; /* text-5xl - Strong */
-    margin: 3rem 0 1.5rem;
-    line-height: 1.15;
-  }
-  
-  h4 {
-    font-size: 2.25rem; /* text-4xl - Clear */
+    font-size: 2.25rem; /* text-4xl - Section headers */
     margin: 2.5rem 0 1.25rem;
   }
   
-  h5 {
-    font-size: 1.875rem; /* text-3xl - Good */
+  h3 {
+    font-size: 1.875rem; /* text-3xl - Sub-sections */
     margin: 2rem 0 1rem;
   }
   
   p {
-    font-size: 1.25rem; /* text-xl - Luxurious reading */
-    line-height: 1.7;
-  }
-}
-
-/* Ultra Wide (≥1920px) - Cinematic scaling */
-@media (min-width: 1920px) {
-  h1 {
-    font-size: 6rem; /* 96px - Cinematic hero */
-    margin: 6rem 0 3rem;
-    line-height: 1.0;
-    letter-spacing: -0.05em; /* Tighter cho text lớn */
-  }
-  
-  h2 {
-    font-size: 4.5rem; /* 72px - Dramatic */
-    margin: 5rem 0 2.5rem;
-    line-height: 1.05;
-    letter-spacing: -0.04em;
-  }
-  
-  h3 {
-    font-size: 3.75rem; /* text-6xl - Bold */
-    margin: 4rem 0 2rem;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-  }
-  
-  h4 {
-    font-size: 3rem; /* text-5xl - Strong */
-    margin: 3rem 0 1.5rem;
-    line-height: 1.15;
-  }
-  
-  h5 {
-    font-size: 2.25rem; /* text-4xl - Clear */
-    margin: 2.5rem 0 1.25rem;
-  }
-  
-  p {
-    font-size: 1.375rem; /* 22px - Ultra comfortable */
+    font-size: 1.125rem; /* text-lg - Comfortable reading */
     line-height: 1.8;
-    max-width: 75ch; /* Giới hạn độ rộng để dễ đọc */
   }
 }
 
 /* =============================================================================
-   UTILITIES
+   UTILITY CLASSES
    ========================================================================== */
 
 @layer utilities {
@@ -378,6 +358,9 @@
     margin-inline: auto;
     padding-inline: var(--gutter-h);
   }
+  
+  /* Grid utilities */
+  .left-gutter { left: var(--gutter-h); }
   
   /* Accessibility */
   .sr-only {
@@ -394,7 +377,7 @@
 }
 
 /* =============================================================================
-   COMPONENTS
+   COMPONENT STYLES
    ========================================================================== */
 
 @layer components {
@@ -407,6 +390,26 @@
   .fade-top > .grid-line {
     mask: linear-gradient(to bottom, transparent 0px, black 50vh);
     -webkit-mask: linear-gradient(to bottom, transparent 0px, black 50vh);
+  }
+
+  /* Scanline background - theme responsive */
+  .scanline-bg {
+    background-image: url('/images/scanline-dark.png');
+    opacity: 0.08;
+  }
+  
+  [data-theme='dark'] .scanline-bg {
+    background-image: url('/images/scanline-light.png');
+    opacity: 0.1;
+  }
+  
+  /* Crosshair icons - theme responsive colors */
+  .crosshair-icon {
+    color: var(--theme-elevation-1000);
+  }
+  
+  [data-theme='light'] .crosshair-icon {
+    color: var(--theme-elevation-400);
   }
 
   /* Animations */

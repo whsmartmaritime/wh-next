@@ -1,0 +1,116 @@
+/* =============================================================================
+   TYPOGRAPHY STYLES
+   ========================================================================== */
+
+@layer base {
+  /* Headings - Mobile first, optimized for readability */
+  h1 {
+    margin: 2rem 0 1rem;
+    font-size: 1.75rem; /* text-3xl - Mobile friendly */
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  
+  h2 {
+    margin: 1.5rem 0 0.75rem;
+    font-size: 1.5rem; /* text-2xl - Proportional */
+    line-height: 1.3;
+    font-weight: 600;
+  }
+  
+  h3 {
+    margin: 1.25rem 0 0.5rem;
+    font-size: 1.25rem; /* text-xl - Clear hierarchy */
+    line-height: 1.4;
+    font-weight: 600;
+  }
+  
+  h4 {
+    margin: 1rem 0 0.5rem;
+    font-size: 1.125rem; /* text-lg - Dễ đọc */
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  
+  h5 {
+    margin: 1rem 0 0.25rem;
+    font-size: 1rem; /* text-base - Standard */
+    line-height: 1.5;
+    font-weight: 600;
+  }
+  
+  h6 {
+    margin: 1rem 0;
+    font-size: 0.875rem; /* text-sm */
+    line-height: 1.5;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  p {
+    margin: 1em 0;
+    font-size: 0.875rem; /* text-sm - Thoải mái đọc trên mobile */
+    line-height: 1.7;
+  }
+  
+  /* Links */
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.125em;
+  }
+  
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* =============================================================================
+   RESPONSIVE TYPOGRAPHY - OPTIMAL SCALING
+   ========================================================================== */
+
+/* Tablet (≥640px) - Balanced scaling */
+@media (min-width: 640px) {
+  h1 {
+    font-size: 2.25rem; /* text-4xl - Nổi bật */
+    margin: 2.5rem 0 1.25rem;
+  }
+  
+  h2 {
+    font-size: 1.875rem; /* text-3xl - Cân đối */
+    margin: 2rem 0 1rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem; /* text-2xl - Tỉ lệ tốt */
+    margin: 1.5rem 0 0.75rem;
+  }
+  
+  p {
+    font-size: 1rem; /* text-base - Chuẩn desktop */
+  }
+}
+
+/* Desktop (≥1024px) - Premium scaling */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem; /* text-5xl - Hero size */
+    margin: 3rem 0 1.5rem;
+  }
+  
+  h2 {
+    font-size: 2.25rem; /* text-4xl - Section headers */
+    margin: 2.5rem 0 1.25rem;
+  }
+  
+  h3 {
+    font-size: 1.875rem; /* text-3xl - Sub-sections */
+    margin: 2rem 0 1rem;
+  }
+  
+  p {
+    font-size: 1.125rem; /* text-lg - Comfortable reading */
+    line-height: 1.8;
+  }
+}

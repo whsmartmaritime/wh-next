@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '../styles/animations.css';
 import { cookies } from 'next/headers';
 import { getLocale } from 'next-intl/server';
 
