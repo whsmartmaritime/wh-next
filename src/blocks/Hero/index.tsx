@@ -1,8 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-/* import BackgroundGradient from '../../components/BackgroundGradient'
 import { BackgroundGrid } from '../../components/BackgroundGrid'
-import { BackgroundScanline } from '../../components/BackgroundScanline' */
 import CTAButton from '@/components/Button'
 import LogoShowcase, { LogoItem } from './LogoShowcase'
 
@@ -14,10 +12,8 @@ export default async function Hero() {
   return (
     <section data-theme="dark" className="group relative overflow-visible min-h-[100vh] py-block text-white">
       {/* Backgrounds (behind content) */}
-{/*       <BackgroundScanline className="pointer-events-none absolute inset-0 z-0" />
-      <BackgroundGradient className="pointer-events-none absolute inset-0 -z-10" />
-      <BackgroundGrid className='pointer-events-none absolute inset-0 -z-20' /> */}
-
+{/*       <BackgroundGrid fadeTop={true} />
+ */}
       {/* Content */}
     <div className="container-gutter relative z-10 grid grid-cols-1 gap-6 lg:grid-cols-12 items-start">
       {/* Left: text (approx sample: 25% on desktop) */}

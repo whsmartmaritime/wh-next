@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import BackgroundGradient from '@/components/BackgroundGradient'
-import { BackgroundGrid } from '@/components/BackgroundGrid'
 import { BackgroundScanline } from '@/components/BackgroundScanline'
 import WhyWheelhouse from '@/blocks/WhyWheelhouse';
 
@@ -52,17 +51,6 @@ export default async function HomePage() {
       {/* Nền toàn trang (cố định, không che Header/Topbar) */}
       <BackgroundGradient
         className="pointer-events-none fixed inset-0"
-      />
-      <BackgroundGrid
-        className="pointer-events-none fixed inset-0"
-        style={{
-          zIndex: 1,
-          // Grid mờ dần ở phía trên
-          WebkitMaskImage:
-            'linear-gradient(to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0.2) 40px, rgba(0,0,0,0.6) 80px, rgba(0,0,0,1) 140px)',
-          maskImage:
-            'linear-gradient(to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0.2) 40px, rgba(0,0,0,0.6) 80px, rgba(0,0,0,1) 140px)',
-        }}
       />
       <BackgroundScanline
         className="pointer-events-none fixed inset-0"

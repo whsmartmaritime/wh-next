@@ -9,6 +9,7 @@ type Props = {
   style?: React.CSSProperties
   wideGrid?: boolean
   zIndex?: number
+  fadeTop?: boolean // Simple fade effect như sample hero
 }
 
 const cn = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ')
@@ -20,6 +21,7 @@ export const BackgroundGrid: React.FC<Props> = ({
   style,
   wideGrid = false,
   zIndex = -1,
+  fadeTop = false,
 }: Props) => {
   // Grid lines: 5 normal, 4 wide (adapt sample to 12-col)
   const lines = wideGrid ? 4 : 5
@@ -39,6 +41,7 @@ export const BackgroundGrid: React.FC<Props> = ({
       className={cn(
         "absolute top-0 h-full pointer-events-none select-none grid background-grid",
         ignoreGutter ? "left-0 w-full" : "left-gutter w-[calc(100%-var(--gutter-h)*2)]",
+        fadeTop ? "fade-top" : undefined, // Thêm class cho fade effect
         className
       )}
       style={{ ...style, zIndex }}
@@ -46,7 +49,10 @@ export const BackgroundGrid: React.FC<Props> = ({
       {Array.from({ length: lines }, (_, i) => (
         <div
           key={i}
-          className={cn("w-px bg-[var(--theme-border-color)]", visibility[i])}
+          className={cn(
+            "w-px bg-[var(--theme-border-color)] grid-line", // Luôn có background
+            visibility[i]
+          )}
           style={{ gridArea: positions[i], ...(gridLineStyles[i] || {}) }}
         />
       ))}

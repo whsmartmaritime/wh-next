@@ -6,7 +6,6 @@ import { routing } from '@/i18n/routing';
 import TopBar from '@/components/TopBar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { BackgroundGrid } from '@/components/BackgroundGrid'
 export default async function LocaleLayout({
   children,
   params,
@@ -25,7 +24,6 @@ export default async function LocaleLayout({
   // Nested layout: providers + chrome only (no <html>/<body>)
   return (
     <>
-      <BackgroundGrid className='pointer-events-none absolute inset-0 -z-20' />
       <NextIntlClientProvider locale={activeLocale} messages={messages}>
         <TopBar />
         <Header />

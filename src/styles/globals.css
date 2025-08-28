@@ -398,6 +398,17 @@
    ========================================================================== */
 
 @layer components {
+  /* Grid system */
+  .background-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  /* Fade effect cho các đường kẻ grid - dùng mask để mờ dần */
+  .fade-top .grid-line {
+    mask: linear-gradient(to bottom, transparent 0px, black 8vh);
+    -webkit-mask: linear-gradient(to bottom, transparent 0px, black 8vh);
+  }
+
   /* Animations */
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(1rem); }
