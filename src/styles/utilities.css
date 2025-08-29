@@ -1,14 +1,18 @@
 /* Utility classes dùng chung */
 @layer utilities {
+  /* Layout utilities */
   .px-gutter { padding-inline: var(--gutter-h); }
   .py-block { padding-block: var(--block-spacing); }
   .my-block { margin-block: var(--block-spacing); }
+  
   .container-gutter {
     width: 100%;
-    margin-inline: auto;
     padding-inline: var(--gutter-h);
   }
+  
   .left-gutter { left: var(--gutter-h); }
+  
+  /* Accessibility */
   .sr-only {
     position: absolute;
     width: 1px;
