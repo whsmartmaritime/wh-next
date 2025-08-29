@@ -6,7 +6,7 @@ export default async function Hero() {
   const t = await getTranslations('Hero')
 
   return (
-    <section data-theme="dark" className="container-gutter overflow-visible min-h-[75vh] lg:min-h-[100vh] pt-16 lg:pt-16 pb-16 lg:pb-16 text-white">
+    <section className="theme-dark container-gutter overflow-visible min-h-[75vh] lg:min-h-[100vh] pt-16 lg:pt-16 pb-16 lg:pb-16">
       {/* Backgrounds (behind content) */}
       <BackgroundGrid fadeTop={true} />
       
@@ -15,10 +15,11 @@ export default async function Hero() {
         
         {/* Left: text content - cols-3 (25% like sample's cols-4/16) */}
         <div className="flex flex-col lg:col-span-3 lg:order-1">
-          <h1 className="text-white font-semibold leading-tight tracking-tight text-balance w-full lg:w-[150%]">
-            {t('title')}
+          <h1 className="font-semibold leading-tight tracking-tight text-balance w-full lg:w-[150%]">
+            <span className="text-sky-700">{t('brand')} </span>
+            <span>{t('title')}</span>
           </h1>
-          <h2 className="text-white/80">{t('subtitle')}</h2>
+          <h2>{t('subtitle')}</h2>
 
             <CTAButton theme="dark" href="/contact">
               {t('ctaPrimary')}
