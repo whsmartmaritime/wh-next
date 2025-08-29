@@ -1,0 +1,11 @@
+/* Semantic z-index system dùng chung */
+@layer utilities {
+  .z-background-far { z-index: -30; }
+  .z-background-mid { z-index: -20; }
+  .z-background-near { z-index: -10; }
+  .z-content { z-index: 10; }
+  .z-interactive { z-index: 20; }
+  .z-overlay { z-index: 30; }
+  .z-modal { z-index: 40; }
+  .z-toast { z-index: 50; }
+}

@@ -1,0 +1,41 @@
+/* =============================================================================
+   LAYOUT UTILITIES
+   ========================================================================== */
+
+@layer utilities {
+  /* Container utilities */
+  .container-gutter {
+    padding-left: var(--gutter-h);
+    padding-right: var(--gutter-h);
+  }
+
+  .block-spacing {
+    margin-bottom: var(--block-spacing);
+  }
+
+  /* Grid utilities */
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--gutter-h);
+  }
+
+  /* Responsive utilities */
+  .mobile-only {
+    @media (width >= 768px) {
+      display: none;
+    }
+  }
+
+  .tablet-up {
+    @media (width < 768px) {
+      display: none;
+    }
+  }
+
+  .desktop-up {
+    @media (width < 1024px) {
+      display: none;
+    }
+  }
+}
