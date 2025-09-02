@@ -1,11 +1,19 @@
-/* Semantic z-index system dùng chung */
+/* =============================================================================
+   SEMANTIC Z-INDEX SYSTEM
+   ========================================================================== */
+
 @layer utilities {
-  .z-background-far { z-index: -30; }
-  .z-background-mid { z-index: -20; }
-  .z-background-near { z-index: -10; }
-  .z-content { z-index: 10; }
-  .z-interactive { z-index: 20; }
-  .z-overlay { z-index: 30; }
-  .z-modal { z-index: 40; }
-  .z-toast { z-index: 50; }
+  /* Background layers - Behind content */
+  .z-background-far { z-index: -30; }   /* Videos, deep backgrounds */
+  .z-background-mid { z-index: -20; }   /* Grid patterns, textures */
+  .z-background-near { z-index: -10; }  /* Overlays, scanlines */
+
+  /* Content layers - Main content */
+  .z-content { z-index: 10; }           /* Text, images, main content */
+  .z-interactive { z-index: 20; }       /* Buttons, links, hover states */
+
+  /* Overlay layers - Above content */
+  .z-overlay { z-index: 30; }           /* Dropdowns, tooltips */
+  .z-modal { z-index: 40; }             /* Modals, dialogs */
+  .z-toast { z-index: 50; }             /* Notifications, alerts */
 }

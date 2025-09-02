@@ -1,14 +1,24 @@
-/* CSS Custom Properties & Theme Colors */
+/* =============================================================================
+   CSS CUSTOM PROPERTIES & VARIABLES
+   ========================================================================== */
+
 :root {
+  /* Color scheme */
   color-scheme: light;
+
+  /* Layout & spacing variables - Mobile first */
   --gutter-h: 1rem;
   --block-spacing: 2rem;
   --header-height: 66px;
   --column: calc((100vw - (var(--gutter-h) * 2)) / 12);
+  --radius: 0.625rem;
+
+  /* Theme border colors */
   --theme-border-light: rgba(255,255,255,0.08);
   --theme-border-dark: rgba(255,255,255,0.12);
   --theme-border-color: var(--theme-border-light);
-  --radius: 0.625rem;
+
+  /* Design system colors - Light theme */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
