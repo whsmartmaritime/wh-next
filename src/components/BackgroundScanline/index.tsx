@@ -1,4 +1,3 @@
-import { CrosshairIcon } from '@/components/icons/CrosshairIcon/index'
 import React from 'react'
 import { cn } from '@/lib/utils'
 
@@ -6,85 +5,74 @@ type CrosshairPosition = 'top-left' | 'bottom-left' | 'top-right' | 'bottom-righ
 
 interface Props {
   className?: string
+  style?: React.CSSProperties
   crosshairs?: 'all' | CrosshairPosition[]
   enableBorders?: boolean
-  style?: React.CSSProperties
+  scanlineImage?: string
 }
 
 export const BackgroundScanline: React.FC<Props> = ({
   className,
-  crosshairs,
-  enableBorders,
   style,
+  crosshairs,
+  enableBorders = false,
+  scanlineImage = '/images/scanline-dark.png'
 }: Props) => {
+  const CrosshairIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M8 0v16M0 8h16" stroke="currentColor" strokeWidth="1"/>
+    </svg>
+  )
+
   return (
     <div
       aria-hidden="true"
       className={cn(
-        "absolute inset-0 w-full h-full pointer-events-none",
-        enableBorders ? "border-t border-b border-[var(--theme-border-color)]" : undefined,
+        'absolute inset-0 pointer-events-none',
+        'z-20', // Scanline layer - above grid, below content
+        enableBorders && 'border-t border-b border-[var(--theme-border-color)]',
         className
       )}
       style={style}
     >
-      {/* Scanline background */}
+      {/* Scanline Background Texture - Like sample */}
       <div 
-        className={cn(
-          "absolute inset-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] bg-repeat box-border",
-          // Theme-responsive scanline background
-          "bg-[url('/images/scanline-dark.png')] opacity-[0.08]",
-          "[data-theme='dark']_&:bg-[url('/images/scanline-light.png')] [data-theme='dark']_&:opacity-[0.1]"
-        )}
+        className="absolute top-px left-px w-[calc(100%-2px)] h-[calc(100%-2px)] bg-repeat opacity-[0.08] box-border"
+        style={{
+          backgroundImage: `url('${scanlineImage}')`,
+        }}
       />
       
-      {/* Crosshairs */}
+      {/* Crosshairs - Like sample */}
       {crosshairs && (
         <>
           {(crosshairs === 'all' || crosshairs.includes('top-left')) && (
-            <CrosshairIcon
-              className={cn(
-                "absolute w-4 h-auto opacity-50 z-[1] -top-2 -left-2",
-                // Theme-responsive colors
-                "text-[var(--theme-elevation-1000)]",
-                "[data-theme='light']_&:text-[var(--theme-elevation-400)]"
-              )}
-            />
+            <div className="absolute w-4 h-4 -top-2 -left-2 text-[var(--theme-elevation-1000)] opacity-50 z-10">
+              <CrosshairIcon />
+            </div>
           )}
 
           {(crosshairs === 'all' || crosshairs.includes('bottom-left')) && (
-            <CrosshairIcon
-              className={cn(
-                "absolute w-4 h-auto opacity-50 z-[1] -bottom-2 -left-2",
-                // Theme-responsive colors
-                "text-[var(--theme-elevation-1000)]",
-                "[data-theme='light']_&:text-[var(--theme-elevation-400)]"
-              )}
-            />
+            <div className="absolute w-4 h-4 -bottom-2 -left-2 text-[var(--theme-elevation-1000)] opacity-50 z-10">
+              <CrosshairIcon />
+            </div>
           )}
 
           {(crosshairs === 'all' || crosshairs.includes('top-right')) && (
-            <CrosshairIcon
-              className={cn(
-                "absolute w-4 h-auto opacity-50 z-[1] -top-2 -right-2",
-                // Theme-responsive colors
-                "text-[var(--theme-elevation-1000)]",
-                "[data-theme='light']_&:text-[var(--theme-elevation-400)]"
-              )}
-            />
+            <div className="absolute w-4 h-4 -top-2 -right-2 text-[var(--theme-elevation-1000)] opacity-50 z-10">
+              <CrosshairIcon />
+            </div>
           )}
 
           {(crosshairs === 'all' || crosshairs.includes('bottom-right')) && (
-            <CrosshairIcon
-              className={cn(
-                "absolute w-4 h-auto opacity-50 z-[1] -bottom-2 -right-2",
-                // Theme-responsive colors
-                "text-[var(--theme-elevation-1000)]",
-                "[data-theme='light']_&:text-[var(--theme-elevation-400)]"
-              )}
-            />
+            <div className="absolute w-4 h-4 -bottom-2 -right-2 text-[var(--theme-elevation-1000)] opacity-50 z-10">
+              <CrosshairIcon />
+            </div>
           )}
         </>
       )}
     </div>
   )
 }
+
+export default BackgroundScanline

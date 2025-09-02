@@ -13,8 +13,13 @@ export default async function WhyWheelhouse() {
 
   return (
     <section className="theme-dark relative container-gutter py-block space-y-12">
+      {/* Background layer */}
+      <div className="absolute inset-0 bg-white z-0"></div>
+      {/* Grid layer */}
       <BackgroundGrid />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+      {/* Content layer */}
+      <div className="relative z-30">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
         {/* Title + Desc */}
         <div>
           <h2 className=" text-2xl font-bold mb-4">{t('missionTitle')}</h2>
@@ -46,6 +51,7 @@ export default async function WhyWheelhouse() {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

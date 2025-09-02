@@ -1,19 +1,25 @@
 /* =============================================================================
-   SEMANTIC Z-INDEX SYSTEM
+   Z-INDEX DOCUMENTATION - Using Direct Tailwind Classes
    ========================================================================== */
 
-@layer utilities {
-  /* Background layers - Behind content */
-  .z-background-far { z-index: -30; }   /* Videos, deep backgrounds */
-  .z-background-mid { z-index: -20; }   /* Grid patterns, textures */
-  .z-background-near { z-index: -10; }  /* Overlays, scanlines */
+/*
+Z-Index Layer System (using direct Tailwind classes):
 
-  /* Content layers - Main content */
-  .z-content { z-index: 10; }           /* Text, images, main content */
-  .z-interactive { z-index: 20; }       /* Buttons, links, hover states */
+Background Layers:
+- z-0:  Base backgrounds (solid colors, gradients) 
+- z-10: Grid patterns, textures
+- z-20: Scanlines, overlays
 
-  /* Overlay layers - Above content */
-  .z-overlay { z-index: 30; }           /* Dropdowns, tooltips */
-  .z-modal { z-index: 40; }             /* Modals, dialogs */
-  .z-toast { z-index: 50; }             /* Notifications, alerts */
-}
+Content Layers:  
+- z-30: Main content (text, images, cards)
+- z-40: Interactive elements (buttons, links, hover states)
+- z-50: Overlays (dropdowns, tooltips, modals)
+
+Usage:
+<BackgroundGradient />        <!-- Auto z-0 -->
+<BackgroundGrid />            <!-- Auto z-10 -->  
+<BackgroundScanline />        <!-- Auto z-20 -->
+<div className="relative z-30">Content</div>
+<button className="z-40">Interactive</button>
+<div className="z-50">Modal</div>
+*/

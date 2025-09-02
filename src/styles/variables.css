@@ -13,10 +13,10 @@
   --column: calc((100vw - (var(--gutter-h) * 2)) / 12);
   --radius: 0.625rem;
 
-  /* Theme border colors */
+  /* Theme border colors - SIMPLIFIED for auto theme detection */
   --theme-border-light: rgba(255,255,255,0.08);
   --theme-border-dark: rgba(255,255,255,0.12);
-  --theme-border-color: var(--theme-border-light);
+  --theme-border-color: currentColor; /* Use current text color */
 
   /* Base colors for theme backgrounds */
   --color-base-0: rgb(255, 255, 255);    /* Light theme background */

@@ -2,17 +2,43 @@ import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import { BackgroundGrid } from '@/components/BackgroundGrid'
 import CTAButton from '@/components/Button'
-import BackgroundGradient from '@/components/BackgroundGradient'
+import { BackgroundAnimation } from '@/components/BackgroundAnimation'
+import { BackgroundScanline } from '@/components/BackgroundScanline'
+
 export default async function Hero() {
   const t = await getTranslations('Hero')
 
   return (
     <section className="relative theme-dark-transparent container-gutter overflow-visible min-h-[75vh] lg:min-h-[100vh] pt-16 lg:pt-16 pb-16 lg:pb-16">
-      {/* Backgrounds (behind content) */}
-      <BackgroundGrid fadeTop={true} />
-      <BackgroundGradient />
-      {/* Content - 12-col grid matching sample proportions */}
-      <div className="grid grid-cols-1  lg:grid-cols-12 items-center">
+      {/* 
+        Background System theo Sample - 3 Layers:
+        1. BackgroundAnimation (z-0) - Video + CRT effect như sample
+        2. BackgroundGrid (z-10) - Đường kẻ dọc chia màn hình
+        3. BackgroundScanline (z-20) - Texture scanline
+      */}
+      
+      {/* Layer 1: Video Background như Sample */}
+      <BackgroundAnimation 
+        videoSrc="/images/glass-animation.mp4"
+        enableCrtEffect={true}
+      />
+      
+      {/* Layer 2: Grid Structure theo hệ 12 cột */}
+      <BackgroundGrid 
+        ignoreGutter={false}
+        lineColor="white"
+        opacity={0.3}
+      />
+      
+      {/* Layer 3: Scanline Effects như Sample */}
+      <BackgroundScanline 
+        enableBorders={false}
+        crosshairs="all" 
+      />
+      
+      {/* Content Layer (z-30) */}
+      <div className="relative z-30">
+        <div className="grid grid-cols-1  lg:grid-cols-12 items-center">
         
         {/* Left: text content - cols-3 (25% like sample's cols-4/16) */}
         <div className="flex flex-col lg:col-span-3 lg:order-1">
@@ -82,6 +108,7 @@ export default async function Hero() {
             
           ]}
         /> */}
+        </div>
       </div>
     </section>
   )
