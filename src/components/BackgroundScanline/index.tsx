@@ -1,6 +1,6 @@
 import { CrosshairIcon } from '@/components/icons/CrosshairIcon/index'
 import React from 'react'
-import './styles.css'
+import { cn } from '@/lib/utils'
 
 type CrosshairPosition = 'top-left' | 'bottom-left' | 'top-right' | 'bottom-right'
 
@@ -10,8 +10,6 @@ interface Props {
   enableBorders?: boolean
   style?: React.CSSProperties
 }
-
-const cn = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ')
 
 export const BackgroundScanline: React.FC<Props> = ({
   className,
@@ -31,7 +29,12 @@ export const BackgroundScanline: React.FC<Props> = ({
     >
       {/* Scanline background */}
       <div 
-        className="absolute inset-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] bg-repeat box-border scanline-bg"
+        className={cn(
+          "absolute inset-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] bg-repeat box-border",
+          // Theme-responsive scanline background
+          "bg-[url('/images/scanline-dark.png')] opacity-[0.08]",
+          "[data-theme='dark']_&:bg-[url('/images/scanline-light.png')] [data-theme='dark']_&:opacity-[0.1]"
+        )}
       />
       
       {/* Crosshairs */}
@@ -39,25 +42,45 @@ export const BackgroundScanline: React.FC<Props> = ({
         <>
           {(crosshairs === 'all' || crosshairs.includes('top-left')) && (
             <CrosshairIcon
-              className="absolute w-4 h-auto opacity-50 z-[1] -top-2 -left-2 crosshair-icon"
+              className={cn(
+                "absolute w-4 h-auto opacity-50 z-[1] -top-2 -left-2",
+                // Theme-responsive colors
+                "text-[var(--theme-elevation-1000)]",
+                "[data-theme='light']_&:text-[var(--theme-elevation-400)]"
+              )}
             />
           )}
 
           {(crosshairs === 'all' || crosshairs.includes('bottom-left')) && (
             <CrosshairIcon
-              className="absolute w-4 h-auto opacity-50 z-[1] -bottom-2 -left-2 crosshair-icon"
+              className={cn(
+                "absolute w-4 h-auto opacity-50 z-[1] -bottom-2 -left-2",
+                // Theme-responsive colors
+                "text-[var(--theme-elevation-1000)]",
+                "[data-theme='light']_&:text-[var(--theme-elevation-400)]"
+              )}
             />
           )}
 
           {(crosshairs === 'all' || crosshairs.includes('top-right')) && (
             <CrosshairIcon
-              className="absolute w-4 h-auto opacity-50 z-[1] -top-2 -right-2 crosshair-icon"
+              className={cn(
+                "absolute w-4 h-auto opacity-50 z-[1] -top-2 -right-2",
+                // Theme-responsive colors
+                "text-[var(--theme-elevation-1000)]",
+                "[data-theme='light']_&:text-[var(--theme-elevation-400)]"
+              )}
             />
           )}
 
           {(crosshairs === 'all' || crosshairs.includes('bottom-right')) && (
             <CrosshairIcon
-              className="absolute w-4 h-auto opacity-50 z-[1] -bottom-2 -right-2 crosshair-icon"
+              className={cn(
+                "absolute w-4 h-auto opacity-50 z-[1] -bottom-2 -right-2",
+                // Theme-responsive colors
+                "text-[var(--theme-elevation-1000)]",
+                "[data-theme='light']_&:text-[var(--theme-elevation-400)]"
+              )}
             />
           )}
         </>

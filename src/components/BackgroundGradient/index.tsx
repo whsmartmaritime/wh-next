@@ -1,11 +1,9 @@
 import React, { Suspense } from 'react'
+import { cn } from '@/lib/utils'
 
 type BackgroundGradientProps = {
   className?: string
 }
-
-// Simple className utility
-const cn = (...classes: (string | undefined)[]) => classes.filter(Boolean).join(' ')
 
 export default function BackgroundGradient({ className }: BackgroundGradientProps) {
   return (
