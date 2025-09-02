@@ -2,8 +2,6 @@ import Hero from '@/blocks/Hero';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
-import BackgroundGradient from '@/components/BackgroundGradient'
-import { BackgroundScanline } from '@/components/BackgroundScanline'
 import WhyWheelhouse from '@/blocks/WhyWheelhouse';
 
 export async function generateMetadata(
@@ -42,24 +40,10 @@ export async function generateMetadata(
 export default async function HomePage() {
   return (
     <>
-      {/* Nội dung trang (nâng z-index để nổi lên trên nền) */}
-      <div className="relative z-30">
+ 
         <Hero />
         <WhyWheelhouse />
-      </div>
 
-      {/* Nền toàn trang (cố định, không che Header/Topbar) */}
-      <BackgroundGradient
-        className="pointer-events-none fixed inset-0"
-      />
-      <BackgroundScanline
-        className="pointer-events-none fixed inset-0"
-        style={{
-          zIndex: 2,
-          opacity: 0.12,           // tùy chỉnh độ mạnh scanline
-          mixBlendMode: 'soft-light',
-        }}
-      />
     </>
   );
 }

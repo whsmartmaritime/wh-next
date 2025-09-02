@@ -1,15 +1,16 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-import { BackgroundGrid } from '../../components/BackgroundGrid'
+import { BackgroundGrid } from '@/components/BackgroundGrid'
 import CTAButton from '@/components/Button'
+import BackgroundGradient from '@/components/BackgroundGradient'
 export default async function Hero() {
   const t = await getTranslations('Hero')
 
   return (
-    <section className="theme-dark container-gutter overflow-visible min-h-[75vh] lg:min-h-[100vh] pt-16 lg:pt-16 pb-16 lg:pb-16">
+    <section className="relative theme-dark container-gutter overflow-visible min-h-[75vh] lg:min-h-[100vh] pt-16 lg:pt-16 pb-16 lg:pb-16">
       {/* Backgrounds (behind content) */}
       <BackgroundGrid fadeTop={true} />
-      
+      <BackgroundGradient />
       {/* Content - 12-col grid matching sample proportions */}
       <div className="grid grid-cols-1  lg:grid-cols-12 items-center">
         
