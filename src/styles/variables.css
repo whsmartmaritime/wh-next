@@ -18,6 +18,12 @@
   --theme-border-dark: rgba(255,255,255,0.12);
   --theme-border-color: var(--theme-border-light);
 
+  /* Base colors for theme backgrounds */
+  --color-base-0: rgb(255, 255, 255);    /* Light theme background */
+  --color-base-1000: rgb(0, 0, 0);       /* Dark theme background */
+  --color-base-900: rgb(20, 20, 20);     /* Alternative dark */
+  --color-base-950: rgb(8, 8, 10);       /* Even darker option */
+
   /* Design system colors - Light theme */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

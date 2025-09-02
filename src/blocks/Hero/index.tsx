@@ -7,7 +7,7 @@ export default async function Hero() {
   const t = await getTranslations('Hero')
 
   return (
-    <section className="relative theme-dark container-gutter overflow-visible min-h-[75vh] lg:min-h-[100vh] pt-16 lg:pt-16 pb-16 lg:pb-16">
+    <section className="relative theme-dark-transparent container-gutter overflow-visible min-h-[75vh] lg:min-h-[100vh] pt-16 lg:pt-16 pb-16 lg:pb-16">
       {/* Backgrounds (behind content) */}
       <BackgroundGrid fadeTop={true} />
       <BackgroundGradient />
