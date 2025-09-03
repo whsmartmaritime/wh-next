@@ -3,24 +3,15 @@ import { cn } from '@/lib/utils'
 
 interface Props {
   className?: string
-  style?: React.CSSProperties
   ignoreGutter?: boolean
-  lineColor?: string
-  opacity?: number
-  debug?: boolean // Debug mode với màu rõ ràng
+  gradient?: boolean // Gradient effect cho Hero
 }
 
 export const BackgroundGrid: React.FC<Props> = ({
   className,
-  style,
   ignoreGutter = false,
-  lineColor = 'white',
-  opacity = 0.2,
-  debug = false
+  gradient = false
 }: Props) => {
-  // Debug mode override
-  const finalColor = debug ? 'red' : lineColor
-  const finalOpacity = debug ? 1 : opacity
   // Grid lines cho hệ 12 cột - 5 đường kẻ dọc
   // Chia đều: 0%, 25%, 50%, 75%, 100%
   const gridLines = [
@@ -42,21 +33,20 @@ export const BackgroundGrid: React.FC<Props> = ({
           : 'left-[var(--gutter-h)] w-[calc(100%-var(--gutter-h)*2)]',
         className
       )}
-      style={style}
     >
       {gridLines.map((line) => (
         <div
           key={line.key}
           className={cn(
-            'absolute top-0 bottom-0 w-px',
+            'absolute top-0 bottom-0 w-[0.5px]',
             // Responsive visibility for mobile
-            line.responsive && 'hidden md:block'
+            line.responsive && 'hidden md:block',
+            // Color - gradient hoặc solid
+            gradient 
+              ? 'bg-gradient-to-b from-transparent via-white/80 to-white/80'
+              : 'bg-white/40'
           )}
-          style={{ 
-            left: line.left,
-            backgroundColor: finalColor,
-            opacity: finalOpacity
-          }}
+          style={{ left: line.left }}
         />
       ))}
     </div>

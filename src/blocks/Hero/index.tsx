@@ -1,8 +1,8 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-import { BackgroundGrid } from '@/components/BackgroundGrid'
 import CTAButton from '@/components/Button'
 import { BackgroundAnimation } from '@/components/BackgroundAnimation'
+import { BackgroundGrid } from '@/components/BackgroundGrid'
 import { BackgroundScanline } from '@/components/BackgroundScanline'
 
 export default async function Hero() {
@@ -11,33 +11,24 @@ export default async function Hero() {
   return (
     <section className="relative theme-dark-transparent container-gutter overflow-visible min-h-[75vh] lg:min-h-[100vh] pt-16 lg:pt-16 pb-16 lg:pb-16">
       {/* 
-        Background System theo Sample - 3 Layers:
-        1. BackgroundAnimation (z-0) - Video + CRT effect như sample
-        2. BackgroundGrid (z-10) - Đường kẻ dọc chia màn hình
+        Background System - 3 Layers được đặt bằng tay:
+        1. BackgroundAnimation (z-0) - Video + CRT effect
+        2. BackgroundGrid (z-10) - Grid với gradient
         3. BackgroundScanline (z-20) - Texture scanline
       */}
       
-      {/* Layer 1: Video Background như Sample */}
-      <BackgroundAnimation 
-        videoSrc="/images/glass-animation.mp4"
-        enableCrtEffect={true}
-      />
+      {/* Layer 1: Video Background */}
+      <BackgroundAnimation />
       
-      {/* Layer 2: Grid Structure theo hệ 12 cột */}
-      <BackgroundGrid 
-        ignoreGutter={false}
-        lineColor="white"
-        opacity={0.3}
-      />
+      {/* Layer 2: Grid với gradient */}
+      <BackgroundGrid gradient={true} />
       
-      {/* Layer 3: Scanline Effects như Sample */}
-      <BackgroundScanline 
-        enableBorders={false}
-        crosshairs="all" 
-      />
+      {/* Layer 3: Scanline Effects */}
+      <BackgroundScanline />
       
       {/* Content Layer (z-30) */}
       <div className="relative z-30">
+        {/* Content Grid */}
         <div className="grid grid-cols-1  lg:grid-cols-12 items-center">
         
         {/* Left: text content - cols-3 (25% like sample's cols-4/16) */}
