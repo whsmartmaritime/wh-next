@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/**/*.{js,ts,jsx,tsx,mdx}',
     './public/index.html',
   ],
+  darkMode: 'selector', // Enable dark mode with data-theme attribute
   theme: {
     extend: {
       // Giữ breakpoints chuẩn Tailwind + thêm custom

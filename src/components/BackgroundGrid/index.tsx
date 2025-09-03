@@ -42,10 +42,10 @@ export const BackgroundGrid: React.FC<Props> = ({
             line.responsive === 'always' && 'block',          // Luôn hiển thị (cột 0, 12)
             line.responsive === 'md' && 'hidden md:block',    // Từ md trở lên (cột 6)
             line.responsive === 'lg' && 'hidden lg:block',    // Từ lg trở lên (cột 3, 9)
-            // Color - theme-aware colors using CSS custom properties  
+            // Color - Tailwind standard dark mode classes
           gradient
-            ? 'bg-gradient-to-b from-transparent via-[var(--theme-border-color)] to-[var(--theme-border-color)]'
-            : 'bg-[var(--theme-border-color)]'
+            ? 'bg-gradient-to-b from-transparent via-neutral-200/20 to-neutral-200/20 dark:via-neutral-500/30 dark:to-neutral-500/30'
+            : 'bg-white/20 dark:bg-black/20'
           )}
           style={{ left: line.left }}
         />
