@@ -17,7 +17,7 @@ export const BackgroundAnimation: React.FC<Props> = ({
   return (
     <div
       className={cn(
-        'absolute inset-0 pointer-events-none max-h-screen',
+        'absolute inset-0 pointer-events-none',
         'z-0 bg-black', // Background layer - lowest level  
         className
       )}

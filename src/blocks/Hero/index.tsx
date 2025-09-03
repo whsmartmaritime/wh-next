@@ -22,7 +22,7 @@ export default async function Hero() {
   ]
 
   return (
-    <section className="relative theme-dark-transparent container-gutter overflow-visible min-h-[75vh] lg:min-h-[100vh] pt-16 lg:pt-16 pb-16 lg:pb-16">
+    <section className="relative theme-dark-transparent container-gutter overflow-visible pt-16 lg:pt-16 pb-16 lg:pb-16 min-h-screen">
      
       {/* Layer 1: Video Background */}
       <BackgroundAnimation />

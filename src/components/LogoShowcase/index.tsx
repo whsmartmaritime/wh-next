@@ -46,7 +46,8 @@ export const LogoShowcase: React.FC<LogoShowcaseProps> = ({ logos, className = '
 
   // Logic animation thay đổi logo
   useEffect(() => {
-    if (!logoStates.length || remainingLogos.length === 0) return
+    // Chỉ chạy animation nếu có ít nhất 7 logo (6 hiển thị + 1 để thay thế)
+    if (!logoStates.length || logos.length <= 6) return
 
     const interval = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * 6)
@@ -73,13 +74,18 @@ export const LogoShowcase: React.FC<LogoShowcaseProps> = ({ logos, className = '
 
       // Bước 3: Thay đổi logo và ẩn scanline sau 400ms nữa
       setTimeout(() => {
-        const oldLogo = logoStates[randomIndex].logo
-        const newLogo = remainingLogos[0]
-        
         setLogoStates(prev => {
           const newStates = [...prev]
+          const oldLogo = newStates[randomIndex].logo
           
-          // Cập nhật state
+          // Tìm logo thay thế: ưu tiên từ remainingLogos, nếu không có thì random từ tất cả logos
+          const availableLogos = remainingLogos.length > 0 
+            ? [remainingLogos[0]]
+            : logos.filter(logo => logo.id !== oldLogo.id)
+          
+          const newLogo = availableLogos[Math.floor(Math.random() * availableLogos.length)]
+          
+          // Cập nhật logo mới
           newStates[randomIndex] = {
             logo: newLogo,
             isVisible: true,
@@ -89,18 +95,28 @@ export const LogoShowcase: React.FC<LogoShowcaseProps> = ({ logos, className = '
           return newStates
         })
 
-        // Cập nhật danh sách logo còn lại
+        // Cập nhật remainingLogos queue
         setRemainingLogos(prev => {
-          const newRemaining = [...prev.slice(1)]
-          newRemaining.push(oldLogo)
-          return newRemaining
+          const currentOldLogo = logoStates[randomIndex]?.logo
+          if (!currentOldLogo) return prev
+          
+          if (prev.length > 0) {
+            // Xóa logo đã dùng và thêm logo cũ vào cuối
+            return [...prev.slice(1), currentOldLogo]
+          } else {
+            // Reset queue với tất cả logos trừ những logo đang hiển thị
+            return logos.filter(logo => 
+              !logoStates.some(logoState => logoState.logo.id === logo.id) ||
+              logo.id === currentOldLogo.id
+            )
+          }
         })
       }, 1200)
 
     }, 3000) // Interval 3 giây
 
     return () => clearInterval(interval)
-  }, [logoStates, remainingLogos])
+  }, [logoStates, remainingLogos, logos])
 
   if (!logoStates.length) return null
 
@@ -140,6 +156,8 @@ export const LogoShowcase: React.FC<LogoShowcaseProps> = ({ logos, className = '
                   key={`mobile-bottom-${index}`}
                   state={state}
                   className={`w-[calc(var(--column)*3)] aspect-square ${
+                    // Viền trên cho ô đầu tiên của hàng dưới
+                    (index === 0 ? 'border-t border-white/10 dark:border-white/10 ' : '') +
                     // Viền dưới cho hàng cuối
                     'border-b border-white/10 dark:border-white/10 ' +
                     // Viền trái cho tất cả
@@ -175,13 +193,41 @@ export const LogoShowcase: React.FC<LogoShowcaseProps> = ({ logos, className = '
       </div>
 
       {/* Crosshair icons với vị trí chính xác */}
-      {/* Mobile: góc trên trái ô 1 và góc dưới phải ô 6 */}
-      <CrosshairIcon className="lg:hidden absolute top-0 right-[calc(var(--column)*9)] w-4 h-4 text-white/40 -translate-y-2 -translate-x-2" />
-      <CrosshairIcon className="lg:hidden absolute bottom-0 left-[calc(var(--column)*3)] w-4 h-4 text-white/40 translate-y-2 translate-x-2" />
+      {/* Mobile: góc trên trái của ô đầu tiên hàng trên (ở phía phải) và góc dưới phải của ô cuối cùng hàng dưới (ở phía trái) */}
+      <div className="lg:hidden absolute w-3 h-3" 
+        style={{
+          top: '-12px',
+          right: 'calc(var(--column) * 9)'
+        }} 
+      >
+        <CrosshairIcon className="w-3 h-3 text-white/40" />
+      </div>
+      <div className="lg:hidden absolute w-3 h-3"
+        style={{
+          bottom: '0px', 
+          right: 'calc(var(--column) * 3)'
+        }}
+      >
+        <CrosshairIcon className="w-3 h-3 text-white/40" />
+      </div>
       
-      {/* Desktop: góc trên phải ô 1 và góc dưới trái ô 6 */}
-      <CrosshairIcon className="hidden lg:block absolute top-0 left-[calc(var(--column)*1.5)] w-4 h-4 text-white/40 -translate-y-2 translate-x-2" />
-      <CrosshairIcon className="hidden lg:block absolute bottom-0 right-[calc(var(--column)*1.5)] w-4 h-4 text-white/40 translate-y-2 -translate-x-2" />
+      {/* Desktop: góc trên trái của ô đầu tiên và góc dưới phải của ô cuối cùng (grid centered) */}
+      <div className="hidden lg:block absolute w-3 h-3"
+        style={{
+          top: '-12px',
+          right: 'calc(var(--column) * 9)'
+        }}
+      >
+        <CrosshairIcon className="w-3 h-3 text-white/40" />
+      </div>
+      <div className="hidden lg:block absolute w-3 h-3"
+        style={{
+          bottom: '0px',
+          right: 'calc( var(--column) * 3)'
+        }}
+      >
+        <CrosshairIcon className="w-3 h-3 text-white/40" />
+      </div>
     </div>
   )
 }
@@ -207,13 +253,15 @@ const LogoCell: React.FC<LogoCellProps> = ({ state, className = '' }) => {
         />
       </div>
 
-      {/* Scanline overlay */}
+      {/* Scanline overlay - với hiệu ứng rõ ràng hơn */}
       {state.showScanline && (
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 z-10">
           <BackgroundScanline 
-            className="w-full h-full"
+            className="w-full h-full opacity-60"
             scanlineImage="/images/scanline-dark.png"
           />
+          {/* Thêm lớp hiệu ứng scanline bổ sung */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-transparent animate-pulse" />
         </div>
       )}
     </div>
