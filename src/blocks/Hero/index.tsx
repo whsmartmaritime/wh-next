@@ -39,7 +39,7 @@ export default async function Hero() {
           </h1>
           <h2>{t('subtitle')}</h2>
 
-            <CTAButton theme="dark" href="/contact">
+            <CTAButton theme="dark" href="/contact" className='mb-4'>
               {t('ctaPrimary')}
             </CTAButton>
          

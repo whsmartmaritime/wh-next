@@ -12,14 +12,13 @@ export const BackgroundGrid: React.FC<Props> = ({
   ignoreGutter = false,
   gradient = false
 }: Props) => {
-  // Grid lines cho hệ 12 cột - 5 đường kẻ dọc
-  // Chia đều: 0%, 25%, 50%, 75%, 100%
+  // Grid lines cho hệ 12 cột với responsive visibility
   const gridLines = [
-    { left: '0%', key: 'col-0', responsive: false },      // Cột 0 (bên trái)
-    { left: '25%', key: 'col-3', responsive: true },      // Cột 3 (1/4)
-    { left: '50%', key: 'col-6', responsive: false },     // Cột 6 (center)
-    { left: '75%', key: 'col-9', responsive: true },      // Cột 9 (3/4)
-    { left: '100%', key: 'col-12', responsive: false }    // Cột 12 (bên phải)
+    { left: '0%', key: 'col-0', responsive: 'always' },      // Cột 0 - luôn hiển thị
+    { left: '25%', key: 'col-3', responsive: 'lg' },         // Cột 3 - từ lg trở lên
+    { left: '50%', key: 'col-6', responsive: 'md' },         // Cột 6 - từ md trở lên
+    { left: '75%', key: 'col-9', responsive: 'lg' },         // Cột 9 - từ lg trở lên  
+    { left: '100%', key: 'col-12', responsive: 'always' }    // Cột 12 - luôn hiển thị
   ]
 
   return (
@@ -39,12 +38,14 @@ export const BackgroundGrid: React.FC<Props> = ({
           key={line.key}
           className={cn(
             'absolute top-0 bottom-0 w-px',
-            // Responsive visibility for mobile
-            line.responsive && 'hidden md:block',
-            // Color - thay đổi theo theme với dark/light mode
+            // Responsive visibility
+            line.responsive === 'always' && 'block',          // Luôn hiển thị (cột 0, 12)
+            line.responsive === 'md' && 'hidden md:block',    // Từ md trở lên (cột 6)
+            line.responsive === 'lg' && 'hidden lg:block',    // Từ lg trở lên (cột 3, 9)
+            // Color - theme-aware colors using CSS custom properties  
           gradient
-            ? 'bg-gradient-to-b from-transparent via-neutral-200/10 to-neutral-200/10 dark:via-neutral-500/20 dark:to-neutral-500/20'
-            : 'bg-neutral-200/10 dark:bg-neutral-500/20'
+            ? 'bg-gradient-to-b from-transparent via-[var(--theme-border-color)] to-[var(--theme-border-color)]'
+            : 'bg-[var(--theme-border-color)]'
           )}
           style={{ left: line.left }}
         />
