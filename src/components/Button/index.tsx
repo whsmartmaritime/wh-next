@@ -37,15 +37,15 @@ export const SvgCTA: React.FC<SvgCTAProps> = ({ children, href, onClick, classNa
           hoverText: 'text-black',
           hoverArrow: 'text-black',
         };
-      default: // 'auto'
+      default: // 'auto' - detect theme từ parent section
         return {
-          border: 'border-t border-b border-black/20 dark:border-white/20 group-data-[theme=dark]:border-white/20',
-          focus: 'focus:ring-black dark:focus:ring-white group-data-[theme=dark]:focus:ring-white',
-          defaultText: 'text-black dark:text-white group-data-[theme=dark]:text-white',
-          defaultArrow: 'text-black dark:text-white group-data-[theme=dark]:text-white',
-          hoverBg: 'bg-black dark:bg-white group-data-[theme=dark]:bg-white',
-          hoverText: 'text-white dark:text-black group-data-[theme=dark]:text-black',
-          hoverArrow: 'text-white dark:text-black group-data-[theme=dark]:text-black',
+          border: 'border-t border-b border-black/20 [.theme-dark_&]:border-white/20 [.theme-dark-transparent_&]:border-white/20',
+          focus: 'focus:ring-black [.theme-dark_&]:focus:ring-white [.theme-dark-transparent_&]:focus:ring-white',
+          defaultText: 'text-black [.theme-dark_&]:text-white [.theme-dark-transparent_&]:text-white',
+          defaultArrow: 'text-black [.theme-dark_&]:text-white [.theme-dark-transparent_&]:text-white',
+          hoverBg: 'bg-black [.theme-dark_&]:bg-white [.theme-dark-transparent_&]:bg-white',
+          hoverText: 'text-white [.theme-dark_&]:text-black [.theme-dark-transparent_&]:text-black',
+          hoverArrow: 'text-white [.theme-dark_&]:text-black [.theme-dark-transparent_&]:text-black',
         };
     }
   };
