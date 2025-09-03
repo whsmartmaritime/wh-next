@@ -1,22 +1,30 @@
 import React from 'react'
 
-import type { IconProps } from '../types'
+interface CrosshairIconProps {
+  className?: string
+  size?: 'small' | 'medium' | 'large'
+  bold?: boolean
+}
 
-import classes from '../index.module.scss'
+export const CrosshairIcon: React.FC<CrosshairIconProps> = ({ 
+  className = '', 
+  size = 'large',
+  bold = false 
+}) => {
+  const sizeClasses = {
+    small: 'w-4 h-4',
+    medium: 'w-5 h-5', 
+    large: 'w-6 h-6'
+  }
 
-export const CrosshairIcon: React.FC<IconProps> = (props) => {
-  const { bold, className, rotation, size = 'large' } = props
+  const strokeWidth = bold ? 'stroke-2' : 'stroke-1'
 
   return (
     <svg
-      className={[className, classes.icon, size && classes[size], bold && classes.bold]
-        .filter(Boolean)
-        .join(' ')}
+      className={`${sizeClasses[size]} ${strokeWidth} ${className}`}
       fill="none"
-      height="21"
       stroke="currentColor"
       viewBox="0 0 20 21"
-      width="20"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M10 0.332031V20.332" />

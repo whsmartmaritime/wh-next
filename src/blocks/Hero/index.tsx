@@ -4,30 +4,36 @@ import CTAButton from '@/components/Button'
 import { BackgroundAnimation } from '@/components/BackgroundAnimation'
 import { BackgroundGrid } from '@/components/BackgroundGrid'
 import { BackgroundScanline } from '@/components/BackgroundScanline'
+import { LogoShowcase } from '@/components/LogoShowcase'
 
 export default async function Hero() {
   const t = await getTranslations('Hero')
 
+
+  const partnerLogos = [
+    { id: '1', src: '/images/logos/partnerLogo1.png' },
+    { id: '2', src: '/images/logos/partnerLogo2.png' },
+    { id: '3', src: '/images/logos/partnerLogo3.png' },
+    { id: '4', src: '/images/logos/partnerLogo4.png' },
+    { id: '5', src: '/images/logos/partnerLogo5.png' },
+    { id: '6', src: '/images/logos/partnerLogo6.png' },
+    { id: '7', src: '/images/logos/partnerLogo7.png' },
+    { id: '8', src: '/images/logos/partnerLogo8.png' },
+  ]
+
   return (
-    <section className="relative theme-dark-transparent container-gutter overflow-visible min-h-[75vh] lg:min-h-[100vh] pt-16 lg:pt-16 pb-16 lg:pb-16">
-      {/* 
-        Background System - 3 Layers được đặt bằng tay:
-        1. BackgroundAnimation (z-0) - Video + CRT effect
-        2. BackgroundGrid (z-10) - Grid với gradient
-        3. BackgroundScanline (z-20) - Texture scanline
-      */}
+    <section className="relative theme-dark-transparent overflow-visible min-h-[75vh] lg:min-h-[100vh]">
+      {/* Layer 1: Video Background - Full width */}
+      <BackgroundAnimation className="absolute inset-0 w-full h-full" />
       
-      {/* Layer 1: Video Background */}
-      <BackgroundAnimation />
+      {/* Layer 2: Grid với gradient - Full width */}
+      <BackgroundGrid gradient={true} ignoreGutter={true} className="absolute inset-0 w-full h-full" />
       
-      {/* Layer 2: Grid với gradient */}
-      <BackgroundGrid gradient={true} />
+      {/* Layer 3: Scanline Effects - Full width */}
+      <BackgroundScanline className="absolute inset-0 w-full h-full" />
       
-      {/* Layer 3: Scanline Effects */}
-      <BackgroundScanline />
-      
-      {/* Content Layer (z-30) */}
-      <div className="relative z-30">
+      {/* Content Layer với container-gutter */}
+      <div className="relative z-30 container-gutter pt-16 lg:pt-16 pb-16 lg:pb-16">
         {/* Content Grid */}
         <div className="grid grid-cols-1  lg:grid-cols-12 items-center">
         
@@ -82,23 +88,16 @@ export default async function Hero() {
           </div>
         </div>
         
-      </div>
+        </div>
 
-      {/* Logo showcase dưới hero content */}
-      <div className="container-gutter relative z-10 mt-10">
-         {/*  <LogoShowcase
-            title="Trusted by"
-            basePath="/images/logos"
-            logos={[
-            { src: 'vsat.svg', alt: 'VSAT' },
-            { src: 'vsat.svg', alt: 'VSAT' },
-            { src: 'vsat.svg', alt: 'VSAT' },
-            { src: 'vsat.svg', alt: 'VSAT' },
-            { src: 'vsat.svg', alt: 'VSAT' },
-            { src: 'vsat.svg', alt: 'VSAT' },
-            
-          ]}
-        /> */}
+        {/* Logo showcase dưới hero content */}
+        <div className="relative z-30 mt-16">
+          <div className="text-center mb-8">
+            <p className="text-sm text-white/60 uppercase tracking-widest font-medium">
+              {t('trustedBy', { defaultValue: 'Trusted by maritime industry leaders' })}
+            </p>
+          </div>
+          <LogoShowcase logos={partnerLogos} />
         </div>
       </div>
     </section>
