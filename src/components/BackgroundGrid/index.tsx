@@ -45,7 +45,7 @@ export const BackgroundGrid: React.FC<Props> = ({
             // Color - Tailwind standard dark mode classes
           gradient
             ? 'bg-gradient-to-b from-transparent via-neutral-200/20 to-neutral-200/20 dark:via-neutral-500/30 dark:to-neutral-500/30'
-            : 'bg-white/20 dark:bg-black/20'
+            : 'bg-neutral-200/20 dark:bg-neutral-500/30'
           )}
           style={{ left: line.left }}
         />

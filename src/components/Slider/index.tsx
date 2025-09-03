@@ -49,11 +49,11 @@ export default function Slider({
 
 	return (
 		<div
-			className={`relative flex flex-col items-center ${className ?? ''}`}
+			className={`relative flex flex-col items-center w-full h-full ${className ?? ''}`}
 			onMouseEnter={pauseOnHover ? () => setPaused(true) : undefined}
 			onMouseLeave={pauseOnHover ? () => setPaused(false) : undefined}
 		>
-			<div className="relative w-full rounded-lg overflow-hidden shadow-lg" style={{ aspectRatio }}>
+			<div className="relative w-full h-full rounded-lg overflow-hidden shadow-lg" style={{ aspectRatio }}>
 				{transitionType === 'seamless' ? (
 					<div
 						className="flex h-full w-full"
@@ -69,7 +69,7 @@ export default function Slider({
 									alt={img.alt}
 									fill
 									className="object-cover"
-									sizes="(max-width: 768px) 100vw, 50vw"
+									sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
 									priority={idx === 0}
 									loading={idx === 0 ? 'eager' : 'lazy'}
 								/>
@@ -89,7 +89,7 @@ export default function Slider({
 									: `${idx === current ? 'opacity-100' : 'opacity-0'} transition-opacity`
 							}`}
 							style={{ transitionDuration: `${transitionMs}ms` }}
-							sizes="(max-width: 768px) 100vw, 50vw"
+							sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
 							priority={idx === 0}
 							loading={idx === 0 ? 'eager' : 'lazy'}
 						/>
