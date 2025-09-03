@@ -41,10 +41,10 @@ export const BackgroundGrid: React.FC<Props> = ({
             'absolute top-0 bottom-0 w-px',
             // Responsive visibility for mobile
             line.responsive && 'hidden md:block',
-            // Color - gradient hoặc solid
-            gradient 
-              ? 'bg-gradient-to-b from-transparent via-white/20 to-white/20'
-              : 'bg-white/20'
+            // Color - thay đổi theo theme với dark/light mode
+          gradient
+            ? 'bg-gradient-to-b from-transparent via-neutral-200/10 to-neutral-200/10 dark:via-neutral-500/20 dark:to-neutral-500/20'
+            : 'bg-neutral-200/10 dark:bg-neutral-500/20'
           )}
           style={{ left: line.left }}
         />
