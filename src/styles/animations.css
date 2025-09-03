@@ -22,6 +22,30 @@
     animation: videoFadeIn 2s ease-in-out forwards;
   }
   
+  /* CRT Noise flicker effect */
+  @keyframes noise-flicker {
+    0% { 
+      opacity: 0.5; 
+      filter: contrast(2.5) brightness(1.6); 
+    }
+    25% { 
+      opacity: 0.45; 
+      filter: contrast(3.0) brightness(1.8); 
+    }
+    50% { 
+      opacity: 0.55; 
+      filter: contrast(2.2) brightness(1.4); 
+    }
+    75% { 
+      opacity: 0.48; 
+      filter: contrast(2.8) brightness(1.7); 
+    }
+    100% { 
+      opacity: 0.52; 
+      filter: contrast(2.6) brightness(1.5); 
+    }
+  }
+  
   /* Focus ring */
   .focus-ring:focus-visible {
     outline: 2px solid rgb(59 130 246);
