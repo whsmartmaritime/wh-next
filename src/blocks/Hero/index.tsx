@@ -95,7 +95,7 @@ export default async function Hero() {
       <div className="relative z-30 mt-16">
         <div className="text-center mb-8">
           <p className="text-sm text-white/60 uppercase tracking-widest font-medium">
-            {t('trustedBy', { defaultValue: 'Trusted by maritime industry leaders' })}
+            {t('partnerShowcase', { defaultValue: 'Partners and Customers' })}
           </p>
         </div>
         <LogoShowcase logos={partnerLogos} />

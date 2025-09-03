@@ -70,7 +70,7 @@ export const LogoShowcase: React.FC<LogoShowcaseProps> = ({ logos, className = '
               : state
           )
         )
-      }, 800)
+      }, 1000)
 
       // Bước 3: Thay đổi logo và ẩn scanline sau 400ms nữa
       setTimeout(() => {
@@ -111,9 +111,9 @@ export const LogoShowcase: React.FC<LogoShowcaseProps> = ({ logos, className = '
             )
           }
         })
-      }, 1200)
+      }, 2000)
 
-    }, 3000) // Interval 3 giây
+    }, 5000) // Interval 5 giây
 
     return () => clearInterval(interval)
   }, [logoStates, remainingLogos, logos])
@@ -239,7 +239,7 @@ interface LogoCellProps {
 
 const LogoCell: React.FC<LogoCellProps> = ({ state, className = '' }) => {
   return (
-    <div className={`relative flex items-center justify-center p-4 ${className}`}>
+    <div className={`relative flex items-center justify-center p-16 ${className}`}>
       {/* Logo image */}
       <div className={`relative w-full h-full transition-all duration-800 ${
         state.isVisible ? 'opacity-100 blur-0' : 'opacity-0 blur-md'
