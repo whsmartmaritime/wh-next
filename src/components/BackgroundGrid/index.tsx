@@ -38,13 +38,13 @@ export const BackgroundGrid: React.FC<Props> = ({
         <div
           key={line.key}
           className={cn(
-            'absolute top-0 bottom-0 w-[0.5px]',
+            'absolute top-0 bottom-0 w-px',
             // Responsive visibility for mobile
             line.responsive && 'hidden md:block',
             // Color - gradient hoặc solid
             gradient 
-              ? 'bg-gradient-to-b from-transparent via-white/80 to-white/80'
-              : 'bg-white/40'
+              ? 'bg-gradient-to-b from-transparent via-white/20 to-white/20'
+              : 'bg-white/20'
           )}
           style={{ left: line.left }}
         />
