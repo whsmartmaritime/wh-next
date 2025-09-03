@@ -22,18 +22,19 @@ export default async function Hero() {
   ]
 
   return (
-    <section className="relative theme-dark-transparent overflow-visible min-h-[75vh] lg:min-h-[100vh]">
-      {/* Layer 1: Video Background - Full width */}
-      <BackgroundAnimation className="absolute inset-0 w-full h-full" />
+    <section className="relative theme-dark-transparent container-gutter overflow-visible min-h-[75vh] lg:min-h-[100vh] pt-16 lg:pt-16 pb-16 lg:pb-16">
+     
+      {/* Layer 1: Video Background */}
+      <BackgroundAnimation />
       
-      {/* Layer 2: Grid với gradient - Full width */}
-      <BackgroundGrid gradient={true} ignoreGutter={true} className="absolute inset-0 w-full h-full" />
+      {/* Layer 2: Grid với gradient */}
+      <BackgroundGrid gradient={true} />
       
-      {/* Layer 3: Scanline Effects - Full width */}
-      <BackgroundScanline className="absolute inset-0 w-full h-full" />
+      {/* Layer 3: Scanline Effects */}
+      <BackgroundScanline />
       
-      {/* Content Layer với container-gutter */}
-      <div className="relative z-30 container-gutter pt-16 lg:pt-16 pb-16 lg:pb-16">
+      {/* Content Layer (z-30) */}
+      <div className="relative z-30">
         {/* Content Grid */}
         <div className="grid grid-cols-1  lg:grid-cols-12 items-center">
         
@@ -88,17 +89,17 @@ export default async function Hero() {
           </div>
         </div>
         
-        </div>
+      </div>
 
-        {/* Logo showcase dưới hero content */}
-        <div className="relative z-30 mt-16">
-          <div className="text-center mb-8">
-            <p className="text-sm text-white/60 uppercase tracking-widest font-medium">
-              {t('trustedBy', { defaultValue: 'Trusted by maritime industry leaders' })}
-            </p>
-          </div>
-          <LogoShowcase logos={partnerLogos} />
+      {/* Logo showcase dưới hero content */}
+      <div className="relative z-30 mt-16">
+        <div className="text-center mb-8">
+          <p className="text-sm text-white/60 uppercase tracking-widest font-medium">
+            {t('trustedBy', { defaultValue: 'Trusted by maritime industry leaders' })}
+          </p>
         </div>
+        <LogoShowcase logos={partnerLogos} />
+      </div>
       </div>
     </section>
   )
