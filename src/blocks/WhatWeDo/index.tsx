@@ -3,10 +3,9 @@ import HoverHighlights from '@/components/HoverHighlights'
 export default function WhatWeDo() {
   return (
     <HoverHighlights 
-      variant="custom"
       namespace="WhatWeDo"
       className="bg-background"
-      customHighlights={[
+      highlights={[
         {
           id: 'fleet-management',
           textKey: 'highlight1Text',
