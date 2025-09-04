@@ -51,12 +51,6 @@ export default function WhatWeDo() {
           }
         }
       ]}
-      customTexts={{
-        beforeTextKey: 'beforeHighlights',
-        afterTextKey: 'afterHighlights',
-        buttonLabelKey: 'buttonLabel',
-        buttonHref: '/solution'
-      }}
     />
   )
 }

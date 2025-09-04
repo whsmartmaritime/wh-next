@@ -16,28 +16,28 @@ export interface ConfigurableHighlight {
   }
 }
 
-interface HoverHighlightsServerProps {
+// Main HoverHighlights Props (exported for direct usage)
+export interface HoverHighlightsConfig {
   className?: string
   hideBackground?: boolean
-  namespace?: string // Translation namespace, default: 'HoverHighlights'
-  highlights?: ConfigurableHighlight[] // Custom highlights configuration
-  beforeTextKey?: string // Translation key for before text
-  afterTextKey?: string // Translation key for after text  
-  buttonLabelKey?: string // Translation key for button label
-  buttonHref?: string // Button href
+  namespace: string
+  highlights: ConfigurableHighlight[]
+  customTexts?: {
+    beforeTextKey?: string
+    afterTextKey?: string
+    buttonLabelKey?: string
+    buttonHref?: string
+  }
 }
 
-// Server Component - SEO Optimized
+// Main Component - combines Server + Client
 export default async function HoverHighlights({ 
   className,
   hideBackground,
-  namespace = 'HoverHighlights',
+  namespace,
   highlights,
-  beforeTextKey = 'beforeHighlights',
-  afterTextKey = 'afterHighlights', 
-  buttonLabelKey = 'buttonLabel',
-  buttonHref = '/solution'
-}: HoverHighlightsServerProps) {
+  customTexts
+}: HoverHighlightsConfig) {
   // Get translations from server
   const t = await getTranslations(namespace)
   
@@ -82,8 +82,8 @@ export default async function HoverHighlights({
   
   // Build the data structure from configurable highlights
   const highlightsData: HoverHighlightsProps = {
-    beforeHighlights: t(beforeTextKey),
-    afterHighlights: t(afterTextKey),
+    beforeHighlights: t(customTexts?.beforeTextKey || 'beforeHighlights'),
+    afterHighlights: t(customTexts?.afterTextKey || 'afterHighlights'),
     highlights: highlightsConfig.map((config) => ({
       id: config.id,
       text: t(config.textKey),
@@ -105,8 +105,8 @@ export default async function HoverHighlights({
       }
     })),
     button: {
-      label: t(buttonLabelKey),
-      href: buttonHref,
+      label: t(customTexts?.buttonLabelKey || 'buttonLabel'),
+      href: customTexts?.buttonHref || '/solution',
       newTab: false
     },
     className,
