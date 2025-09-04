@@ -5,20 +5,13 @@ import { BackgroundGrid } from '@/components/BackgroundGrid'
 import BackgroundScanline from '@/components/BackgroundScanline'
 import type { HoverHighlightsProps } from '@/components/HoverHighlights'
 
-// Simplified configuration - just images (hardcoded)
+// Maritime solutions images (all in /images/whatwedo/)
 const MARITIME_IMAGES = [
-  ['fleet-monitoring.jpg', 'fleet-dashboard.jpg'],
-  ['navigation-system.jpg', 'safety-protocols.jpg'], 
-  ['satellite-comm.jpg', 'comm-interface.jpg'],
-  ['digital-platform.jpg', 'connected-vessel.jpg']
-] as const
-
-// Folder names for image paths  
-const IMAGE_FOLDERS = [
-  'fleet-management',
-  'navigation-safety',
-  'communication', 
-  'digital-transformation'
+  ['navigation-gmdss.jpg', 'navigation-gmdss2.jpg'],
+  ['connectivity.jpg', 'connectivity2.jpg'],
+  ['repair-maintenance.jpg', 'repair-maintenance2.jpg'],
+  ['e-navigation.jpg', 'e-navigation2.jpg'],
+  ['annual-survey.jpg', 'annual-survey2.jpg']
 ] as const
 
 interface WhatWeDoProps {
@@ -41,13 +34,13 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
       newTab: false,
       images: [
         {
-          src: `/images/whatwedo/${IMAGE_FOLDERS[index]}/${images[0]}`,
+          src: `/images/whatwedo/${images[0]}`,
           alt: `${t(`highlight${index + 1}Text`)} System`,
           width: 600,
           height: 400
         },
         {
-          src: `/images/whatwedo/${IMAGE_FOLDERS[index]}/${images[1]}`,
+          src: `/images/whatwedo/${images[1]}`,
           alt: `${t(`highlight${index + 1}Text`)} Interface`,
           width: 600,
           height: 400
