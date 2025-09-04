@@ -3,7 +3,8 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import WhyWheelhouse from '@/blocks/WhyWheelhouse';
-import HoverHighlights from '@/components/HoverHighlights/HoverHighlightsServer';
+import HoverHighlights from '@/components/HoverHighlights';
+import WhatWeDo from '@/blocks/WhatWeDo';
 
 export async function generateMetadata(
   props: { params: Promise<{ locale: string }> }
@@ -43,7 +44,8 @@ export default async function HomePage() {
     <>
       <Hero />
       <WhyWheelhouse />
-      <HoverHighlights />
+      <WhatWeDo />
+      <HoverHighlights variant="solutions" />
     </>
   );
 }

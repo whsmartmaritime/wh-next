@@ -1,0 +1,14 @@
+{
+  "beforeHighlights": "At WH Marine, we deliver comprehensive maritime solutions that transform how vessels operate at sea.",
+  "afterHighlights": "Partner with us to navigate the future of maritime technology with confidence and precision.",
+  "highlight1Text": "Fleet Management Systems",
+  "highlight1Desc": "Advanced fleet monitoring and optimization solutions for maximum operational efficiency",
+  "highlight2Text": "Navigation & Safety",
+  "highlight2Desc": "Cutting-edge navigation systems and safety protocols to ensure secure maritime operations",
+  "highlight3Text": "Communication Solutions", 
+  "highlight3Desc": "Reliable maritime communication systems keeping your fleet connected worldwide",
+  "highlight4Text": "Digital Transformation",
+  "highlight4Desc": "Complete digital solutions modernizing maritime operations for the connected future",
+  "buttonLabel": "Discover Our Solutions",
+  "buttonHref": "/solution"
+}
