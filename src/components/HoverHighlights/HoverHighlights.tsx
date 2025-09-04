@@ -4,6 +4,8 @@ import React, { useState, Fragment } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import ArrowIcon from '@/components/icons/ArrowIcon'
+import { BackgroundGrid } from '@/components/BackgroundGrid'
+import BackgroundScanline from '@/components/BackgroundScanline'
 
 // Types
 export interface HoverHighlightMedia {
@@ -55,20 +57,16 @@ export const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <section className={`relative min-h-screen py-32 overflow-hidden ${hideBackground ? '' : 'bg-background'} ${className}`}>
+    <section className={`theme-dark relative min-h-screen py-32 overflow-hidden ${hideBackground ? '' : 'bg-background'} ${className}`}>
       {/* Background Grid */}
-      {!hideBackground && (
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,theme(colors.border)_1px,transparent_1px)] bg-[length:calc(100%/16)_1px]" />
-        </div>
-      )}
-      
+      <BackgroundGrid />
+      <BackgroundScanline />
       {/* Right margin scanline */}
       <div className="hidden lg:block absolute top-0 right-0 w-[25%] h-full">
         <div className="absolute inset-y-0 right-16 w-px bg-gradient-to-b from-transparent via-border to-transparent opacity-30" />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-16 h-full">
+      <div className="container-gutter mx-auto px-4 lg:px-16 h-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 h-full min-h-[80vh] relative">
           
           {/* Content Area - Left side */}
