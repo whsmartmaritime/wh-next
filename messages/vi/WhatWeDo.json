@@ -1,14 +1,19 @@
 {
+  "title": "Dịch Vụ Của Chúng Tôi",
   "beforeHighlights": "Tại WH Marine, chúng tôi cung cấp các giải pháp hàng hải toàn diện giúp biến đổi cách các tàu thuyền hoạt động trên biển.",
   "afterHighlights": "Hợp tác với chúng tôi để dẫn dắt tương lai của công nghệ hàng hải với sự tự tin và chính xác.",
   "highlight1Text": "Hệ Thống Quản Lý Đội Tàu",
   "highlight1Desc": "Giải pháp giám sát và tối ưu hóa đội tàu tiên tiến để đạt hiệu quả vận hành tối đa",
+  "highlight1Href": "/giai-phap#quan-ly-doi-tau",
   "highlight2Text": "Định Vị & An Toàn",
   "highlight2Desc": "Hệ thống định vị hiện đại và quy trình an toàn đảm bảo hoạt động hàng hải an toàn",
+  "highlight2Href": "/giai-phap#dinh-vi-an-toan",
   "highlight3Text": "Giải Pháp Liên Lạc",
   "highlight3Desc": "Hệ thống liên lạc hàng hải đáng tin cậy giữ cho đội tàu của bạn kết nối trên toàn thế giới",
+  "highlight3Href": "/giai-phap#lien-lac",
   "highlight4Text": "Chuyển Đổi Số",
   "highlight4Desc": "Giải pháp số hoàn chỉnh hiện đại hóa hoạt động hàng hải cho tương lai kết nối",
+  "highlight4Href": "/giai-phap#chuyen-doi-so",
   "buttonLabel": "Khám Phá Giải Pháp",
-  "buttonHref": "/solution"
+  "buttonHref": "/giai-phap"
 }

@@ -5,38 +5,30 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ArrowIcon from '@/components/icons/ArrowIcon'
 
-// Types
+// Simplified Types
 export interface HoverHighlightMedia {
-  id?: string
   src: string
-  alt?: string
+  alt: string
   width?: number
   height?: number
 }
 
 export interface HoverHighlightItem {
-  id?: string
+  id: string
   text: string
-  description?: string
-  link?: {
-    href?: string
-    label?: string
-    type?: 'link' | 'custom'
-    newTab?: boolean
-  }
-  media?: {
-    top?: HoverHighlightMedia
-    bottom?: HoverHighlightMedia
-  }
+  description?: string  // Optional - can be used for tooltips/subtitles later
+  href: string
+  newTab?: boolean
+  images: [HoverHighlightMedia, HoverHighlightMedia] // Always exactly 2 images [background, foreground]
 }
 
 export interface HoverHighlightsProps {
-  beforeHighlights?: string
-  afterHighlights?: string
+  title?: string
+  subtitle?: string
   highlights: HoverHighlightItem[]
-  button?: {
+  cta?: {
     label: string
-    href?: string
+    href: string
     newTab?: boolean
   }
   className?: string
@@ -44,10 +36,10 @@ export interface HoverHighlightsProps {
 
 // Pure HoverHighlights Component - just text/image interactions
 export const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
-  beforeHighlights,
-  afterHighlights,
+  title,
+  subtitle,
   highlights,
-  button,
+  cta,
   className = ''
 }) => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -57,19 +49,19 @@ export const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
       
       {/* Content Area - Left side */}
       <div className="col-span-1 lg:col-span-6 flex flex-col justify-center gap-8 z-10 h-full">
-        {beforeHighlights && (
+        {title && (
           <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-none">
-            {beforeHighlights}
+            {title}
           </p>
         )}
         
         <div className="flex flex-col gap-6">
           {highlights.map((highlight, index) => (
             <Link
-              key={highlight.id || index}
-              href={highlight.link?.href || '#'}
-              target={highlight.link?.newTab ? '_blank' : undefined}
-              rel={highlight.link?.newTab ? 'noopener noreferrer' : undefined}
+              key={highlight.id}
+              href={highlight.href}
+              target={highlight.newTab ? '_blank' : undefined}
+              rel={highlight.newTab ? 'noopener noreferrer' : undefined}
               className={`
                 group flex items-center gap-4 text-2xl lg:text-3xl xl:text-4xl font-bold 
                 transition-all duration-700 ease-out no-underline
@@ -90,21 +82,21 @@ export const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
           ))}
         </div>
 
-        {afterHighlights && (
+        {subtitle && (
           <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-none">
-            {afterHighlights}
+            {subtitle}
           </p>
         )}
 
-        {button && (
+        {cta && (
           <div className="mt-8">
             <Link
-              href={button.href || '#'}
-              target={button.newTab ? '_blank' : undefined}
-              rel={button.newTab ? 'noopener noreferrer' : undefined}
+              href={cta.href}
+              target={cta.newTab ? '_blank' : undefined}
+              rel={cta.newTab ? 'noopener noreferrer' : undefined}
               className="inline-flex items-center gap-4 px-6 py-3 text-lg font-medium text-foreground bg-primary/10 border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 group rounded-lg"
             >
-              {button.label}
+              {cta.label}
               <ArrowIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
@@ -114,49 +106,45 @@ export const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
       {/* Media Area - Right side */}
       <div className="hidden lg:block col-span-6 relative">
         {highlights.map((highlight, index) => {
-          const { media } = highlight
+          const [backgroundImage, foregroundImage] = highlight.images
           
           return (
-            <Fragment key={`media-${highlight.id || index}`}>
-              {/* Background Media (Top Layer) */}
-              {media?.top && (
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
-                  <Image
-                    src={media.top.src}
-                    alt={media.top.alt || ''}
-                    width={media.top.width || 600}
-                    height={media.top.height || 400}
-                    className={`
-                      w-full h-auto max-w-full object-contain
-                      transition-all duration-900 ease-out will-change-transform
-                      ${index < activeIndex ? 'opacity-0 -translate-y-24' : ''}
-                      ${index === activeIndex ? 'opacity-100 translate-y-0' : ''}
-                      ${index > activeIndex ? 'opacity-0 translate-y-24' : ''}
-                    `}
-                    priority={index === 0}
-                  />
-                </div>
-              )}
+            <Fragment key={`media-${highlight.id}`}>
+              {/* Background Image */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+                <Image
+                  src={backgroundImage.src}
+                  alt={backgroundImage.alt}
+                  width={backgroundImage.width || 600}
+                  height={backgroundImage.height || 400}
+                  className={`
+                    w-full h-auto max-w-full object-contain
+                    transition-all duration-900 ease-out will-change-transform
+                    ${index < activeIndex ? 'opacity-0 -translate-y-24' : ''}
+                    ${index === activeIndex ? 'opacity-100 translate-y-0' : ''}
+                    ${index > activeIndex ? 'opacity-0 translate-y-24' : ''}
+                  `}
+                  priority={index === 0}
+                />
+              </div>
 
-              {/* Foreground Media (Bottom Layer) */}
-              {media?.bottom && (
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[2]">
-                  <Image
-                    src={media.bottom.src}
-                    alt={media.bottom.alt || ''}
-                    width={media.bottom.width || 600}
-                    height={media.bottom.height || 400}
-                    className={`
-                      w-full h-auto max-w-full object-contain
-                      transition-all duration-900 ease-out will-change-transform
-                      ${index < activeIndex ? 'opacity-0 -translate-y-16' : ''}
-                      ${index === activeIndex ? 'opacity-100 translate-y-0' : ''}
-                      ${index > activeIndex ? 'opacity-0 translate-y-16' : ''}
-                    `}
-                    priority={index === 0}
-                  />
-                </div>
-              )}
+              {/* Foreground Image */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[2]">
+                <Image
+                  src={foregroundImage.src}
+                  alt={foregroundImage.alt}
+                  width={foregroundImage.width || 600}
+                  height={foregroundImage.height || 400}
+                  className={`
+                    w-full h-auto max-w-full object-contain
+                    transition-all duration-900 ease-out will-change-transform
+                    ${index < activeIndex ? 'opacity-0 -translate-y-16' : ''}
+                    ${index === activeIndex ? 'opacity-100 translate-y-0' : ''}
+                    ${index > activeIndex ? 'opacity-0 translate-y-16' : ''}
+                  `}
+                  priority={index === 0}
+                />
+              </div>
             </Fragment>
           )
         })}

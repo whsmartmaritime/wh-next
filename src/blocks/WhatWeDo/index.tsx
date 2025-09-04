@@ -5,49 +5,21 @@ import { BackgroundGrid } from '@/components/BackgroundGrid'
 import BackgroundScanline from '@/components/BackgroundScanline'
 import type { HoverHighlightsProps } from '@/components/HoverHighlights'
 
-// WhatWeDo-specific configuration for maritime solutions
-const MARITIME_HIGHLIGHTS = [
-  {
-    id: 'fleet-management',
-    textKey: 'highlight1Text',
-    descKey: 'highlight1Desc',
-    href: '/solution#fleet',
-    mediaFiles: { 
-      top: 'fleet-monitoring.jpg', 
-      bottom: 'fleet-dashboard.jpg' 
-    }
-  },
-  {
-    id: 'navigation-safety',
-    textKey: 'highlight2Text',
-    descKey: 'highlight2Desc',
-    href: '/solution#navigation',
-    mediaFiles: { 
-      top: 'navigation-system.jpg', 
-      bottom: 'safety-protocols.jpg' 
-    }
-  },
-  {
-    id: 'communication',
-    textKey: 'highlight3Text',
-    descKey: 'highlight3Desc',
-    href: '/solution#communication',
-    mediaFiles: { 
-      top: 'satellite-comm.jpg', 
-      bottom: 'comm-interface.jpg' 
-    }
-  },
-  {
-    id: 'digital-transformation',
-    textKey: 'highlight4Text',
-    descKey: 'highlight4Desc',
-    href: '/solution#digital',
-    mediaFiles: { 
-      top: 'digital-platform.jpg', 
-      bottom: 'connected-vessel.jpg' 
-    }
-  }
-]
+// Simplified configuration - just images (hardcoded)
+const MARITIME_IMAGES = [
+  ['fleet-monitoring.jpg', 'fleet-dashboard.jpg'],
+  ['navigation-system.jpg', 'safety-protocols.jpg'], 
+  ['satellite-comm.jpg', 'comm-interface.jpg'],
+  ['digital-platform.jpg', 'connected-vessel.jpg']
+] as const
+
+// Folder names for image paths  
+const IMAGE_FOLDERS = [
+  'fleet-management',
+  'navigation-safety',
+  'communication', 
+  'digital-transformation'
+] as const
 
 interface WhatWeDoProps {
   className?: string
@@ -57,33 +29,34 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
   // Handle translations at this level
   const t = await getTranslations('WhatWeDo')
   
-  // Build fully processed data for HoverHighlights
+  // Build clean data for HoverHighlights
   const highlightsData: HoverHighlightsProps = {
-    beforeHighlights: t('beforeHighlights'),
-    afterHighlights: t('afterHighlights'),
-    highlights: MARITIME_HIGHLIGHTS.map((config) => ({
-      id: config.id,
-      text: t(config.textKey),
-      description: t(config.descKey),
-      link: { href: config.href, newTab: false },
-      media: {
-        top: { 
-          src: `/images/whatwedo/${config.id}/${config.mediaFiles.top}`, 
-          alt: `${t(config.textKey)} System`, 
-          width: 600, 
-          height: 400 
+    title: t('beforeHighlights'),
+    subtitle: t('afterHighlights'),
+    highlights: MARITIME_IMAGES.map((images, index) => ({
+      id: `highlight-${index}`, // Simple ID for React key
+      text: t(`highlight${index + 1}Text`),
+      description: t(`highlight${index + 1}Desc`),
+      href: t(`highlight${index + 1}Href`), // From JSON - supports i18n
+      newTab: false,
+      images: [
+        {
+          src: `/images/whatwedo/${IMAGE_FOLDERS[index]}/${images[0]}`,
+          alt: `${t(`highlight${index + 1}Text`)} System`,
+          width: 600,
+          height: 400
         },
-        bottom: { 
-          src: `/images/whatwedo/${config.id}/${config.mediaFiles.bottom}`, 
-          alt: `${t(config.textKey)} Interface`, 
-          width: 600, 
-          height: 400 
+        {
+          src: `/images/whatwedo/${IMAGE_FOLDERS[index]}/${images[1]}`,
+          alt: `${t(`highlight${index + 1}Text`)} Interface`,
+          width: 600,
+          height: 400
         }
-      }
+      ]
     })),
-    button: {
+    cta: {
       label: t('buttonLabel'),
-      href: '/solution',
+      href: t('buttonHref'),
       newTab: false
     }
   }
@@ -100,7 +73,8 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
       </div>
 
       {/* Container */}
-      <div className="container-gutter mx-auto px-4 lg:px-16 h-full">
+      <div className="container-gutter mx-auto px-4 lg:px-8 h-full">
+        <h2 className="font-semibold mb-6 text-center lg:text-left">{t('title')}</h2>
         <HoverHighlights {...highlightsData} />
       </div>
     </section>
