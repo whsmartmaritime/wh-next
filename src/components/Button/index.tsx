@@ -56,7 +56,7 @@ export const SvgCTA: React.FC<SvgCTAProps> = ({ children, href, onClick, classNa
     'group relative inline-flex w-full overflow-hidden',
     themeClasses.border,
     'transition-all duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)]',
-    'h-16 md:h-16 lg:h-16 w-[calc(var(--column)*12)] md:w-[calc(var(--column)*6)] lg:w-[calc(var(--column)*3)]', // responsive height
+    'h-16 md:h-16 lg:h-16 ', // responsive height
     'focus:outline-none focus:ring-2 focus:ring-offset-0',
     themeClasses.focus,
   ].join(' ');
