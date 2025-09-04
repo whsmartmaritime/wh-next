@@ -1,0 +1,12 @@
+{
+  "beforeHighlights": "Our comprehensive services portfolio covers every aspect of your maritime technology needs.",
+  "afterHighlights": "Partner with us for end-to-end maritime solutions that drive operational excellence.",
+  "consultingText": "Maritime Consulting",
+  "consultingDesc": "Strategic guidance and technical expertise for your maritime operations",
+  "implementationText": "System Implementation", 
+  "implementationDesc": "Professional deployment and integration of maritime technologies",
+  "supportText": "24/7 Support",
+  "supportDesc": "Round-the-clock technical support and maintenance services",
+  "buttonLabel": "Explore Our Services",
+  "buttonHref": "/services"
+}

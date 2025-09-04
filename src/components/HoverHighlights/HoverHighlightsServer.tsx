@@ -3,68 +3,110 @@ import { getTranslations } from 'next-intl/server'
 import HoverHighlightsClient from './HoverHighlights'
 import type { HoverHighlightsProps } from './HoverHighlights'
 
+// Configurable highlight item for reusability
+export interface ConfigurableHighlight {
+  id: string
+  textKey: string // Translation key for text
+  descKey: string // Translation key for description  
+  href: string
+  mediaFolder: string // Folder name for images like 'fleet-management'
+  mediaFiles?: {
+    top?: string // Custom top image filename
+    bottom?: string // Custom bottom image filename
+  }
+}
+
 interface HoverHighlightsServerProps {
   className?: string
   hideBackground?: boolean
+  namespace?: string // Translation namespace, default: 'HoverHighlights'
+  highlights?: ConfigurableHighlight[] // Custom highlights configuration
+  beforeTextKey?: string // Translation key for before text
+  afterTextKey?: string // Translation key for after text  
+  buttonLabelKey?: string // Translation key for button label
+  buttonHref?: string // Button href
 }
 
 // Server Component - SEO Optimized
 export default async function HoverHighlights({ 
   className,
-  hideBackground 
+  hideBackground,
+  namespace = 'HoverHighlights',
+  highlights,
+  beforeTextKey = 'beforeHighlights',
+  afterTextKey = 'afterHighlights', 
+  buttonLabelKey = 'buttonLabel',
+  buttonHref = '/solution'
 }: HoverHighlightsServerProps) {
   // Get translations from server
-  const t = await getTranslations('HoverHighlights')
+  const t = await getTranslations(namespace)
   
-  // Build the data structure from individual translation keys
+  // Default highlights configuration if not provided
+  const defaultHighlights: ConfigurableHighlight[] = [
+    {
+      id: 'fleet-management',
+      textKey: 'highlight1Text',
+      descKey: 'highlight1Desc', 
+      href: '/solution#fleet',
+      mediaFolder: 'fleet-management',
+      mediaFiles: { top: 'fleet-management.jpg', bottom: 'fleet-overlay.jpg' }
+    },
+    {
+      id: 'smart-navigation',
+      textKey: 'highlight2Text',
+      descKey: 'highlight2Desc',
+      href: '/solution#navigation', 
+      mediaFolder: 'navigation',
+      mediaFiles: { top: 'navigation-system.jpg', bottom: 'navigation-overlay.jpg' }
+    },
+    {
+      id: 'safety-protocols', 
+      textKey: 'highlight3Text',
+      descKey: 'highlight3Desc',
+      href: '/solution#safety',
+      mediaFolder: 'safety',
+      mediaFiles: { top: 'safety-protocols.jpg', bottom: 'safety-overlay.jpg' }
+    },
+    {
+      id: 'digital-transformation',
+      textKey: 'highlight4Text', 
+      descKey: 'highlight4Desc',
+      href: '/solution#digital',
+      mediaFolder: 'digital',
+      mediaFiles: { top: 'digital-transformation.jpg', bottom: 'digital-overlay.jpg' }
+    }
+  ]
+
+  // Use custom highlights or default
+  const highlightsConfig = highlights || defaultHighlights
+  
+  // Build the data structure from configurable highlights
   const highlightsData: HoverHighlightsProps = {
-    beforeHighlights: t('beforeHighlights'),
-    afterHighlights: t('afterHighlights'),
-    highlights: [
-      {
-        id: 'fleet-management',
-        text: t('highlight1Text'),
-        description: t('highlight1Desc'),
-        link: { href: t('highlight1Href'), newTab: false },
-        media: {
-          top: { src: '/images/fleet-management.jpg', alt: `${t('highlight1Text')} System`, width: 600, height: 400 },
-          bottom: { src: '/images/fleet-overlay.jpg', alt: `${t('highlight1Text')} Interface`, width: 600, height: 400 }
-        }
-      },
-      {
-        id: 'smart-navigation',
-        text: t('highlight2Text'),
-        description: t('highlight2Desc'),
-        link: { href: t('highlight2Href'), newTab: false },
-        media: {
-          top: { src: '/images/navigation-system.jpg', alt: `${t('highlight2Text')} System`, width: 600, height: 400 },
-          bottom: { src: '/images/navigation-overlay.jpg', alt: `${t('highlight2Text')} Interface`, width: 600, height: 400 }
-        }
-      },
-      {
-        id: 'safety-protocols',
-        text: t('highlight3Text'),
-        description: t('highlight3Desc'),
-        link: { href: t('highlight3Href'), newTab: false },
-        media: {
-          top: { src: '/images/safety-protocols.jpg', alt: `${t('highlight3Text')} System`, width: 600, height: 400 },
-          bottom: { src: '/images/safety-overlay.jpg', alt: `${t('highlight3Text')} Interface`, width: 600, height: 400 }
-        }
-      },
-      {
-        id: 'digital-transformation',
-        text: t('highlight4Text'),
-        description: t('highlight4Desc'),
-        link: { href: t('highlight4Href'), newTab: false },
-        media: {
-          top: { src: '/images/digital-transformation.jpg', alt: `${t('highlight4Text')} Solutions`, width: 600, height: 400 },
-          bottom: { src: '/images/digital-overlay.jpg', alt: `${t('highlight4Text')} Interface`, width: 600, height: 400 }
+    beforeHighlights: t(beforeTextKey),
+    afterHighlights: t(afterTextKey),
+    highlights: highlightsConfig.map((config) => ({
+      id: config.id,
+      text: t(config.textKey),
+      description: t(config.descKey),
+      link: { href: config.href, newTab: false },
+      media: {
+        top: { 
+          src: `/images/${config.mediaFiles?.top || `${config.mediaFolder}.jpg`}`, 
+          alt: `${t(config.textKey)} System`, 
+          width: 600, 
+          height: 400 
+        },
+        bottom: { 
+          src: `/images/${config.mediaFiles?.bottom || `${config.mediaFolder}-overlay.jpg`}`, 
+          alt: `${t(config.textKey)} Interface`, 
+          width: 600, 
+          height: 400 
         }
       }
-    ],
+    })),
     button: {
-      label: t('buttonLabel'),
-      href: t('buttonHref'),
+      label: t(buttonLabelKey),
+      href: buttonHref,
       newTab: false
     },
     className,
