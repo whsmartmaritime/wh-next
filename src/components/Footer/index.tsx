@@ -7,17 +7,12 @@ import { LogoEffect } from './LogoEffect'
 export default async function Footer() {
   const t = await getTranslations('Footer')
   const year = new Date().getFullYear()
-
   return (
     <footer className="relative theme-dark-transparent text-white overflow-hidden pt-32 pb-24">
       {/* Black background layer */}
       <div className="absolute inset-0 bg-black z-0"></div>
 
-      {/* Background Grid */}
-      <BackgroundGrid 
-        className="absolute inset-0 z-10" 
-      />
-      
+           
       {/* Main Footer Content */}
       <div className="relative z-30 container-gutter">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -26,18 +21,16 @@ export default async function Footer() {
             <div className="mb-6">
               <Link href="/" className="inline-block">
                 <Image 
-                  src="/images/logo-white.png" 
-                  alt="WH Marine Logo" 
-                  width={120} 
+                  src="/images/whlogo.svg" 
+                  alt="Wheelhouse Logo" 
+                  width={160} 
                   height={40}
                   className="h-10 w-auto"
                 />
               </Link>
             </div>
             <p className="text-white/60 mb-6 leading-relaxed">
-              {t('description', { 
-                defaultValue: 'Leading maritime technology solutions provider, delivering innovative satellite communication and navigation systems worldwide.' 
-              })}
+              {t('description')}
             </p>
             <div className="flex space-x-4">
               <Link 
@@ -81,7 +74,7 @@ export default async function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">{t('quickLinks', { defaultValue: 'Quick Links' })}</h3>
+            <h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">{t('quickLinks', { defaultValue: 'Quick Links' })}</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/about" className="text-white/60 hover:text-white transition-colors">
@@ -94,15 +87,11 @@ export default async function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="text-white/60 hover:text-white transition-colors">
-                  {t('products', { defaultValue: 'Products' })}
+                <Link href="/solutions" className="text-white/60 hover:text-white transition-colors">
+                  {t('solutions', { defaultValue: 'Solutions' })}
                 </Link>
               </li>
-              <li>
-                <Link href="/case-studies" className="text-white/60 hover:text-white transition-colors">
-                  {t('caseStudies', { defaultValue: 'Case Studies' })}
-                </Link>
-              </li>
+              
               <li>
                 <Link href="/news" className="text-white/60 hover:text-white transition-colors">
                   {t('news', { defaultValue: 'News & Updates' })}
@@ -118,81 +107,67 @@ export default async function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">{t('servicesTitle', { defaultValue: 'Services' })}</h3>
+            <h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">{t('ssTitle', { defaultValue: 'Services' })}</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/services/satellite-communication" className="text-white/60 hover:text-white transition-colors">
-                  {t('satelliteComm', { defaultValue: 'Satellite Communication' })}
+                <Link href="/services/repair" className="text-white/60 hover:text-white transition-colors">
+                  {t('repairMaintenance', { defaultValue: 'Repair & Maintenance' })}
                 </Link>
               </li>
               <li>
-                <Link href="/services/navigation-systems" className="text-white/60 hover:text-white transition-colors">
+                <Link href="/services/survey" className="text-white/60 hover:text-white transition-colors">
+                  {t('periodicalSurvey', { defaultValue: 'Periodical Survey' })}
+                </Link>
+              </li>
+              <li>
+                <Link href="/solutions/navigation" className="text-white/60 hover:text-white transition-colors">
                   {t('navigation', { defaultValue: 'Navigation Systems' })}
                 </Link>
               </li>
               <li>
-                <Link href="/services/marine-electronics" className="text-white/60 hover:text-white transition-colors">
-                  {t('marineElectronics', { defaultValue: 'Marine Electronics' })}
+                <Link href="/solutions/gmdss" className="text-white/60 hover:text-white transition-colors">
+                  {t('gmdss', { defaultValue: 'GMDSS' })}
                 </Link>
               </li>
+              
               <li>
-                <Link href="/services/installation" className="text-white/60 hover:text-white transition-colors">
-                  {t('installation', { defaultValue: 'Installation & Support' })}
+                <Link href="/solutions/connectivity" className="text-white/60 hover:text-white transition-colors">
+                  {t('connectivity', { defaultValue: 'Connectivity Solutions' })}
                 </Link>
               </li>
-              <li>
-                <Link href="/services/maintenance" className="text-white/60 hover:text-white transition-colors">
-                  {t('maintenance', { defaultValue: 'Maintenance' })}
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/training" className="text-white/60 hover:text-white transition-colors">
-                  {t('training', { defaultValue: 'Training' })}
-                </Link>
-              </li>
+              
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold text-lg mb-6">{t('contactInfo', { defaultValue: 'Contact Info' })}</h3>
+            <h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">{t('contactInfo', { defaultValue: 'Contact Info' })}</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
-                <svg className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-nature-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <div>
+                
                   <p className="text-white/60">
-                    123 Maritime Street<br />
-                    Ho Chi Minh City, Vietnam<br />
-                    70000
+                    21 An Loc Street<br />
+                    An Hai, Hai Phong City, Vietnam<br />
                   </p>
-                </div>
+                
               </div>
               
               <div className="flex items-center space-x-3">
-                <svg className="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-nature-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <p className="text-white/60">+84 (0) 123 456 789</p>
+                <p className="text-white/60">+84 (0) 865716079</p>
               </div>
               
               <div className="flex items-center space-x-3">
-                <svg className="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-nature-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <p className="text-white/60">info@whmarine.com</p>
-              </div>
-              
-              <div className="flex items-center space-x-3">
-                <svg className="w-5 h-5 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <p className="text-white/60">
-                  Mon - Fri: 8:00 AM - 6:00 PM<br />
-                  Sat: 9:00 AM - 4:00 PM
-                </p>
+                <p className="text-white/60">info@wheelhouse.vn</p>
               </div>
             </div>
           </div>
