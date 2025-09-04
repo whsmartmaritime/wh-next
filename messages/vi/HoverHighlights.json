@@ -1,0 +1,18 @@
+{
+  "beforeHighlights": "Các giải pháp hàng hải toàn diện của chúng tôi được thiết kế để đáp ứng nhu cầu ngày càng phát triển của ngành vận tải biển.",
+  "afterHighlights": "Khám phá cách tiếp cận sáng tạo của chúng tôi biến đổi hoạt động hàng hải hướng tới tương lai bền vững.",
+  "highlight1Text": "Quản Lý Đội Tàu",
+  "highlight1Desc": "Hệ thống quản lý đội tàu tiên tiến cho hoạt động tàu biển tối ưu",
+  "highlight1Href": "/solution#fleet",
+  "highlight2Text": "Định Vị Thông Minh",
+  "highlight2Desc": "Hệ thống định vị thông minh với dữ liệu thời tiết và giao thông thời gian thực",
+  "highlight2Href": "/solution#navigation",
+  "highlight3Text": "Quy Trình An Toàn", 
+  "highlight3Desc": "Hệ thống quản lý an toàn và ứng phó khẩn cấp toàn diện",
+  "highlight3Href": "/solution#safety",
+  "highlight4Text": "Chuyển Đổi Số",
+  "highlight4Desc": "Giải pháp số hoàn chỉnh cho hoạt động hàng hải hiện đại",
+  "highlight4Href": "/solution#digital",
+  "buttonLabel": "Khám Phá Tất Cả Giải Pháp",
+  "buttonHref": "/solution"
+}

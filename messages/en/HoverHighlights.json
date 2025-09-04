@@ -1,0 +1,18 @@
+{
+  "beforeHighlights": "Our comprehensive maritime solutions are designed to meet the evolving needs of the shipping industry.",
+  "afterHighlights": "Discover how our innovative approach transforms maritime operations for a sustainable future.",
+  "highlight1Text": "Fleet Management",
+  "highlight1Desc": "Advanced fleet management systems for optimal vessel operations",
+  "highlight1Href": "/solution#fleet",
+  "highlight2Text": "Smart Navigation", 
+  "highlight2Desc": "Intelligent navigation systems with real-time weather and traffic data",
+  "highlight2Href": "/solution#navigation",
+  "highlight3Text": "Safety Protocols",
+  "highlight3Desc": "Comprehensive safety management and emergency response systems", 
+  "highlight3Href": "/solution#safety",
+  "highlight4Text": "Digital Transformation",
+  "highlight4Desc": "Complete digital solutions for modern maritime operations",
+  "highlight4Href": "/solution#digital",
+  "buttonLabel": "Explore All Solutions",
+  "buttonHref": "/solution"
+}
