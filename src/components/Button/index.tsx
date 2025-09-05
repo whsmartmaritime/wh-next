@@ -2,17 +2,28 @@
 import * as React from 'react';
 import ArrowIcon from '../icons/ArrowIcon';
 
-export type SvgCTAProps = {
+export type ButtonProps = {
   children: React.ReactNode;
   href?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   className?: string;
   arrowRotation?: number;
   theme?: 'light' | 'dark' | 'auto';
+  newTab?: boolean;
+  disabled?: boolean;
 };
 
-// Full container width button with flip hover effect like sample
-export const SvgCTA: React.FC<SvgCTAProps> = ({ children, href, onClick, className, arrowRotation = 0, theme = 'auto' }) => {
+// Full container width button with flip hover effect
+const Button: React.FC<ButtonProps> = ({ 
+  children, 
+  href, 
+  onClick, 
+  className, 
+  arrowRotation = 0, 
+  theme = 'auto',
+  newTab = false,
+  disabled = false
+}) => {
   
   // Theme-based color classes
   const getThemeClasses = () => {
@@ -23,9 +34,9 @@ export const SvgCTA: React.FC<SvgCTAProps> = ({ children, href, onClick, classNa
           focus: 'focus:ring-black',
           defaultText: 'text-black',
           defaultArrow: 'text-black',
-          hoverBg: 'bg-black',
           hoverText: 'text-white',
           hoverArrow: 'text-white',
+          hoverBg: 'bg-black'
         };
       case 'dark':
         return {
@@ -33,57 +44,59 @@ export const SvgCTA: React.FC<SvgCTAProps> = ({ children, href, onClick, classNa
           focus: 'focus:ring-white',
           defaultText: 'text-white',
           defaultArrow: 'text-white',
-          hoverBg: 'bg-white',
           hoverText: 'text-black',
           hoverArrow: 'text-black',
+          hoverBg: 'bg-white'
         };
-      default: // 'auto' - detect theme từ parent section
+      case 'auto':
+      default:
         return {
-          border: 'border-t border-b border-black/20 [.theme-dark_&]:border-white/20 [.theme-dark-transparent_&]:border-white/20',
-          focus: 'focus:ring-black [.theme-dark_&]:focus:ring-white [.theme-dark-transparent_&]:focus:ring-white',
-          defaultText: 'text-black [.theme-dark_&]:text-white [.theme-dark-transparent_&]:text-white',
-          defaultArrow: 'text-black [.theme-dark_&]:text-white [.theme-dark-transparent_&]:text-white',
-          hoverBg: 'bg-black [.theme-dark_&]:bg-white [.theme-dark-transparent_&]:bg-white',
-          hoverText: 'text-white [.theme-dark_&]:text-black [.theme-dark-transparent_&]:text-black',
-          hoverArrow: 'text-white [.theme-dark_&]:text-black [.theme-dark-transparent_&]:text-black',
+          border: 'border-t border-b border-border',
+          focus: 'focus:ring-primary',
+          defaultText: 'text-foreground',
+          defaultArrow: 'text-foreground',
+          hoverText: 'text-primary-foreground',
+          hoverArrow: 'text-primary-foreground',
+          hoverBg: 'bg-primary'
         };
     }
   };
 
   const themeClasses = getThemeClasses();
-  // Base: full width, responsive height, border, overflow hidden for flip effect
+
+  // Base styling - let className control all sizing (height, padding, text, etc.)
   const base = [
-    'group relative inline-flex w-full overflow-hidden',
+    'group relative overflow-hidden cursor-pointer transition-all duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)]',
     themeClasses.border,
-    'transition-all duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)]',
-    'h-16 md:h-16 lg:h-16 ', // responsive height
     'focus:outline-none focus:ring-2 focus:ring-offset-0',
     themeClasses.focus,
+    disabled ? 'opacity-50 cursor-not-allowed' : ''
   ].join(' ');
 
+  // Combine base classes with custom className (className takes precedence for overrides)
   const classes = [base, className].filter(Boolean).join(' ');
 
   // Default label (visible by default, slides up on hover)
   const defaultLabel = (
     <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-transform duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:-translate-y-full">
-      <span className={`font-medium text-xl transition-transform duration-450 delay-150 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-bottom-left group-hover:-rotate-3 ${themeClasses.defaultText}`}>
+      <span className={`font-medium text-lg md:text-xl transition-transform duration-450 delay-150 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-bottom-left group-hover:-rotate-3 ${themeClasses.defaultText}`}>
         {children}
       </span>
-      <ArrowIcon
-        className={`shrink-0 transition-transform duration-200 ease-out ${themeClasses.defaultArrow}`}
+      <ArrowIcon 
+        className={`w-5 h-5 transition-all duration-450 delay-75 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-center ${themeClasses.defaultArrow}`}
         rotation={arrowRotation}
       />
     </div>
   );
 
-  // Hover label (hidden by default, slides down on hover) 
+  // Hover label (hidden by default, slides up from bottom on hover)
   const hoverLabel = (
-    <div className={`absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 ${themeClasses.hoverBg} ${themeClasses.hoverText} translate-y-full transition-transform duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:translate-y-0`}>
-      <span className={`font-medium text-xl rotate-3 transition-transform duration-450 delay-150 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-bottom-left group-hover:rotate-0 ${themeClasses.hoverText}`}>
+    <div className={`absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-all duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)] translate-y-full group-hover:translate-y-0 ${themeClasses.hoverBg}`}>
+      <span className={`font-medium text-lg md:text-xl transition-transform duration-450 delay-150 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-bottom-left group-hover:rotate-3 ${themeClasses.hoverText}`}>
         {children}
       </span>
-      <ArrowIcon
-        className={`shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-1 ${themeClasses.hoverArrow}`}
+      <ArrowIcon 
+        className={`w-5 h-5 transition-all duration-450 delay-75 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-center group-hover:translate-x-1 ${themeClasses.hoverArrow}`}
         rotation={arrowRotation}
       />
     </div>
@@ -96,19 +109,35 @@ export const SvgCTA: React.FC<SvgCTAProps> = ({ children, href, onClick, classNa
     </>
   );
 
-  if (href) {
+  // If href is provided, render as a link
+  if (href && !disabled) {
     return (
-      <a href={href} className={classes} onClick={onClick}>
+      <a 
+        href={href}
+        target={newTab ? '_blank' : undefined}
+        rel={newTab ? 'noopener noreferrer' : undefined}
+        className={classes}
+        onClick={onClick as React.MouseEventHandler<HTMLAnchorElement>}
+      >
         {content}
       </a>
     );
   }
 
+  // Otherwise render as button
   return (
-    <button type="button" className={classes} onClick={onClick}>
+    <button 
+      type="button" 
+      className={classes} 
+      onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}
+      disabled={disabled}
+    >
       {content}
     </button>
   );
 };
 
-export default SvgCTA;
+export default Button;
+
+// Legacy export for backward compatibility
+export { Button as SvgCTA };

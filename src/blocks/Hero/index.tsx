@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-import CTAButton from '@/components/Button'
+import Button from '@/components/Button'
 import { BackgroundAnimation } from '@/components/BackgroundAnimation'
 import { BackgroundGrid } from '@/components/BackgroundGrid'
 import { BackgroundScanline } from '@/components/BackgroundScanline'
@@ -46,9 +46,13 @@ export default async function Hero() {
           </h1>
           <h2 className="text-xl lg:text-2xl font-medium text-muted-foreground mb-6">{t('subtitle')}</h2>
 
-            <CTAButton theme="dark" href="/contact" className='mb-4'>
+            <Button 
+              theme="dark" 
+              href="/contact" 
+              className="flex flex-col lg:col-span-3 h-16 mb-4"
+            >
               {t('ctaPrimary')}
-            </CTAButton>
+            </Button>
          
 
 

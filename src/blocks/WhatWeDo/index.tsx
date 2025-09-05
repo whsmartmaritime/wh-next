@@ -1,7 +1,7 @@
 import React from 'react'
 import { getTranslations } from 'next-intl/server'
 import HoverHighlights from '@/components/HoverHighlights'
-import CTAButton from '@/components/Button'
+import Button from '@/components/Button'
 import { BackgroundGrid } from '@/components/BackgroundGrid'
 import BackgroundScanline from '@/components/BackgroundScanline'
 import type { HoverHighlightsProps } from '@/components/HoverHighlights'
@@ -69,12 +69,14 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
         
         {/* CTA Button */}
         <div className="mt-8 flex justify-center lg:justify-start">
-          <CTAButton
+          <Button
             href={t('buttonHref')}
             theme="light"
+            
+            className="flex flex-col lg:col-span-3 h-16 mb-4"
           >
             {t('buttonLabel')}
-          </CTAButton>
+          </Button>
         </div>
       </div>
     </section>

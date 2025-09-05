@@ -59,7 +59,7 @@ export default async function WhyWheelhouse() {
           
           {/* CTA moved to bottom */}
 
-            <Button className="mb-8" href="/about">
+            <Button className="flex flex-col lg:col-span-3 h-16 mb-4" href="/about">
               {t('ctaPrimary')}
             </Button>
           
