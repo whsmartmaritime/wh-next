@@ -15,7 +15,8 @@ interface BlogPostPageProps {
 }
 
 export async function generateStaticParams({ params }: { params: { locale: 'en' | 'vi' } }) {
-  const posts = getAllPosts(params.locale)
+  const { locale } = await params
+  const posts = getAllPosts(locale)
   
   return posts.map(post => ({
     slug: post.slug,
@@ -23,47 +24,44 @@ export async function generateStaticParams({ params }: { params: { locale: 'en' 
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = getPostBySlug(params.slug, params.locale)
+  const { slug, locale } = await params
+  const post = getPostBySlug(slug, locale)
   
   if (!post) {
     return {
-      title: 'Post Not Found',
+      title: 'Post Not Found'
     }
   }
-  
-  const { frontmatter } = post
-  
+
   return {
-    title: frontmatter.seo?.metaTitle || frontmatter.title,
-    description: frontmatter.seo?.metaDescription || post.excerpt,
-    keywords: frontmatter.seo?.keywords || frontmatter.tags,
-    authors: [{ name: frontmatter.author }],
+    title: `${post.frontmatter.title} - Wheelhouse Marine`,
+    description: post.frontmatter.excerpt,
     openGraph: {
-      title: frontmatter.title,
-      description: post.excerpt,
+      title: post.frontmatter.title,
+      description: post.frontmatter.excerpt,
+      images: post.frontmatter.coverImage ? [post.frontmatter.coverImage] : [],
       type: 'article',
-      publishedTime: frontmatter.publishedAt,
-      modifiedTime: frontmatter.updatedAt,
-      authors: [frontmatter.author],
-      tags: frontmatter.tags,
-      images: frontmatter.coverImage ? [
-        {
-          url: frontmatter.coverImage,
-          alt: frontmatter.title,
-        }
-      ] : [],
+      publishedTime: post.frontmatter.publishedAt,
+      modifiedTime: post.frontmatter.updatedAt,
+      authors: [post.frontmatter.author],
     },
     twitter: {
       card: 'summary_large_image',
-      title: frontmatter.title,
-      description: post.excerpt,
-      images: frontmatter.coverImage ? [frontmatter.coverImage] : [],
+      title: post.frontmatter.title,
+      description: post.frontmatter.excerpt,
+      images: post.frontmatter.coverImage ? [post.frontmatter.coverImage] : [],
     },
+    authors: [{ name: post.frontmatter.author }],
+    keywords: post.frontmatter.tags,
+    alternates: {
+      canonical: `/blog/${post.slug}`
+    }
   }
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = getPostBySlug(params.slug, params.locale)
+  const { slug, locale } = await params
+  const post = getPostBySlug(slug, locale)
   
   if (!post) {
     notFound()

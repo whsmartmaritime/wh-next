@@ -20,17 +20,19 @@ interface BlogPageProps {
 }
 
 export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+  const { locale } = await params
   return {
-    title: params.locale === 'vi' ? 'Bài viết - Wheelhouse Marine' : 'Blog - Wheelhouse Marine',
-    description: params.locale === 'vi' 
+    title: locale === 'vi' ? 'Bài viết - Wheelhouse Marine' : 'Blog - Wheelhouse Marine',
+    description: locale === 'vi' 
       ? 'Khám phá các bài viết về hàng hải, công nghệ và giải pháp từ Wheelhouse Marine'
       : 'Discover maritime insights, technology solutions, and industry expertise from Wheelhouse Marine',
   }
 }
 
 export default async function BlogPage({ params, searchParams }: BlogPageProps) {
-  const { locale } = params
-  const currentPage = parseInt(searchParams.page || '1')
+  const { locale } = await params
+  const resolvedSearchParams = await searchParams
+  const currentPage = parseInt(resolvedSearchParams.page || '1')
   const postsPerPage = 12
   
   // Get all content
@@ -39,20 +41,20 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
   const authors = getAllAuthors(locale)
   
   // Apply filters
-  if (searchParams.category) {
-    posts = posts.filter(post => post.frontmatter.category === searchParams.category)
+  if (resolvedSearchParams.category) {
+    posts = posts.filter(post => post.frontmatter.category === resolvedSearchParams.category)
   }
   
-  if (searchParams.tag) {
-    posts = posts.filter(post => post.frontmatter.tags.includes(searchParams.tag!))
+  if (resolvedSearchParams.tag) {
+    posts = posts.filter(post => post.frontmatter.tags.includes(resolvedSearchParams.tag!))
   }
   
-  if (searchParams.author) {
-    posts = posts.filter(post => post.frontmatter.author === searchParams.author)
+  if (resolvedSearchParams.author) {
+    posts = posts.filter(post => post.frontmatter.author === resolvedSearchParams.author)
   }
   
-  if (searchParams.search) {
-    const searchTerm = searchParams.search.toLowerCase()
+  if (resolvedSearchParams.search) {
+    const searchTerm = resolvedSearchParams.search.toLowerCase()
     posts = posts.filter(post => {
       const searchableContent = [
         post.frontmatter.title,
@@ -73,7 +75,7 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       {/* Hero Section */}
-      {currentPage === 1 && !Object.keys(searchParams).length && (
+      {currentPage === 1 && !Object.keys(resolvedSearchParams).length && (
         <BlogHero featuredPosts={featuredPosts} locale={locale} />
       )}
       
@@ -83,31 +85,31 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
           {/* Main Content */}
           <div className="lg:col-span-3">
             {/* Search Results Header */}
-            {(searchParams.search || searchParams.category || searchParams.tag || searchParams.author) && (
+            {(resolvedSearchParams.search || resolvedSearchParams.category || resolvedSearchParams.tag || resolvedSearchParams.author) && (
               <div className="mb-8">
                 <h1 className="text-2xl font-bold mb-2">
-                  {searchParams.search && (
+                  {resolvedSearchParams.search && (
                     <>
                       {locale === 'vi' ? 'Kết quả tìm kiếm cho' : 'Search results for'}{' '}
-                      <span className="text-blue-600">&ldquo;{searchParams.search}&rdquo;</span>
+                      <span className="text-blue-600">&ldquo;{resolvedSearchParams.search}&rdquo;</span>
                     </>
                   )}
-                  {searchParams.category && (
+                  {resolvedSearchParams.category && (
                     <>
                       {locale === 'vi' ? 'Danh mục' : 'Category'}:{' '}
-                      <span className="text-blue-600">{searchParams.category}</span>
+                      <span className="text-blue-600">{resolvedSearchParams.category}</span>
                     </>
                   )}
-                  {searchParams.tag && (
+                  {resolvedSearchParams.tag && (
                     <>
                       {locale === 'vi' ? 'Tag' : 'Tag'}:{' '}
-                      <span className="text-blue-600">#{searchParams.tag}</span>
+                      <span className="text-blue-600">#{resolvedSearchParams.tag}</span>
                     </>
                   )}
-                  {searchParams.author && (
+                  {resolvedSearchParams.author && (
                     <>
                       {locale === 'vi' ? 'Tác giả' : 'Author'}:{' '}
-                      <span className="text-blue-600">{searchParams.author}</span>
+                      <span className="text-blue-600">{resolvedSearchParams.author}</span>
                     </>
                   )}
                 </h1>
@@ -169,7 +171,7 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
               categories={categories}
               authors={authors}
               locale={locale}
-              currentFilters={searchParams}
+              currentFilters={resolvedSearchParams}
             />
           </div>
         </div>
