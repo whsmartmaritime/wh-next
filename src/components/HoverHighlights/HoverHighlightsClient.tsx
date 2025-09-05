@@ -39,17 +39,18 @@ const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
   const [activeIndex, setActiveIndex] = useState(0)
 
   return (
-    <div className={`grid grid-cols-1 lg:grid-cols-12 gap-0 h-full min-h-[80vh] relative ${className}`}>
+    <div className={`flex flex-col lg:flex-row h-full min-h-[50vh] relative ${className}`}>
       
-      {/* Text Area - Left side */}
-      <div className="lg:col-span-6 flex flex-col justify-center px-0 lg:pr-16 z-10 relative">
-
+      {/* Text Content Area */}
+      <div className="flex-1 lg:max-w-[50%] flex flex-col justify-center lg:pr-16 z-10 relative">
+        
         {beforeHighlights && (
-          <p className="text-lg lg:text-xl text-muted-foreground mb-8 max-w-2xlt">
+          <p className="text-lg lg:text-xl text-muted-foreground mb-4 max-w-2xl">
             {beforeHighlights}
           </p>
         )}
         
+        {/* Links with natural flow */}
         <div className="flex flex-col gap-6">
           {highlights.map((highlight, index) => (
             <Link
@@ -68,34 +69,41 @@ const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
               onMouseEnter={() => setActiveIndex(index)}
             >
               {highlight.text}
-              <ArrowIcon className={`
-                w-6 h-6 lg:w-8 lg:h-8 transition-all duration-600 delay-100
-                ${index === activeIndex ? 'opacity-50 group-hover:opacity-100' : 'opacity-0'}
-                group-hover:translate-x-1
-              `} />
+              <ArrowIcon 
+                className={`
+                  w-6 h-6 lg:w-8 lg:h-8 transition-all duration-600 delay-100
+                  ${index === activeIndex ? 'opacity-50 group-hover:opacity-100' : 'opacity-0'}
+                  group-hover:translate-x-1
+                `} 
+              />
             </Link>
           ))}
         </div>
 
         {afterHighlights && (
-          <p className="text-lg lg:text-xl text-muted-foreground mb-8 max-w-2xl">
+          <p className="text-lg lg:text-xl text-muted-foreground mt-8 max-w-2xl">
             {afterHighlights}
           </p>
         )}
+        
       </div>
 
-      {/* Media Area - Right side */}
-      <div className="hidden lg:block col-span-6 relative">
+      {/* Media Area */}
+      <div className="flex-1 lg:max-w-[50%] hidden lg:block relative">
+        
         {highlights.map((highlight, index) => {
           const isActive = index === activeIndex
           
           return (
             <Fragment key={highlight.id}>
+              
               {/* Background Image */}
-              <div className={`
-                absolute inset-0 transition-all duration-700 ease-out
-                ${isActive ? 'opacity-60 scale-100' : 'opacity-0 scale-105'}
-              `}>
+              <div 
+                className={`
+                  absolute inset-0 transition-all duration-700 ease-out
+                  ${isActive ? 'opacity-60 scale-100' : 'opacity-0 scale-105'}
+                `}
+              >
                 <Image
                   src={highlight.images[0].src}
                   alt={highlight.images[0].alt}
@@ -106,11 +114,13 @@ const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
                 />
               </div>
               
-              {/* Foreground Image - overlaid with slight offset */}
-              <div className={`
-                absolute top-8 left-8 w-3/4 h-3/4 transition-all duration-700 delay-200 ease-out
-                ${isActive ? 'opacity-100 translate-y-0 translate-x-0' : 'opacity-0 translate-y-4 translate-x-4'}
-              `}>
+              {/* Foreground Image */}
+              <div 
+                className={`
+                  absolute top-8 left-8 w-3/4 h-3/4 transition-all duration-700 delay-200 ease-out
+                  ${isActive ? 'opacity-100 translate-y-0 translate-x-0' : 'opacity-0 translate-y-4 translate-x-4'}
+                `}
+              >
                 <Image
                   src={highlight.images[1].src}
                   alt={highlight.images[1].alt}
@@ -120,14 +130,13 @@ const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
                   priority={index === 0}
                 />
               </div>
+              
             </Fragment>
           )
         })}
         
-        {/* Decorative Elements */}
-        <div className="absolute -top-4 -right-4 w-16 h-16 border border-border/30 rounded-lg" />
-        <div className="absolute -bottom-4 -left-4 w-12 h-12 border border-border/30 rounded-lg" />
       </div>
+      
     </div>
   )
 }

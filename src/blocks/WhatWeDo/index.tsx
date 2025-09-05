@@ -70,7 +70,7 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
         </h2>
         
         {/* Interactive Highlights */}
-        <div className="col-span-12 my-8">
+        <div className="col-span-12">
           <HoverHighlights {...highlightsData} />
         </div>
         
