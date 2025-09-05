@@ -12,59 +12,58 @@ export default async function WhyWheelhouse() {
   ];
 
   return (
-    <section className="relative theme-light container-gutter py-block">
+    <section className="theme-light relative overflow-hidden container-gutter grid grid-cols-12">
       {/* Background Grid */}
       <BackgroundGrid />
       
-      {/* Content */}
-      <div className="relative z-30 space-y-12">
-        {/* Mission Section */}
-        <div className="grid grid-cols-12">
-          {/* Title + Desc */}
-          <div className="col-span-12 md:col-span-6 md:pr-8 ">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-4">{t('missionTitle')}</h2>
-            <p className="whitespace-pre-line  mb-4">{t('missionIntro')}</p>
-          </div>
-          
-          {/* Slider */}
-          <div className="col-span-12 md:col-span-6 flex justify-center items-center">
-            <div className="w-full">
-              <Slider images={sliderImages} aspectRatio="16/10" />
-            </div>
-          </div>
-        </div>
+      {/* Mission Section Title */}
+      <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
+        {t('missionTitle')}
+      </h2>
+      
+      {/* Mission Content Row */}
+      <p className="col-span-12 md:col-span-6 md:pr-18 text-md xl:text-xl text-muted-foreground text-justify whitespace-pre-line leading-loose">
+        {t('missionIntro')}
+      </p>
+      
+      <Slider 
+        images={sliderImages} 
+        aspectRatio="16/10" 
+        className="col-span-12 md:col-span-6"
+      />
 
-        {/* Why Wheelhouse Section */}
-        <div>
-          <div className="max-w-prose mb-8">
-            <h2 className="text-2xl lg:text-3xl font-bold mb-4">{t('whyTitle')}</h2>
-            <p className="whitespace-pre-line">{t('whyIntro')}</p>
-          </div>
-          
-          <div className="grid grid-cols-12 gap-6 px-4 mb-8">
-            {[1, 2, 3, 4].map((i) => (
-              <div 
-                key={i} 
-                className=" col-span-12 md:col-span-6 lg:col-span-3 border border-border/30 rounded-lg p-6"
-              >
-                <h3 className="text-sm font-medium mb-3 uppercase text-center ">
-                  {t(`item${i}Title`)}
-                </h3>
-                <p className="leading-relaxed">
-                  {t(`item${i}Desc`)}
-                </p>
-              </div>
-            ))}
-          </div>
-          
-          {/* CTA moved to bottom */}
+      {/* Why Wheelhouse Section Title */}
+      <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
+        {t('whyTitle')}
+      </h2>
+      
+      {/* Why Description */}
+      <p className="col-span-12 text-md xl:text-xl text-muted-foreground text-justify whitespace-pre-line my-8 max-w-2xl">
+        {t('whyIntro')}
+      </p>
 
-            <Button className="flex flex-col lg:col-span-3 h-16 mb-4" href="/about">
-              {t('ctaPrimary')}
-            </Button>
-          
+      {/* Feature Cards */}
+      {[1, 2, 3, 4].map((i) => (
+        <div 
+          key={i} 
+          className="col-span-12 md:col-span-6 lg:col-span-3 border border-border/30 rounded-lg p-6 hover:border-border/60 transition-colors duration-300 my-8"
+        >
+          <h3 className="text-sm lg:text-base font-semibold mb-3 uppercase text-center text-foreground">
+            {t(`item${i}Title`)}
+          </h3>
+          <p className="text-sm lg:text-base text-muted-foreground leading-relaxed text-center my-8">
+            {t(`item${i}Desc`)}
+          </p>
         </div>
-      </div>
+      ))}
+      
+      {/* Call to Action */}
+      <Button 
+        className="col-span-12 md:col-span-6 lg:col-span-3 col-start-1 h-16 my-8" 
+        href="/about"
+      >
+        {t('ctaPrimary')}
+      </Button>
     </section>
   );
 }

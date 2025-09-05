@@ -52,33 +52,35 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
   }
 
   return (
-    <section className={`theme-dark relative min-h-screen py-32 overflow-hidden bg-background ${className || ''}`}>
+    <section className={`
+      theme-dark relative overflow-hidden bg-background
+      container-gutter
+      grid grid-cols-12
+      before:hidden lg:before:block before:absolute before:inset-y-0 before:right-16
+      before:w-px before:bg-gradient-to-b before:from-transparent before:via-border
+      before:to-transparent before:opacity-30 before:content-['']
+      ${className || ''}
+    `}>
       {/* Background Effects */}
       <BackgroundGrid />
       <BackgroundScanline />
-      
-      {/* Right margin scanline */}
-      <div className="hidden lg:block absolute top-0 right-0 w-[25%] h-full">
-        <div className="absolute inset-y-0 right-16 w-px bg-gradient-to-b from-transparent via-border to-transparent opacity-30" />
-      </div>
-
-      {/* Container */}
-      <div className="container-gutter mx-auto px-4 lg:px-8 h-full">
-        <h2 className="text-2xl lg:text-3xl font-semibold mb-6 text-center lg:text-left">{t('title')}</h2>
-        <HoverHighlights {...highlightsData} />
+        {/* Section Title */}
+        <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold  text-center lg:text-left my-16">
+          {t('title')}
+        </h2>
         
-        {/* CTA Button */}
-        <div className="mt-8 flex justify-center lg:justify-start">
-          <Button
-            href={t('buttonHref')}
-            theme="light"
-            
-            className="flex flex-col lg:col-span-3 h-16 mb-4"
-          >
-            {t('buttonLabel')}
-          </Button>
+        {/* Interactive Highlights */}
+        <div className="col-span-12 my-8">
+          <HoverHighlights {...highlightsData} />
         </div>
-      </div>
+        
+        {/* Call to Action */}
+        <Button
+          className="col-span-12 md:col-span-6 lg:col-span-3 h-16 my-8"
+          href={t('buttonHref')}
+        >
+          {t('buttonLabel')}
+        </Button>
     </section>
   )
 }

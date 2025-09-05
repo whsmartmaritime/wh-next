@@ -47,9 +47,8 @@ export default async function Hero() {
           <h2 className="text-xl lg:text-2xl font-medium text-muted-foreground mb-6">{t('subtitle')}</h2>
 
             <Button 
-              theme="dark" 
               href="/contact" 
-              className="flex flex-col lg:col-span-3 h-16 mb-4"
+              className="w-full sm:w-auto h-16 mb-4"
             >
               {t('ctaPrimary')}
             </Button>

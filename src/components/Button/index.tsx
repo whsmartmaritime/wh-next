@@ -8,23 +8,45 @@ export type ButtonProps = {
   onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   className?: string;
   arrowRotation?: number;
-  theme?: 'light' | 'dark' | 'auto';
-  newTab?: boolean;
-  disabled?: boolean;
+  newTab?: boolean;  // Default false
 };
 
-// Full container width button with flip hover effect
+// Auto-detect theme from parent section and create button with flip hover effect
 const Button: React.FC<ButtonProps> = ({ 
   children, 
   href, 
   onClick, 
   className, 
   arrowRotation = 0, 
-  theme = 'auto',
-  newTab = false,
-  disabled = false
+  newTab = false
 }) => {
   
+  // Auto-detect theme from closest parent with theme class (client-side only)
+  const [theme, setTheme] = React.useState<'light' | 'dark' | 'auto'>('auto');
+  
+  React.useEffect(() => {
+    // Find the button element and traverse up to find theme class
+    const detectTheme = () => {
+      const buttons = document.querySelectorAll('a[href], button');
+      for (const button of buttons) {
+        if (button.textContent?.includes(children as string)) {
+          let current = button.parentElement;
+          
+          while (current) {
+            const classList = current.classList;
+            if (classList.contains('theme-light') || classList.contains('theme-light-transparent')) return 'light';
+            if (classList.contains('theme-dark') || classList.contains('theme-dark-transparent')) return 'dark';
+            current = current.parentElement;
+          }
+          break;
+        }
+      }
+      return 'auto';
+    };
+    
+    setTheme(detectTheme());
+  }, [children]);
+
   // Theme-based color classes
   const getThemeClasses = () => {
     switch (theme) {
@@ -64,13 +86,12 @@ const Button: React.FC<ButtonProps> = ({
 
   const themeClasses = getThemeClasses();
 
-  // Base styling - let className control all sizing (height, padding, text, etc.)
+  // Base styling - let className control all sizing
   const base = [
     'group relative overflow-hidden cursor-pointer transition-all duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)]',
     themeClasses.border,
     'focus:outline-none focus:ring-2 focus:ring-offset-0',
-    themeClasses.focus,
-    disabled ? 'opacity-50 cursor-not-allowed' : ''
+    themeClasses.focus
   ].join(' ');
 
   // Combine base classes with custom className (className takes precedence for overrides)
@@ -110,7 +131,7 @@ const Button: React.FC<ButtonProps> = ({
   );
 
   // If href is provided, render as a link
-  if (href && !disabled) {
+  if (href) {
     return (
       <a 
         href={href}
@@ -130,7 +151,6 @@ const Button: React.FC<ButtonProps> = ({
       type="button" 
       className={classes} 
       onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}
-      disabled={disabled}
     >
       {content}
     </button>
