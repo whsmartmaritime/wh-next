@@ -1,0 +1,283 @@
+/* Blog-specific styling */
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Code syntax highlighting */
+.hljs {
+  background: #f8f9fa !important;
+}
+
+.dark .hljs {
+  background: #1f2937 !important;
+}
+
+/* Blog post typography */
+.prose {
+  color: #374151;
+  max-width: none;
+}
+
+.prose h1 {
+  color: #111827;
+  font-weight: 800;
+}
+
+.prose h2 {
+  color: #111827;
+  font-weight: 700;
+}
+
+.prose h3 {
+  color: #111827;
+  font-weight: 600;
+}
+
+.prose a {
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.prose a:hover {
+  color: #1d4ed8;
+}
+
+.prose code {
+  color: #dc2626;
+  font-weight: 600;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background-color: #f9fafb;
+  color: #374151;
+  overflow-x: auto;
+}
+
+.prose pre code {
+  color: inherit;
+  font-weight: 400;
+}
+
+.prose blockquote {
+  border-left: 4px solid #3b82f6;
+  background-color: #eff6ff;
+  color: #1e40af;
+  font-style: italic;
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.prose table {
+  font-size: 0.875em;
+}
+
+.prose thead {
+  border-bottom-width: 2px;
+  border-bottom-color: #e5e7eb;
+}
+
+.prose tbody tr {
+  border-bottom-width: 1px;
+  border-bottom-color: #e5e7eb;
+}
+
+/* Dark mode adjustments */
+.dark .prose {
+  color: #d1d5db;
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  color: #f9fafb;
+}
+
+.dark .prose a {
+  color: #60a5fa;
+}
+
+.dark .prose a:hover {
+  color: #93c5fd;
+}
+
+.dark .prose code {
+  color: #fbbf24;
+}
+
+.dark .prose pre {
+  background-color: #1f2937;
+  color: #e5e7eb;
+}
+
+.dark .prose blockquote {
+  border-left-color: #3b82f6;
+  background-color: #1e3a8a;
+  color: #93c5fd;
+}
+
+.dark .prose thead {
+  border-bottom-color: #374151;
+}
+
+.dark .prose tbody tr {
+  border-bottom-color: #374151;
+}
+
+/* Blog card hover effects */
+.blog-card {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Featured badge animation */
+.featured-badge {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .8;
+  }
+}
+
+/* Search input focus styles */
+.search-input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Loading animation */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Blog hero gradient animation */
+.hero-gradient {
+  background: linear-gradient(-45deg, #3b82f6, #1d4ed8, #2563eb, #1e40af);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  .prose h1 {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  
+  .prose h2 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  
+  .prose {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .prose {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  .prose h1 {
+    font-size: 18pt;
+    break-after: avoid;
+  }
+  
+  .prose h2 {
+    font-size: 16pt;
+    break-after: avoid;
+  }
+  
+  .prose h3 {
+    font-size: 14pt;
+    break-after: avoid;
+  }
+}
