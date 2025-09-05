@@ -28,7 +28,7 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
     subtitle: t('afterHighlights'),
     highlights: MARITIME_IMAGES.map((images, index) => ({
       id: `highlight-${index}`, // Simple ID for React key
-      text: t(`highlight${index + 1}Text`),
+      text: <h3 className='text-2xl lg:text-3xl xl:text-5xl font-bold m-0 leading-tight'>{t(`highlight${index + 1}Text`)}</h3>,
       description: t(`highlight${index + 1}Desc`),
       href: t(`highlight${index + 1}Href`), // From JSON - supports i18n
       newTab: false,
