@@ -66,51 +66,5 @@
   }
 }
 
-/* =============================================================================
-   RESPONSIVE TYPOGRAPHY - OPTIMAL SCALING
-   ========================================================================== */
-
-/* Tablet (≥640px) - Balanced scaling */
-@media (min-width: 640px) {
-  h1 {
-    font-size: 2.25rem; /* text-4xl - Nổi bật */
-    margin: 2.5rem 0 1.25rem;
-  }
-  
-  h2 {
-    font-size: 1.875rem; /* text-3xl - Cân đối */
-    margin: 2rem 0 1rem;
-  }
-  
-  h3 {
-    font-size: 1.25rem; /* text-2xl - Tỉ lệ tốt */
-    margin: 1.5rem 0 0.75rem;
-  }
-  
-  p {
-    font-size: 1rem; /* text-base - Chuẩn desktop */
-  }
-}
-
-/* Desktop (≥1024px) - Premium scaling */
-@media (min-width: 1024px) {
-  h1 {
-    font-size: 3rem; /* text-5xl - Hero size */
-    margin: 3rem 0 1.5rem;
-  }
-  
-  h2 {
-    font-size: 2.25rem; /* text-4xl - Section headers */
-    margin: 2.5rem 0 1.25rem;
-  }
-  
-  h3 {
-    font-size: 1.5rem; /* text-3xl - Sub-sections */
-    margin: 2rem 0 1rem;
-  }
-  
-  p {
-    font-size: 1.125rem; /* text-lg - Comfortable reading */
-    line-height: 1.8;
-  }
-}
+/* Base styles only - no responsive media queries */
+/* Components handle their own responsive design via Tailwind classes */
