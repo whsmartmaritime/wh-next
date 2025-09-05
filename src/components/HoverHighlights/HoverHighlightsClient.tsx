@@ -15,7 +15,7 @@ export interface HoverHighlightMedia {
 
 export interface HoverHighlightItem {
   id: string
-  text: string
+  text: string | React.ReactNode
   description?: string  // Optional - can be used for tooltips/subtitles later
   href: string
   newTab?: boolean
@@ -23,23 +23,17 @@ export interface HoverHighlightItem {
 }
 
 export interface HoverHighlightsProps {
-  title?: string
-  subtitle?: string
+  beforeHighlights?: string
+  afterHighlights?: string
   highlights: HoverHighlightItem[]
-  cta?: {
-    label: string
-    href: string
-    newTab?: boolean
-  }
   className?: string
 }
 
 // Pure HoverHighlights Component - just text/image interactions
-export const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
-  title,
-  subtitle,
+const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
+  beforeHighlights,
+  afterHighlights,
   highlights,
-  cta,
   className = ''
 }) => {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -47,11 +41,12 @@ export const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
   return (
     <div className={`grid grid-cols-1 lg:grid-cols-12 gap-0 h-full min-h-[80vh] relative ${className}`}>
       
-      {/* Content Area - Left side */}
-      <div className="col-span-1 lg:col-span-6 flex flex-col justify-center gap-8 z-10 h-full">
-        {title && (
-          <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-none">
-            {title}
+      {/* Text Area - Left side */}
+      <div className="lg:col-span-6 flex flex-col justify-center px-0 lg:pr-16 z-10 relative">
+
+        {beforeHighlights && (
+          <p className="text-lg lg:text-xl text-muted-foreground mb-8 max-w-2xlt">
+            {beforeHighlights}
           </p>
         )}
         
@@ -82,76 +77,59 @@ export const HoverHighlightsClient: React.FC<HoverHighlightsProps> = ({
           ))}
         </div>
 
-        {subtitle && (
-          <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-none">
-            {subtitle}
+        {afterHighlights && (
+          <p className="text-lg lg:text-xl text-muted-foreground mb-8 max-w-2xl">
+            {afterHighlights}
           </p>
-        )}
-
-        {cta && (
-          <div className="mt-8">
-            <Link
-              href={cta.href}
-              target={cta.newTab ? '_blank' : undefined}
-              rel={cta.newTab ? 'noopener noreferrer' : undefined}
-              className="inline-flex items-center gap-4 px-6 py-3 text-lg font-medium text-foreground bg-primary/10 border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 group rounded-lg"
-            >
-              {cta.label}
-              <ArrowIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-          </div>
         )}
       </div>
 
       {/* Media Area - Right side */}
       <div className="hidden lg:block col-span-6 relative">
         {highlights.map((highlight, index) => {
-          const [backgroundImage, foregroundImage] = highlight.images
+          const isActive = index === activeIndex
           
           return (
-            <Fragment key={`media-${highlight.id}`}>
+            <Fragment key={highlight.id}>
               {/* Background Image */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+              <div className={`
+                absolute inset-0 transition-all duration-700 ease-out
+                ${isActive ? 'opacity-60 scale-100' : 'opacity-0 scale-105'}
+              `}>
                 <Image
-                  src={backgroundImage.src}
-                  alt={backgroundImage.alt}
-                  width={backgroundImage.width || 600}
-                  height={backgroundImage.height || 400}
-                  className={`
-                    w-full h-auto max-w-full object-contain
-                    transition-all duration-900 ease-out will-change-transform
-                    ${index < activeIndex ? 'opacity-0 -translate-y-24' : ''}
-                    ${index === activeIndex ? 'opacity-100 translate-y-0' : ''}
-                    ${index > activeIndex ? 'opacity-0 translate-y-24' : ''}
-                  `}
+                  src={highlight.images[0].src}
+                  alt={highlight.images[0].alt}
+                  fill
+                  className="object-cover rounded-lg"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   priority={index === 0}
                 />
               </div>
-
-              {/* Foreground Image */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[2]">
+              
+              {/* Foreground Image - overlaid with slight offset */}
+              <div className={`
+                absolute top-8 left-8 w-3/4 h-3/4 transition-all duration-700 delay-200 ease-out
+                ${isActive ? 'opacity-100 translate-y-0 translate-x-0' : 'opacity-0 translate-y-4 translate-x-4'}
+              `}>
                 <Image
-                  src={foregroundImage.src}
-                  alt={foregroundImage.alt}
-                  width={foregroundImage.width || 600}
-                  height={foregroundImage.height || 400}
-                  className={`
-                    w-full h-auto max-w-full object-contain
-                    transition-all duration-900 ease-out will-change-transform
-                    ${index < activeIndex ? 'opacity-0 -translate-y-16' : ''}
-                    ${index === activeIndex ? 'opacity-100 translate-y-0' : ''}
-                    ${index > activeIndex ? 'opacity-0 translate-y-16' : ''}
-                  `}
+                  src={highlight.images[1].src}
+                  alt={highlight.images[1].alt}
+                  fill
+                  className="object-cover rounded-lg shadow-2xl"
+                  sizes="(max-width: 768px) 100vw, 40vw"
                   priority={index === 0}
                 />
               </div>
             </Fragment>
           )
         })}
+        
+        {/* Decorative Elements */}
+        <div className="absolute -top-4 -right-4 w-16 h-16 border border-border/30 rounded-lg" />
+        <div className="absolute -bottom-4 -left-4 w-12 h-12 border border-border/30 rounded-lg" />
       </div>
     </div>
   )
 }
 
-// Export as default and named export
 export default HoverHighlightsClient

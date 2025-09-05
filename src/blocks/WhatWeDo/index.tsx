@@ -1,6 +1,7 @@
 import React from 'react'
 import { getTranslations } from 'next-intl/server'
 import HoverHighlights from '@/components/HoverHighlights'
+import CTAButton from '@/components/Button'
 import { BackgroundGrid } from '@/components/BackgroundGrid'
 import BackgroundScanline from '@/components/BackgroundScanline'
 import type { HoverHighlightsProps } from '@/components/HoverHighlights'
@@ -24,8 +25,8 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
   
   // Build clean data for HoverHighlights
   const highlightsData: HoverHighlightsProps = {
-    title: t('beforeHighlights'),
-    subtitle: t('afterHighlights'),
+    beforeHighlights: t('beforeHighlights'),
+    afterHighlights: t('afterHighlights'),
     highlights: MARITIME_IMAGES.map((images, index) => ({
       id: `highlight-${index}`, // Simple ID for React key
       text: <h3 className='text-2xl lg:text-3xl xl:text-5xl font-bold m-0 leading-tight'>{t(`highlight${index + 1}Text`)}</h3>,
@@ -46,12 +47,8 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
           height: 400
         }
       ]
-    })),
-    cta: {
-      label: t('buttonLabel'),
-      href: t('buttonHref'),
-      newTab: false
-    }
+    }))
+    // Remove cta from here - will handle in WhatWeDo component directly
   }
 
   return (
@@ -69,6 +66,16 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
       <div className="container-gutter mx-auto px-4 lg:px-8 h-full">
         <h2 className="text-2xl lg:text-3xl font-semibold mb-6 text-center lg:text-left">{t('title')}</h2>
         <HoverHighlights {...highlightsData} />
+        
+        {/* CTA Button */}
+        <div className="mt-8 flex justify-center lg:justify-start">
+          <CTAButton
+            href={t('buttonHref')}
+            theme="light"
+          >
+            {t('buttonLabel')}
+          </CTAButton>
+        </div>
       </div>
     </section>
   )
