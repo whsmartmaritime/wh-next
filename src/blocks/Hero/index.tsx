@@ -39,12 +39,12 @@ export default async function Hero() {
         <div className="grid grid-cols-1  lg:grid-cols-12 items-center">
         
         {/* Left: text content - cols-3 (25% like sample's cols-4/16) */}
-        <div className="flex flex-col lg:col-span-3 lg:order-1">
-          <h1 className="font-semibold leading-tight tracking-tight text-balance w-full lg:w-[150%]">
+        <div className="flex flex-col lg:col-span-3 lg:order-1 ">
+          <h1 className="text-3xl lg:text-5xl xl:text-7xl font-semibold leading-tight tracking-tight text-balance w-full lg:w-[150%] mb-8">
             <span className="text-sky-700">{t('brand')} </span>
             <span>{t('title')}</span>
           </h1>
-          <h2>{t('subtitle')}</h2>
+          <h2 className="text-xl lg:text-2xl font-medium text-muted-foreground mb-6">{t('subtitle')}</h2>
 
             <CTAButton theme="dark" href="/contact" className='mb-4'>
               {t('ctaPrimary')}

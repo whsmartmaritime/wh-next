@@ -67,7 +67,7 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
 
       {/* Container */}
       <div className="container-gutter mx-auto px-4 lg:px-8 h-full">
-        <h2 className="font-semibold mb-6 text-center lg:text-left">{t('title')}</h2>
+        <h2 className="text-2xl lg:text-3xl font-semibold mb-6 text-center lg:text-left">{t('title')}</h2>
         <HoverHighlights {...highlightsData} />
       </div>
     </section>

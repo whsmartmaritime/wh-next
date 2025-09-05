@@ -22,7 +22,7 @@ export default async function WhyWheelhouse() {
         <div className="grid grid-cols-12">
           {/* Title + Desc */}
           <div className="col-span-12 md:col-span-6 md:pr-8 ">
-            <h2 className=" font-bold mb-4">{t('missionTitle')}</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-4">{t('missionTitle')}</h2>
             <p className="whitespace-pre-line  mb-4">{t('missionIntro')}</p>
           </div>
           
@@ -37,7 +37,7 @@ export default async function WhyWheelhouse() {
         {/* Why Wheelhouse Section */}
         <div>
           <div className="max-w-prose mb-8">
-            <h2 className="font-bold mb-4">{t('whyTitle')}</h2>
+            <h2 className="text-2xl lg:text-3xl font-bold mb-4">{t('whyTitle')}</h2>
             <p className="whitespace-pre-line">{t('whyIntro')}</p>
           </div>
           
@@ -47,7 +47,7 @@ export default async function WhyWheelhouse() {
                 key={i} 
                 className=" col-span-12 md:col-span-6 lg:col-span-3 border border-border/30 rounded-lg p-6"
               >
-                <h3 className="font-medium mb-3 uppercase text-center ">
+                <h3 className="text-sm font-medium mb-3 uppercase text-center ">
                   {t(`item${i}Title`)}
                 </h3>
                 <p className="leading-relaxed">
