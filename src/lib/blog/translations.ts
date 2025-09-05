@@ -6,7 +6,7 @@
 import { getAllPosts } from './mdx'
 
 export interface TranslationMapping {
-  [translationKey: string]: {
+  [key: string]: {
     en?: string
     vi?: string
   }
@@ -24,11 +24,12 @@ export function buildTranslationMapping(): TranslationMapping {
   
   // Build mapping from English posts
   enPosts.forEach(post => {
-    const { translationKey, translations } = post.frontmatter
-    if (translationKey && translations) {
-      mapping[translationKey] = {
-        ...mapping[translationKey],
-        en: post.slug,
+    const { translations } = post.frontmatter
+    if (translations) {
+      // Sử dụng slug tiếng Anh làm key chính
+      const key = post.slug
+      mapping[key] = {
+        en: translations.en || post.slug,
         vi: translations.vi
       }
     }
@@ -36,12 +37,17 @@ export function buildTranslationMapping(): TranslationMapping {
   
   // Build mapping from Vietnamese posts  
   viPosts.forEach(post => {
-    const { translationKey, translations } = post.frontmatter
-    if (translationKey && translations) {
-      mapping[translationKey] = {
-        ...mapping[translationKey],
-        vi: post.slug,
-        en: translations.en
+    const { translations } = post.frontmatter
+    if (translations && translations.en) {
+      // Sử dụng slug tiếng Anh làm key chính
+      const key = translations.en
+      if (!mapping[key]) {
+        mapping[key] = {}
+      }
+      mapping[key] = {
+        ...mapping[key],
+        en: translations.en,
+        vi: translations.vi || post.slug
       }
     }
   })
@@ -61,9 +67,9 @@ export function getTranslationSlug(
   
   const mapping = buildTranslationMapping()
   
-  // Find the translation key for current post
-  for (const translationKey in mapping) {
-    const slugs = mapping[translationKey]
+  // Tìm mapping key dựa trên current slug và locale
+  for (const key in mapping) {
+    const slugs = mapping[key]
     if (slugs[currentLocale] === currentSlug) {
       return slugs[targetLocale] || null
     }
@@ -82,9 +88,9 @@ export function getAvailableTranslations(
   const translations: Array<{ locale: 'en' | 'vi', slug: string }> = []
   const mapping = buildTranslationMapping()
   
-  // Find the translation key for current post
-  for (const translationKey in mapping) {
-    const slugs = mapping[translationKey]
+  // Tìm mapping key dựa trên current slug và locale
+  for (const key in mapping) {
+    const slugs = mapping[key]
     if (slugs[currentLocale] === currentSlug) {
       // Add translations for other locales
       Object.entries(slugs).forEach(([locale, slug]) => {
