@@ -1,5 +1,4 @@
 import React from 'react'
-import { cn } from '@/lib/utils'
 
 interface Props {
   className?: string
@@ -24,29 +23,26 @@ export const BackgroundGrid: React.FC<Props> = ({
   return (
     <div
       aria-hidden="true"
-      className={cn(
-        'absolute top-0 h-full pointer-events-none select-none',
-        'z-10', // Grid layer - above video, below scanline
+      className={`absolute top-0 h-full pointer-events-none select-none z-10 ${
         ignoreGutter 
           ? 'left-0 w-full' 
-          : 'left-[var(--gutter-h)] w-[calc(100%-var(--gutter-h)*2)]',
-        className
-      )}
+          : 'left-[var(--gutter-h)] w-[calc(100%-var(--gutter-h)*2)]'
+      } ${className || ''}`}
     >
       {gridLines.map((line) => (
         <div
           key={line.key}
-          className={cn(
-            'absolute top-0 bottom-0 w-px',
-            // Responsive visibility
-            line.responsive === 'always' && 'block',          // Luôn hiển thị (cột 0, 12)
-            line.responsive === 'md' && 'hidden md:block',    // Từ md trở lên (cột 6)
-            line.responsive === 'lg' && 'hidden lg:block',    // Từ lg trở lên (cột 3, 9)
-            // Color - Tailwind standard dark mode classes
-          gradient
-            ? 'bg-gradient-to-b from-transparent via-neutral-200/20 to-neutral-200/20 dark:via-neutral-500/30 dark:to-neutral-500/30'
-            : 'bg-neutral-200/20 dark:bg-neutral-500/30'
-          )}
+          className={`absolute top-0 bottom-0 w-px ${
+            line.responsive === 'always' ? 'block' : ''
+          } ${
+            line.responsive === 'md' ? 'hidden md:block' : ''
+          } ${
+            line.responsive === 'lg' ? 'hidden lg:block' : ''
+          } ${
+            gradient
+              ? 'bg-gradient-to-b from-transparent via-neutral-200/20 to-neutral-200/20 dark:via-neutral-500/30 dark:to-neutral-500/30'
+              : 'bg-neutral-200/20 dark:bg-neutral-500/30'
+          }`}
           style={{ left: line.left }}
         />
       ))}

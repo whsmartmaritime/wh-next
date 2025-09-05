@@ -1,5 +1,4 @@
 import React from 'react'
-import { cn } from '@/lib/utils'
 
 type CrosshairPosition = 'top-left' | 'bottom-left' | 'top-right' | 'bottom-right'
 
@@ -27,12 +26,7 @@ export const BackgroundScanline: React.FC<Props> = ({
   return (
     <div
       aria-hidden="true"
-      className={cn(
-        'absolute inset-0 pointer-events-none',
-        'z-20', // Scanline layer - above grid, below content
-        enableBorders && 'border-t border-b border-[var(--theme-border-color)]',
-        className
-      )}
+      className={`absolute inset-0 pointer-events-none z-20 ${enableBorders ? 'border-t border-b border-[var(--theme-border-color)]' : ''} ${className || ''}`}
       style={style}
     >
       {/* Scanline Background Texture - Like sample */}

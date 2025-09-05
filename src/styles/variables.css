@@ -13,10 +13,10 @@
   --column: calc((100vw - (var(--gutter-h) * 2)) / 12);
   --radius: 0.625rem;
 
-  /* Theme border colors - SIMPLIFIED for auto theme detection */
+  /* Theme border colors */
   --theme-border-light: rgba(255,255,255,0.08);
   --theme-border-dark: rgba(255,255,255,0.12);
-  --theme-border-color: currentColor; /* Use current text color */
+  --theme-border-color: currentColor;
 
   /* Base colors for theme backgrounds */
   --color-base-0: rgb(255, 255, 255);    /* Light theme background */
@@ -24,39 +24,9 @@
   --color-base-900: rgb(20, 20, 20);     /* Alternative dark */
   --color-base-950: rgb(8, 8, 10);       /* Even darker option */
 
-  /* Design system colors - Light theme */
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Simple foreground/background variables */
+  --foreground: 0 0 0;
+  --background: 255 255 255;
 }
 
 @media (min-width: 640px) {
@@ -65,12 +35,14 @@
     --block-spacing: 2.5rem;
   }
 }
+
 @media (min-width: 768px) {
   :root {
     --gutter-h: 2rem;
     --block-spacing: 3.5rem;
   }
 }
+
 @media (min-width: 1024px) {
   :root {
     --gutter-h: 4rem;
@@ -78,12 +50,14 @@
     --header-height: 76px;
   }
 }
+
 @media (min-width: 1600px) {
   :root {
     --gutter-h: 8rem;
     --header-height: 90px;
   }
 }
+
 @media (min-width: 1920px) {
   :root {
     --gutter-h: calc(50vw - 50rem);

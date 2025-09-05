@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react'
-import { cn } from '@/lib/utils'
 
 interface Props {
   className?: string
@@ -16,11 +15,7 @@ export const BackgroundAnimation: React.FC<Props> = ({
 }: Props) => {
   return (
     <div
-      className={cn(
-        'absolute inset-0 pointer-events-none',
-        'z-0 bg-black', // Background layer - lowest level  
-        className
-      )}
+      className={`absolute inset-0 pointer-events-none z-0 bg-black ${className || ''}`}
       style={style}
     >
       {/* Video Background */}
