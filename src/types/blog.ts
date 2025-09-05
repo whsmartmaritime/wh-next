@@ -1,3 +1,69 @@
+// Bilingual support types
+export interface BilingualText {
+  en: string
+  vi: string
+}
+
+export interface BilingualArray {
+  en: string[]
+  vi: string[]
+}
+
+export interface BilingualSEO {
+  en?: {
+    metaTitle?: string
+    metaDescription?: string
+    keywords?: string[]
+    ogImage?: string
+  }
+  vi?: {
+    metaTitle?: string
+    metaDescription?: string
+    keywords?: string[]
+    ogImage?: string
+  }
+}
+
+// New bilingual post matter
+export interface BilingualPostMatter {
+  title: BilingualText
+  excerpt: BilingualText
+  publishedAt: string
+  updatedAt?: string
+  category: string
+  tags: BilingualArray
+  author: string
+  coverImage?: string
+  featured?: boolean
+  draft?: boolean
+  slug: BilingualText  // Slug riêng cho từng ngôn ngữ
+  seo?: BilingualSEO
+}
+
+export interface BilingualPost {
+  slugs: BilingualText  // All available slugs
+  frontmatter: BilingualPostMatter
+  content: {
+    en: string
+    vi: string
+  }
+  readingTime: {
+    en: {
+      text: string
+      minutes: number
+      time: number
+      words: number
+    }
+    vi: {
+      text: string
+      minutes: number
+      time: number
+      words: number
+    }
+  }
+  excerpt: BilingualText
+}
+
 // Core blog post types
 export interface PostMatter {
   title: string
@@ -11,6 +77,10 @@ export interface PostMatter {
   featured?: boolean
   draft?: boolean
   locale?: 'en' | 'vi'
+  translations?: {         // Mapping slug của các ngôn ngữ
+    en?: string
+    vi?: string
+  }
   seo?: {
     metaTitle?: string
     metaDescription?: string

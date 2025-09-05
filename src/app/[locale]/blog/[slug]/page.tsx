@@ -2,10 +2,11 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getPostBySlug, getAllPosts, getRelatedPosts } from '@/lib/blog/mdx'
+import { getPostBySlugEnhanced, getAllPosts, getRelatedPosts } from '@/lib/blog/mdx'
 import { BlogPostCard } from '@/components/blog/BlogPostCard'
 import { ShareButtons } from '@/components/blog/ShareButtons'
 import { BackToTop } from '@/components/blog/BackToTop'
+import { BilingualMDXContent } from '@/components/blog/BilingualMDXContent'
 
 interface BlogPostPageProps {
   params: {
@@ -14,9 +15,9 @@ interface BlogPostPageProps {
   }
 }
 
-export async function generateStaticParams({ params }: { params: { locale: 'en' | 'vi' } }) {
+export async function generateStaticParams({ params }: { params: { locale: string } }) {
   const { locale } = await params
-  const posts = getAllPosts(locale)
+  const posts = getAllPosts(locale as 'en' | 'vi')
   
   return posts.map(post => ({
     slug: post.slug,
@@ -25,7 +26,7 @@ export async function generateStaticParams({ params }: { params: { locale: 'en' 
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug, locale } = await params
-  const post = getPostBySlug(slug, locale)
+  const post = getPostBySlugEnhanced(slug, locale)
   
   if (!post) {
     return {
@@ -61,7 +62,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug, locale } = await params
-  const post = getPostBySlug(slug, locale)
+  const post = getPostBySlugEnhanced(slug, locale)
   
   if (!post) {
     notFound()
@@ -71,7 +72,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { frontmatter, content, readingTime } = post
   
   const publishedDate = new Date(frontmatter.publishedAt).toLocaleDateString(
-    params.locale === 'vi' ? 'vi-VN' : 'en-US',
+    locale === 'vi' ? 'vi-VN' : 'en-US',
     { 
       year: 'numeric', 
       month: 'long', 
@@ -80,7 +81,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   )
   
   const updatedDate = frontmatter.updatedAt ? new Date(frontmatter.updatedAt).toLocaleDateString(
-    params.locale === 'vi' ? 'vi-VN' : 'en-US',
+    locale === 'vi' ? 'vi-VN' : 'en-US',
     { 
       year: 'numeric', 
       month: 'long', 
@@ -111,14 +112,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {/* Breadcrumb */}
             <nav className="mb-4 text-sm">
               <Link 
-                href={`/${params.locale}`}
+                href={`/${locale}`}
                 className="hover:underline opacity-80"
               >
-                {params.locale === 'vi' ? 'Trang chủ' : 'Home'}
+                {locale === 'vi' ? 'Trang chủ' : 'Home'}
               </Link>
               <span className="mx-2">/</span>
               <Link 
-                href={`/${params.locale}/blog`}
+                href={`/${locale}/blog`}
                 className="hover:underline opacity-80"
               >
                 Blog
@@ -129,7 +130,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             
             {/* Category */}
             <Link 
-              href={`/${params.locale}/blog?category=${frontmatter.category}`}
+              href={`/${locale}/blog?category=${frontmatter.category}`}
               className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-600 text-white hover:bg-blue-700 transition-colors mb-4"
             >
               {frontmatter.category}
@@ -148,9 +149,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {/* Meta */}
             <div className="flex flex-wrap items-center gap-4 text-sm opacity-80">
               <div className="flex items-center gap-2">
-                <span>{params.locale === 'vi' ? 'Bởi' : 'By'}</span>
+                <span>{locale === 'vi' ? 'Bởi' : 'By'}</span>
                 <Link 
-                  href={`/${params.locale}/blog?author=${frontmatter.author}`}
+                  href={`/${locale}/blog?author=${frontmatter.author}`}
                   className="font-semibold hover:underline"
                 >
                   {frontmatter.author}
@@ -166,7 +167,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <>
                   <span>•</span>
                   <span>
-                    {params.locale === 'vi' ? 'Cập nhật' : 'Updated'} {updatedDate}
+                    {locale === 'vi' ? 'Cập nhật' : 'Updated'} {updatedDate}
                   </span>
                 </>
               )}
@@ -183,21 +184,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-3">
-            <div className="prose prose-lg dark:prose-invert max-w-none">
-              <div dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br />') }} />
-            </div>
+            {/* Check if content contains bilingual markers */}
+            {content.includes('<ContentByLocale') ? (
+              <BilingualMDXContent content={content} locale={locale} />
+            ) : (
+              <div className="prose prose-lg dark:prose-invert max-w-none">
+                <div dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br />') }} />
+              </div>
+            )}
             
             {/* Tags */}
             {frontmatter.tags.length > 0 && (
               <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
                 <h3 className="text-lg font-semibold mb-4">
-                  {params.locale === 'vi' ? 'Thẻ' : 'Tags'}:
+                  {locale === 'vi' ? 'Thẻ' : 'Tags'}:
                 </h3>
                 <div className="flex flex-wrap gap-2">
-                  {frontmatter.tags.map(tag => (
+                  {frontmatter.tags.map((tag: string) => (
                     <Link
                       key={tag}
-                      href={`/${params.locale}/blog?tag=${tag}`}
+                      href={`/${locale}/blog?tag=${tag}`}
                       className="inline-block px-3 py-1 rounded-full text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                     >
                       #{tag}
@@ -211,8 +217,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
               <ShareButtons 
                 title={frontmatter.title}
-                url={`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/${params.locale}/blog/${params.slug}`}
-                locale={params.locale}
+                url={`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/${locale}/blog/${slug}`}
+                locale={locale}
               />
             </div>
           </div>
@@ -223,18 +229,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Table of Contents */}
               <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
                 <h3 className="font-semibold mb-4">
-                  {params.locale === 'vi' ? 'Mục lục' : 'Table of Contents'}
+                  {locale === 'vi' ? 'Mục lục' : 'Table of Contents'}
                 </h3>
                 {/* TODO: Extract headings from content */}
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {params.locale === 'vi' ? 'Đang phát triển' : 'Coming soon'}
+                  {locale === 'vi' ? 'Đang phát triển' : 'Coming soon'}
                 </p>
               </div>
               
               {/* Author Info */}
               <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
                 <h3 className="font-semibold mb-4">
-                  {params.locale === 'vi' ? 'Về tác giả' : 'About the Author'}
+                  {locale === 'vi' ? 'Về tác giả' : 'About the Author'}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   {frontmatter.author}
@@ -248,7 +254,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {relatedPosts.length > 0 && (
           <section className="mt-16 pt-12 border-t border-gray-200 dark:border-gray-700">
             <h2 className="text-2xl font-bold mb-8">
-              {params.locale === 'vi' ? 'Bài viết liên quan' : 'Related Posts'}
+              {locale === 'vi' ? 'Bài viết liên quan' : 'Related Posts'}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedPosts.map(relatedPost => (

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { MDXComponents } from 'mdx/types'
+import { ContentByLocale } from './ContentByLocale'
 
 // Custom MDX Components with modern styling
 export const mdxComponents: MDXComponents = {
@@ -211,5 +212,8 @@ export const mdxComponents: MDXComponents = {
         {children}
       </div>
     </details>
-  )
+  ),
+
+  // Bilingual content support
+  ContentByLocale: ContentByLocale
 }
