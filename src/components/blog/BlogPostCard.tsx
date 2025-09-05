@@ -18,7 +18,7 @@ export function BlogPostCard({ post, priority = false, className = '' }: BlogPos
   })
   
   return (
-    <article className={`group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 ${className}`}>
+    <article className={`group bg-white dark:bg-gray-900 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700 blog-card ${className}`}>
       {/* Cover Image */}
       {frontmatter.coverImage && (
         <Link href={`/blog/${slug}`} className="block relative h-48 overflow-hidden">
@@ -31,7 +31,7 @@ export function BlogPostCard({ post, priority = false, className = '' }: BlogPos
           />
           {frontmatter.featured && (
             <div className="absolute top-3 left-3">
-              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-yellow-500 text-white">
+              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-sky-500 to-cyan-500 text-white featured-badge">
                 Featured
               </span>
             </div>
@@ -45,7 +45,7 @@ export function BlogPostCard({ post, priority = false, className = '' }: BlogPos
         <div className="flex items-center justify-between mb-3">
           <Link 
             href={`/blog?category=${frontmatter.category}`}
-            className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
+            className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-sky-100 dark:bg-sky-900 text-sky-800 dark:text-sky-200 hover:bg-sky-200 dark:hover:bg-sky-800 transition-colors"
           >
             {frontmatter.category}
           </Link>
@@ -55,14 +55,14 @@ export function BlogPostCard({ post, priority = false, className = '' }: BlogPos
         </div>
         
         {/* Title */}
-        <h3 className="text-lg font-semibold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
-          <Link href={`/blog/${slug}`}>
+        <h3 className="text-lg font-semibold mb-2 group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors line-clamp-2">
+          <Link href={`/blog/${slug}`} className="text-black dark:text-white">
             {frontmatter.title}
           </Link>
         </h3>
         
         {/* Excerpt */}
-        <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+        <p className="text-gray-700 dark:text-gray-300 text-sm mb-4 line-clamp-3">
           {excerpt}
         </p>
         
@@ -73,13 +73,13 @@ export function BlogPostCard({ post, priority = false, className = '' }: BlogPos
               <Link
                 key={tag}
                 href={`/blog?tag=${tag}`}
-                className="inline-block px-2 py-1 rounded text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                className="inline-block px-2 py-1 rounded text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-sky-100 dark:hover:bg-sky-900 hover:text-sky-700 dark:hover:text-sky-300 transition-colors"
               >
                 #{tag}
               </Link>
             ))}
             {frontmatter.tags.length > 3 && (
-              <span className="inline-block px-2 py-1 rounded text-xs text-gray-500">
+              <span className="inline-block px-2 py-1 rounded text-xs text-gray-500 dark:text-gray-400">
                 +{frontmatter.tags.length - 3}
               </span>
             )}

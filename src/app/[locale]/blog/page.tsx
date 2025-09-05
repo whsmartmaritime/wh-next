@@ -73,7 +73,7 @@ export default async function BlogPage({ params, searchParams }: BlogPageProps) 
   const featuredPosts = posts.filter(post => post.frontmatter.featured).slice(0, 3)
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-gray-900">
       {/* Hero Section */}
       {currentPage === 1 && !Object.keys(resolvedSearchParams).length && (
         <BlogHero featuredPosts={featuredPosts} locale={locale} />

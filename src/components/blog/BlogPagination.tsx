@@ -76,7 +76,7 @@ export function BlogPagination({
       {hasPrevPage ? (
         <Link
           href={buildUrl(currentPage - 1)}
-          className="flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 transition-colors"
+          className="flex items-center px-3 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 hover:text-sky-700 hover:border-sky-300 dark:bg-gray-900 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-sky-400 transition-colors"
         >
           <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -84,7 +84,7 @@ export function BlogPagination({
           Previous
         </Link>
       ) : (
-        <span className="flex items-center px-3 py-2 text-sm font-medium text-gray-300 bg-gray-100 border border-gray-200 rounded-l-md cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:text-gray-500">
+        <span className="flex items-center px-3 py-2 text-sm font-medium text-gray-400 bg-gray-100 border border-gray-200 rounded-l-md cursor-not-allowed dark:bg-gray-800 dark:border-gray-700 dark:text-gray-500">
           <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
           </svg>
@@ -103,8 +103,8 @@ export function BlogPagination({
                 href={buildUrl(page as number)}
                 className={`px-3 py-2 text-sm font-medium border transition-colors ${
                   currentPage === page
-                    ? 'bg-blue-600 text-white border-blue-600 hover:bg-blue-700'
-                    : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:text-gray-900 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700'
+                    ? 'bg-gradient-to-r from-sky-600 to-cyan-600 text-white border-sky-600 hover:from-sky-700 hover:to-cyan-700 shadow-sm'
+                    : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:text-sky-700 hover:border-sky-300 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-800 dark:hover:text-sky-400'
                 }`}
               >
                 {page}
@@ -123,7 +123,7 @@ export function BlogPagination({
       {hasNextPage ? (
         <Link
           href={buildUrl(currentPage + 1)}
-          className="flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 transition-colors"
+          className="flex items-center px-3 py-2 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 hover:text-sky-700 hover:border-sky-300 dark:bg-gray-900 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-sky-400 transition-colors"
         >
           Next
           <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">

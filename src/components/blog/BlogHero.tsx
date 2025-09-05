@@ -10,17 +10,22 @@ interface BlogHeroProps {
 export function BlogHero({ featuredPosts, locale }: BlogHeroProps) {
   if (featuredPosts.length === 0) {
     return (
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
+      <div className="bg-gradient-to-r from-gray-900 via-slate-800 to-gray-900 text-white py-20 relative overflow-hidden">
+        {/* Maritime pattern overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-900/20 to-cyan-900/20"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             {locale === 'vi' ? 'Blog Wheelhouse Marine' : 'Wheelhouse Marine Blog'}
           </h1>
-          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto text-gray-100">
             {locale === 'vi' 
               ? 'Khám phá những thông tin mới nhất về công nghệ hàng hải, giải pháp kỹ thuật và xu hướng ngành'
               : 'Discover the latest maritime technology insights, technical solutions, and industry trends'
             }
           </p>
+          <div className="mt-8">
+            <div className="w-20 h-1 bg-gradient-to-r from-sky-400 to-cyan-400 mx-auto"></div>
+          </div>
         </div>
       </div>
     )
@@ -29,19 +34,22 @@ export function BlogHero({ featuredPosts, locale }: BlogHeroProps) {
   const [mainPost, ...otherPosts] = featuredPosts
   
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 py-12">
+    <div className="bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-gray-900 py-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-black dark:text-white">
             {locale === 'vi' ? 'Blog Wheelhouse Marine' : 'Wheelhouse Marine Blog'}
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
             {locale === 'vi' 
               ? 'Khám phá những thông tin mới nhất về công nghệ hàng hải và giải pháp kỹ thuật'
               : 'Discover the latest maritime technology insights and technical solutions'
             }
           </p>
+          <div className="mt-6">
+            <div className="w-16 h-1 bg-gradient-to-r from-sky-500 to-cyan-500 mx-auto"></div>
+          </div>
         </div>
         
         {/* Featured Posts */}
