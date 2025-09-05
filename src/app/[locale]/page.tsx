@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import WhyWheelhouse from '@/blocks/WhyWheelhouse';
 import WhatWeDo from '@/blocks/WhatWeDo';
+import LatestNews from '@/blocks/LatestNews';
 
 export async function generateMetadata(
   props: { params: Promise<{ locale: string }> }
@@ -39,11 +40,13 @@ export async function generateMetadata(
 }
 
 export default async function HomePage() {
+ 
   return (
     <>
       <Hero />
       <WhyWheelhouse />
       <WhatWeDo />
+      <LatestNews />
     </>
   );
 }
