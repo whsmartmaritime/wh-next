@@ -8,7 +8,6 @@ import type { TopItem } from '@/components/MainMenu/TopItems';
 
 export default function MegaMenu() {
   const t = useTranslations('Nav');
-  const meta = useTranslations('MetaDataHome');
   const [openKey, setOpenKey] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -220,8 +219,8 @@ export default function MegaMenu() {
                         imageSrc = resolved.startsWith('/') ? resolved : '/' + resolved;
                       }
                     } else {
-                      const m = String(meta('megaimage'));
-                      imageSrc = m.startsWith('/') ? m : '/' + m;
+                      // Default fallback - use Wheelhouse brand image
+                      imageSrc = '/images/megamenu/Our_menu.svg';
                     }
 
                     return (
