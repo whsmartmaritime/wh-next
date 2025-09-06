@@ -6,24 +6,32 @@ export async function generateMetadata(
 	props: { params: Promise<{ locale: string }> }
 ): Promise<Metadata> {
 	const { locale } = await props.params;
-	const t = await getTranslations({ locale, namespace: 'services' });
+	
+	// Parallel translation loading for better performance
+	const translations = await Promise.all(
+		routing.locales.map(l => 
+			getTranslations({ locale: l, namespace: 'services' })
+		)
+	);
+	
+	const currentIndex = routing.locales.indexOf(locale as 'en' | 'vi');
+	const t = translations[currentIndex];
 	
 	const title = t('meta.title');
 	const description = t('meta.seoDescription');
 	const ogImage = t('meta.ogImage');
-	const slug = t('meta.slug');
+	const canonical = t('meta.canonical');
 
 	const base = new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000');
-	const path = `/${slug}`;
-	const url = new URL(`/${locale}${path}`, base);
+	const url = new URL(canonical, base);
 	
-	// Create alternate language URLs with their respective slugs
-	const languages: Record<string, URL> = {};
-	for (const l of routing.locales) {
-		const localeT = await getTranslations({ locale: l, namespace: 'services' });
-		const localeSlug = localeT('meta.slug');
-		languages[l] = new URL(`/${l}/${localeSlug}`, base);
-	}
+	// Create alternate language URLs from pre-defined canonicals
+	const languages = Object.fromEntries(
+		routing.locales.map((l, index) => [
+			l, 
+			new URL(translations[index]('meta.canonical'), base)
+		])
+	);
 
 	return {
 		title,
@@ -49,8 +57,9 @@ export async function generateMetadata(
 	};
 }
 
-export default async function ServicePage() {
-	const t = await getTranslations('services');
+export default async function ServicePage(props: { params: Promise<{ locale: string }> }) {
+	const { locale } = await props.params;
+	const t = await getTranslations({ locale, namespace: 'services' });
 	
 	return (
 		<div className="container-gutter py-16 md:py-24">

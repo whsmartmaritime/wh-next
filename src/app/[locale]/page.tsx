@@ -10,16 +10,31 @@ export async function generateMetadata(
   props: { params: Promise<{ locale: string }> }
 ): Promise<Metadata> {
   const { locale } = await props.params;
-  const t = await getTranslations({ locale, namespace: 'home' });
+  
+  // Parallel translation loading for better performance
+  const translations = await Promise.all(
+    routing.locales.map(l => 
+      getTranslations({ locale: l, namespace: 'home' })
+    )
+  );
+  
+  const currentIndex = routing.locales.indexOf(locale as 'en' | 'vi');
+  const t = translations[currentIndex];
   
   const title = t('meta.title');
   const description = t('meta.seoDescription');
   const ogImage = t('meta.ogImage');
+  const canonical = t('meta.canonical');
   
   const base = new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000');
-  const url = new URL(`/${locale}`, base);
+  const url = new URL(canonical, base);
+  
+  // Create alternate language URLs from pre-defined canonicals
   const languages = Object.fromEntries(
-    routing.locales.map((l) => [l, new URL(`/${l}`, base)])
+    routing.locales.map((l, index) => [
+      l, 
+      new URL(translations[index]('meta.canonical'), base)
+    ])
   );
 
   return {
@@ -41,7 +56,10 @@ export async function generateMetadata(
   };
 }
 
-export default async function HomePage() {
+export default async function HomePage(
+  props: { params: Promise<{ locale: string }> }
+) {
+  const { locale } = await props.params;
  
   return (
     <>
