@@ -66,48 +66,143 @@ export default function PostCard({ post, locale, variant = 'regular', className 
   return (
     <article className={`${currentStyle.container} ${className}`}>
       <Link href={`/blog/${post.slug}`} className="block h-full">
-        {/* Image */}
-        <div className={currentStyle.image}>
-          {post.frontmatter.coverImage ? (
-            <Image
-              src={post.frontmatter.coverImage}
-              alt={post.frontmatter.title}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              sizes={currentStyle.imageSize}
-            />
-          ) : (
-            <PlaceholderImage size={variant === 'featured' ? 'large' : variant === 'regular' ? 'medium' : 'small'} />
-          )}
-        </div>
+        {variant === 'featured' ? (
+          // Featured Layout: Title → Image → Excerpt
+          <>
+            {/* Title First */}
+            <h3 className={currentStyle.title}>
+              {post.frontmatter.title}
+            </h3>
+            
+            {/* Image */}
+            <div className={currentStyle.image}>
+              {post.frontmatter.coverImage ? (
+                <Image
+                  src={post.frontmatter.coverImage}
+                  alt={post.frontmatter.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes={currentStyle.imageSize}
+                />
+              ) : (
+                <PlaceholderImage size="large" />
+              )}
+            </div>
 
-        {/* Content */}
-        <div className={currentStyle.content}>
-          {/* Meta */}
-          <div className={currentStyle.meta}>
-            <CategoryBadge category={post.frontmatter.category} size={currentStyle.badgeSize} />
-            <time dateTime={post.frontmatter.publishedAt}>
-              {formatDate(post.frontmatter.publishedAt, currentStyle.dateFormat)}
-            </time>
-          </div>
+            {/* Content Below */}
+            <div className={currentStyle.content}>
+              {/* Meta */}
+              <div className={currentStyle.meta}>
+                <CategoryBadge category={post.frontmatter.category} size={currentStyle.badgeSize} />
+                <time dateTime={post.frontmatter.publishedAt}>
+                  {formatDate(post.frontmatter.publishedAt, currentStyle.dateFormat)}
+                </time>
+              </div>
 
-          {/* Title */}
-          <h3 className={currentStyle.title}>
-            {post.frontmatter.title}
-          </h3>
+              {/* Excerpt */}
+              {currentStyle.excerpt && (
+                <p className={currentStyle.excerpt}>
+                  {post.frontmatter.excerpt}
+                </p>
+              )}
 
-          {/* Excerpt (only for featured and regular) */}
-          {currentStyle.excerpt && (
-            <p className={currentStyle.excerpt}>
-              {post.frontmatter.excerpt}
-            </p>
-          )}
+              {/* Reading time */}
+              <p className={currentStyle.readingTime}>
+                {post.readingTime.text}
+              </p>
+            </div>
+          </>
+        ) : variant === 'regular' ? (
+          // Regular Layout: Title → (Excerpt | Image)
+          <>
+            {/* Title First */}
+            <h3 className={currentStyle.title}>
+              {post.frontmatter.title}
+            </h3>
 
-          {/* Reading time */}
-          <p className={currentStyle.readingTime}>
-            {post.readingTime.text}
-          </p>
-        </div>
+            {/* Split Content Below */}
+            <div className="flex gap-4 mt-4">
+              {/* Left: Excerpt */}
+              <div className="flex-1 space-y-3">
+                {/* Meta */}
+                <div className={currentStyle.meta}>
+                  <CategoryBadge category={post.frontmatter.category} size={currentStyle.badgeSize} />
+                  <time dateTime={post.frontmatter.publishedAt}>
+                    {formatDate(post.frontmatter.publishedAt, currentStyle.dateFormat)}
+                  </time>
+                </div>
+
+                {/* Excerpt */}
+                {currentStyle.excerpt && (
+                  <p className={currentStyle.excerpt}>
+                    {post.frontmatter.excerpt}
+                  </p>
+                )}
+
+                {/* Reading time */}
+                <p className={currentStyle.readingTime}>
+                  {post.readingTime.text}
+                </p>
+              </div>
+
+              {/* Right: Image */}
+              <div className="flex-1">
+                <div className={currentStyle.image}>
+                  {post.frontmatter.coverImage ? (
+                    <Image
+                      src={post.frontmatter.coverImage}
+                      alt={post.frontmatter.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes={currentStyle.imageSize}
+                    />
+                  ) : (
+                    <PlaceholderImage size="medium" />
+                  )}
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          // Compact Layout: Keep original
+          <>
+            {/* Image */}
+            <div className={currentStyle.image}>
+              {post.frontmatter.coverImage ? (
+                <Image
+                  src={post.frontmatter.coverImage}
+                  alt={post.frontmatter.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes={currentStyle.imageSize}
+                />
+              ) : (
+                <PlaceholderImage size="small" />
+              )}
+            </div>
+
+            {/* Content */}
+            <div className={currentStyle.content}>
+              {/* Meta */}
+              <div className={currentStyle.meta}>
+                <CategoryBadge category={post.frontmatter.category} size={currentStyle.badgeSize} />
+                <time dateTime={post.frontmatter.publishedAt}>
+                  {formatDate(post.frontmatter.publishedAt, currentStyle.dateFormat)}
+                </time>
+              </div>
+
+              {/* Title */}
+              <h3 className={currentStyle.title}>
+                {post.frontmatter.title}
+              </h3>
+
+              {/* Reading time */}
+              <p className={currentStyle.readingTime}>
+                {post.readingTime.text}
+              </p>
+            </div>
+          </>
+        )}
       </Link>
     </article>
   )

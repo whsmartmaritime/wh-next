@@ -57,7 +57,7 @@ export default async function LatestNews() {
                 key={post.slug}
                 post={post}
                 locale={locale}
-                variant="compact"
+                variant="regular"
               />
             ))}
           </div>
