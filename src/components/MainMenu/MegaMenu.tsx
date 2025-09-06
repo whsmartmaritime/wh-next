@@ -134,9 +134,15 @@ export default function MegaMenu() {
             className="relative"
           >
             <div className="flex items-center h-full">
-              <Link href={item.href ?? '#'} className="text-lg xl:text-lg inline-flex py-2 font-medium hover:opacity-80 transition-opacity"> {/* chữ menu chưa xổ xuống */}
-                {item.key && t(`${item.key}.title`) || item.href}
-              </Link>
+              {item.href && !item.href.includes('#') && item.href.startsWith('/') ? (
+                <Link href={item.href as '/'} className="text-lg xl:text-lg inline-flex py-2 font-medium hover:opacity-80 transition-opacity">
+                  {item.key && t(`${item.key}.title`) || item.href}
+                </Link>
+              ) : (
+                <a href={item.href ?? '#'} className="text-lg xl:text-lg inline-flex py-2 font-medium hover:opacity-80 transition-opacity">
+                  {item.key && t(`${item.key}.title`) || item.href}
+                </a>
+              )}
             </div>
           </div>
         ))}
@@ -183,9 +189,9 @@ export default function MegaMenu() {
                     <>
                       <div className="uppercase tracking-[0.25em] text-xs opacity-95 mb-1">{t(cols[0].titleKey as never)}</div>
                       {cols[0].links.filter(l => !l.hidden).map((p) => (
-                        <Link key={p.href} href={p.href} className="block rounded-lg">
+                        <a key={p.href} href={p.href} className="block rounded-lg">
                           <div className="text-lg xl:text-lg py-1.5 font-bold hover:opacity-80 transition-opacity">{t(p.titleKey as never)}</div>
-                        </Link>
+                        </a>
                       ))}
                     </>
                   ) : null}
@@ -197,9 +203,9 @@ export default function MegaMenu() {
                     <>
                       <div className="uppercase tracking-[0.25em] text-xs opacity-95 mb-1">{t(cols[1].titleKey as never)}</div>
                       {cols[1].links.filter(l => !l.hidden).map((p) => (
-                        <Link key={p.href} href={p.href} className="block rounded-lg">
+                        <a key={p.href} href={p.href} className="block rounded-lg">
                           <div className="text-lg xl:text-lg py-1.5 font-bold hover:opacity-80 transition-opacity">{t(p.titleKey as never)}</div>
-                        </Link>
+                        </a>
                       ))}
                     </>
                   ) : null}
