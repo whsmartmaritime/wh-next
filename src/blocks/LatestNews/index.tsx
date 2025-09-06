@@ -4,7 +4,7 @@ import { getFeaturedPosts, getRecentPosts } from '@/lib/blog/mdx'
 import PostCard from '@/components/PostCard'
 
 export default async function LatestNews() {
-  const t = await getTranslations('LatestNews')
+  const t = await getTranslations('homePage.latestNews')
   const locale = await getLocale() as 'en' | 'vi'
   
   // Hardcode config giống như các blocks khác

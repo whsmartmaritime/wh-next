@@ -10,15 +10,17 @@ export async function generateMetadata(
   props: { params: Promise<{ locale: string }> }
 ): Promise<Metadata> {
   const { locale } = await props.params;
-  const tMeta = await getTranslations({ locale, namespace: 'MetaDataHome' });
+  const t = await getTranslations({ locale, namespace: 'homePage' });
+  
+  const title = t('meta.title');
+  const description = t('meta.seoDescription');
+  const ogImage = t('meta.ogImage');
+  
   const base = new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000');
   const url = new URL(`/${locale}`, base);
   const languages = Object.fromEntries(
     routing.locales.map((l) => [l, new URL(`/${l}`, base)])
   );
-
-  const title = tMeta('title');
-  const description = tMeta('description');
 
   return {
     title,
@@ -28,13 +30,13 @@ export async function generateMetadata(
       title,
       description,
       url,
-      images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: title }]
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }]
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: ['/images/og-image.jpg']
+      images: [ogImage]
     }
   };
 }

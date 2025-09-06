@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "GMDSS - ĐIỀU HƯỚNG - KẾT NỐI - DỊCH VỤ | WHEELHOUSE",
+    "seoTitle": "GMDSS - ĐIỀU HƯỚNG - KẾT NỐI - DỊCH VỤ | WHEELHOUSE", 
+    "description": "Chuyên về GMDSS, Điều hướng, Kết nối và các dịch vụ kỹ thuật hàng hải. Wheelhouse đảm bảo hoạt động tàu thuyền an toàn và hiệu quả.",
+    "seoDescription": "Chuyên về GMDSS, Điều hướng, Kết nối và các dịch vụ kỹ thuật hàng hải. Wheelhouse đảm bảo hoạt động tàu thuyền an toàn và hiệu quả.",
+    "ogImage": "/images/og/home-vi.jpg",
+    "canonical": "/vi",
+    "slug": ""
+  },
+  "hero": {
+    "brand": "Wheelhouse",
+    "title": "Đối tác tin cậy trong dịch vụ điện tử Hàng hải",
+    "subtitle": "Chuyên môn trong GMDSS, Điều hướng, Kết nối & Dịch vụ trên tàu.",
+    "ctaPrimary": "Liên hệ với chúng tôi",
+    "heroImage1Alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu",
+    "heroImage2Alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu",
+    "partnerShowcase": "Các khách hàng và đối tác"
+  },
+  "whyWheelhouse": {
+    "missionTitle": "Nhiệm vụ của chúng tôi",
+    "missionIntro": "   Thúc đẩy những hành trình hàng hải với sự chính xác, tin cậy và giá trị bền vững — vì mỗi chuyến đi đều xứng đáng với sự tận tâm.\n  Chúng tôi cam kết cung cấp giải pháp tối ưu, đảm bảo an toàn và hiệu quả cho thủy thủ, chủ tàu và đối tác.\n  Mỗi bước trong hành trình được lập kế hoạch tỉ mỉ, kết hợp công nghệ tiên tiến và kinh nghiệm lâu năm để mang lại kết quả vượt trội.\n  Chúng tôi không ngừng nâng cao chất lượng dịch vụ, tập trung vào minh bạch và tin cậy, đồng thời tôn trọng môi trường biển và phát triển bền vững.",
+    "whyTitle": "Tại sao chọn Wheelhouse?",
+    "whyIntro": "Cam kết của chúng tôi trong việc cung cấp các dịch vụ và hỗ trợ tiên tiến, liên tục, cùng với niềm tin vững chắc của chúng tôi vào các hoạt động kinh doanh có đạo đức, giúp Wheelhouse trở thành một đối tác lâu dài đáng tin cậy.",
+    "item1Title": "Uy Tín",
+    "item1Desc": "Luôn đặt chữ Tín lên hàng đầu, với phương châm \"Lòng tin của khách hàng giúp Wheelhouse khẳng định thương hiệu\".",
+    "item2Title": "Tận Tâm", 
+    "item2Desc": "Phục vụ khách hàng bằng sự tận tâm với sứ mệnh \"Phục vụ khách hàng tốt là phục vụ chính tương lai của mình\".",
+    "item3Title": "Chất Lượng",
+    "item3Desc": "Wheelhouse cam kết mang đến khách hàng những sản phẩm và dịch vụ với chất lượng tốt nhất.",
+    "item4Title": "Nhân Lực Xuất Sắc",
+    "item4Desc": "Bằng kinh nghiệm, kiến thức và sự nhạy bén trong xử lý tình huống, đội ngũ nhân lực của chúng tôi luôn nỗ lực mang lại lợi ích thiết thực cho khách hàng.",
+    "ctaPrimary": "Về Chúng Tôi"
+  },
+  "whatWeDo": {
+    "title": "Năng lực cốt lõi",
+    "beforeHighlights": "Tại wheelhouse, chúng tôi cung cấp các giải pháp và dịch vụ để con tàu của bạn vận hành an toàn hơn.",
+    "afterHighlights": "Hãy để chúng tôi trở thành người bạn đồng hành tin cậy trên hành trình của bạn.",
+    "highlight1Text": "Thiết Bị Hàng Hải",
+    "highlight1Desc": "Giải pháp giám sát và tối ưu hóa đội tàu tiên tiến để đạt hiệu quả vận hành tối đa",
+    "highlight1Href": "/giai-phap#thiet-bi-hang-hai",
+    "highlight2Text": "Thông Tin Vệ Tinh",
+    "highlight2Desc": "Hệ thống thông tin vệ tinh hiện đại và quy trình an toàn đảm bảo hoạt động hàng hải an toàn",
+    "highlight2Href": "/giai-phap#thong-tin-ve-tinh",
+    "highlight3Text": "Sửa Chữa & Bảo Dưỡng",
+    "highlight3Desc": "Hệ thống liên lạc hàng hải đáng tin cậy giữ cho đội tàu của bạn kết nối trên toàn thế giới",
+    "highlight3Href": "/dich-vu#sua-chua-bao-duong",
+    "highlight4Text": "Ấn Phẩm Điện Tử",
+    "highlight4Desc": "Giải pháp số hoàn chỉnh hiện đại hóa hoạt động hàng hải cho tương lai kết nối",
+    "highlight4Href": "/giai-phap#an-pham-dien-tu",
+    "highlight5Text": "Kiểm Tra Hàng Năm",
+    "highlight5Desc": "Các cuộc kiểm tra và đánh giá hàng năm kỹ lưỡng để duy trì tiêu chuẩn tuân thủ và an toàn",
+    "highlight5Href": "/dich-vu#kiem-tra-hang-nam",
+    "buttonLabel": "Khám Phá Thêm",
+    "buttonHref": "/dich-vu"
+  },
+  "latestNews": {
+    "title": "Tin tức mới nhất",
+    "description": "Cập nhật những thông tin mới nhất về ngành hàng hải, công nghệ và các xu hướng phát triển.",
+    "viewAll": "Xem tất cả bài viết"
+  }
+}

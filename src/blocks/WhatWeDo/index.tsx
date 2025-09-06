@@ -21,7 +21,7 @@ interface WhatWeDoProps {
 
 export default async function WhatWeDo({ className }: WhatWeDoProps) {
   // Handle translations at this level
-  const t = await getTranslations('WhatWeDo')
+  const t = await getTranslations('homePage.whatWeDo')
   
   // Build clean data for HoverHighlights
   const highlightsData: HoverHighlightsProps = {
