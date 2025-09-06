@@ -42,12 +42,16 @@ export default function LanguageSwitcher() {
         }
       } else {
         // Tất cả trang khác: sử dụng router mặc định của next-intl
-        router.replace(pathname, { locale: targetLocale });
+        const validPaths = ['/', '/about', '/services', '/solutions', '/contact', '/blog'] as const;
+        const targetPath = (validPaths.includes(pathname as typeof validPaths[number]) && pathname !== '/blog/[slug]') 
+          ? pathname as typeof validPaths[number]
+          : '/';
+        router.replace(targetPath, { locale: targetLocale });
       }
     } catch (error) {
       console.error('Language switch error:', error);
       // Fallback về navigation mặc định
-      router.replace(pathname, { locale: targetLocale });
+      router.replace('/', { locale: targetLocale });
     } finally {
       setIsLoading(false);
     }

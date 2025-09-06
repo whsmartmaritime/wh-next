@@ -1,5 +1,7 @@
 "use client";
-import { useRouter, usePathname } from '@/i18n/navigation';
+import { useRouter as useNextRouter } from 'next/navigation';
+import { usePathname } from '@/i18n/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
 import { useEffect, useState } from 'react';
 
@@ -19,6 +21,7 @@ async function getTranslationSlug(currentSlug: string, currentLocale: 'en' | 'vi
 
 export default function EnhancedLanguageSwitcher() {
   const router = useRouter();
+  const nextRouter = useNextRouter();
   const pathname = usePathname();
   const locale = useLocale() as 'en' | 'vi';
   const [translationSlug, setTranslationSlug] = useState<string | null>(null);
@@ -37,11 +40,17 @@ export default function EnhancedLanguageSwitcher() {
 
   const handleLanguageSwitch = (targetLocale: 'en' | 'vi') => {
     if (isBlogPost && translationSlug && targetLocale !== locale) {
-      // Navigate to translated blog post
-      router.push(`/${targetLocale}/blog/${translationSlug}`);
+      // Navigate to translated blog post using Next.js router
+      nextRouter.push(`/${targetLocale}/blog/${translationSlug}`);
     } else {
-      // Use default next-intl routing
-      router.replace(pathname, { locale: targetLocale });
+      // Use next-intl routing for regular pages
+      if (pathname === '/blog/[slug]') {
+        router.replace('/blog', { locale: targetLocale });
+      } else {
+        const validPaths = ['/', '/about', '/services', '/solutions', '/contact', '/blog'] as const;
+        const targetPath = validPaths.includes(pathname as typeof validPaths[number]) ? pathname : '/';
+        router.replace(targetPath, { locale: targetLocale });
+      }
     }
   };
 
