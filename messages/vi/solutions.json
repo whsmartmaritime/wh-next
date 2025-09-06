@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Giải pháp | WH Marine",
+    "seoDescription": "Các giải pháp và dịch vụ hàng hải toàn diện cho tàu thuyền trên toàn thế giới. Từ quản lý tàu đến hỗ trợ kỹ thuật và dịch vụ thủy thủ đoàn.",
+    "ogImage": "/images/og-solutions.jpg",
+    "canonical": "/vi/giai-phap"
+  },
+  "hero": {
+    "title": "Giải pháp Hàng hải",
+    "subtitle": "Dịch vụ toàn diện cho ngành hàng hải",
+    "description": "Chúng tôi cung cấp các giải pháp toàn diện cho hoạt động tàu thuyền, quản lý thủy thủ đoàn và hỗ trợ kỹ thuật trên toàn thế giới."
+  }
+}

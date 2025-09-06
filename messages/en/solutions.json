@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Solutions | WH Marine",
+    "seoDescription": "Comprehensive maritime solutions and services for vessels worldwide. From ship management to technical support and crew services.",
+    "ogImage": "/images/og-solutions.jpg",
+    "canonical": "/en/solutions"
+  },
+  "hero": {
+    "title": "Maritime Solutions",
+    "subtitle": "Comprehensive services for the maritime industry",
+    "description": "We provide end-to-end solutions for vessel operations, crew management, and technical support worldwide."
+  }
+}

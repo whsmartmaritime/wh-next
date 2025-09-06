@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Contact Us | WH Marine",
+    "seoDescription": "Get in touch with WH Marine for maritime services, support, and inquiries. Contact our team for expert assistance.",
+    "ogImage": "/images/og-contact.jpg",
+    "canonical": "/en/contact"
+  },
+  "hero": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our maritime experts",
+    "description": "Ready to discuss your maritime needs? Contact our experienced team for personalized solutions and support."
+  }
+}
