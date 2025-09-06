@@ -1,6 +1,6 @@
 "use client";
-import {useRouter, usePathname} from '@/i18n/navigation';
-import {useLocale} from 'next-intl';
+import { useRouter, usePathname } from '@/i18n/navigation';
+import { useLocale } from 'next-intl';
 import { useState } from 'react';
 
 export default function LanguageSwitcher() {
@@ -9,48 +9,53 @@ export default function LanguageSwitcher() {
   const locale = useLocale() as 'en' | 'vi';
   const [isLoading, setIsLoading] = useState(false);
 
-  // Kiểm tra xem có phải trang blog post không
-  const isBlogPost = pathname.match(/^\/blog\/[^\/]+$/);
+  // Inline utility functions - đơn giản và rõ ràng
+  const isBlogPost = (path: string) => path.startsWith('/blog/') && path !== '/blog';
+  
+  const getBlogSlug = (path: string) => {
+    const match = path.match(/^\/blog\/(.+)$/);
+    return match ? match[1] : null;
+  };
+
+  const fetchBlogTranslation = async (slug: string, fromLocale: 'en' | 'vi', toLocale: 'en' | 'vi') => {
+    try {
+      const response = await fetch(`/api/blog/translations?slug=${slug}&from=${fromLocale}&to=${toLocale}`);
+      if (response.ok) {
+        const data = await response.json();
+        return data.slug || null;
+      }
+    } catch (error) {
+      console.error('Blog translation error:', error);
+    }
+    return null;
+  };
 
   const handleLanguageSwitch = async (targetLocale: 'en' | 'vi') => {
-    if (locale === targetLocale) return;
+    if (locale === targetLocale || isLoading) return;
     
     setIsLoading(true);
     
     try {
-      if (isBlogPost) {
-        // Xử lý riêng cho blog posts - vì cần translation mapping
-        const currentSlug = pathname.replace('/blog/', '');
-        
-        const response = await fetch(
-          `/api/blog/translations?slug=${currentSlug}&from=${locale}&to=${targetLocale}`
-        );
-        
-        if (response.ok) {
-          const data = await response.json();
-          
-          if (data.slug) {
-            // Có bài dịch, chuyển đến bài dịch
-            window.location.href = `/${targetLocale}/blog/${data.slug}`;
-          } else {
-            // Không có bài dịch, chuyển về trang blog chính
-            window.location.href = `/${targetLocale}/blog`;
+      if (isBlogPost(pathname)) {
+        // Handle blog posts
+        const currentSlug = getBlogSlug(pathname);
+        if (currentSlug) {
+          const translatedSlug = await fetchBlogTranslation(currentSlug, locale, targetLocale);
+          if (translatedSlug) {
+            // Sử dụng window.location cho blog posts vì đơn giản hơn
+            window.location.href = `/${targetLocale}/blog/${translatedSlug}`;
+            return;
           }
-        } else {
-          // API lỗi, fallback về trang blog
-          window.location.href = `/${targetLocale}/blog`;
         }
+        // Fallback to blog homepage
+        router.push('/blog', { locale: targetLocale });
       } else {
-        // Tất cả trang khác: sử dụng router mặc định của next-intl
-        const validPaths = ['/', '/about', '/services', '/solutions', '/contact', '/blog'] as const;
-        const targetPath = (validPaths.includes(pathname as typeof validPaths[number]) && pathname !== '/blog/[slug]') 
-          ? pathname as typeof validPaths[number]
-          : '/';
-        router.replace(targetPath, { locale: targetLocale });
+        // Handle regular pages - dùng window.location cho đơn giản
+        window.location.href = `/${targetLocale}${pathname}`;
       }
     } catch (error) {
       console.error('Language switch error:', error);
-      // Fallback về navigation mặc định
+      // Fallback to homepage
       router.replace('/', { locale: targetLocale });
     } finally {
       setIsLoading(false);
@@ -58,32 +63,26 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div style={{display: 'flex', gap: 8}}>
+    <div className="flex items-center gap-2">
       <button
         onClick={() => handleLanguageSwitch('vi')}
-        aria-label="Tiếng Việt"
-        style={{
-          fontWeight: locale === 'vi' ? 700 : 400, 
-          fontSize: 15,
-          opacity: isLoading ? 0.6 : 1,
-          cursor: isLoading ? 'wait' : 'pointer'
-        }}
         disabled={isLoading}
+        className={`px-2 py-1 text-sm transition-opacity ${
+          locale === 'vi' ? 'font-bold opacity-100' : 'font-normal opacity-70 hover:opacity-100'
+        } ${isLoading ? 'pointer-events-none opacity-50' : ''}`}
+        type="button"
       >
-        <span role="img" aria-label="Vietnam flag">VI</span>
+        🇻🇳 VI
       </button>
       <button
         onClick={() => handleLanguageSwitch('en')}
-        aria-label="English"
-        style={{
-          fontWeight: locale === 'en' ? 700 : 400, 
-          fontSize: 15,
-          opacity: isLoading ? 0.6 : 1,
-          cursor: isLoading ? 'wait' : 'pointer'
-        }}
         disabled={isLoading}
+        className={`px-2 py-1 text-sm transition-opacity ${
+          locale === 'en' ? 'font-bold opacity-100' : 'font-normal opacity-70 hover:opacity-100'
+        } ${isLoading ? 'pointer-events-none opacity-50' : ''}`}
+        type="button"
       >
-        <span role="img" aria-label="US flag">EN</span>
+        🇺🇸 EN
       </button>
     </div>
   );
