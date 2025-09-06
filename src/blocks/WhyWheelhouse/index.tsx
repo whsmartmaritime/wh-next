@@ -3,7 +3,7 @@ import Slider, { type SliderImage } from '@/components/Slider';
 import { BackgroundGrid } from '@/components/BackgroundGrid';
 import Button from '@/components/Button';
 export default async function WhyWheelhouse() {
-  const t = await getTranslations('homePage.whyWheelhouse');
+  const t = await getTranslations('home.whyWheelhouse');
   // Use existing images from public/images and localized alt from missionTitle
   const sliderImages: SliderImage[] = [
     { src: '/images/mission1.svg', alt: `${t('missionTitle')} 1` },

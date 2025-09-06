@@ -7,7 +7,7 @@ import { BackgroundScanline } from '@/components/BackgroundScanline'
 import { LogoShowcase } from '@/components/LogoShowcase'
 
 export default async function Hero() {
-  const t = await getTranslations('homePage.hero')
+  const t = await getTranslations('home.hero')
 
 
   const partnerLogos = [

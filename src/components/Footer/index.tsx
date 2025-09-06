@@ -4,15 +4,15 @@ import Image from 'next/image'
 import { BackgroundGrid } from '@/components/BackgroundGrid'
 import { LogoEffect } from './LogoEffect'
 
-export default async function Footer() {
-  const t = await getTranslations('Footer')
+export default async function footer() {
+  const t = await getTranslations('footer')
   const year = new Date().getFullYear()
   return (
     <footer className="relative theme-dark-transparent text-white overflow-hidden pt-32 pb-24">
       {/* Black background layer */}
       <div className="absolute inset-0 bg-black z-0"></div>
 
-           
+      <BackgroundGrid />
       {/* Main Footer Content */}
       <div className="relative z-30 container-gutter">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">

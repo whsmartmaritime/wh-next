@@ -4,7 +4,7 @@ import LanguageSwitcher from '../LanguageSwitcher';
 import { getTranslations } from 'next-intl/server';
 
 export default async function Header() {
-  const t = await getTranslations('Nav');
+  const t = await getTranslations('navigation');
   return (
     <>
      

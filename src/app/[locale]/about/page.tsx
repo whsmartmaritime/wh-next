@@ -28,6 +28,6 @@ export async function generateMetadata(
 }
 
 export default async function AboutPage() {
-	const t = await getTranslations('Nav');
+	const t = await getTranslations('navigation');
 	return <div className="container-gutter py-block"><h1 className="text-3xl font-bold">{t('about')}</h1></div>;
 }

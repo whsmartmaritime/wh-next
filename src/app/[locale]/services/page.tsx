@@ -6,7 +6,7 @@ export async function generateMetadata(
 	props: { params: Promise<{ locale: string }> }
 ): Promise<Metadata> {
 	const { locale } = await props.params;
-	const t = await getTranslations({ locale, namespace: 'servicesPage' });
+	const t = await getTranslations({ locale, namespace: 'services' });
 	
 	const title = t('meta.title');
 	const description = t('meta.seoDescription');
@@ -20,7 +20,7 @@ export async function generateMetadata(
 	// Create alternate language URLs with their respective slugs
 	const languages: Record<string, URL> = {};
 	for (const l of routing.locales) {
-		const localeT = await getTranslations({ locale: l, namespace: 'servicesPage' });
+		const localeT = await getTranslations({ locale: l, namespace: 'services' });
 		const localeSlug = localeT('meta.slug');
 		languages[l] = new URL(`/${l}/${localeSlug}`, base);
 	}
@@ -50,7 +50,7 @@ export async function generateMetadata(
 }
 
 export default async function ServicePage() {
-	const t = await getTranslations('servicesPage');
+	const t = await getTranslations('services');
 	
 	return (
 		<div className="container-gutter py-16 md:py-24">

@@ -2,7 +2,7 @@ import { Link } from '@/i18n/navigation';
 import { getTranslations } from 'next-intl/server';
  import LanguageSwitcher from '../LanguageSwitcher';
 export default async function Topbar() {
-  const t = await getTranslations('TopBar');
+  const t = await getTranslations('topbar');
   return (
   <div className="relative z-50 w-full bg-[#EBF5F9] dark:bg-[#00131A] backdrop-blur border-b border-gray-200 dark:border-neutral-700 text-sm">
       <div className="container-gutter flex items-center justify-between py-1.5">

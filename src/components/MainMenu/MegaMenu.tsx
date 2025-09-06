@@ -7,7 +7,7 @@ import { topItems } from '@/components/MainMenu/TopItems';
 import type { TopItem } from '@/components/MainMenu/TopItems';
 
 export default function MegaMenu() {
-  const t = useTranslations('Nav');
+  const t = useTranslations('navigation');
   const [openKey, setOpenKey] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
