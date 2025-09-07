@@ -6,11 +6,14 @@
       "href": "/solutions",
       "hasDropdown": true,
       "desc": "Equipment and deployment. We deliver solutions for safer, easier vessel operations.",
+      "ctaContent": {
+        "title": "Order Solutions",
+        "href": "/contact"
+      },
       "dropdownContent": {
         "columns": [
           {
             "title": "NavCom Equipment",
-            "intro": "Trusted brands. Proven performance. Equipment built for safe and efficient operations.",
             "links": [
               { "title": "GMDSS Equipment", "href": "/solutions/gmdss" },
               { "title": "Navigation Equipment", "href": "/solutions/navigation" },
@@ -19,7 +22,6 @@
           },
           {
             "title": "Connectivity and IOT",
-            "intro": "Stay connected to work, family, friends—and everything that matters, even far from shore.",
             "links": [
               { "title": "StarLink", "href": "/solutions/starlink" },
               { "title": "VSAT", "href": "/solutions/vsat" },

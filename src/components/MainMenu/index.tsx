@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import Image from "next/image";
 
 export default function MainMenu() {
   const t = useTranslations('navigation');
@@ -33,7 +34,7 @@ export default function MainMenu() {
                   {menuItems[0]?.dropdownContent?.columns[0]?.links[2]?.title}
                 </Link>
               </div>
-              <div className="col-span-2 space-y-4">
+              <div className="col-span-3 space-y-4">
                 <p className="uppercase tracking-[0.25em] text-sm opacity-95 mb-4 font-semibold">{menuItems[0]?.dropdownContent?.columns[1]?.title}</p>
                 <Link href={menuItems[0]?.dropdownContent?.columns[1]?.links[0]?.href} className="no-underline block text-lg font-bold hover:opacity-80 transition-opacity">
                   {menuItems[0]?.dropdownContent?.columns[1]?.links[0]?.title}
@@ -45,7 +46,30 @@ export default function MainMenu() {
                   {menuItems[0]?.dropdownContent?.columns[1]?.links[2]?.title}
                 </Link>
               </div>
-              <p className="text-sm">{menuItems[0]?.dropdownContent?.columns[0]?.intro}</p>
+              <div className="col-span-4 space-y-4">
+                <Image
+                  src="/images/megamenu/solutions_menu.webp"
+                  alt="wheelhouse equipment"
+                  layout="responsive"
+                  width={300}
+                  height={100}
+                  className="object-contain"
+                />
+                <Link href={menuItems[0]?.ctaContent?.href} className="no-underline flex items-center gap-2 text-lg font-bold hover:opacity-80 transition-opacity">
+                  {menuItems[0]?.ctaContent?.title}
+                  <svg
+                    className="w-3 h-3 text-current"
+                    viewBox="0 0 14 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    stroke="currentColor"
+                  >
+                    <path d="M2.20117 0.5L12.7615 0.5V11.06" />
+                    <path d="M0.759766 12.5L12.7601 0.5" />
+                  </svg>
+                </Link>
+              </div>
+              
             </div>
           </div>
         </li>
