@@ -63,26 +63,26 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-end">
       <button
         onClick={() => handleLanguageSwitch('vi')}
         disabled={isLoading}
-        className={`px-2 py-1 text-sm transition-opacity ${
+        className={` px-1 py-1 text-md transition-opacity ${
           locale === 'vi' ? 'font-bold opacity-100' : 'font-normal opacity-70 hover:opacity-100'
         } ${isLoading ? 'pointer-events-none opacity-50' : ''}`}
         type="button"
       >
-        🇻🇳 VI
+        🇻🇳
       </button>
       <button
         onClick={() => handleLanguageSwitch('en')}
         disabled={isLoading}
-        className={`px-2 py-1 text-sm transition-opacity ${
+        className={`px-1 py-1 text-md transition-opacity ${
           locale === 'en' ? 'font-bold opacity-100' : 'font-normal opacity-70 hover:opacity-100'
         } ${isLoading ? 'pointer-events-none opacity-50' : ''}`}
         type="button"
       >
-        🇺🇸 EN
+        🇺🇸
       </button>
     </div>
   );

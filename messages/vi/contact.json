@@ -1,4 +1,16 @@
 {
+  "company": {
+    "email": "info@wheelhouse.vn",
+    "phone": {
+      "display": "84-865716079",
+      "link": "+84865716079"
+    },
+    "address": "21 An Lộc, Phường An Hải, TP Hải Phòng",
+    "social": {
+      "facebook": "https://facebook.com",
+      "linkedin": "https://linkedin.com"
+    }
+  },
   "meta": {
     "title": "Liên hệ | WH Marine",
     "seoDescription": "Liên hệ với WH Marine để được tư vấn về dịch vụ hàng hải, hỗ trợ và giải đáp thắc mắc. Liên hệ với đội ngũ chuyên gia của chúng tôi.",
