@@ -83,13 +83,15 @@ export default function MobileMenu() {
                           {/* Expanded submenu */}
                           {expandedItem === index && (
                             <div className="bg-neutral-50 dark:bg-neutral-900">
-                              {item?.dropdownContent?.columns?.map((column, colIndex) => (
+                              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                              {item?.dropdownContent?.columns?.map((column: any, colIndex: number) => (
                                 <div key={colIndex} className="px-4 py-2">
                                   <div className="text-sm font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-2">
                                     {column?.title}
                                   </div>
                                   <ul className="space-y-1">
-                                    {column?.links?.map((link, linkIndex) => (
+                                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                                    {column?.links?.map((link: any, linkIndex: number) => (
                                       <li key={linkIndex}>
                                         <Link
                                           href={link?.href}
