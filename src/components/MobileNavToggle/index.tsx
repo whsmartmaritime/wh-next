@@ -1,11 +1,34 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MobileNav from '@/components/MobileNav';
+import BackgroundScanline from '../BackgroundScanline';
 
 export default function MobileNavToggle() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  // Lock/unlock body scroll when menu opens/closes
+  useEffect(() => {
+    if (isOpen) {
+      // Lock scroll
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      // Unlock scroll
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  }, [isOpen]);
 
   return (
     <>
@@ -40,6 +63,7 @@ export default function MobileNavToggle() {
       {/* Full Screen Container - Below Header */}
       {isOpen && (
         <div className="fixed top-[120px] left-0 w-full h-[calc(100vh-120px)] bg-white dark:bg-black z-40 shadow-lg border-t border-neutral-200 dark:border-neutral-700">
+          <BackgroundScanline />
           <div className="h-full overflow-y-auto">
             <div className="container-gutter py-6">
               <MobileNav />
