@@ -1,5 +1,6 @@
 import {Link} from '@/i18n/navigation';
 import MainMenu from '../MainMenu';
+import MobileMenu from '../MobileMenu';
 import { getTranslations } from 'next-intl/server';
 
 export default async function Header() {
@@ -32,11 +33,9 @@ export default async function Header() {
         </Link>
 
         {/* Mobile toggle button */}
-        <button className="col-span-3 lg:hidden ml-auto flex items-center justify-end p-2">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
+        <div className="col-span-3 lg:hidden ml-auto flex items-center justify-end">
+          <MobileMenu />
+        </div>
 
         {/* Main nav / Main menu */}
         <div className="hidden lg:block lg:col-span-7 static">
