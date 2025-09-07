@@ -25,7 +25,6 @@ export default async function LocaleLayout({
   return (
     <>
       <NextIntlClientProvider locale={activeLocale} messages={messages}>
-        <TopBar />
         <Header />
         {children}
         <Footer />
