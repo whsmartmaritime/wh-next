@@ -5,7 +5,7 @@ import { getTranslations } from 'next-intl/server';
 export default async function Header() {
   const t = await getTranslations('navigation');
   return (
-    <header className="sticky top-0 z-50 w-full py-0 bg-white dark:bg-black overflow-visible">
+    <header className="sticky top-0 z-50 w-full py-0 bg-white dark:bg-black overflow-visible border-b border-neutral-800/20 dark:border-neutral-100/20 has-[.group:hover]:border-b-0">
       <nav className="container-gutter grid grid-cols-12 items-center gap-x-6 h-[66px] sm:h-[76px] xl:h-[90px] text-black dark:text-white overflow-visible">
         {/* Logo */}
         <Link href="/" className="col-span-9 lg:col-span-3 flex items-center" aria-label="Wheelhouse logo">

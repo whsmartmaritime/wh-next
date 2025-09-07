@@ -3,45 +3,74 @@ import { Link } from '@/i18n/navigation';
 
 export default function MainMenu() {
   const t = useTranslations('navigation');
+  const menuItems = t.raw('menuItems') as any[];
 
   return (
-    <div>
+    <div className="text-neutral-800 dark:text-neutral-100">
       <ul className="flex space-x-8">
-        <li className="group relative">
-          <Link href="/solutions" className="text-gray-900 hover:text-blue-600 font-medium py-2 transition-colors">
-            {t('Solutions.title')}
+        <li className="group relative overflow-visible">
+          <Link href={menuItems[0]?.href} className="no-underline text-xl font-medium py-2 pb-7 border-b-2 border-transparent hover:border-neutral-800 dark:hover:border-neutral-100 transition-colors duration-300">
+            {menuItems[0]?.title}
           </Link>
-          {/* Pure CSS dropdown - positioned just below header, may overlap with content when TopBar is hidden but simple */}
           <div 
-            className="fixed top-[66px] sm:top-[76px] xl:top-[90px] left-0 right-0 w-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60] bg-white shadow-lg border-t"
+            className="fixed top-[90px] left-0 right-0 w-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60] bg-white dark:bg-black shadow-lg"
           >
-            <div className="container mx-auto px-4 py-8">
-              <p className="text-gray-600">Solutions dropdown content here...</p>
+            <div className="container-gutter grid grid-cols-12 mx-auto px-4 py-8">
+              {/* Column 1: description spans 4 cols */}
+             
+                <p className="col-span-3 text-2xl">{menuItems[0]?.desc}</p>
+             
+              {/* Column 2: first nav group */}
+              <div className="col-span-2 space-y-4">
+                <p className="uppercase tracking-[0.25em] text-sm opacity-95 mb-4 font-semibold">{menuItems[0]?.dropdownContent?.columns[0]?.title}</p>
+                <Link href={menuItems[0]?.dropdownContent?.columns[0]?.links[0]?.href} className="no-underline block text-lg font-bold hover:opacity-80 transition-opacity">
+                  {menuItems[0]?.dropdownContent?.columns[0]?.links[0]?.title}
+                </Link>
+                <Link href={menuItems[0]?.dropdownContent?.columns[0]?.links[1]?.href} className="no-underline block text-lg font-bold hover:opacity-80 transition-opacity">
+                  {menuItems[0]?.dropdownContent?.columns[0]?.links[1]?.title}
+                </Link>
+                <Link href={menuItems[0]?.dropdownContent?.columns[0]?.links[2]?.href} className="no-underline block text-lg font-bold hover:opacity-80 transition-opacity">
+                  {menuItems[0]?.dropdownContent?.columns[0]?.links[2]?.title}
+                </Link>
+              </div>
+              <div className="col-span-2 space-y-4">
+                <p className="uppercase tracking-[0.25em] text-sm opacity-95 mb-4 font-semibold">{menuItems[0]?.dropdownContent?.columns[1]?.title}</p>
+                <Link href={menuItems[0]?.dropdownContent?.columns[1]?.links[0]?.href} className="no-underline block text-lg font-bold hover:opacity-80 transition-opacity">
+                  {menuItems[0]?.dropdownContent?.columns[1]?.links[0]?.title}
+                </Link>
+                <Link href={menuItems[0]?.dropdownContent?.columns[1]?.links[1]?.href} className="no-underline block text-lg font-bold hover:opacity-80 transition-opacity">
+                  {menuItems[0]?.dropdownContent?.columns[1]?.links[1]?.title}
+                </Link>
+                <Link href={menuItems[0]?.dropdownContent?.columns[1]?.links[2]?.href} className="no-underline block text-lg font-bold hover:opacity-80 transition-opacity">
+                  {menuItems[0]?.dropdownContent?.columns[1]?.links[2]?.title}
+                </Link>
+              </div>
+              <p className="text-sm">{menuItems[0]?.dropdownContent?.columns[0]?.intro}</p>
             </div>
           </div>
         </li>
 
         <li>
-          <Link href="/services" className="text-gray-900 hover:text-blue-600 font-medium py-2 transition-colors">
-            {t('Services.title')}
+          <Link href={menuItems[1]?.href} className="no-underline hover:text-blue-600 font-medium py-2 transition-colors">
+            {menuItems[1]?.title}
           </Link>
         </li>
 
         <li>
-          <Link href="/about" className="text-gray-900 hover:text-blue-600 font-medium py-2 transition-colors">
-            {t('Company.title')}
+          <Link href={menuItems[2]?.href} className="no-underline hover:text-blue-600 font-medium py-2 transition-colors">
+            {menuItems[2]?.title}
           </Link>
         </li>
 
         <li>
-          <Link href="/contact" className="text-gray-900 hover:text-blue-600 font-medium py-2 transition-colors">
-            Contact
+          <Link href={menuItems[3]?.href} className="no-underline hover:text-blue-600 font-medium py-2 transition-colors">
+            {menuItems[3]?.title}
           </Link>
         </li>
 
         <li>
-          <Link href="/blog" className="text-gray-900 hover:text-blue-600 font-medium py-2 transition-colors">
-            Blog
+          <Link href={menuItems[4]?.href} className="no-underline hover:text-blue-600 font-medium py-2 transition-colors">
+            {menuItems[4]?.title}
           </Link>
         </li>
       </ul>
