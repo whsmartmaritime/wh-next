@@ -37,11 +37,14 @@
       "href": "/services",
       "hasDropdown": true,
       "desc": "Maneuver? go Wheelhouse. Service? call Wheelhouse.",
+      "ctaContent": {
+        "title": "Request Service",
+        "href": "/contact"
+      },
       "dropdownContent": {
         "columns": [
           {
             "title": "Service On-demand",
-            "intro": "Equipment and deployment. We deliver solutions for safer, easier vessel operations.",
             "links": [
               { "title": "Installation - Maintenance - Repair", "href": "/services/installation" },
               { "title": "Product Advisory", "href": "/services/advisory" },
@@ -50,7 +53,6 @@
           },
           {
             "title": "Annual Survey",
-            "intro": "Our annual GMDSS Radio Survey and VDR/SVDR APT services are conducted in compliance with IMO standards, ensuring your vessel's communication and voyage data systems are fully operational and reliable.",
             "links": [
               { "title": "Radio Survey", "href": "/services/radio-survey" },
               { "title": "VDR Annual Performance Test", "href": "/services/vdr-test" }
@@ -64,11 +66,14 @@
       "href": "/about",
       "hasDropdown": true,
       "desc": "Learn about our mission, team and company history.",
+      "ctaContent": {
+        "title": "Learn More",
+        "href": "/about"
+      },
       "dropdownContent": {
         "columns": [
           {
             "title": "About Us",
-            "intro": "Learn more about our company and values.",
             "links": [
               { "title": "About Us", "href": "/about" },
               { "title": "Contact Us", "href": "/contact" },
@@ -85,16 +90,6 @@
           }
         ]
       }
-    },
-    {
-      "title": "Contact",
-      "href": "/contact",
-      "hasDropdown": false
-    },
-    {
-      "title": "Blog", 
-      "href": "/blog",
-      "hasDropdown": false
     }
-  ]
+]
 }

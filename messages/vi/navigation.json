@@ -10,7 +10,6 @@
         "columns": [
           {
             "title": "Thiết Bị Hàng Hải",
-            "intro": "Thương hiệu tin cậy, hiệu suất đã được chứng minh.",
             "links": [
               { "title": "Thiết bị GMDSS", "href": "/solutions/gmdss" },
               { "title": "Nghi Khí Hàng Hải", "href": "/solutions/navigation" },
@@ -19,7 +18,6 @@
           },
           {
             "title": "Dịch vụ vệ tinh và IOT",
-            "intro": "Giữ kết nối mọi lúc, kể cả khi xa bờ.",
             "links": [
               { "title": "StarLink", "href": "/solutions/starlink" },
               { "title": "VSAT", "href": "/solutions/vsat" },
@@ -35,11 +33,14 @@
       "href": "/services",
       "hasDropdown": true,
       "desc": "Điều động? gọi Wheelhouse. Dịch vụ? gọi Wheelhouse.",
+      "ctaContent": {
+        "title": "Yêu cầu dịch vụ",
+        "href": "/contact"
+      },
       "dropdownContent": {
         "columns": [
           {
             "title": "Dịch vụ theo yêu cầu",
-            "intro": "Thiết bị và giải pháp triển khai. Chúng tôi cung cấp giải pháp để vận hành tàu an toàn và hiệu quả.",
             "links": [
               { "title": "Lắp đặt - Bảo trì - Sửa chữa", "href": "/services/installation" },
               { "title": "Tư vấn sản phẩm", "href": "/services/advisory" },
@@ -48,7 +49,6 @@
           },
           {
             "title": "Khảo sát hàng năm",
-            "intro": "Dịch vụ Khảo sát Radio GMDSS hàng năm và kiểm tra APT VDR/SVDR của chúng tôi được thực hiện tuân thủ theo tiêu chuẩn IMO.",
             "links": [
               { "title": "Khảo sát Radio", "href": "/services/radio-survey" },
               { "title": "Kiểm tra hiệu năng VDR hàng năm", "href": "/services/vdr-test" }
@@ -62,11 +62,14 @@
       "href": "/about",
       "hasDropdown": true,
       "desc": "Tìm hiểu về sứ mệnh, đội ngũ và lịch sử công ty của chúng tôi.",
+      "ctaContent": {
+        "title": "Tìm hiểu thêm",
+        "href": "/about"
+      },
       "dropdownContent": {
         "columns": [
           {
             "title": "Về chúng tôi",
-            "intro": "Tìm hiểu thêm về công ty và giá trị của chúng tôi.",
             "links": [
               { "title": "Về chúng tôi", "href": "/about" },
               { "title": "Liên hệ", "href": "/contact" },
@@ -75,7 +78,6 @@
           },
           {
             "title": "Khách hàng và đối tác",
-            "intro": "Khám phá những khách hàng mà chúng tôi phục vụ.",
             "links": [
               { "title": "Khách hàng", "href": "/customers" },
               { "title": "Đối tác", "href": "/partners" }
@@ -83,16 +85,6 @@
           }
         ]
       }
-    },
-    {
-      "title": "Liên hệ",
-      "href": "/contact",
-      "hasDropdown": false
-    },
-    {
-      "title": "Blog", 
-      "href": "/blog",
-      "hasDropdown": false
     }
   ]
 }
