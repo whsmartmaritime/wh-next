@@ -1,5 +1,5 @@
 import {Link} from '@/i18n/navigation';
-import CleanMenu from '../MainMenu/CleanMenu';
+import MainMenu from '../MainMenu';
 import { getTranslations } from 'next-intl/server';
 
 export default async function Header() {
@@ -38,9 +38,9 @@ export default async function Header() {
           </svg>
         </button>
 
-        {/* Main nav / Clean menu */}
+        {/* Main nav / Main menu */}
         <div className="hidden lg:block lg:col-span-7 static">
-          <CleanMenu />
+          <MainMenu />
         </div>
 
         {/* Right utilities */}
