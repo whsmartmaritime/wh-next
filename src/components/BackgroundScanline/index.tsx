@@ -7,7 +7,8 @@ interface Props {
   style?: React.CSSProperties
   crosshairs?: 'all' | CrosshairPosition[]
   enableBorders?: boolean
-  scanlineImage?: string
+  opacity?: number
+  hoverOpacity?: number
 }
 
 export const BackgroundScanline: React.FC<Props> = ({
@@ -15,7 +16,8 @@ export const BackgroundScanline: React.FC<Props> = ({
   style,
   crosshairs,
   enableBorders = false,
-  scanlineImage = '/images/scanline-dark.png'
+  opacity = 0.08,
+  hoverOpacity = 0.1
 }: Props) => {
   const CrosshairIcon = () => (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -26,40 +28,50 @@ export const BackgroundScanline: React.FC<Props> = ({
   return (
     <div
       aria-hidden="true"
-      className={`absolute inset-0 pointer-events-none z-20 ${enableBorders ? 'border-t border-b border-[var(--theme-border-color)]' : ''} ${className || ''}`}
+      className={`absolute inset-0 pointer-events-none z-0 ${enableBorders ? 'border-t border-b border-neutral-200 dark:border-neutral-700' : ''} ${className || ''}`}
       style={style}
     >
-      {/* Scanline Background Texture - Like sample */}
+      {/* Light theme scanline - giống sample với opacity thấp */}
       <div 
-        className="absolute top-px left-px w-[calc(100%-2px)] h-[calc(100%-2px)] bg-repeat opacity-[0.08] box-border"
+        className="absolute inset-0 bg-repeat transition-opacity duration-300 dark:hidden"
         style={{
-          backgroundImage: `url('${scanlineImage}')`,
+          backgroundImage: "url('/images/scanline-light.png')",
+          opacity: opacity,
         }}
       />
       
-      {/* Crosshairs - Like sample */}
+      {/* Dark theme scanline - giống sample với opacity thấp */}
+      <div 
+        className="absolute inset-0 bg-repeat transition-opacity duration-300 hidden dark:block"
+        style={{
+          backgroundImage: "url('/images/scanline-dark.png')",
+          opacity: opacity,
+        }}
+      />
+      
+      {/* Crosshairs - giống sample */}
       {crosshairs && (
         <>
           {(crosshairs === 'all' || crosshairs.includes('top-left')) && (
-            <div className="absolute w-4 h-4 -top-2 -left-2 text-[var(--theme-elevation-1000)] opacity-50 z-10">
+            <div className="absolute w-4 h-4 -top-2 -left-2 text-neutral-400 dark:text-neutral-600 opacity-50 z-10">
               <CrosshairIcon />
             </div>
           )}
 
           {(crosshairs === 'all' || crosshairs.includes('bottom-left')) && (
-            <div className="absolute w-4 h-4 -bottom-2 -left-2 text-[var(--theme-elevation-1000)] opacity-50 z-10">
+            <div className="absolute w-4 h-4 -bottom-2 -left-2 text-neutral-400 dark:text-neutral-600 opacity-50 z-10">
               <CrosshairIcon />
             </div>
           )}
 
           {(crosshairs === 'all' || crosshairs.includes('top-right')) && (
-            <div className="absolute w-4 h-4 -top-2 -right-2 text-[var(--theme-elevation-1000)] opacity-50 z-10">
+            <div className="absolute w-4 h-4 -top-2 -right-2 text-neutral-400 dark:text-neutral-600 opacity-50 z-10">
               <CrosshairIcon />
             </div>
           )}
 
           {(crosshairs === 'all' || crosshairs.includes('bottom-right')) && (
-            <div className="absolute w-4 h-4 -bottom-2 -right-2 text-[var(--theme-elevation-1000)] opacity-50 z-10">
+            <div className="absolute w-4 h-4 -bottom-2 -right-2 text-neutral-400 dark:text-neutral-600 opacity-50 z-10">
               <CrosshairIcon />
             </div>
           )}

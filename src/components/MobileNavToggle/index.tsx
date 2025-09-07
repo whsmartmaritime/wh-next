@@ -60,11 +60,16 @@ export default function MobileNavToggle() {
         </svg>
       </button>
 
-      {/* Full Screen Container - Below Header */}
+      {/* Full Screen Container - Below Header với group class cho hover effect */}
       {isOpen && (
-        <div className="fixed top-[120px] left-0 w-full h-[calc(100vh-120px)] bg-white dark:bg-black z-40 shadow-lg border-t border-neutral-200 dark:border-neutral-700">
-          <BackgroundScanline />
-          <div className="h-full overflow-y-auto">
+        <div className="fixed top-[120px] left-0 w-full h-[calc(100vh-120px)] z-40 bg-white dark:bg-black border-t border-neutral-200 dark:border-neutral-700 group">
+          {/* BackgroundScanline với hiệu ứng giống sample */}
+          <BackgroundScanline 
+            className="absolute inset-0"
+            opacity={0.8}
+            hoverOpacity={0.1}
+          />
+          <div className="relative h-full overflow-y-auto">
             <div className="container-gutter py-6">
               <MobileNav />
             </div>
