@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation';
 
 export default function MobileMenu() {
   const t = useTranslations('navigation');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const menuItems = t.raw('menuItems') as any[];
   const [isOpen, setIsOpen] = useState(false);
   const [expandedItem, setExpandedItem] = useState<number | null>(null);
