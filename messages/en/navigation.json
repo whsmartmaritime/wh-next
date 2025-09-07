@@ -46,7 +46,7 @@
           {
             "title": "Service On-demand",
             "links": [
-              { "title": "Installation - Maintenance - Repair", "href": "/services/installation" },
+              { "title": "Repair & Maintenance", "href": "/services#repair" },
               { "title": "Product Advisory", "href": "/services/advisory" },
               { "title": "Training & Usage Support", "href": "/services/training" }
             ]

@@ -2,11 +2,13 @@
 import { useState, useEffect } from 'react';
 import MobileNav from '@/components/MobileNav';
 import BackgroundScanline from '../BackgroundScanline';
+import BackgroundGrid from '../BackgroundGrid';
 
 export default function MobileNavToggle() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   // Lock/unlock body scroll when menu opens/closes
   useEffect(() => {
@@ -69,9 +71,10 @@ export default function MobileNavToggle() {
             opacity={0.8}
             hoverOpacity={0.1}
           />
+          <BackgroundGrid className="absolute inset-0" />
           <div className="relative h-full overflow-y-auto">
             <div className="container-gutter py-6">
-              <MobileNav />
+              <MobileNav onLinkClick={closeMenu} />
             </div>
           </div>
         </div>

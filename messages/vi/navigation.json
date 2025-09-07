@@ -42,7 +42,7 @@
           {
             "title": "Dịch vụ theo yêu cầu",
             "links": [
-              { "title": "Lắp đặt - Bảo trì - Sửa chữa", "href": "/services/installation" },
+              { "title": "Sửa chữa - Bảo dưỡng", "href": "/services#repair" },
               { "title": "Tư vấn sản phẩm", "href": "/services/advisory" },
               { "title": "Đào tạo & Hỗ trợ sử dụng", "href": "/services/training" }
             ]
