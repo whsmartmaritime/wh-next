@@ -34,18 +34,21 @@ export default function MainMenu() {
                   {/* Render columns dynamically */}
                   {item?.dropdownContent?.columns?.map((column, colIndex) => (
                     <div key={colIndex} className={`space-y-4 ${colIndex === 0 ? 'col-span-2' : 'col-span-3'}`}>
-                      <p className="uppercase tracking-[0.25em] text-sm opacity-95 mb-4 font-semibold">
+                      <span className="uppercase tracking-[0.25em] text-sm opacity-95 mb-4 font-semibold block">
                         {column?.title}
-                      </p>
-                      {column?.links?.map((link, linkIndex) => (
-                        <Link 
-                          key={linkIndex}
-                          href={link?.href} 
-                          className="no-underline block text-lg font-bold hover:opacity-80 transition-opacity"
-                        >
-                          {link?.title}
-                        </Link>
-                      ))}
+                      </span>
+                      <ul className="space-y-2" role="menu">
+                        {column?.links?.map((link, linkIndex) => (
+                          <li key={linkIndex} role="menuitem">
+                            <Link 
+                              href={link?.href} 
+                              className="no-underline block text-lg font-bold hover:opacity-80 transition-opacity"
+                            >
+                              {link?.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   ))}
                   
