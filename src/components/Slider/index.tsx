@@ -19,7 +19,7 @@ interface SliderProps {
 export default function Slider({ 
   images, 
   intervalSeconds = 4,
-  aspectRatio = "16/9",
+  aspectRatio = "25/10",
   className = ""
 }: SliderProps) {
   return (

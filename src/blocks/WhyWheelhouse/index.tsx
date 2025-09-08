@@ -13,24 +13,25 @@ async function MissionSection() {
   ];
 
   return (
-    <section className="theme-light relative overflow-hidden container-gutter grid grid-cols-12">
+    <section className="bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-blue-950/30 relative overflow-hidden">
       <BackgroundGrid />
-      
-      <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
-        {t('missionTitle')}
-      </h2>
-      
-      <p className="col-span-12 md:col-span-6 md:pr-18 text-md xl:text-xl text-muted-foreground text-justify whitespace-pre-line leading-loose">
-        {t('missionIntro')}
-      </p>
-      
-      <Slider 
-        images={sliderImages} 
-        aspectRatio="25/10" 
-        className="col-span-12 md:col-span-6"
-      />
+      <div className="container-gutter grid grid-cols-12">
+        <div className="col-span-12 lg:col-span-6">
+          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
+            {t('missionTitle')}
+          </h2>
+          <p className="text-md xl:text-xl text-justify whitespace-pre-line my-8 max-w-3xl">
+            {t('missionIntro')}
+          </p>
+        </div>
+        <Slider 
+          images={sliderImages} 
+          className="col-span-12 lg:col-span-6 shadow-lg"
+          interval={5000}
+        />
+      </div>
     </section>
-  )
+  );
 }
 
 // Why Wheelhouse Section Component
@@ -38,7 +39,7 @@ async function WhySection() {
   const t = await getTranslations('home.whyWheelhouse');
 
   return (
-    <section className="theme-light relative overflow-hidden">
+    <section className="bg-gradient-to-bl from-neutral-50 via-slate-50 to-stone-100/50 dark:from-neutral-900 dark:via-slate-900 dark:to-stone-900/50 relative overflow-hidden">
       <BackgroundGrid />
       <div className='container-gutter grid grid-cols-12'>
     
@@ -54,7 +55,7 @@ async function WhySection() {
       {[1, 2, 3, 4].map((i) => (
         <div 
           key={i} 
-          className="col-span-12 md:col-span-6 lg:col-span-3 border border-border/30 p-6 hover:border-border/60 transition-colors duration-300  m-3"
+          className="col-span-12 md:col-span-6 lg:col-span-3 border border-border/30 p-6 hover:border-border/60 transition-colors duration-300 m-3 bg-white/60 dark:bg-black/20 backdrop-blur-sm"
         >
           <h3 className="text-sm lg:text-base font-semibold mb-3 uppercase text-center text-foreground">
             {t(`item${i}Title`)}
@@ -66,6 +67,7 @@ async function WhySection() {
       ))}
       
       <Button 
+        theme="dark"
         className="col-span-12 md:col-span-6 lg:col-span-3 col-start-1 h-16 my-8" 
         href="/about"
       >
