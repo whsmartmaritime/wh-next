@@ -6,9 +6,9 @@ export default async function WhyWheelhouse() {
   const t = await getTranslations('home.whyWheelhouse');
   // Use existing images from public/images and localized alt from missionTitle
   const sliderImages: SliderImage[] = [
-    { src: '/images/mission1.svg', alt: `${t('missionTitle')} 1` },
-    { src: '/images/mission2.svg', alt: `${t('missionTitle')} 2` },
-    { src: '/images/mission3.svg', alt: `${t('missionTitle')} 3` },
+    { src: '/images/whywh/wave_ship.webp', alt: `${t('missionTitle')} 1` },
+    { src: '/images/whywh/se_ship_radar.webp', alt: `${t('missionTitle')} 2` },
+    { src: '/images/whywh/se_ship_wheelhouse.webp', alt: `${t('missionTitle')} 3` },
   ];
 
   return (
@@ -28,7 +28,7 @@ export default async function WhyWheelhouse() {
       
       <Slider 
         images={sliderImages} 
-        aspectRatio="16/10" 
+        aspectRatio="25/10" 
         className="col-span-12 md:col-span-6"
       />
 
