@@ -23,7 +23,7 @@ async function MissionSection() {
           <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
             {t("missionTitle")}
           </h2>
-          <p className="text-md xl:text-xl text-justify whitespace-pre-line my-8 max-w-3xl">
+          <p className="text-md xl:text-xl text-justify whitespace-pre-line mb-8 max-w-3xl">
             {t("missionIntro")}
           </p>
         </div>
@@ -49,7 +49,7 @@ async function WhySection() {
           {t("whyTitle")}
         </h2>
 
-        <p className="col-span-12 text-md xl:text-xl text-muted-foreground text-justify whitespace-pre-line my-8 max-w-2xl">
+        <p className="col-span-12 text-md xl:text-xl text-muted-foreground text-justify whitespace-pre-line mb-8 max-w-2xl">
           {t("whyIntro")}
         </p>
 
@@ -69,7 +69,7 @@ async function WhySection() {
         ))}
 
         <Button
-          className="col-span-12 md:col-span-6 lg:col-span-3 h-16 mb-4 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white my-8"
+          className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
           href="/about"
         >
           {t("ctaPrimary")}

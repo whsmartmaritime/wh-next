@@ -56,37 +56,29 @@ export default async function WhatWeDo({ className }: WhatWeDoProps) {
   };
 
   return (
-    <section
-      className={`
-      theme-dark relative overflow-hidden bg-background
-      container-gutter
-      grid grid-cols-12
-      before:hidden lg:before:block before:absolute before:inset-y-0 before:right-16
-      before:w-px before:bg-gradient-to-b before:from-transparent before:via-border
-      before:to-transparent before:opacity-30 before:content-['']
-      ${className || ""}
-    `}
-    >
+    <section className="bg-gradient-to-br from-slate-800 via-slate-900 to-black dark:from-gray-900 dark:via-black/90 dark:to-black relative overflow-hidden">
       {/* Background Effects */}
       <BackgroundGrid />
       <BackgroundScanline />
-      {/* Section Title */}
-      <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold  text-center lg:text-left my-16">
-        {t("title")}
-      </h2>
+      <div className="container-gutter grid grid-cols-12 before:hidden lg:before:block before:absolute before:inset-y-0 before:right-16 before:w-px before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent before:opacity-30 before:content-['']">
+        {/* Section Title */}
+        <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold  text-center lg:text-left my-8">
+          {t("title")}
+        </h2>
 
-      {/* Interactive Highlights */}
-      <div className="col-span-12">
-        <HoverHighlights {...highlightsData} />
+        {/* Interactive Highlights */}
+        <div className="col-span-12">
+          <HoverHighlights {...highlightsData} />
+        </div>
+
+        {/* Call to Action */}
+        <Button
+          className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
+          href={t("buttonHref")}
+        >
+          {t("buttonLabel")}
+        </Button>
       </div>
-
-      {/* Call to Action */}
-      <Button
-        className="col-span-12 md:col-span-6 lg:col-span-3 h-16 my-8 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
-        href={t("buttonHref")}
-      >
-        {t("buttonLabel")}
-      </Button>
     </section>
   );
 }

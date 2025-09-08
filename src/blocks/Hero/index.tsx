@@ -21,18 +21,11 @@ export default async function Hero() {
   ];
 
   return (
-    <section className="relative container-gutter overflow-visible pt-16 lg:pt-16 pb-16 lg:pb-16 min-h-screen bg-gradient-to-br from-neutral-900 via-slate-900 to-blue-950 text-white">
-      {/* Layer 1: Video Background */}
+    <section className="relative overflow-visible pt-16 lg:pt-16 pb-16 lg:pb-16 min-h-screen bg-gradient-to-br from-neutral-900 via-slate-900 to-blue-950 text-white">
       <BackgroundAnimation />
-
-      {/* Layer 2: Grid với gradient */}
       <BackgroundGrid gradient={true} />
-
-      {/* Layer 3: Scanline Effects */}
       <BackgroundScanline />
-
-      {/* Content Layer (z-30) */}
-      <div className="relative z-30">
+      <div className="relative container-gutter z-30">
         {/* Content Grid */}
         <div className="grid grid-cols-1  lg:grid-cols-12 items-center">
           {/* Left: text content - cols-3 (25% like sample's cols-4/16) */}
@@ -41,13 +34,13 @@ export default async function Hero() {
               <span className="text-sky-700">{t("brand")} </span>
               <span>{t("title")}</span>
             </h1>
-            <h2 className="text-xl lg:text-2xl font-medium text-muted-foreground mb-6">
+            <h2 className="text-xl lg:text-2xl font-medium text-muted-foreground mb-8">
               {t("subtitle")}
             </h2>
 
             <Button
               href="/contact"
-              className="w-full h-16 mb-4 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
+              className="w-full min-h-20 mb-8 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
             >
               {t("ctaPrimary")}
             </Button>
