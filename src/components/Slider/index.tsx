@@ -24,7 +24,7 @@ export default function Slider({
 }: SliderProps) {
   return (
     <div 
-      className={`relative w-full overflow-hidden rounded-lg bg-gray-100 ${className}`}
+      className={`relative w-full overflow-hidden bg-gray-100 ${className}`}
       style={{ aspectRatio: aspectRatio }}
     >
       
