@@ -3,7 +3,6 @@ import { getTranslations } from "next-intl/server";
 import HoverHighlights from "@/components/HoverHighlights";
 import Button from "@/components/Button";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
-import BackgroundScanline from "@/components/BackgroundScanline";
 import type { HoverHighlightsProps } from "@/components/HoverHighlights";
 
 // Maritime solutions images (all in /images/whatwedo/)
@@ -52,26 +51,21 @@ export default async function WhatWeDo({}: WhatWeDoProps) {
         },
       ],
     })),
-    // Remove cta from here - will handle in WhatWeDo component directly
   };
 
   return (
-    <section className="bg-gradient-to-br from-slate-800 via-slate-900 to-black dark:from-gray-900 dark:via-black/90 dark:to-black relative overflow-hidden">
-      {/* Background Effects */}
+    <section className="bg-gradient-to-br  from-gray-900 via-black/90 to-black relative overflow-hidden text-neutral-300">
       <BackgroundGrid />
-      <BackgroundScanline />
+
       <div className="container-gutter grid grid-cols-12 before:hidden lg:before:block before:absolute before:inset-y-0 before:right-16 before:w-px before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent before:opacity-30 before:content-['']">
-        {/* Section Title */}
-        <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold  text-center lg:text-left my-8">
+        <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold  text-left my-8">
           {t("title")}
         </h2>
 
-        {/* Interactive Highlights */}
         <div className="col-span-12">
           <HoverHighlights {...highlightsData} />
         </div>
 
-        {/* Call to Action */}
         <Button
           className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
           href={t("buttonHref")}

@@ -16,7 +16,7 @@ async function MissionSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-blue-950/30 relative overflow-hidden">
+    <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950/30 relative overflow-hidden text-neutral-300">
       <BackgroundGrid />
       <div className="container-gutter grid grid-cols-12">
         <div className="col-span-12 lg:col-span-6">
@@ -41,13 +41,12 @@ async function WhySection() {
   const t = await getTranslations("home.whyWheelhouse");
 
   return (
-    <section className="bg-gradient-to-bl from-neutral-50 via-slate-50 to-stone-100/50 dark:from-neutral-900 dark:via-slate-900 dark:to-stone-900/50 relative overflow-hidden">
+    <section className="bg-gradient-to-bl from-neutral-900 via-slate-900 to-stone-900/50 relative overflow-hidden text-neutral-300">
       <BackgroundGrid />
       <div className="container-gutter grid grid-cols-12">
         <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
           {t("whyTitle")}
         </h2>
-
         <p className="col-span-12 text-md xl:text-xl text-muted-foreground text-justify whitespace-pre-line mb-8 max-w-2xl">
           {t("whyIntro")}
         </p>
@@ -56,9 +55,9 @@ async function WhySection() {
         {[1, 2, 3, 4].map((i) => (
           <div
             key={i}
-            className="col-span-12 md:col-span-6 lg:col-span-3 border border-border/30 p-6 hover:border-border/60 transition-colors duration-300 m-3 bg-white/60 dark:bg-black/20 backdrop-blur-sm"
+            className="col-span-12 md:col-span-6 lg:col-span-3 border border-gray-900/20 p-6 transition-colors duration-300 m-3 bg-black/20 backdrop-blur-sm"
           >
-            <h3 className="text-sm lg:text-base font-semibold mb-3 uppercase text-center text-foreground">
+            <h3 className="text-sm lg:text-base font-semibold mb-3 uppercase text-center">
               {t(`item${i}Title`)}
             </h3>
             <p className="text-sm lg:text-base text-muted-foreground leading-relaxed text-center my-8">

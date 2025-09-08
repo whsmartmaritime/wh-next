@@ -1,32 +1,9 @@
-/* =============================================================================
-   CSS CUSTOM PROPERTIES & VARIABLES
-   ========================================================================== */
-
 :root {
-  /* Color scheme */
-  color-scheme: light;
-
-  /* Layout & spacing variables - Mobile first */
   --gutter-h: 1rem;
   --block-spacing: 2rem;
   --header-height: 66px;
   --column: calc((100vw - (var(--gutter-h) * 2)) / 12);
   --radius: 0.625rem;
-
-  /* Theme border colors */
-  --theme-border-light: rgba(255,255,255,0.08);
-  --theme-border-dark: rgba(255,255,255,0.12);
-  --theme-border-color: currentColor;
-
-  /* Base colors for theme backgrounds */
-  --color-base-0: rgb(255, 255, 255);    /* Light theme background */
-  --color-base-1000: rgb(0, 0, 0);       /* Dark theme background */
-  --color-base-900: rgb(20, 20, 20);     /* Alternative dark */
-  --color-base-950: rgb(8, 8, 10);       /* Even darker option */
-
-  /* Simple foreground/background variables */
-  --foreground: 0 0 0;
-  --background: 255 255 255;
 }
 
 @media (min-width: 640px) {

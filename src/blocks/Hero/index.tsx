@@ -21,7 +21,7 @@ export default async function Hero() {
   ];
 
   return (
-    <section className="relative overflow-visible pt-16 lg:pt-16 pb-16 lg:pb-16 min-h-screen bg-gradient-to-br from-neutral-900 via-slate-900 to-blue-950 text-white">
+    <section className="relative overflow-visible pt-16 lg:pt-16 pb-16 lg:pb-16 min-h-screen bg-gradient-to-br from-neutral-900 via-slate-900 to-blue-950 text-neutral-200">
       <BackgroundAnimation />
       <BackgroundGrid gradient={true} />
       <BackgroundScanline />
@@ -83,7 +83,7 @@ export default async function Hero() {
         {/* Logo showcase dưới hero content */}
         <div className="relative z-30 mt-16">
           <div className="text-center mb-8">
-            <p className="text-sm text-white/60 uppercase tracking-widest font-medium">
+            <p className="text-sm uppercase tracking-widest font-medium">
               {t("partnerShowcase", { defaultValue: "Partners and Customers" })}
             </p>
           </div>
