@@ -9,43 +9,20 @@ export type ButtonProps = {
   className?: string;
   arrowRotation?: number;
   newTab?: boolean;  // Default false
+  theme?: 'light' | 'dark' | 'auto'; // Thêm prop theme
 };
 
-// Auto-detect theme from parent section and create button with flip hover effect
+
+// Button nhận theme qua prop, không tự detect nữa
 const Button: React.FC<ButtonProps> = ({ 
   children, 
   href, 
   onClick, 
   className, 
   arrowRotation = 0, 
-  newTab = false
+  newTab = false,
+  theme = 'auto',
 }) => {
-  
-  // Auto-detect theme from closest parent with theme class (client-side only)
-  const [theme, setTheme] = React.useState<'light' | 'dark' | 'auto'>('auto');
-  
-  React.useEffect(() => {
-    // Find the button element and traverse up to find theme class
-    const detectTheme = () => {
-      const buttons = document.querySelectorAll('a[href], button');
-      for (const button of buttons) {
-        if (button.textContent?.includes(children as string)) {
-          let current = button.parentElement;
-          
-          while (current) {
-            const classList = current.classList;
-            if (classList.contains('theme-light') || classList.contains('theme-light-transparent')) return 'light';
-            if (classList.contains('theme-dark') || classList.contains('theme-dark-transparent')) return 'dark';
-            current = current.parentElement;
-          }
-          break;
-        }
-      }
-      return 'auto';
-    };
-    
-    setTheme(detectTheme());
-  }, [children]);
 
   // Theme-based color classes
   const getThemeClasses = () => {
