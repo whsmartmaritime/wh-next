@@ -25,85 +25,54 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
 
   // Theme-based color classes
-  const getThemeClasses = () => {
-    switch (theme) {
-      case 'light':
-        return {
-          border: 'border-t border-b border-black/20',
-          focus: 'focus:ring-black',
-          defaultText: 'text-black',
-          defaultArrow: 'text-black',
-          hoverText: 'text-white',
-          hoverArrow: 'text-white',
-          hoverBg: 'bg-black'
-        };
-      case 'dark':
-        return {
-          border: 'border-t border-b border-white/20',
-          focus: 'focus:ring-white',
-          defaultText: 'text-white',
-          defaultArrow: 'text-white',
-          hoverText: 'text-black',
-          hoverArrow: 'text-black',
-          hoverBg: 'bg-white'
-        };
-      case 'auto':
-      default:
-        return {
-          border: 'border-t border-b border-border',
-          focus: 'focus:ring-primary',
-          defaultText: 'text-foreground',
-          defaultArrow: 'text-foreground',
-          hoverText: 'text-primary-foreground',
-          hoverArrow: 'text-primary-foreground',
-          hoverBg: 'bg-primary'
-        };
-    }
+
+  const themeMap = {
+    light: [
+      'border-t border-b border-black/20',
+      'focus:ring-black',
+      'text-black',
+      'hover:bg-black hover:text-white',
+      'group-hover:text-white',
+      'group-hover:bg-black',
+      'dark:text-black',
+    ].join(' '),
+    dark: [
+      'border-t border-b border-white/20',
+      'focus:ring-white',
+      'text-white',
+      'hover:bg-white hover:text-black',
+      'group-hover:text-black',
+      'group-hover:bg-white',
+      'dark:text-white',
+    ].join(' '),
+    auto: [
+      'border-t border-b border-border',
+      'focus:ring-primary',
+      'text-foreground',
+      'hover:bg-primary hover:text-primary-foreground',
+      'group-hover:text-primary-foreground',
+      'group-hover:bg-primary',
+    ].join(' '),
   };
+  const themeClasses = themeMap[theme] || themeMap.auto;
 
-  const themeClasses = getThemeClasses();
 
-  // Base styling - let className control all sizing
-  const base = [
-    'group relative overflow-hidden cursor-pointer transition-all duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)]',
-    themeClasses.border,
-    'focus:outline-none focus:ring-2 focus:ring-offset-0',
-    themeClasses.focus
-  ].join(' ');
-
-  // Combine base classes with custom className (className takes precedence for overrides)
+  const base = `group relative overflow-hidden cursor-pointer transition-all duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)] focus:outline-none focus:ring-2 focus:ring-offset-0 ${themeClasses}`;
   const classes = [base, className].filter(Boolean).join(' ');
 
-  // Default label (visible by default, slides up on hover)
-  const defaultLabel = (
-    <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-transform duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:-translate-y-full">
-      <span className={`font-medium text-lg md:text-xl transition-transform duration-450 delay-150 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-bottom-left group-hover:-rotate-3 ${themeClasses.defaultText}`}>
-        {children}
-      </span>
-      <ArrowIcon 
-        className={`w-5 h-5 transition-all duration-450 delay-75 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-center ${themeClasses.defaultArrow}`}
-        rotation={arrowRotation}
-      />
-    </div>
-  );
-
-  // Hover label (hidden by default, slides up from bottom on hover)
-  const hoverLabel = (
-    <div className={`absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-all duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)] translate-y-full group-hover:translate-y-0 ${themeClasses.hoverBg}`}>
-      <span className={`font-medium text-lg md:text-xl transition-transform duration-450 delay-150 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-bottom-left group-hover:rotate-3 ${themeClasses.hoverText}`}>
-        {children}
-      </span>
-      <ArrowIcon 
-        className={`w-5 h-5 transition-all duration-450 delay-75 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-center group-hover:translate-x-1 ${themeClasses.hoverArrow}`}
-        rotation={arrowRotation}
-      />
-    </div>
-  );
+  const labelClass = 'font-medium text-lg md:text-xl transition-transform duration-450 delay-150 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-bottom-left';
+  const iconClass = 'w-5 h-5 transition-all duration-450 delay-75 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-center';
 
   const content = (
     <>
-      {defaultLabel}
-      {hoverLabel}
+      <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-transform duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:-translate-y-full">
+        <span className={`${labelClass} group-hover:-rotate-3`}>{children}</span>
+        <ArrowIcon className={iconClass} rotation={arrowRotation} />
+      </div>
+      <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-all duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)] translate-y-full group-hover:translate-y-0">
+        <span className={`${labelClass} group-hover:rotate-3`}>{children}</span>
+        <ArrowIcon className={`${iconClass} group-hover:translate-x-1`} rotation={arrowRotation} />
+      </div>
     </>
   );
 
@@ -135,6 +104,3 @@ const Button: React.FC<ButtonProps> = ({
 };
 
 export default Button;
-
-// Legacy export for backward compatibility
-export { Button as SvgCTA };
