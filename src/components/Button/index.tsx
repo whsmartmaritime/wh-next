@@ -1,107 +1,67 @@
-"use client";
-import * as React from 'react';
-import ArrowIcon from '../icons/ArrowIcon';
+import * as React from "react";
+import Link from "next/link";
+import ArrowIcon from "../icons/ArrowIcon";
 
 export type ButtonProps = {
   children: React.ReactNode;
   href?: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   className?: string;
   arrowRotation?: number;
-  newTab?: boolean;  // Default false
-  theme?: 'light' | 'dark' | 'auto'; // Thêm prop theme
+  newTab?: boolean;
 };
 
+const base =
+  "group relative overflow-hidden cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] focus:outline-none focus:ring-2 focus:ring-offset-0";
+const labelClass =
+  "font-medium text-lg md:text-xl transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] transform-origin-bottom-left";
+const iconClass =
+  "w-5 h-5 transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] transform-origin-center";
+const content = (children: React.ReactNode, arrowRotation: number = 0) => (
+  <>
+    <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] group-hover:-translate-y-full">
+      <span className={labelClass}>{children}</span>
+      <ArrowIcon className={iconClass} rotation={arrowRotation} />
+    </div>
+    <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] translate-y-full group-hover:translate-y-0">
+      <span className={`${labelClass} group-hover:rotate-3`}>{children}</span>
+      <ArrowIcon
+        className={`${iconClass} group-hover:translate-x-1`}
+        rotation={arrowRotation}
+      />
+    </div>
+  </>
+);
 
-// Button nhận theme qua prop, không tự detect nữa
-const Button: React.FC<ButtonProps> = ({ 
-  children, 
-  href, 
-  onClick, 
-  className, 
-  arrowRotation = 0, 
+export default function Button({
+  children,
+  href,
+  className,
+  arrowRotation = 0,
   newTab = false,
-  theme = 'auto',
-}) => {
-
-  // Theme-based color classes
-
-  const themeMap = {
-    light: {
-      border: 'border-t border-b border-black/20',
-      focus: 'focus:ring-black',
-      text: 'text-black',
-      arrow: 'text-black',
-      hoverText: 'text-white',
-      hoverArrow: 'text-white',
-      hoverBg: 'bg-black'
-    },
-    dark: {
-      border: 'border-t border-b border-white/20',
-      focus: 'focus:ring-white',
-      text: 'text-white',
-      arrow: 'text-white',
-      hoverText: 'text-black',
-      hoverArrow: 'text-black',
-      hoverBg: 'bg-white'
-    },
-    auto: {
-      border: 'border-t border-b border-border',
-      focus: 'focus:ring-primary',
-      text: 'text-foreground',
-      arrow: 'text-foreground',
-      hoverText: 'text-primary-foreground',
-      hoverArrow: 'text-primary-foreground',
-      hoverBg: 'bg-primary'
-    }
-  };
-  const tClass = themeMap[theme] || themeMap.auto;
-
-
-  const base = `group relative overflow-hidden cursor-pointer transition-all duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)] ${tClass.border} focus:outline-none focus:ring-2 focus:ring-offset-0 ${tClass.focus}`;
-  const classes = [base, className].filter(Boolean).join(' ');
-
-  const labelClass = 'font-medium text-lg md:text-xl transition-transform duration-450 delay-150 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-bottom-left';
-  const iconClass = 'w-5 h-5 transition-all duration-450 delay-75 ease-[cubic-bezier(0.165,0.84,0.44,1)] transform-origin-center';
-
-  const content = (
-    <>
-      <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-transform duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:-translate-y-full">
-        <span className={`${labelClass} group-hover:-rotate-3 ${tClass.text}`}>{children}</span>
-        <ArrowIcon className={`${iconClass} ${tClass.arrow}`} rotation={arrowRotation} />
-      </div>
-      <div className={`absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-all duration-450 ease-[cubic-bezier(0.165,0.84,0.44,1)] translate-y-full group-hover:translate-y-0 ${tClass.hoverBg}`}>
-        <span className={`${labelClass} group-hover:rotate-3 ${tClass.hoverText}`}>{children}</span>
-        <ArrowIcon className={`${iconClass} group-hover:translate-x-1 ${tClass.hoverArrow}`} rotation={arrowRotation} />
-      </div>
-    </>
-  );
-
-  // If href is provided, render as a link
+}: ButtonProps) {
+  const classes = [base, className].filter(Boolean).join(" ");
   if (href) {
+    if (newTab) {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={classes}
+        >
+          {content(children, arrowRotation)}
+        </a>
+      );
+    }
     return (
-      <a 
-        href={href}
-        target={newTab ? '_blank' : undefined}
-        rel={newTab ? 'noopener noreferrer' : undefined}
-        className={classes}
-        onClick={onClick as React.MouseEventHandler<HTMLAnchorElement>}
-      >
-        {content}
-      </a>
+      <Link href={href} className={classes}>
+        {content(children, arrowRotation)}
+      </Link>
     );
   }
-
-  // Otherwise render as button
   return (
-    <button 
-      type="button" 
-      className={classes} 
-      onClick={onClick as React.MouseEventHandler<HTMLButtonElement>}
-    >
-      {content}
+    <button type="submit" className={classes}>
+      {content(children, arrowRotation)}
     </button>
   );
-};
-
-export default Button;
+}
