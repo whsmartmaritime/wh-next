@@ -24,6 +24,16 @@ module.exports = {
         'gutter': 'var(--gutter-h)',
         'block': 'var(--block-spacing)',
         'header': 'var(--header-height)',
+      },
+      // Slider animation cho LogoShowcase
+      animation: {
+        'slide': 'slide 60s linear infinite',
+      },
+      keyframes: {
+        'slide': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' }, // Move exactly half (1 full set)
+        }
       }
     },
   },
