@@ -2,9 +2,10 @@ import { getTranslations } from 'next-intl/server';
 import Slider, { type SliderImage } from '@/components/Slider';
 import { BackgroundGrid } from '@/components/BackgroundGrid';
 import Button from '@/components/Button';
-export default async function WhyWheelhouse() {
+
+// Mission Section Component
+async function MissionSection() {
   const t = await getTranslations('home.whyWheelhouse');
-  // Use existing images from public/images and localized alt from missionTitle
   const sliderImages: SliderImage[] = [
     { src: '/images/whywh/wave_ship.webp', alt: `${t('missionTitle')} 1` },
     { src: '/images/whywh/se_ship_radar.webp', alt: `${t('missionTitle')} 2` },
@@ -13,15 +14,12 @@ export default async function WhyWheelhouse() {
 
   return (
     <section className="theme-light relative overflow-hidden container-gutter grid grid-cols-12">
-      {/* Background Grid */}
       <BackgroundGrid />
       
-      {/* Mission Section Title */}
       <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
         {t('missionTitle')}
       </h2>
       
-      {/* Mission Content Row */}
       <p className="col-span-12 md:col-span-6 md:pr-18 text-md xl:text-xl text-muted-foreground text-justify whitespace-pre-line leading-loose">
         {t('missionIntro')}
       </p>
@@ -31,13 +29,23 @@ export default async function WhyWheelhouse() {
         aspectRatio="25/10" 
         className="col-span-12 md:col-span-6"
       />
+    </section>
+  )
+}
 
-      {/* Why Wheelhouse Section Title */}
+// Why Wheelhouse Section Component
+async function WhySection() {
+  const t = await getTranslations('home.whyWheelhouse');
+
+  return (
+    <section className="theme-light relative overflow-hidden">
+      <BackgroundGrid />
+      <div className='container-gutter grid grid-cols-12'>
+    
       <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
         {t('whyTitle')}
       </h2>
       
-      {/* Why Description */}
       <p className="col-span-12 text-md xl:text-xl text-muted-foreground text-justify whitespace-pre-line my-8 max-w-2xl">
         {t('whyIntro')}
       </p>
@@ -46,7 +54,7 @@ export default async function WhyWheelhouse() {
       {[1, 2, 3, 4].map((i) => (
         <div 
           key={i} 
-          className="col-span-12 md:col-span-6 lg:col-span-3 border border-border/30 rounded-lg p-6 hover:border-border/60 transition-colors duration-300 my-8"
+          className="col-span-12 md:col-span-6 lg:col-span-3 border border-border/30 p-6 hover:border-border/60 transition-colors duration-300  m-3"
         >
           <h3 className="text-sm lg:text-base font-semibold mb-3 uppercase text-center text-foreground">
             {t(`item${i}Title`)}
@@ -57,13 +65,23 @@ export default async function WhyWheelhouse() {
         </div>
       ))}
       
-      {/* Call to Action */}
       <Button 
         className="col-span-12 md:col-span-6 lg:col-span-3 col-start-1 h-16 my-8" 
         href="/about"
       >
         {t('ctaPrimary')}
       </Button>
+      </div>
     </section>
-  );
+  )
+}
+
+// Main Component
+export default async function WhyWheelhouse() {
+  return (
+    <>
+      <MissionSection />
+      <WhySection />
+    </>
+  )
 }
