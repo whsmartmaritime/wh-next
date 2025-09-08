@@ -1,14 +1,21 @@
-import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import { Link } from "@/i18n/navigation";
+
+type AllowedPath =
+  | "/"
+  | "/about"
+  | "/services"
+  | "/solutions"
+  | "/contact"
+  | "/blog";
 
 interface MenuColumn {
   title: string;
-  links: Array<{ title: string; href: string }>;
+  links: Array<{ title: string; href: AllowedPath }>;
 }
 
 interface MenuItem {
   title: string;
-  href: string;
+  href: AllowedPath;
   hasDropdown?: boolean;
   dropdownContent?: {
     columns: MenuColumn[];
@@ -16,24 +23,42 @@ interface MenuItem {
 }
 
 export default function MobileNav() {
-  const t = useTranslations('navigation');
-  const menuItems = t.raw('menuItems') as MenuItem[];
+  const menuItems: MenuItem[] = [
+    { title: "Home", href: "/" },
+    { title: "About", href: "/about" },
+    { title: "Services", href: "/services" },
+    { title: "Solutions", href: "/solutions" },
+    { title: "Contact", href: "/contact" },
+    { title: "Blog", href: "/blog" },
+  ];
 
   return (
     <nav className="text-neutral-800 dark:text-neutral-100">
       <ul className="flex flex-col">
         {menuItems.map((item, index) => (
-          <li key={index} className="border border-neutral-200/30 dark:border-neutral-500/30">
+          <li
+            key={index}
+            className="border border-neutral-200/30 dark:border-neutral-500/30"
+          >
             {item.hasDropdown ? (
               <details className="group">
                 <summary className="flex items-center justify-between p-4 text-lg font-medium cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-900 list-none">
                   <span>{item.title}</span>
-                  <svg className="w-5 h-5 transition-transform group-open:rotate-90" 
-                       fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  <svg
+                    className="w-5 h-5 transition-transform group-open:rotate-90"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </summary>
-                
+
                 <div className="p-4 border-t border-neutral-200/30">
                   {/* 2 columns layout - khôi phục styling gốc */}
                   <div className="grid grid-cols-2 gap-4">
@@ -44,8 +69,8 @@ export default function MobileNav() {
                         </span>
                         <div className="space-y-1">
                           {column.links.map((link, linkIndex) => (
-                            <Link 
-                              key={`link-${linkIndex}`} 
+                            <Link
+                              key={`link-${linkIndex}`}
                               // eslint-disable-next-line @typescript-eslint/no-explicit-any
                               href={link.href as any}
                               className="block no-underline p-1 text-md"
@@ -60,8 +85,8 @@ export default function MobileNav() {
                 </div>
               </details>
             ) : (
-              <Link 
-                href={item.href as any}
+              <Link
+                href={item.href}
                 className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
               >
                 {item.title}

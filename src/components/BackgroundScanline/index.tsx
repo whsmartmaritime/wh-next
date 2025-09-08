@@ -1,14 +1,17 @@
-import React from 'react'
+import React from "react";
 
-type CrosshairPosition = 'top-left' | 'bottom-left' | 'top-right' | 'bottom-right'
+type CrosshairPosition =
+  | "top-left"
+  | "bottom-left"
+  | "top-right"
+  | "bottom-right";
 
 interface Props {
-  className?: string
-  style?: React.CSSProperties
-  crosshairs?: 'all' | CrosshairPosition[]
-  enableBorders?: boolean
-  opacity?: number
-  hoverOpacity?: number
+  className?: string;
+  style?: React.CSSProperties;
+  crosshairs?: "all" | CrosshairPosition[];
+  enableBorders?: boolean;
+  opacity?: number;
 }
 
 export const BackgroundScanline: React.FC<Props> = ({
@@ -17,60 +20,63 @@ export const BackgroundScanline: React.FC<Props> = ({
   crosshairs,
   enableBorders = false,
   opacity = 0.08,
-  hoverOpacity = 0.1
 }: Props) => {
   const CrosshairIcon = () => (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-      <path d="M8 0v16M0 8h16" stroke="currentColor" strokeWidth="1"/>
+      <path d="M8 0v16M0 8h16" stroke="currentColor" strokeWidth="1" />
     </svg>
-  )
+  );
 
   return (
     <div
       aria-hidden="true"
-      className={`absolute inset-0 pointer-events-none z-0 ${enableBorders ? 'border-t border-b border-neutral-200 dark:border-neutral-700' : ''} ${className || ''}`}
+      className={`absolute inset-0 pointer-events-none z-0 ${
+        enableBorders
+          ? "border-t border-b border-neutral-200 dark:border-neutral-700"
+          : ""
+      } ${className || ""}`}
       style={style}
     >
       {/* Light theme scanline - giống sample với opacity thấp */}
-      <div 
+      <div
         className="absolute inset-0 bg-repeat transition-opacity duration-300 dark:hidden"
         style={{
           backgroundImage: "url('/images/scanline-light.png')",
           opacity: opacity,
         }}
       />
-      
+
       {/* Dark theme scanline - giống sample với opacity thấp */}
-      <div 
+      <div
         className="absolute inset-0 bg-repeat transition-opacity duration-300 hidden dark:block"
         style={{
           backgroundImage: "url('/images/scanline-dark.png')",
           opacity: opacity,
         }}
       />
-      
+
       {/* Crosshairs - giống sample */}
       {crosshairs && (
         <>
-          {(crosshairs === 'all' || crosshairs.includes('top-left')) && (
+          {(crosshairs === "all" || crosshairs.includes("top-left")) && (
             <div className="absolute w-4 h-4 -top-2 -left-2 text-neutral-400 dark:text-neutral-600 opacity-50 z-10">
               <CrosshairIcon />
             </div>
           )}
 
-          {(crosshairs === 'all' || crosshairs.includes('bottom-left')) && (
+          {(crosshairs === "all" || crosshairs.includes("bottom-left")) && (
             <div className="absolute w-4 h-4 -bottom-2 -left-2 text-neutral-400 dark:text-neutral-600 opacity-50 z-10">
               <CrosshairIcon />
             </div>
           )}
 
-          {(crosshairs === 'all' || crosshairs.includes('top-right')) && (
+          {(crosshairs === "all" || crosshairs.includes("top-right")) && (
             <div className="absolute w-4 h-4 -top-2 -right-2 text-neutral-400 dark:text-neutral-600 opacity-50 z-10">
               <CrosshairIcon />
             </div>
           )}
 
-          {(crosshairs === 'all' || crosshairs.includes('bottom-right')) && (
+          {(crosshairs === "all" || crosshairs.includes("bottom-right")) && (
             <div className="absolute w-4 h-4 -bottom-2 -right-2 text-neutral-400 dark:text-neutral-600 opacity-50 z-10">
               <CrosshairIcon />
             </div>
@@ -78,7 +84,7 @@ export const BackgroundScanline: React.FC<Props> = ({
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default BackgroundScanline
+export default BackgroundScanline;

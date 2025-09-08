@@ -30,7 +30,6 @@ async function MissionSection() {
         <Slider
           images={sliderImages}
           className="col-span-12 lg:col-span-6 shadow-lg"
-          interval={5000}
         />
       </div>
     </section>

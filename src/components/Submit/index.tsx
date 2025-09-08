@@ -13,7 +13,6 @@ export default function Submit({
   className,
   arrowRotation = 0,
   onClick,
-  type = "button",
   ...rest
 }: SubmitProps) {
   // Không dùng href, chỉ dùng cho submit hoặc button có onClick

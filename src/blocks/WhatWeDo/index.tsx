@@ -19,7 +19,7 @@ interface WhatWeDoProps {
   className?: string;
 }
 
-export default async function WhatWeDo({ className }: WhatWeDoProps) {
+export default async function WhatWeDo({}: WhatWeDoProps) {
   // Handle translations at this level
   const t = await getTranslations("home.whatWeDo");
 
