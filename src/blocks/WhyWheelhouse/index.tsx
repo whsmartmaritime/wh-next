@@ -9,7 +9,7 @@ async function MissionSection() {
   const sliderImages: SliderImage[] = [
     { src: "/images/whywh/wave-ship.webp", alt: `${t("missionTitle")} 1` },
     {
-      src: "/images/whywh/wheelhouse-engineer-with-radar",
+      src: "/images/whywh/wheelhouse-engineer-with-radar.webp",
       alt: `${t("missionTitle")} 2`,
     },
     {
