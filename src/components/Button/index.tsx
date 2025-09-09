@@ -39,8 +39,6 @@ export default function Button({
   arrowRotation = 0,
   newTab = false,
 }: ButtonProps) {
-  // base là block, relative, không w-full/w-max, không inline-flex, không min-w/min-h
-  // className truyền vào sẽ quyết định width/height/flex/grid tuỳ ý
   const classes = [base, className].filter(Boolean).join(" ");
   if (href) {
     if (newTab) {
@@ -56,8 +54,8 @@ export default function Button({
       );
     }
     return (
-      <Link href={href} className={classes} legacyBehavior>
-        <a className={classes}>{content(children, arrowRotation)}</a>
+      <Link href={href} className={classes}>
+        {content(children, arrowRotation)}
       </Link>
     );
   }
