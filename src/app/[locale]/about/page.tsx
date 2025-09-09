@@ -62,15 +62,25 @@ export default async function AboutPage(props: {
   const t = await getTranslations({ locale, namespace: "about" });
 
   return (
-    <section className=" bg-[url('/images/about/bg.jpg')] bg-center h-72 lg:h-96 w-full text-neutral-300">
-      <PageHero
-        className="container-gutter"
-        rightImageSrc="/images/about/wheelhouse-engineer-with-iridium.webp"
-        rightImageAlt={t("hero.rightImageAlt")}
-        title={t("hero.title")}
-        subtitle={t("hero.subtitle")}
-      />
-      {/* Additional sections can be added here */}
-    </section>
+    <main>
+      <section className=" bg-[url('/images/about/bg.jpg')] bg-center h-40 md:h-72 lg:h-96 w-full text-neutral-300">
+        <PageHero
+          className="container-gutter"
+          rightImageSrc="/images/about/wheelhouse-engineer-with-iridium.webp"
+          rightImageAlt={t("hero.rightImageAlt")}
+          title={t("hero.title")}
+          subtitle={t("hero.subtitle")}
+        />
+      </section>
+      <section className="relative h-300px lg:h-700px bg-gradient-to-br from-gray-900 via-black/90 to-black text-neutral-300">
+        <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-justify text-center">
+          {t("missionTitle")}
+        </h2>
+        <p className="text-md xl:text-xl text-justify whitespace-pre-line mb-8 max-w-3xl mx-auto px-4">
+          {t("missionIntro")}
+        </p>
+      </section>
+      <section className="bg-gradient-to-bl from-neutral-900 via-slate-900 to-stone-900/50 relative overflow-hidden text-neutral-300"></section>
+    </main>
   );
 }

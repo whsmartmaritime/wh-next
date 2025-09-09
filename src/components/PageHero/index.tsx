@@ -24,8 +24,8 @@ export const PageHero: React.FC<PageHeroProps> = ({
     <BackgroundGrid gradient={true} />
 
     {/* Left: Title & Desc */}
-    <div className="flex-1 text-center md:text-left">
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight ">
+    <div className="flex-1 text-left text-justify ">
+      <h1 className="text-3xl md:text-4xl my-4 font-extrabold tracking-tight ">
         {title}
       </h1>
       <p className="text-lg md:text-2xl text-slate-300 font-medium max-w-2xl">
@@ -34,7 +34,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
     </div>
     {/* Right: Image */}
     {rightImageSrc && (
-      <div className="flex-shrink-0 w-1/2 aspect-[25/10]">
+      <div className="hidden md:block flex-shrink-0 w-1/2 aspect-[25/10]">
         <Image
           src={rightImageSrc}
           alt={rightImageAlt}
