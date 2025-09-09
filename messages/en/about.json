@@ -6,8 +6,9 @@
     "canonical": "/en/about"
   },
   "hero": {
-    "title": "About WH Marine",
+    "title": "About Wheelhouse",
     "subtitle": "Excellence in maritime services since inception",
+    "rightImageAlt": "About us hero image",
     "description": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation."
   }
 }

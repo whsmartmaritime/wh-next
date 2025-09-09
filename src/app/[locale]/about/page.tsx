@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { PageHero } from "@/components/PageHero";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -61,10 +62,15 @@ export default async function AboutPage(props: {
   const t = await getTranslations({ locale, namespace: "about" });
 
   return (
-    <div className="container-gutter py-block">
-      <h1 className="text-3xl font-bold">{t("hero.title")}</h1>
-      <p className="text-lg mt-4">{t("hero.subtitle")}</p>
-      <p className="mt-4">{t("hero.description")}</p>
-    </div>
+    <section className=" bg-[url('/images/about/bg.jpg')] bg-center h-72 lg:h-96 w-full text-neutral-300">
+      <PageHero
+        className="container-gutter"
+        rightImageSrc="/images/about/hero.jpg"
+        rightImageAlt={t("hero.rightImageAlt")}
+        title={t("hero.title")}
+        subtitle={t("hero.subtitle")}
+      />
+      {/* Additional sections can be added here */}
+    </section>
   );
 }
