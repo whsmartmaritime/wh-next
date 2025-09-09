@@ -40,3 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 /sample/
+
+public/sitemap.xml
+public/sitemap-*.xml
