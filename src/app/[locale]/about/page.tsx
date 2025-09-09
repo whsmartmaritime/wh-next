@@ -65,7 +65,7 @@ export default async function AboutPage(props: {
     <section className=" bg-[url('/images/about/bg.jpg')] bg-center h-72 lg:h-96 w-full text-neutral-300">
       <PageHero
         className="container-gutter"
-        rightImageSrc="/images/about/hero.jpg"
+        rightImageSrc="/images/about/wheelhouse-engineer-with-iridium.webp"
         rightImageAlt={t("hero.rightImageAlt")}
         title={t("hero.title")}
         subtitle={t("hero.subtitle")}

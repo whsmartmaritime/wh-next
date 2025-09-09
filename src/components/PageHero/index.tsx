@@ -17,7 +17,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
   className,
 }) => (
   <div
-    className={`relative overflow-hidden w-full flex md:flex-row items-center justify-between py-12 gap-8 ${
+    className={`relative overflow-hidden w-full flex md:flex-row items-center justify-between ${
       className ?? ""
     }`}
   >
@@ -34,14 +34,14 @@ export const PageHero: React.FC<PageHeroProps> = ({
     </div>
     {/* Right: Image */}
     {rightImageSrc && (
-      <div className="flex-shrink-0 w-1/2 aspect-[25/10] shadow-2xl  overflow-hidden flex items-center justify-center">
+      <div className="flex-shrink-0 w-1/2 aspect-[25/10]">
         <Image
           src={rightImageSrc}
           alt={rightImageAlt}
           width={224}
           height={224}
-          className="object-cover w-full h-full"
-          priority={false}
+          className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:translate-y-4"
+          priority={true}
         />
       </div>
     )}

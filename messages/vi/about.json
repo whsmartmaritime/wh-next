@@ -1,13 +1,15 @@
 {
   "meta": {
-    "title": "Về chúng tôi | WH Marine",
-    "seoDescription": "Tìm hiểu về sứ mệnh, giá trị và cam kết xuất sắc của WH Marine trong các dịch vụ hàng hải. Khám phá câu chuyện và chuyên môn của chúng tôi.",
+    "title": "Về chúng tôi | Wheelhouse",
+    "seoDescription": "Tìm hiểu về sứ mệnh, giá trị và cam kết xuất sắc của Wheelhouse trong các dịch vụ hàng hải. Khám phá câu chuyện và chuyên môn của chúng tôi.",
     "ogImage": "/images/og-about.jpg",
     "canonical": "/vi/gioi-thieu"
   },
   "hero": {
-    "title": "Về WH Marine",
+    "title": "Giới thiệu Wheelhouse",
     "subtitle": "Xuất sắc trong dịch vụ hàng hải từ khi thành lập",
+    "rightImageAlt": "Kỹ thuật viên Wheelhouse lắp đặt Iridium",
+
     "description": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, đáng tin cậy và đổi mới."
   }
 }
