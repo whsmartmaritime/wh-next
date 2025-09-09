@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { BackgroundAnimation } from "@/components/BackgroundAnimation";
+import { BackgroundScanline } from "@/components/BackgroundScanline";
+import { BackgroundGrid } from "@/components/BackgroundGrid";
 import Hero from "@/components/Hero";
 import { LogoShowcase } from "@/components/LogoShowcase";
 import WhyWheelhouse from "@/blocks/WhyWheelhouse";
@@ -68,36 +70,42 @@ export default async function HomePage(props: {
 
   return (
     <main>
-      <section className="relative overflow-visible min-h-screen text-neutral-200">
-        <BackgroundAnimation />
+      <section className="relative w-full min-h-screen text-neutral-200">
+        <BackgroundGrid gradient={true} />
 
-        <Hero
-          brand={t("brand")}
-          title={t("title")}
-          subtitle={t("subtitle")}
-          ctaText={t("ctaPrimary")}
-          heroImage1Alt={t("heroImage1Alt")}
-          heroImage2Alt={t("heroImage2Alt")}
-          heroImage1Src="/images/Picture1.png"
-          heroImage2Src="/images/Picture2.png"
-        />
-        <div className="relative container-gutter text-center mb-8">
-          <p className="text-sm uppercase tracking-widest font-medium">
-            {t("partnerShowcase", { defaultValue: "Partners and Customers" })}
-          </p>
-
-          <LogoShowcase
-            logos={[
-              { id: "1", src: "/images/logos/partnerLogo1.png" },
-              { id: "2", src: "/images/logos/partnerLogo2.png" },
-              { id: "3", src: "/images/logos/partnerLogo3.png" },
-              { id: "4", src: "/images/logos/partnerLogo4.png" },
-              { id: "5", src: "/images/logos/partnerLogo5.png" },
-              { id: "6", src: "/images/logos/partnerLogo6.png" },
-              { id: "7", src: "/images/logos/partnerLogo7.png" },
-              { id: "8", src: "/images/logos/partnerLogo8.png" },
-            ]}
+        <BackgroundScanline />
+        <BackgroundAnimation className="absolute inset-0 h-full w-full" />
+        <div className="relative container-gutter z-10">
+          <Hero
+            className="pt-20 pb-16 lg:pt-32 lg:pb-24 mb-8"
+            brand={t("brand")}
+            title={t("title")}
+            subtitle={t("subtitle")}
+            ctaText={t("ctaPrimary")}
+            heroImage1Alt={t("heroImage1Alt")}
+            heroImage2Alt={t("heroImage2Alt")}
+            heroImage1Src="/images/Picture1.png"
+            heroImage2Src="/images/Picture2.png"
           />
+          <div className="relative  text-center ">
+            <p className="text-sm uppercase tracking-widest font-medium mb-8 ">
+              {t("partnerShowcase", { defaultValue: "Partners and Customers" })}
+            </p>
+
+            <LogoShowcase
+              className="pb-16"
+              logos={[
+                { id: "1", src: "/images/logos/partnerLogo1.png" },
+                { id: "2", src: "/images/logos/partnerLogo2.png" },
+                { id: "3", src: "/images/logos/partnerLogo3.png" },
+                { id: "4", src: "/images/logos/partnerLogo4.png" },
+                { id: "5", src: "/images/logos/partnerLogo5.png" },
+                { id: "6", src: "/images/logos/partnerLogo6.png" },
+                { id: "7", src: "/images/logos/partnerLogo7.png" },
+                { id: "8", src: "/images/logos/partnerLogo8.png" },
+              ]}
+            />
+          </div>
         </div>
       </section>
       <section>
