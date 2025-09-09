@@ -48,6 +48,7 @@ export async function generateMetadata(props: {
       description,
       images: [ogImage],
     },
+    robots: { index: false, follow: false }, // Ngăn bot index trang này
   };
 }
 
