@@ -41,7 +41,7 @@ export const BackgroundScanline: React.FC<Props> = ({
       <div
         className="absolute inset-0 bg-repeat transition-opacity duration-300 dark:hidden"
         style={{
-          backgroundImage: "url('/images/scanline-light.png')",
+          backgroundImage: "url('/images/scanline-dark.png')",
           opacity: opacity,
         }}
       />
@@ -50,7 +50,7 @@ export const BackgroundScanline: React.FC<Props> = ({
       <div
         className="absolute inset-0 bg-repeat transition-opacity duration-300 hidden dark:block"
         style={{
-          backgroundImage: "url('/images/scanline-dark.png')",
+          backgroundImage: "url('/images/scanline-light.png')",
           opacity: opacity,
         }}
       />
