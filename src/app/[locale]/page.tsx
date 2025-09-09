@@ -14,16 +14,8 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
-
-  // Parallel translation loading for better performance
-  const translations = await Promise.all(
-    routing.locales.map((l) =>
-      getTranslations({ locale: l, namespace: "home" })
-    )
-  );
-
-  const currentIndex = routing.locales.indexOf(locale as "en" | "vi");
-  const t = translations[currentIndex];
+  // Dùng chung 1 lần getTranslations cho toàn page
+  const t = await getTranslations({ locale, namespace: "home" });
 
   const title = t("meta.title");
   const description = t("meta.seoDescription");
@@ -37,10 +29,7 @@ export async function generateMetadata(props: {
 
   // Create alternate language URLs from pre-defined canonicals
   const languages = Object.fromEntries(
-    routing.locales.map((l, index) => [
-      l,
-      new URL(translations[index]("meta.canonical"), base),
-    ])
+    routing.locales.map((l) => [l, new URL(t("meta.canonical"), base)])
   );
 
   return {
@@ -66,32 +55,39 @@ export default async function HomePage(props: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await props.params;
-  const t = await getTranslations("home.hero");
+
+  const translations = await Promise.all(
+    routing.locales.map((l) =>
+      getTranslations({ locale: l, namespace: "home" })
+    )
+  );
+  const currentIndex = routing.locales.indexOf(locale as "en" | "vi");
+  const t = translations[currentIndex];
 
   return (
     <main>
       <section className="relative w-full min-h-screen text-neutral-200">
         <BackgroundGrid gradient={true} />
-
         <BackgroundScanline />
         <BackgroundAnimation className="absolute inset-0 h-full w-full" />
         <div className="relative container-gutter z-10">
           <Hero
             className="pt-20 pb-16 lg:pt-32 lg:pb-24 mb-8"
-            brand={t("brand")}
-            title={t("title")}
-            subtitle={t("subtitle")}
-            ctaText={t("ctaPrimary")}
-            heroImage1Alt={t("heroImage1Alt")}
-            heroImage2Alt={t("heroImage2Alt")}
+            brand={t("hero.brand")}
+            title={t("hero.title")}
+            subtitle={t("hero.subtitle")}
+            ctaText={t("hero.ctaPrimary")}
+            heroImage1Alt={t("hero.heroImage1Alt")}
+            heroImage2Alt={t("hero.heroImage2Alt")}
             heroImage1Src="/images/Picture1.png"
             heroImage2Src="/images/Picture2.png"
           />
           <div className="relative  text-center ">
             <p className="text-sm uppercase tracking-widest font-medium mb-8 ">
-              {t("partnerShowcase", { defaultValue: "Partners and Customers" })}
+              {t("hero.partnerShowcase", {
+                defaultValue: "Partners and Customers",
+              })}
             </p>
-
             <LogoShowcase
               className="pb-16"
               logos={[
