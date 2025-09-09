@@ -11,18 +11,18 @@ export type ButtonProps = {
 };
 
 const base =
-  "group relative overflow-hidden cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] focus:outline-none focus:ring-2 focus:ring-offset-0";
+  "group relative block overflow-hidden cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] focus:outline-none focus:ring-2 focus:ring-offset-0 bg-primary-600 text-white shadow-md hover:bg-primary-700 disabled:opacity-60 disabled:cursor-not-allowed";
 const labelClass =
   "font-medium text-lg md:text-xl transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] transform-origin-bottom-left";
 const iconClass =
   "w-5 h-5 transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] transform-origin-center";
 const content = (children: React.ReactNode, arrowRotation: number = 0) => (
   <>
-    <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] group-hover:-translate-y-full">
+    <div className="absolute inset-0 flex items-center justify-between w-full h-full px-4 md:px-6 lg:px-8 transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] group-hover:-translate-y-full pointer-events-none">
       <span className={labelClass}>{children}</span>
       <ArrowIcon className={iconClass} rotation={arrowRotation} />
     </div>
-    <div className="absolute inset-0 flex items-center justify-between px-4 md:px-6 lg:px-8 transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] translate-y-full group-hover:translate-y-0">
+    <div className="absolute inset-0 flex items-center justify-between w-full h-full px-4 md:px-6 lg:px-8 transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] translate-y-full group-hover:translate-y-0 pointer-events-none">
       <span className={`${labelClass} group-hover:rotate-3`}>{children}</span>
       <ArrowIcon
         className={`${iconClass} group-hover:translate-x-1`}
@@ -39,6 +39,8 @@ export default function Button({
   arrowRotation = 0,
   newTab = false,
 }: ButtonProps) {
+  // base là block, relative, không w-full/w-max, không inline-flex, không min-w/min-h
+  // className truyền vào sẽ quyết định width/height/flex/grid tuỳ ý
   const classes = [base, className].filter(Boolean).join(" ");
   if (href) {
     if (newTab) {
@@ -54,8 +56,8 @@ export default function Button({
       );
     }
     return (
-      <Link href={href} className={classes}>
-        {content(children, arrowRotation)}
+      <Link href={href} className={classes} legacyBehavior>
+        <a className={classes}>{content(children, arrowRotation)}</a>
       </Link>
     );
   }

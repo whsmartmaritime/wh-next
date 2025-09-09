@@ -22,38 +22,41 @@ export const PageHero: React.FC<PageHeroProps> = ({
   ctaSecondary = "Want to Chat First?",
 }) => (
   <div
-    className={`relative grid grid-cols-1  md:grid-cols-2 lg:grid-cols-12 items-center overflow-hidden w-full  justify-between ${className}`}
+    className={`relative grid grid-cols-1 lg:grid-cols-12 items-center w-full ${className}`}
   >
     <BackgroundGrid gradient={true} />
-
-    <div className="col-span-3 flex flex-col text-left text-justify ">
-      <h1 className="text-3xl lg:text-5xl xl:text-7xl font-semibold text-balance w-full lg:w-[150%] mb-8">
+    {/* Left: Content */}
+    <div className="lg:col-span-3 flex flex-col py-8">
+      <h1 className="text-3xl lg:text-5xl xl:text-7xl font-semibold text-balance w-full lg:w-3/2 mb-4">
         {title}
       </h1>
-      <p className="text-xl lg:text-2xl font-medium text-muted-foreground mb-8">
+      <p className="text-xl lg:text-2xl font-medium text-muted-foreground w-full lg:w-3/2 mb-4">
         {subtitle}
       </p>
-      <Button
-        href="/contact"
-        className="w-full min-h-20 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
-      >
-        {ctaPrimary}
-      </Button>
-      <Button
-        href="/contact"
-        className="w-full min-h-20 mb-8 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
-      >
-        {ctaSecondary}
-      </Button>
+      <div className="flex flex-col md:flex-row lg:flex-col  w-full">
+        <Button
+          href="/contact"
+          className="w-full md:w-1/2 lg:w-full min-h-20 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
+        >
+          {ctaPrimary}
+        </Button>
+        <Button
+          href="/contact"
+          className="w-full md:w-1/2 lg:w-full min-h-20 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
+        >
+          {ctaSecondary}
+        </Button>
+      </div>
     </div>
+    {/* Right: Image */}
     {rightImageSrc && (
-      <div className="hidden md:block col-span-9 col-start-5 aspect-[25/10] my-8 lg:my-16">
+      <div className="lg:col-span-8 lg:col-start-5 flex justify-center items-center aspect-[25/10] my-8 lg:my-16 w-full">
         <Image
           src={rightImageSrc}
           alt={rightImageAlt}
-          width={224}
-          height={224}
-          className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:translate-y-4"
+          width={800}
+          height={320}
+          className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:translate-y-4 lg:translate-x-28"
           priority={true}
         />
       </div>
