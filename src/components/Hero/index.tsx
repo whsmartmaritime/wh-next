@@ -26,7 +26,7 @@ export default function Hero({
   return (
     <div className={`relative  ${className}`}>
       {/* Content Grid */}
-      <div className="grid grid-cols-1  lg:grid-cols-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
         {/* Left: text content - cols-3 (25% like sample's cols-4/16) */}
         <div className="flex flex-col lg:col-span-3 lg:order-1 ">
           <h1 className="text-3xl lg:text-5xl xl:text-7xl font-semibold leading-tight tracking-tight text-balance w-full lg:w-[150%] mb-8">
@@ -39,7 +39,7 @@ export default function Hero({
 
           <Button
             href="/contact"
-            className="w-full min-h-20 mb-8 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
+            className="w-full min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
           >
             {ctaText}
           </Button>

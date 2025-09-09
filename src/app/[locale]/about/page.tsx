@@ -64,13 +64,15 @@ export default async function AboutPage(props: {
 
   return (
     <main>
-      <section className=" bg-[url('/images/about/bg.jpg')] bg-center h-40 md:h-72 lg:h-96 w-full text-neutral-300">
+      <section className=" bg-gradient-to-br from-sky-900 via-slate-900 to-black w-full text-neutral-300">
         <PageHero
           className="container-gutter"
           rightImageSrc="/images/about/wheelhouse-engineer-with-iridium.webp"
           rightImageAlt={t("hero.rightImageAlt")}
           title={t("hero.title")}
           subtitle={t("hero.subtitle")}
+          ctaPrimary={t("hero.ctaPrimary")}
+          ctaSecondary={t("hero.ctaSecondary")}
         />
       </section>
       <section className="relative h-300px lg:h-700px bg-gradient-to-br from-gray-900 via-black/90 to-black text-neutral-300"></section>
