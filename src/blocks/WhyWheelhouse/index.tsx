@@ -7,10 +7,13 @@ import Button from "@/components/Button";
 async function MissionSection() {
   const t = await getTranslations("home.whyWheelhouse");
   const sliderImages: SliderImage[] = [
-    { src: "/images/whywh/wave_ship.webp", alt: `${t("missionTitle")} 1` },
-    { src: "/images/whywh/se_ship_radar.webp", alt: `${t("missionTitle")} 2` },
+    { src: "/images/whywh/wave-ship.webp", alt: `${t("missionTitle")} 1` },
     {
-      src: "/images/whywh/se_ship_wheelhouse.webp",
+      src: "/images/whywh/wheelhouse-engineer-with-radar",
+      alt: `${t("missionTitle")} 2`,
+    },
+    {
+      src: "/images/whywh/wheelhouse-engineer-with-bridge.webp",
       alt: `${t("missionTitle")} 3`,
     },
   ];
