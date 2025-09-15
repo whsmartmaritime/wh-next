@@ -3,7 +3,8 @@ import Image from "next/image";
 import { BackgroundGrid } from "../BackgroundGrid";
 import Button from "@/components/Button";
 interface PageHeroProps {
-  title: string;
+  titlePre: string;
+  titleMain: string;
   subtitle: string;
   rightImageSrc?: string;
   rightImageAlt?: string;
@@ -13,7 +14,8 @@ interface PageHeroProps {
 }
 
 export const PageHero: React.FC<PageHeroProps> = ({
-  title,
+  titlePre,
+  titleMain,
   subtitle,
   rightImageSrc,
   rightImageAlt = "Hero visual",
@@ -27,10 +29,15 @@ export const PageHero: React.FC<PageHeroProps> = ({
     <BackgroundGrid gradient={true} />
     {/* Left: Content */}
     <div className="lg:col-span-3 flex flex-col py-8">
-      <h1 className="text-3xl lg:text-5xl xl:text-7xl font-semibold text-balance w-full lg:w-3/2 mb-4">
-        {title}
+      <h1 className="w-full lg:w-3/2 ">
+        <span className="block uppercase text-lg lg:text-xl xl:text-2xl tracking-[0.5em] opacity-95 mb-4 lg:mb-8">
+          {titlePre}
+        </span>
+        <span className="block text-2xl lg:text-3xl xl:text-5xl  font-semibold pl-16 mb-4 lg:mb-8">
+          {titleMain}
+        </span>
       </h1>
-      <p className="text-xl lg:text-2xl font-medium text-muted-foreground w-full lg:w-3/2 mb-4">
+      <p className="text-xl lg:text-2xl font-medium text-muted-foreground w-full lg:w-3/2 mb-4 lg:mb-8">
         {subtitle}
       </p>
       <div className="flex flex-col md:flex-row lg:flex-col  w-full">

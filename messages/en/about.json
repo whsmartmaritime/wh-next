@@ -6,11 +6,33 @@
     "canonical": "/en/about"
   },
   "hero": {
-    "title": "About Wheelhouse",
+    "titlePre": "About",
+    "titleMain": "Wheelhouse",
     "subtitle": "Excellence in maritime services since inception",
     "rightImageAlt": "wheelhouse service engineer insstalling iridium",
     "description": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
     "ctaPrimary": "Start Working With Us",
     "ctaSecondary": "Want to Chat First?"
+  },
+  "whoWeAre": {
+    "title": "Who Are We",
+    "desc1": "Wheelhouse Co., Ltd is a maritime technology and service provider dedicated to optimizing the performance of ships and fleets.",
+    "desc2": "Our strength lies in experienced people who listen, innovate, and deliver tailored solutions."
+  },
+  "ourValues": {
+    "title": "Our Value",
+    "value1": "By providing high-quality products and services, we are committed to being a trusted partner, walking alongside our Customers for the long term.",
+    "value2": "In cooperation with Manufacturers, we create a reliable, quality and sustainable network to serve Customers.",
+    "value3": "We create the best conditions to meet the needs and expectations at work in order to promote the creativity, dedication and enthusiasm of Employees, which contributes to the success of Wheelhoouse.",
+    "value4": "Wheelhouse actively contributes to the development of the Vietnamese maritime industry and remains aware that social responsibility is an integral part of our commitment to the Community"
+  },
+  "ourMission": {
+    "title": "Our Mission",
+    "desc": "To be a preferred supplier of “One-stop” solution for marine electronic services, communication and navigation equipment throughout the region, all underpinned by the Wheelhouse values:",
+    "value1": "We conduct business with Honesty & Transparency.",
+    "value2": "We offer equal terms of treatment and Integrity without Prejudice.",
+    "value3": "Our team is characterized by a Desire to Listen & Willingness to Advise.",
+    "value4": "We move forward with an Unapologetically Optimistic View of the Future.",
+    "value5": "While remembering the Responsibilities of Today.."
   }
 }

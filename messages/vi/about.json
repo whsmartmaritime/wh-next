@@ -6,11 +6,33 @@
     "canonical": "/vi/gioi-thieu"
   },
   "hero": {
-    "title": "Giới thiệu Wheelhouse",
+    "titlePre": "Giới thiệu",
+    "titleMain": "Wheelhouse",
     "subtitle": "Xuất sắc trong dịch vụ hàng hải từ khi thành lập",
     "rightImageAlt": "Kỹ thuật viên Wheelhouse lắp đặt Iridium",
     "description": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, đáng tin cậy và đổi mới.",
     "ctaPrimary": "Liên Hệ Hợp Tác",
     "ctaSecondary": "Trò Chuyện Whatsapp?"
+  },
+  "whoWeAre": {
+    "title": "Chúng Tôi Là Ai",
+    "desc1": "Wheelhouse Co., Ltd là công ty công nghệ và dịch vụ hàng hải, hướng tới mục tiêu tối ưu hóa hiệu suất tàu và đội tàu.",
+    "desc2": "Sức mạnh của chúng tôi đến từ đội ngũ giàu kinh nghiệm, luôn lắng nghe và mang đến giải pháp phù hợp, bền vững cho ngành hàng hải."
+  },
+  "ourValues": {
+    "title": "Value",
+    "value1": "1234",
+    "value2": "1234",
+    "value3": "1234",
+    "value4": "1234"
+  },
+  "ourMission": {
+    "title": "Mission",
+    "desc": "To be a preferred supplier of “One-stop” solution for marine electronic services, communication and navigation equipment throughout the region, all underpinned by the Wheelhouse values:",
+    "value1": "We conduct business with Honesty & Transparency.",
+    "value2": "We offer equal terms of treatment and Integrity without Prejudice.",
+    "value3": "Our team is characterized by a Desire to Listen & Willingness to Advise.",
+    "value4": "We move forward with an Unapologetically Optimistic View of the Future.",
+    "value5": "While remembering the Responsibilities of Today.."
   }
 }
