@@ -100,9 +100,9 @@ export default async function AboutPage(props: {
       </section>
       <section className="relative">
         <div className="container-gutter">
-          <div className="grid grid-cols-1 lg:grid-cols-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 border border-neutral-500/20 divide-x divide-neutral-500/20">
             {/* Cột Values */}
-            <div className="border border-neutral-500/20">
+            <div className="">
               <h2 className="uppercase tracking-[0.25em] text-xl lg:text-2xl font-bold my-6">
                 {t("ourValues.title")}
               </h2>
@@ -115,7 +115,7 @@ export default async function AboutPage(props: {
             </div>
 
             {/* Cột Mission */}
-            <div className="border border-neutral-500/20">
+            <div className="">
               <h2 className="uppercase tracking-[0.25em] font-bold text-xl lg:text-2xl my-6">
                 {t("ourMission.title")}
               </h2>
