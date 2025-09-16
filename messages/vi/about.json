@@ -20,10 +20,19 @@
     "desc2": "Sức mạnh của chúng tôi đến từ đội ngũ giàu kinh nghiệm, luôn lắng nghe và mang đến giải pháp phù hợp, bền vững cho ngành hàng hải."
   },
   "ourValues": {
-    "title": "Value",
-    "value1": "1234",
-    "value2": "1234",
-    "value3": "1234",
-    "value4": "1234"
+    "title": "Sứ Mệnh",
+    "value1": "Bằng việc cung cấp các sản phẩm và dịch vụ chất lượng, chúng tôi cam kết là người bạn thân thiết, tiến bước lâu dài cùng Khách hàng.",
+    "value2": "Cùng với các Nhà sản xuất, chúng tôi tạo ra mạng lưới phục vụ khách hàng tin cậy, chất lượng, và có giá trị bền vững",
+    "value3": "Chúng tôi tạo mọi điều kiện tốt nhất để đáp ứng các nhu cầu và kỳ vọng trong công việc nhằm phát huy tính sáng tạo, sự toàn tâm và lòng nhiệt huyết của Nhân viên, đóng góp vào sự thành công của Wheelhouse.",
+    "value4": "Chúng tôi tích cực đóng góp vào sự phát triển của ngành hàng hải Việt Nam và luôn nhận thức rằng các hoạt động xã hội là một phần trách nhiệm của Wheelhouse đối với Cộng đồng."
+  },
+  "ourMission": {
+    "title": "Tầm Nhìn",
+    "desc": "Chúng tôi đang trên con đường trở thành nhà cung cấp dịch vụ hàng hải được ưa chuộng nhất khu vực, được củng cố bởi các giá trị của Wheelhouse:",
+    "value1": "Chúng tôi tiến hành kinh doanh với sự trung thực và minh bạch.",
+    "value2": "Chúng tôi đưa ra các điều khoản đối xử bình đẳng và không định kiến.",
+    "value3": "Chúng tôi được đặc trưng bởi mong muốn lắng nghe và sẵn sàng tư vấn.",
+    "value4": "Chúng tôi tiến về phía trước với một cái nhìn lạc quan không hối tiếc về tương lai.",
+    "value5": "Trong khi nhớ về những trách nhiệm của hôm nay."
   }
 }

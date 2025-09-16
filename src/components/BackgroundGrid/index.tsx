@@ -38,8 +38,8 @@ export const BackgroundGrid: React.FC<Props> = ({
             line.responsive === "lg" ? "hidden lg:block" : ""
           } ${
             gradient
-              ? "bg-gradient-to-b from-transparent via-neutral-200/20 to-neutral-200/20 dark:via-neutral-500/30 dark:to-neutral-500/30"
-              : "bg-neutral-200/20 dark:bg-neutral-500/30"
+              ? "bg-gradient-to-b from-transparent via-neutral-500/20 to-neutral-200/20 dark:via-neutral-500/30 dark:to-neutral-200/30"
+              : "bg-neutral-500/20 dark:bg-neutral-500/30"
           }`}
           style={{ left: line.left }}
         />
