@@ -87,7 +87,7 @@ export default async function AboutPage(props: {
           <div className="relative w-full h-full items-center justify-center border border-neutral-500/20 pb-16">
             <BackgroundScanline
               crosshairs="all"
-              className="absolute inset-0 z-1 mix-blend-multiply"
+              className="absolute inset-0 "
               opacity={0.1}
             />
             <h2 className="uppercase tracking-[0.25em] opacity-95 font-bold py-8">
