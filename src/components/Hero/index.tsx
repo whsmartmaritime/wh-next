@@ -13,7 +13,7 @@ interface HeroProps {
   className?: string;
 }
 export default function Hero({
-  brand = "",
+  brand = "Wheelhouse",
   title,
   subtitle,
   ctaText = "Contact",
@@ -39,7 +39,7 @@ export default function Hero({
 
           <Button
             href="/contact"
-            className="w-full min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
+            className="w-full min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
           >
             {ctaText}
           </Button>

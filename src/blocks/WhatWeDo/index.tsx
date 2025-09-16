@@ -67,7 +67,7 @@ export default async function WhatWeDo({}: WhatWeDoProps) {
         </div>
 
         <Button
-          className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
+          className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
           href={t("buttonHref")}
         >
           {t("buttonLabel")}

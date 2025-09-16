@@ -69,9 +69,8 @@ export default async function HomePage(props: {
     <main>
       <section className="relative w-full min-h-screen text-neutral-200">
         <BackgroundGrid gradient={true} />
-        <BackgroundScanline />
-        <BackgroundAnimation className="absolute inset-0 h-full w-full" />
-        <div className="relative container-gutter z-10">
+        <BackgroundAnimation />
+        <div className="relative container-gutter">
           <Hero
             className="pt-20 pb-16 lg:pt-32 lg:pb-24 mb-8"
             brand={t("hero.brand")}
