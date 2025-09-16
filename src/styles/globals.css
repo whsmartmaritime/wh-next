@@ -41,7 +41,7 @@
 
 @media (min-width: 1600px) {
   :root {
-    --gutter-h: 8rem;
+    --gutter-h: 10rem;
     --header-height: 90px;
   }
 }
