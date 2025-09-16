@@ -104,15 +104,12 @@ export default async function HomePage(props: {
           </div>
         </div>
       </section>
-      <section>
-        <WhyWheelhouse />
-      </section>
-      <section>
-        <WhatWeDo />
-      </section>
-      <section>
-        <LatestNews />
-      </section>
+
+      <WhyWheelhouse />
+
+      <WhatWeDo />
+
+      <LatestNews />
     </main>
   );
 }
