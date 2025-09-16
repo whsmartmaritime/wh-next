@@ -101,7 +101,7 @@ export default async function AboutPage(props: {
         <div className="container-gutter py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Cột Values */}
-            <div className="boder border-gray-300">
+            <div>
               <h2 className="uppercase tracking-[0.25em] font-bold mb-6">
                 {t("ourValues.title")}
               </h2>
@@ -121,13 +121,6 @@ export default async function AboutPage(props: {
               <p className="text-lg lg:text-2xl leading-relaxed text-justify">
                 {t("ourMission.desc")}
               </p>
-              <ul className="space-y-4 text-lg lg:text-xl">
-                <li>{t("ourMission.value1")}</li>
-                <li>{t("ourMission.value2")}</li>
-                <li>{t("ourMission.value3")}</li>
-                <li>{t("ourMission.value4")}</li>
-                <li>{t("ourMission.value5")}</li>
-              </ul>
             </div>
           </div>
         </div>
