@@ -36,13 +36,13 @@ export const BackgroundGrid: React.FC<Props> = ({
         style={{ left: "50%" }}
       />
 
-      {/* Cột 25% và 75% - từ xl trở lên */}
+      {/* Cột 25% và 75% - từ lg trở lên */}
       <div
-        className={`absolute top-0 bottom-0 w-px hidden xl:block ${lineClass}`}
+        className={`absolute top-0 bottom-0 w-px hidden lg:block ${lineClass}`}
         style={{ left: "25%" }}
       />
       <div
-        className={`absolute top-0 bottom-0 w-px hidden xl:block ${lineClass}`}
+        className={`absolute top-0 bottom-0 w-px hidden lg:block ${lineClass}`}
         style={{ left: "75%" }}
       />
     </div>
