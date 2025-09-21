@@ -141,7 +141,7 @@ export default async function AboutPage(props: {
 
       {/* Contact Section */}
       <section className="relative w-full text-neutral-100 dark:text-neutral-900 bg-black dark:bg-white">
-        <BackgroundGrid className="z-0" />
+        <BackgroundGrid />
         <div className="container-gutter mx-auto px-4 lg:px-8">
           <h2 className="uppercase tracking-[0.25em] font-bold text-xl lg:text-2xl my-6">
             {t("contact.title")}
@@ -171,11 +171,10 @@ export default async function AboutPage(props: {
             </div>
 
             {/* Google Map */}
-            <div className="overflow-hidden  ">
+            <div className="relative w-full h-[350px] z-10 ">
               <iframe
+                className="absolute top-0 left-0 w-full h-full"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d932.1718196709141!2d106.6484250696352!3d20.84433085212791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a7a0c67daa899%3A0xc27080c90650adc5!2zMjEgQW4gTOG7mWMsIEFuIFRow6FpLCBI4bqjaSBBbiwgSOG6o2kgUGjDsm5nLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1758013786120!5m2!1svi!2s?hl=en"
-                width="100%"
-                height="350"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
@@ -185,6 +184,13 @@ export default async function AboutPage(props: {
           </div>
 
           {/* Contact Form */}
+          <div className="my-16">
+            <BackgroundScanline
+              crosshairs="all"
+              className="absolute inset-0 "
+              opacity={0.1}
+            />
+          </div>
           <div className="w-full xl:w-1/2 mx-auto border border-neutral-500/20  p-8 ">
             <h3 className="font-semibold text-xl mb-6">Gửi tin nhắn</h3>
             <form className="space-y-6">
