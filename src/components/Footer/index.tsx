@@ -16,7 +16,7 @@ export default async function footer() {
       <BackgroundGrid />
       {/* Main Footer Content */}
       <div className="relative z-30 container-gutter">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="mb-6">
@@ -245,7 +245,7 @@ export default async function footer() {
                 <p className="text-white/60">+84 (0) 865716079</p>
               </div>
 
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center ">
                 <svg
                   className="w-5 h-5 text-nature-500 flex-shrink-0"
                   fill="none"
