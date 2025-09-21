@@ -9,6 +9,14 @@ export default function ThemeSwitcher() {
 
   // Tránh lỗi hydration
   useEffect(() => setMounted(true), []);
+
+  // Sync theme với cookie khi thay đổi
+  useEffect(() => {
+    if (theme) {
+      document.cookie = `theme=${theme};path=/;max-age=31536000`; // 1 year
+    }
+  }, [theme]);
+
   if (!mounted) return null;
 
   return (
