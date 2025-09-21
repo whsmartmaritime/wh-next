@@ -1,25 +1,15 @@
 {
-  "company": {
-    "email": "info@wheelhouse.vn",
-    "phone": {
-      "display": "84-865716079",
-      "link": "+84865716079"
-    },
-    "address": "21 An Loc Street, An Hai Ward, Hai Phong City, Vietnam",
-    "social": {
-      "facebook": "https://facebook.com",
-      "linkedin": "https://linkedin.com"
-    }
+  "title": "Contact Information",
+  "name": "Wheelhouse Co., Ltd",
+  "address": "Address: 21 An Loc Str, An Hai Dist, HaiPhong City, Vietnam",
+  "email": "Email: info@wheelhouse.vn",
+  "phone": {
+    "display": "Phone: 84-865716079",
+    "link": "+84865716079"
   },
-  "meta": {
-    "title": "Contact Us | WH Marine",
-    "seoDescription": "Get in touch with WH Marine for maritime services, support, and inquiries. Contact our team for expert assistance.",
-    "ogImage": "/images/og-contact.jpg",
-    "canonical": "/en/contact"
-  },
-  "hero": {
-    "title": "Contact Us",
-    "subtitle": "Get in touch with our maritime experts",
-    "description": "Ready to discuss your maritime needs? Contact our experienced team for personalized solutions and support."
+
+  "social": {
+    "facebook": "https://facebook.com",
+    "linkedin": "https://linkedin.com"
   }
 }

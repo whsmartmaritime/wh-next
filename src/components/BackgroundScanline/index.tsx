@@ -37,18 +37,18 @@ export const BackgroundScanline: React.FC<Props> = ({
       } ${className || ""}`}
       style={style}
     >
-      {/* Light theme scanline - giống sample với opacity thấp */}
+      {/* Light theme scanline - hiện trong section không có class dark */}
       <div
-        className="absolute inset-0 bg-repeat transition-opacity duration-300 dark:hidden"
+        className="absolute inset-0 bg-repeat transition-opacity duration-300 [.dark_&]:hidden"
         style={{
           backgroundImage: "url('/images/scanline-dark.png')",
           opacity: opacity,
         }}
       />
 
-      {/* Dark theme scanline - giống sample với opacity thấp */}
+      {/* Dark theme scanline - hiện trong section có class dark */}
       <div
-        className="absolute inset-0 bg-repeat transition-opacity duration-300 hidden dark:block"
+        className="absolute inset-0 bg-repeat transition-opacity duration-300 hidden [.dark_&]:block"
         style={{
           backgroundImage: "url('/images/scanline-light.png')",
           opacity: opacity,

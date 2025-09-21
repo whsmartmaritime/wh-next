@@ -4,7 +4,7 @@ import { routing } from "@/i18n/routing";
 import { PageHero } from "@/components/PageHero";
 import BackgroundScanline from "@/components/BackgroundScanline";
 import BackgroundGrid from "@/components/BackgroundGrid";
-import { FiMapPin, FiMail, FiPhone } from "react-icons/fi";
+import ContactInfo from "@/components/ContactInfo";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -79,7 +79,7 @@ export default async function AboutPage(props: {
           ctaSecondary={t("hero.ctaSecondary")}
         />
       </section>
-      <section className="dark">
+      <section className="bg-neutral-200 text-neutral-900">
         <div className="relative inset-0 pointer-events-none h-[calc(var(--gutter-h))]">
           <BackgroundGrid />
         </div>
@@ -103,7 +103,7 @@ export default async function AboutPage(props: {
           <BackgroundGrid />
         </div>
       </section>
-      <section className="relative light">
+      <section className="bg-black text-neutral-200">
         <div className="container-gutter">
           <div className="grid grid-cols-1 lg:grid-cols-2 border border-neutral-500/20 divide-x divide-neutral-500/20">
             {/* Cột Values */}
@@ -140,34 +140,18 @@ export default async function AboutPage(props: {
       </section>
 
       {/* Contact Section */}
-      <section className="relative w-full text-neutral-100 dark:text-neutral-900 bg-black dark:bg-white">
+      <section className="relative bg-neutral-200 text-neutral-900">
         <BackgroundGrid />
-        <div className="container-gutter mx-auto px-4 lg:px-8">
-          <h2 className="uppercase tracking-[0.25em] font-bold text-xl lg:text-2xl my-6">
+        <div className="container-gutter mx-auto  pt-8 px-4 lg:px-8">
+          <h2 className="uppercase tracking-[0.25em] font-bold text-xl lg:text-2xl">
             {t("contact.title")}
           </h2>
 
           {/* Info + Map */}
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Contact Info */}
-            <div>
-              <ul className="">
-                <li>
-                  <strong>{t("contact.companyName")}</strong>
-                </li>
-                <li className="flex items-center gap-2">
-                  <FiMapPin size={24} />
-                  {t("contact.address")}
-                </li>
-                <li className="flex items-center gap-2">
-                  <FiMail size={24} />
-                  {t("contact.email")}
-                </li>
-                <li className="flex items-center gap-2">
-                  <FiPhone size={24} />
-                  {t("contact.telephone")}
-                </li>
-              </ul>
+            <div className="text-xl lg:text-2xl leading-relaxed  px-4 lg:px-8 my-8 lg:my-16">
+              <ContactInfo />
             </div>
 
             {/* Google Map */}
@@ -243,9 +227,7 @@ export default async function AboutPage(props: {
               </button>
             </form>
 
-            <p className="text-sm text-neutral-500 mt-4">
-              Chúng tôi sẽ phản hồi Quý khách trong vòng 24 giờ làm việc.
-            </p>
+            <p className="text-sm text-neutral-500 mt-4"></p>
           </div>
         </div>
       </section>
