@@ -23,7 +23,7 @@ export async function generateMetadata(props: {
   const t = translations[currentIndex];
 
   const title = t("meta.title");
-  const description = t("meta.seoDescription");
+  const description = t("meta.description");
   const ogImage = t("meta.ogImage");
   const canonical = t("meta.canonical");
 

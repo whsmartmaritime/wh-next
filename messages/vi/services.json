@@ -1,21 +1,26 @@
 {
   "meta": {
     "title": "Dịch vụ GMDSS, Điều hướng & Kết nối | Wheelhouse",
-    "seoTitle": "Dịch vụ GMDSS, Điều hướng & Kết nối | Wheelhouse", 
     "description": "Wheelhouse cung cấp giải pháp điều hướng, GMDSS và kết nối vệ tinh để đảm bảo an toàn và liên lạc cho đội tàu của bạn.",
-    "seoDescription": "Dịch vụ GMDSS, điều hướng và kết nối vệ tinh đáng tin cậy cho hoạt động tàu thuyền an toàn và hiệu quả hơn.",
     "ogImage": "/images/og/services-og.jpg",
     "canonical": "/vi/dich-vu",
     "slug": "dich-vu"
   },
-  "h1": "Dịch vụ của chúng tôi",
-  "intro": "Tại Wheelhouse, chúng tôi cung cấp các giải pháp và dịch vụ để giúp tàu của bạn hoạt động an toàn hơn.",
+  "hero": {
+    "titlePre": "",
+    "titleMain": "Dịch Vụ",
+    "subtitle": "Xuất sắc trong dịch vụ hàng hải từ khi thành lập",
+    "rightImageAlt": "Kỹ thuật viên Wheelhouse lắp đặt Iridium",
+    "description": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, đáng tin cậy và đổi mới.",
+    "ctaPrimary": "Liên Hệ Hợp Tác",
+    "ctaSecondary": "Trò Chuyện Whatsapp?"
+  },
   "items": [
     {
       "slug": "navigation-gmdss",
       "title": "Giải pháp Điều hướng & GMDSS",
       "shortDesc": "Hệ thống được chứng nhận cho điều hướng đáng tin cậy và liên lạc cấp cứu toàn cầu.",
-      "image": "/images/services/navigation-thumb.jpg", 
+      "image": "/images/services/navigation-thumb.jpg",
       "tags": ["điều hướng", "gmdss"]
     },
     {
@@ -26,7 +31,7 @@
       "tags": ["kết nối", "vệ tinh"]
     },
     {
-      "slug": "repair-maintenance", 
+      "slug": "repair-maintenance",
       "title": "Sửa chữa & Bảo trì",
       "shortDesc": "Dịch vụ sửa chữa và bảo trì chuyên nghiệp cho thiết bị hàng hải.",
       "image": "/images/services/repair-thumb.jpg",

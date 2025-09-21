@@ -1,15 +1,20 @@
 {
   "meta": {
     "title": "GMDSS, Navigation & Connectivity Services ",
-    "seoTitle": "GMDSS, Navigation & Connectivity Services | Wheelhouse",
     "description": "Wheelhouse cung cấp giải pháp điều hướng, GMDSS và kết nối vệ tinh để đảm bảo an toàn và liên lạc cho đội tàu của bạn.",
-    "seoDescription": "Reliable GMDSS, navigation and satellite connectivity services for safer and more efficient vessel operations.",
     "ogImage": "/images/og/services-og.jpg",
     "canonical": "/en/services",
     "slug": "services"
   },
-  "h1": "Our Services",
-  "intro": "At Wheelhouse, we provide solutions and services to make your vessel operate more safely.",
+  "hero": {
+    "titlePre": "Our",
+    "titleMain": "Services",
+    "subtitle": "Excellence in maritime services since inception",
+    "rightImageAlt": "wheelhouse service engineer insstalling iridium",
+    "description": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
+    "ctaPrimary": "Start Working With Us",
+    "ctaSecondary": "Want to Chat First?"
+  },
   "items": [
     {
       "slug": "navigation-gmdss",
@@ -27,7 +32,7 @@
     },
     {
       "slug": "repair-maintenance",
-      "title": "Repair & Maintenance", 
+      "title": "Repair & Maintenance",
       "shortDesc": "Professional repair and maintenance services for maritime equipment.",
       "image": "/images/services/repair-thumb.jpg",
       "tags": ["maintenance", "repair"]

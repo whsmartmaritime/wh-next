@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { PageHero } from "@/components/PageHero";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -18,7 +19,7 @@ export async function generateMetadata(props: {
   const t = translations[currentIndex];
 
   const title = t("meta.title");
-  const description = t("meta.seoDescription");
+  const description = t("meta.description");
   const ogImage = t("meta.ogImage");
   const canonical = t("meta.canonical");
 
@@ -62,10 +63,19 @@ export default async function SolutionsPage(props: {
   const t = await getTranslations({ locale, namespace: "solutions" });
 
   return (
-    <div className="container-gutter py-block">
-      <h1 className="text-3xl font-bold">{t("hero.title")}</h1>
-      <p className="text-lg mt-4">{t("hero.subtitle")}</p>
-      <p className="mt-4">{t("hero.description")}</p>
-    </div>
+    <>
+      <section className=" bg-gradient-to-br from-sky-900 via-slate-900 to-black w-full text-neutral-300">
+        <PageHero
+          className="container-gutter"
+          rightImageSrc="/images/about/wheelhouse-engineer-with-iridium.webp"
+          rightImageAlt={t("hero.rightImageAlt")}
+          titlePre={t("hero.titlePre")}
+          titleMain={t("hero.titleMain")}
+          subtitle={t("hero.subtitle")}
+          ctaPrimary={t("hero.ctaPrimary")}
+          ctaSecondary={t("hero.ctaSecondary")}
+        />
+      </section>
+    </>
   );
 }

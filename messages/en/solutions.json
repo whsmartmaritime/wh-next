@@ -1,13 +1,17 @@
 {
   "meta": {
     "title": "Solutions | WH Marine",
-    "seoDescription": "Comprehensive maritime solutions and services for vessels worldwide. From ship management to technical support and crew services.",
+    "description": "Comprehensive maritime solutions and services for vessels worldwide. From ship management to technical support and crew services.",
     "ogImage": "/images/og-solutions.jpg",
     "canonical": "/en/solutions"
   },
   "hero": {
-    "title": "Maritime Solutions",
-    "subtitle": "Comprehensive services for the maritime industry",
-    "description": "We provide end-to-end solutions for vessel operations, crew management, and technical support worldwide."
+    "titlePre": "Our",
+    "titleMain": "Solutions",
+    "subtitle": "Excellence in maritime solutions since inception",
+    "rightImageAlt": "wheelhouse service engineer insstalling iridium",
+    "description": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
+    "ctaPrimary": "Start Working With Us",
+    "ctaSecondary": "Want to Chat First?"
   }
 }
