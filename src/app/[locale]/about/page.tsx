@@ -66,7 +66,7 @@ export default async function AboutPage(props: {
   const t = await getTranslations({ locale, namespace: "about" });
 
   return (
-    <main>
+    <>
       <section className=" bg-gradient-to-br from-sky-900 via-slate-900 to-black w-full text-neutral-300">
         <PageHero
           className="container-gutter"
@@ -79,7 +79,7 @@ export default async function AboutPage(props: {
           ctaSecondary={t("hero.ctaSecondary")}
         />
       </section>
-      <section className="relative w-full bg-gradient-to-b from-cyan-50/40 to-transparent dark:from-cyan-950/20 dark:to-transparent">
+      <section className="dark">
         <div className="relative inset-0 pointer-events-none h-[calc(var(--gutter-h))]">
           <BackgroundGrid />
         </div>
@@ -103,7 +103,7 @@ export default async function AboutPage(props: {
           <BackgroundGrid />
         </div>
       </section>
-      <section className="relative">
+      <section className="relative light">
         <div className="container-gutter">
           <div className="grid grid-cols-1 lg:grid-cols-2 border border-neutral-500/20 divide-x divide-neutral-500/20">
             {/* Cột Values */}
@@ -249,6 +249,6 @@ export default async function AboutPage(props: {
           </div>
         </div>
       </section>
-    </main>
+    </>
   );
 }
