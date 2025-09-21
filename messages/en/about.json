@@ -36,6 +36,12 @@
     "value5": "While remembering the Responsibilities of Today.."
   },
   "contact": {
-    "title": "Contact Us"
+    "title": "Contact Information",
+    "messageTitle": "Send us a message",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "phonePlaceholder": "Your phone number",
+    "messagePlaceholder": "Your message",
+    "submitButton": "Send"
   }
 }

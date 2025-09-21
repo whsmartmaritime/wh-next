@@ -36,6 +36,12 @@
     "value5": "Trong khi nhớ về những trách nhiệm của hôm nay."
   },
   "contact": {
-    "title": "Thông tin Liên Hệ"
+    "title": "Thông Tin Liên Hệ",
+    "messageTitle": "Gửi tin nhắn",
+    "namePlaceholder": "Họ và tên",
+    "emailPlaceholder": "Email",
+    "phonePlaceholder": "Số điện thoại",
+    "messagePlaceholder": "Nội dung",
+    "submitButton": "Gửi"
   }
 }

@@ -11,7 +11,7 @@ export type ButtonProps = {
 };
 
 const base =
-  "group relative block overflow-hidden cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] focus:outline-none focus:ring-2 focus:ring-offset-0 bg-primary-600 text-white shadow-md hover:bg-primary-700 disabled:opacity-60 disabled:cursor-not-allowed";
+  "group relative block overflow-hidden cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] focus:outline-none focus:ring-2 focus:ring-offset-0 bg-primary-600  shadow-md hover:bg-primary-700 disabled:opacity-60 disabled:cursor-not-allowed";
 const labelClass =
   "font-medium text-lg md:text-xl transition-transform duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] transform-origin-bottom-left";
 const iconClass =

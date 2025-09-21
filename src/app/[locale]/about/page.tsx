@@ -5,6 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import BackgroundScanline from "@/components/BackgroundScanline";
 import BackgroundGrid from "@/components/BackgroundGrid";
 import ContactInfo from "@/components/ContactInfo";
+import Submit from "@/components/Submit";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -172,62 +173,48 @@ export default async function AboutPage(props: {
             <BackgroundScanline
               crosshairs="all"
               className="absolute inset-0 "
-              opacity={0.1}
+              opacity={0.0}
             />
           </div>
-          <div className="w-full xl:w-1/2 mx-auto border border-neutral-500/20  p-8 ">
-            <h3 className="font-semibold text-xl mb-6">Gửi tin nhắn</h3>
+          <div className="w-full xl:w-1/2 mx-auto  ">
             <form className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Họ và tên
-                </label>
-                <input
-                  type="text"
-                  className="w-full border border-neutral-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
+              <h3 className="uppercase tracking-[0.25em]  text-lg lg:text-xl">
+                {t("contact.messageTitle")}
+              </h3>
+              <input
+                type="text"
+                className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder={t("contact.namePlaceholder") + " *"}
+                required
+              />
 
-              <div>
-                <label className="block text-sm font-medium mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full border border-neutral-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
+              <input
+                type="email"
+                className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder={t("contact.emailPlaceholder") + " *"}
+                required
+              />
 
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Số điện thoại (tuỳ chọn)
-                </label>
-                <input
-                  type="tel"
-                  className="w-full border border-neutral-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+              <input
+                type="tel"
+                className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder={t("contact.phonePlaceholder")}
+              />
 
-              <div>
-                <label className="block text-sm font-medium mb-2">
-                  Nội dung
-                </label>
-                <textarea
-                  rows={5}
-                  className="w-full border border-neutral-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                ></textarea>
-              </div>
+              <textarea
+                rows={5}
+                className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder={t("contact.messagePlaceholder") + " *"}
+                required
+              ></textarea>
 
-              <button
+              <Submit
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition"
+                className="w-full min-h-20 my-8 hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
               >
-                Gửi tin nhắn
-              </button>
+                {t("contact.submitButton")}
+              </Submit>
             </form>
-
-            <p className="text-sm text-neutral-500 mt-4"></p>
           </div>
         </div>
       </section>
