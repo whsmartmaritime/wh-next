@@ -21,6 +21,13 @@
     "desc1": "Wheelhouse not only delivers high-quality services but also accompanies clients comprehensively throughout their entire journey. Our experienced engineers proactively identify and strive to resolve issues before they impact equipment operations.",
     "desc2": "With dedication, expertise, and smart workflows, clients can be fully confident that every need is prioritized, and service quality is consistently maintained at the highest level."
   },
+  "repairMaintenance": {
+    "title": "Repair & Maintenance",
+    "intro": "Professional repair and maintenance services for <bold>maritime electronic equipment</bold>.",
+    "img1Alt": "wheelhouse service engineer repairing equipment",
+    "desc1": "A ship's officer in today's maritime environment relies on a wide range of <bold>marine electronic equipment</bold> to ensure the safety of the vessel and its crew, while successfully completing missions at sea. Cutting-edge marine electronics has made the journey at sea <bold>smoother and safer</bold>.",
+    "desc2": "You need the best services to keep your ship’s equipment in optimal working order without negatively impacting your financial bottom line. Wheelhouse is ready to provide <bold>maintenance and repair services</bold> that ensure your equipment operates reliably and efficiently, at the <bold>most cost-effective approach possible</bold>."
+  },
   "items": [
     {
       "slug": "navigation-gmdss",

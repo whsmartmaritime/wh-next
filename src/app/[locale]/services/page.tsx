@@ -4,7 +4,7 @@ import { routing } from "@/i18n/routing";
 import { PageHero } from "@/components/PageHero";
 import BackgroundScanline from "@/components/BackgroundScanline";
 import BackgroundGrid from "@/components/BackgroundGrid";
-
+import Image from "next/image";
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
@@ -108,6 +108,51 @@ export default async function ServicePage(props: {
         </div>
         <div className="relative inset-0 pointer-events-none h-[calc(var(--gutter-h))]">
           <BackgroundGrid />
+        </div>
+      </section>
+      <section className="relative container-gutter dark bg-black text-neutral-200">
+        <BackgroundGrid />
+        <div className="  grid grid-cols-12">
+          <h2 className="text-4xl lg:text-6xl font-bold col-span-12 lg:col-span-6 my-16">
+            {t("repairMaintenance.title")}
+          </h2>
+          <p className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-muted-foreground text-justify whitespace-pre-line my-16 max-w-2xl">
+            {t.rich("repairMaintenance.intro", {
+              bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
+            })}
+          </p>
+        </div>
+        <div className="relative grid grid-cols-12 bg-black w-full h-full items-center justify-center border border-white/15">
+          <BackgroundScanline
+            crosshairs="top-right, bottom-left"
+            className="absolute inset-0 "
+            opacity={0.1}
+          />
+          <div className="relative col-span-12 lg:col-span-6 aspect-[16/10] m-8 lg:m-12">
+            <Image
+              src="/images/services/wheelhouse-engineer-repairing.webp"
+              alt={t("repairMaintenance.img1Alt")}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <div className="col-span-12 lg:col-span-6 text-sm sm:text-lg lg:text-4xl text-justify">
+            <p className="text-lg leading-relaxed">
+              {t.rich("repairMaintenance.desc1", {
+                bold: (chunks) => (
+                  <strong className="font-bold">{chunks}</strong>
+                ),
+              })}
+            </p>
+            <p className="text-lg leading-relaxed">
+              {t.rich("repairMaintenance.desc2", {
+                bold: (chunks) => (
+                  <strong className="font-bold">{chunks}</strong>
+                ),
+              })}
+            </p>
+          </div>
         </div>
       </section>
     </>

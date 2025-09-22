@@ -21,6 +21,13 @@
     "desc1": "Wheelhouse không chỉ cung cấp dịch vụ chất lượng cao, mà còn đồng hành toàn diện cùng khách hàng trong suốt hành trình. Đội ngũ kỹ sư giàu kinh nghiệm của chúng tôi chủ động phát hiện và cố gắng giải quyết vấn đề trước khi ảnh hưởng đến vận hành thiết bị.",
     "desc2": "Nhờ sự tận tâm, chuyên môn và quy trình làm việc thông minh, khách hàng có thể hoàn toàn yên tâm rằng mọi nhu cầu đều được ưu tiên hàng đầu, và chất lượng dịch vụ luôn được duy trì ở mức cao nhất."
   },
+  "repairMaintenance": {
+    "title": "Sửa chữa & Bảo dưỡng",
+    "intro": "Dịch vụ sửa chữa và bảo dưỡng chuyên nghiệp cho <bold>thiết bị điện tử hàng hải</bold>.",
+    "img1Alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị",
+    "desc1": "Sĩ quan vận hành trong môi trường hàng hải ngày nay dựa vào một loạt các <bold>thiết bị điện tử hàng hải</bold> để đảm bảo an toàn cho con tàu và thủy thủ đoàn, đồng thời hoàn thành chuyến đi một cách nhanh chóng. Các thiết bị điện tử tiên tiến đã làm cho hành trình trên biển <bold>dễ dàng và an toàn hơn</bold>.",
+    "desc2": "Bạn cần các dịch vụ tốt nhất cho các thiết bị điện tử trên tàu để duy trì tình trạng hoạt động ổn định và ảnh hưởng nhỏ nhất đến lợi nhuận tài chính của bạn. <bold>Wheelhouse</bold> sẵn lòng cung cấp cho bạn những dịch vụ <bold>sửa chữa, bảo dưỡng</bold> các thiết bị nhằm đạt được mục đích trên với <bold>chi phí tiết kiệm nhất có thể</bold>."
+  },
   "items": [
     {
       "slug": "navigation-gmdss",
