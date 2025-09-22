@@ -15,6 +15,12 @@
     "ctaPrimary": "Start Working With Us",
     "ctaSecondary": "Want to Chat First?"
   },
+  "qualityOfService": {
+    "title": "Quality of Service",
+    "intro": "Why Our Clients Trust Us",
+    "desc1": "Wheelhouse not only delivers high-quality services but also accompanies clients comprehensively throughout their entire journey. Our experienced engineers proactively identify and strive to resolve issues before they impact equipment operations.",
+    "desc2": "With dedication, expertise, and smart workflows, clients can be fully confident that every need is prioritized, and service quality is consistently maintained at the highest level."
+  },
   "items": [
     {
       "slug": "navigation-gmdss",

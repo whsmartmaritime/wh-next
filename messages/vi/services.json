@@ -15,6 +15,12 @@
     "ctaPrimary": "Liên Hệ Hợp Tác",
     "ctaSecondary": "Trò Chuyện Whatsapp?"
   },
+  "qualityOfService": {
+    "title": "Chất lượng dịch vụ",
+    "intro": "Tại sao khách hàng tin tưởng chúng tôi",
+    "desc1": "Wheelhouse không chỉ cung cấp dịch vụ chất lượng cao, mà còn đồng hành toàn diện cùng khách hàng trong suốt hành trình. Đội ngũ kỹ sư giàu kinh nghiệm của chúng tôi chủ động phát hiện và cố gắng giải quyết vấn đề trước khi ảnh hưởng đến vận hành thiết bị.",
+    "desc2": "Nhờ sự tận tâm, chuyên môn và quy trình làm việc thông minh, khách hàng có thể hoàn toàn yên tâm rằng mọi nhu cầu đều được ưu tiên hàng đầu, và chất lượng dịch vụ luôn được duy trì ở mức cao nhất."
+  },
   "items": [
     {
       "slug": "navigation-gmdss",
