@@ -124,7 +124,7 @@ export default async function ServicePage(props: {
         </div>
         <div className="relative grid grid-cols-12 bg-black w-full h-full items-center justify-center border border-white/15">
           <BackgroundScanline
-            crosshairs="top-right, bottom-left"
+            crosshairs={["top-right", "bottom-left"]}
             className="absolute inset-0 "
             opacity={0.1}
           />
