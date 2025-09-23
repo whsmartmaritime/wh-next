@@ -24,9 +24,43 @@
   "repairMaintenance": {
     "title": "Sửa chữa & Bảo dưỡng",
     "intro": "Dịch vụ sửa chữa và bảo dưỡng chuyên nghiệp cho <bold>thiết bị điện tử hàng hải</bold>.",
-    "img1Alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị",
-    "desc1": "Sĩ quan vận hành trong môi trường hàng hải ngày nay dựa vào một loạt các <bold>thiết bị điện tử hàng hải</bold> để đảm bảo an toàn cho con tàu và thủy thủ đoàn, đồng thời hoàn thành chuyến đi một cách nhanh chóng. Các thiết bị điện tử tiên tiến đã làm cho hành trình trên biển <bold>dễ dàng và an toàn hơn</bold>.",
-    "desc2": "Bạn cần các dịch vụ tốt nhất cho các thiết bị điện tử trên tàu để duy trì tình trạng hoạt động ổn định và ảnh hưởng nhỏ nhất đến lợi nhuận tài chính của bạn. <bold>Wheelhouse</bold> sẵn lòng cung cấp cho bạn những dịch vụ <bold>sửa chữa, bảo dưỡng</bold> các thiết bị nhằm đạt được mục đích trên với <bold>chi phí tiết kiệm nhất có thể</bold>."
+    "items": {
+      "item1": {
+        "title": "Sửa chữa",
+        "desc": "Với đội kỹ thuật lành nghề và chuẩn bị kỹ lưỡng—bao gồm kế hoạch, phương án thực hiện và vật tư phụ tùng—công việc sửa chữa được thực hiện đúng tiến độ, đáp ứng yêu cầu kỹ thuật và đảm bảo chất lượng cao.",
+        "desc1": "Sĩ quan vận hành trong môi trường hàng hải ngày nay dựa vào một loạt các <bold>thiết bị điện tử hàng hải</bold> để đảm bảo an toàn cho con tàu và thủy thủ đoàn, đồng thời hoàn thành chuyến đi một cách nhanh chóng. Các thiết bị điện tử tiên tiến đã làm cho hành trình trên biển <bold>dễ dàng và an toàn hơn</bold>.",
+        "desc2": "Bạn cần các dịch vụ tốt nhất cho các thiết bị điện tử trên tàu để duy trì tình trạng hoạt động ổn định và ảnh hưởng nhỏ nhất đến lợi nhuận tài chính của bạn. <bold>Wheelhouse</bold> sẵn lòng cung cấp cho bạn những dịch vụ <bold>sửa chữa, bảo dưỡng</bold> các thiết bị nhằm đạt được mục đích trên với <bold>chi phí tiết kiệm nhất có thể</bold>.",
+
+        "imgSrc": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
+        "imgAlt": "Kỹ thuật viên Wheelhouse sửa chữa VSAT"
+      },
+      "item2": {
+        "title": "Bảo Dưỡng",
+        "desc": "Các thiết bị, hệ thống trang bị trên tàu, cần được bảo dưỡng đúng kỳ hạn, để kéo dài tuổi thọ, tăng sự ổn định, và đảm bảo an toàn khi tàu hành trình. Các thiết bị thường được bảo dưỡng và thay thế phụ tùng theo kỳ hạn gồm: Các thiết bị trong hệ thống GMDSS; RADAR hàng hải; La bàn con quay…",
+        "imgSrc": "/images/services/wheelhouse-engineer-in-ship-bridge.webp",
+        "imgAlt": "Kỹ thuật viên Wheelhouse thực hiện bảo dưỡng"
+      },
+      "item3": {
+        "title": "Hỗ trợ từ xa",
+        "desc": "Đội ngũ hỗ trợ kỹ thuật của chúng tôi luôn sẵn sàng hỗ trợ bạn khi cần. Chúng tôi cung cấp hướng dẫn sử dụng, bảo trì định kỳ, cũng như tư vấn và xử lý sự cố nhanh chóng để tối ưu hiệu suất vận hành.",
+        "imgSrc": "/images/services/wheelhouse-engineer-remote-supporting.webp",
+        "imgAlt": "Kỹ thuật viên Wheelhouse hỗ trợ từ xa"
+      }
+    }
+  },
+  "installation": {
+    "title": "Dịch vụ lắp đặt",
+    "intro": "Cung cấp và lắp đặt các <bold>thiết bị điện tử hàng hải</bold>.",
+    "buttonLabel": "Tìm hiểu thêm về giải pháp của chúng tôi",
+    "items": {
+      "item1": {
+        "title": "GMDSS, Navigation and Communication",
+        "intro": "Bao gồm giải pháp toàn diện từ cung cấp, lắp đặt, chạy thử đến bảo trì",
+        "desc": "Chúng tôi cung cấp các giải pháp toàn diện cho thiết bị điện tử hàng hải, bao gồm tư vấn sản phẩm, thiết kế, cung cấp, lắp đặt và chạy thử, đảm bảo chất lượng và hiệu suất tối ưu. Thông tin chi tiết về thiết bị và giải pháp có sẵn trên trang Giải pháp.",
+        "imgSrc": "/images/services/wheelhouse-engineer-installing-equipment.webp",
+        "imgAlt": "Kỹ thuật viên Wheelhouse lắp đặt thiết bị"
+      }
+    }
   },
   "items": [
     {

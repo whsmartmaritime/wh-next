@@ -24,9 +24,45 @@
   "repairMaintenance": {
     "title": "Repair & Maintenance",
     "intro": "Professional repair and maintenance services for <bold>maritime electronic equipment</bold>.",
-    "img1Alt": "wheelhouse service engineer repairing equipment",
-    "desc1": "A ship's officer in today's maritime environment relies on a wide range of <bold>marine electronic equipment</bold> to ensure the safety of the vessel and its crew, while successfully completing missions at sea. Cutting-edge marine electronics has made the journey at sea <bold>smoother and safer</bold>.",
-    "desc2": "You need the best services to keep your ship’s equipment in optimal working order without negatively impacting your financial bottom line. Wheelhouse is ready to provide <bold>maintenance and repair services</bold> that ensure your equipment operates reliably and efficiently, at the <bold>most cost-effective approach possible</bold>."
+    "items": {
+      "item1": {
+        "title": "Repair Services",
+        "intro": "High-quality repair services",
+        "desc": "With a skilled technical team and thorough preparation—including planning, execution procedures, and spare parts—repair work is carried out on schedule, meeting technical requirements and ensuring high quality standards.",
+        "desc1": "A ship's officer in today's maritime environment relies on a wide range of <bold>marine electronic equipment</bold> to ensure the safety of the vessel and its crew, while successfully completing missions at sea. Cutting-edge marine electronics has made the journey at sea <bold>smoother and safer</bold>.",
+        "desc2": "You need the best services to keep your ship’s equipment in optimal working order without negatively impacting your financial bottom line. Wheelhouse is ready to provide <bold>maintenance and repair services</bold> that ensure your equipment operates reliably and efficiently, at the <bold>most cost-effective approach possible</bold>.",
+        "imgSrc": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
+        "imgAlt": "wheelhouse service engineer repairing VSAT"
+      },
+      "item2": {
+        "title": "Maintenance",
+        "intro": "Comprehensive maintenance solutions",
+        "desc": "Shipboard equipment and systems require regular maintenance to extend their lifespan, maintain stability, and ensure safe operation. The equipment that is often serviced on a regular basis includes: Equipment in the GMDSS system; Maritime RADARs; Gyro compass… etc.",
+        "imgSrc": "/images/services/wheelhouse-engineer-in-ship-bridge.webp",
+        "imgAlt": "wheelhouse engineer performing maintenance"
+      },
+      "item3": {
+        "title": "Remote Support",
+        "intro": "24/7 remote technical support",
+        "desc": "Our technical support team is always ready to assist you whenever needed. We provide user guidance, scheduled maintenance, as well as prompt consultation and troubleshooting to optimize operational performance.",
+        "imgSrc": "/images/services/wheelhouse-engineer-remote-supporting.webp",
+        "imgAlt": "wheelhouse technician supporting up via internet"
+      }
+    }
+  },
+  "installation": {
+    "title": "Installation",
+    "intro": "Supply and installation the <bold>maritime electronic equipment</bold>.",
+    "buttonLabel": "Learn more about our solutions",
+    "items": {
+      "item1": {
+        "title": "GMDSS, Navigation and Communication",
+        "intro": "Include full solution from supply, installation, commissioning to maintenance",
+        "desc": "We provide comprehensive solutions for maritime electronic equipment, covering product consultation, design, supply, installation, and commissioning, ensuring optimal quality and performance. Detailed information on equipment and solutions is available on the Solutions page.",
+        "imgSrc": "/images/services/wheelhouse-engineer-installing-equipment.webp",
+        "imgAlt": "wheelhouse service engineer installing equipment"
+      }
+    }
   },
   "items": [
     {
