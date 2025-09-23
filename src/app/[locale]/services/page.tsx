@@ -188,6 +188,17 @@ export default async function ServicePage(props: {
             </div>
           ))}
         </div>
+        <div className="grid grid-cols-12  mb-8 lg:mb-16 ">
+          <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
+            {t("repairMaintenance.ctaTitle")}
+          </p>
+          <Button
+            className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+            href={`/${locale}/about#contactForm`}
+          >
+            {t("repairMaintenance.ctaLabel")}
+          </Button>
+        </div>
       </section>
       {/** section installation **/}
       <section className="relative container-gutter bg-neutral-200 text-neutral-900">
@@ -230,15 +241,14 @@ export default async function ServicePage(props: {
               bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
             })}
           </p>
-        </div>
-        <div className="grid grid-cols-12">
           <Button
-            className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-black hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
+            className="col-span-12 md:col-span-6 lg:col-start-4 min-h-20 my-8 bg-white text-black hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
             href={`/${locale}/solutions`}
           >
-            {t("installation.buttonLabel")}
+            {t("installation.ctaLabel")}
           </Button>
         </div>
+        <div className="grid grid-cols-12"></div>
       </section>
     </>
   );

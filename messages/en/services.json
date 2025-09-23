@@ -48,12 +48,14 @@
         "imgSrc": "/images/services/wheelhouse-engineer-remote-supporting.webp",
         "imgAlt": "wheelhouse technician supporting up via internet"
       }
-    }
+    },
+    "ctaTitle": "Do You Need a Repair, Maintenance or Spare Parts?",
+    "ctaLabel": "Book Your Service Now!"
   },
   "installation": {
     "title": "Installation",
     "intro": "Supply and installation the <bold>maritime electronic equipment</bold>.",
-    "buttonLabel": "Learn more about our solutions",
+    "ctaLabel": "Learn more about our solutions",
     "items": {
       "item1": {
         "title": "GMDSS, Navigation and Communication",

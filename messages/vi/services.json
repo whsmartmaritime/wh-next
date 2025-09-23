@@ -46,12 +46,14 @@
         "imgSrc": "/images/services/wheelhouse-engineer-remote-supporting.webp",
         "imgAlt": "Kỹ thuật viên Wheelhouse hỗ trợ từ xa"
       }
-    }
+    },
+    "ctaTitle": "Bạn cần sửa chữa, bảo dưỡng hay phụ tùng?",
+    "ctaLabel": "Yêu cầu dịch vụ ngay!"
   },
   "installation": {
     "title": "Dịch vụ lắp đặt",
     "intro": "Cung cấp và lắp đặt các <bold>thiết bị điện tử hàng hải</bold>.",
-    "buttonLabel": "Tìm hiểu thêm về giải pháp của chúng tôi",
+    "ctaLabel": "Tìm hiểu thêm về giải pháp của chúng tôi",
     "items": {
       "item1": {
         "title": "GMDSS, Navigation and Communication",
