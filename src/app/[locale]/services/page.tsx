@@ -88,12 +88,10 @@ export default async function ServicePage(props: {
       </section>
       {/** section qualityOfService **/}
 
-      <section className="bg-neutral-200 text-neutral-900">
-        <div className="relative inset-0 pointer-events-none h-[calc(var(--gutter-h))]">
-          <BackgroundGrid />
-        </div>
-        <div className="container-gutter">
-          <div className="relative w-full h-full items-center justify-center border border-neutral-500/20 pb-16">
+      <section className="relative bg-neutral-200 text-neutral-900">
+        <BackgroundGrid />
+        <div className="container-gutter py-16 lg:py-32">
+          <div className="relative bg-neutral-200 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
             <BackgroundScanline
               crosshairs="all"
               className="absolute inset-0 "
@@ -108,9 +106,6 @@ export default async function ServicePage(props: {
               <p className="block mb-8">{t("qualityOfService.desc2")}</p>
             </div>
           </div>
-        </div>
-        <div className="relative inset-0 pointer-events-none h-[calc(var(--gutter-h))]">
-          <BackgroundGrid />
         </div>
       </section>
       {/** section repairMaintenance **/}
