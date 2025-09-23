@@ -141,10 +141,7 @@ export default async function AboutPage(props: {
       </section>
 
       {/* Contact Section */}
-      <section
-        id="contactForm"
-        className="relative bg-neutral-200 text-neutral-900"
-      >
+      <section className="relative bg-neutral-200 text-neutral-900">
         <BackgroundGrid />
         <div className="container-gutter mx-auto  pt-8 px-4 lg:px-8">
           <h2 className="uppercase tracking-[0.25em] font-bold text-xl lg:text-2xl">
@@ -172,7 +169,7 @@ export default async function AboutPage(props: {
           </div>
 
           {/* Contact Form */}
-          <div className="my-16">
+          <div id="contactForm" className=" scroll-mt-30 my-16">
             <BackgroundScanline
               crosshairs="all"
               className="absolute inset-0 "
