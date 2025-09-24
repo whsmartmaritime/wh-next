@@ -1,16 +1,11 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
+import { paginatePosts, getFeaturedPosts, getAllPosts } from "@/lib/blog/mdx";
+import BackgroundGrid from "@/components/BackgroundGrid";
+import { BackgroundScanline } from "@/components/BackgroundScanline";
 import Link from "next/link";
-import {
-  getAllPosts,
-  getAllCategories,
-  getAllAuthors,
-  paginatePosts,
-} from "@/lib/blog/mdx";
-import { BlogPostCard } from "@/components/blog/BlogPostCard";
-import { BlogSidebar } from "@/components/blog/BlogSidebar";
-import { BlogPagination } from "@/components/blog/BlogPagination";
-import { BlogHero } from "@/components/blog/BlogHero";
-
+import Image from "next/image";
 interface BlogPageProps {
   params: {
     locale: "en" | "vi";
@@ -24,19 +19,62 @@ interface BlogPageProps {
   };
 }
 
-export async function generateMetadata({
-  params,
-}: BlogPageProps): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await props.params;
+
+  // Parallel translation loading for better performance
+  const translations = await Promise.all(
+    routing.locales.map((l) =>
+      getTranslations({ locale: l, namespace: "blog" })
+    )
+  );
+
+  const currentIndex = routing.locales.indexOf(locale as "en" | "vi");
+  const t = translations[currentIndex];
+
+  const title = t("meta.title");
+  const description = t("meta.description");
+  const ogImage = t("meta.ogImage");
+  const canonical = t("meta.canonical");
+
+  const base = new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  );
+  const url = new URL(canonical, base);
+
+  // Create alternate language URLs from pre-defined canonicals
+  const languages = Object.fromEntries(
+    routing.locales.map((l, index) => [
+      l,
+      new URL(translations[index]("meta.canonical"), base),
+    ])
+  );
+
   return {
-    title:
-      locale === "vi"
-        ? "Bài viết - Wheelhouse Marine"
-        : "Blog - Wheelhouse Marine",
-    description:
-      locale === "vi"
-        ? "Khám phá các bài viết về hàng hải, công nghệ và giải pháp từ Wheelhouse Marine"
-        : "Discover maritime insights, technology solutions, and industry expertise from Wheelhouse Marine",
+    title,
+    description,
+    alternates: { canonical: url, languages },
+    openGraph: {
+      title,
+      description,
+      url,
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
     robots: { index: false, follow: false }, // Ngăn bot index trang này
   };
 }
@@ -45,177 +83,100 @@ export default async function BlogPage({
   params,
   searchParams,
 }: BlogPageProps) {
-  const { locale } = await params;
-  const resolvedSearchParams = await searchParams;
+  const { locale } = params;
+  const t = await getTranslations({ locale, namespace: "blog" });
+  const resolvedSearchParams = searchParams || {};
   const currentPage = parseInt(resolvedSearchParams.page || "1");
   const postsPerPage = 12;
 
-  // Get all content
+  // Get content
   let posts = getAllPosts(locale);
-  const categories = getAllCategories(locale);
-  const authors = getAllAuthors(locale);
 
   // Apply filters
   if (resolvedSearchParams.category) {
     posts = posts.filter(
-      (post) => post.frontmatter.category === resolvedSearchParams.category
+      (p) => p.frontmatter.category === resolvedSearchParams.category
     );
   }
-
   if (resolvedSearchParams.tag) {
-    posts = posts.filter((post) =>
-      post.frontmatter.tags.includes(resolvedSearchParams.tag!)
+    posts = posts.filter((p) =>
+      p.frontmatter.tags.includes(resolvedSearchParams.tag!)
     );
   }
-
   if (resolvedSearchParams.author) {
     posts = posts.filter(
-      (post) => post.frontmatter.author === resolvedSearchParams.author
+      (p) => p.frontmatter.author === resolvedSearchParams.author
     );
   }
-
   if (resolvedSearchParams.search) {
-    const searchTerm = resolvedSearchParams.search.toLowerCase();
-    posts = posts.filter((post) => {
-      const searchableContent = [
-        post.frontmatter.title,
-        post.excerpt,
-        post.frontmatter.tags.join(" "),
-      ]
+    const term = resolvedSearchParams.search.toLowerCase();
+    posts = posts.filter((p) =>
+      [p.frontmatter.title, p.excerpt, p.frontmatter.tags.join(" ")]
         .join(" ")
-        .toLowerCase();
-
-      return searchableContent.includes(searchTerm);
-    });
+        .toLowerCase()
+        .includes(term)
+    );
   }
-
-  // Paginate results
-  const paginatedData = paginatePosts(posts, currentPage, postsPerPage);
-
-  // Get featured posts for hero
-  const featuredPosts = posts
-    .filter((post) => post.frontmatter.featured)
-    .slice(0, 3);
+  const featuredPost = getFeaturedPosts(1, locale)[0]; // Lấy phần tử đầu tiên
+  paginatePosts(posts, currentPage, postsPerPage); // keep call in case pagination logic is used later
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-gray-900">
-      {/* Hero Section */}
-      {currentPage === 1 && !Object.keys(resolvedSearchParams).length && (
-        <BlogHero featuredPosts={featuredPosts} locale={locale} />
-      )}
-
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Main Content */}
-          <div className="lg:col-span-3">
-            {/* Search Results Header */}
-            {(resolvedSearchParams.search ||
-              resolvedSearchParams.category ||
-              resolvedSearchParams.tag ||
-              resolvedSearchParams.author) && (
-              <div className="mb-8">
-                <h1 className="text-2xl font-bold mb-2">
-                  {resolvedSearchParams.search && (
-                    <>
-                      {locale === "vi"
-                        ? "Kết quả tìm kiếm cho"
-                        : "Search results for"}{" "}
-                      <span className="text-blue-600">
-                        &ldquo;{resolvedSearchParams.search}&rdquo;
-                      </span>
-                    </>
-                  )}
-                  {resolvedSearchParams.category && (
-                    <>
-                      {locale === "vi" ? "Danh mục" : "Category"}:{" "}
-                      <span className="text-blue-600">
-                        {resolvedSearchParams.category}
-                      </span>
-                    </>
-                  )}
-                  {resolvedSearchParams.tag && (
-                    <>
-                      {locale === "vi" ? "Tag" : "Tag"}:{" "}
-                      <span className="text-blue-600">
-                        #{resolvedSearchParams.tag}
-                      </span>
-                    </>
-                  )}
-                  {resolvedSearchParams.author && (
-                    <>
-                      {locale === "vi" ? "Tác giả" : "Author"}:{" "}
-                      <span className="text-blue-600">
-                        {resolvedSearchParams.author}
-                      </span>
-                    </>
-                  )}
-                </h1>
-                <p className="text-gray-600 dark:text-gray-400">
-                  {paginatedData.totalPosts}{" "}
-                  {locale === "vi" ? "bài viết được tìm thấy" : "posts found"}
-                </p>
-              </div>
-            )}
-
-            {/* Posts Grid */}
-            {paginatedData.posts.length > 0 ? (
-              <>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
-                  {paginatedData.posts.map((post, index) => (
-                    <BlogPostCard
-                      key={post.slug}
-                      post={post}
-                      priority={currentPage === 1 && index < 3}
-                    />
-                  ))}
-                </div>
-
-                {/* Pagination */}
-                {paginatedData.totalPages > 1 && (
-                  <BlogPagination
-                    currentPage={paginatedData.currentPage}
-                    totalPages={paginatedData.totalPages}
-                    hasNextPage={paginatedData.hasNextPage}
-                    hasPrevPage={paginatedData.hasPrevPage}
-                    baseUrl="/blog"
-                    searchParams={searchParams}
-                  />
-                )}
-              </>
-            ) : (
-              <div className="text-center py-12">
-                <h2 className="text-2xl font-semibold mb-4">
-                  {locale === "vi"
-                    ? "Không tìm thấy bài viết"
-                    : "No posts found"}
-                </h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">
-                  {locale === "vi"
-                    ? "Thử điều chỉnh bộ lọc hoặc tìm kiếm từ khóa khác"
-                    : "Try adjusting your filters or search for different keywords"}
-                </p>
-                <Link
-                  href="/blog"
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                >
-                  {locale === "vi" ? "Xem tất cả bài viết" : "View all posts"}
-                </Link>
-              </div>
-            )}
-          </div>
-
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <BlogSidebar
-              categories={categories}
-              authors={authors}
-              locale={locale}
-              currentFilters={resolvedSearchParams}
-            />
-          </div>
+    <>
+      <section className="relative container-gutter">
+        <BackgroundGrid />
+        <div className="grid grid-cols-12 py-12 lg:py-16">
+          <h1 className="text-4xl lg:text-6xl font-bold col-span-12 lg:col-span-6 ">
+            {t("hero.title")}
+          </h1>
+          <p className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-muted-foreground text-justify whitespace-pre-line  max-w-2xl">
+            {t.rich("hero.desc", {
+              bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
+            })}
+          </p>
         </div>
-      </div>
-    </div>
+      </section>
+      {/* Featured Posts Section */}
+      {featuredPost && (
+        <section className="relative container-gutter">
+          <BackgroundGrid />
+          <Link
+            href={`/blog/${featuredPost.slug}`}
+            aria-label={`Read ${featuredPost.frontmatter.title}`}
+            className="block"
+          >
+            <div className="relative  grid grid-cols-12">
+              <BackgroundScanline
+                crosshairs={["top-right", "bottom-left"]}
+                className="absolute inset-0 "
+                opacity={0.1}
+              />
+              <div className="relative col-span-12 lg:col-span-6 aspect-[16/10] m-8 lg:m-12">
+                <Image
+                  src={
+                    featuredPost.frontmatter.coverImage ??
+                    "/images/blog/default.jpg"
+                  }
+                  alt={featuredPost.frontmatter.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="col-span-12 lg:col-span-6 flex flex-col justify-center">
+                <h2 className="text-2xl lg:text-4xl font-bold">
+                  {featuredPost.frontmatter.title}
+                </h2>
+                <p className="">
+                  {new Date(
+                    featuredPost.frontmatter.publishedAt
+                  ).toLocaleDateString(locale)}
+                </p>
+                <p className="mt-4">{featuredPost.frontmatter.author}</p>
+              </div>
+            </div>
+          </Link>
+        </section>
+      )}
+    </>
   );
 }

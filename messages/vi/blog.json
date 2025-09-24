@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Wheelhouse Blog | Chia sẻ về GMDSS, Navigation và công nghệ hàng hải",
+    "description": "Blog Wheelhouse chia sẻ giải pháp, hướng dẫn sử dụng, phân tích công nghệ và xu hướng hàng hải giúp bạn vận hành tàu an toàn, hiệu quả hơn.",
+    "ogImage": "/images/og/blog-og.jpg",
+    "canonical": "/en/blog",
+    "slug": "blog"
+  },
+  "hero": {
+    "title": "Blog & Kiến thức Hàng hải",
+    "desc": "Khám phá kiến thức, xu hướng và kỹ năng thực tế về thiết bị hàng hải để vận hành tàu an toàn, tin cậy và hiệu quả."
+  }
+}

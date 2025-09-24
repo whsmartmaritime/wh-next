@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Wheelhouse Blog | Insights & Updates on Maritime Electronics",
+    "description": "Explore the Wheelhouse Blog for in-depth knowledge, trends, and solutions that keep your vessel connected, compliant, and ready for the future.",
+    "ogImage": "/images/og/blog-og.jpg",
+    "canonical": "/en/blog",
+    "slug": "blog"
+  },
+  "hero": {
+    "title": "Maritime Electronics Blog",
+    "desc": "Explore insights, trends, and practical tips in maritime electronics to ensure safe, reliable, and efficient vessel operations."
+  }
+}
