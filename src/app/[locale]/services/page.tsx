@@ -228,7 +228,7 @@ export default async function ServicePage(props: {
               priority
             />
           </div>
-          <div className="col-span-12 lg:col-span-6 text-sm sm:text-lg lg:text-2xl px-8 lg:px-0 text-justify leading-relaxed">
+          <div className="col-span-12 lg:col-span-6 text-sm sm:text-lg lg:text-2xl px-8 lg:px-0 leading-relaxed">
             <h3 className="text-2xl lg:text-4xl font-bold mb-4">
               {t("installation.items.item1.title")}
             </h3>
@@ -236,7 +236,7 @@ export default async function ServicePage(props: {
           </div>
         </div>
         <div className="grid grid-cols-12  mb-8 lg:mb-16 text-lg lg:text-xl leading-relaxed">
-          <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-justify">
+          <p className="col-span-12 lg:col-span-6 lg:col-start-4 ">
             {t.rich("installation.items.item1.desc", {
               bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
             })}
@@ -248,7 +248,6 @@ export default async function ServicePage(props: {
             {t("installation.ctaLabel")}
           </Button>
         </div>
-        <div className="grid grid-cols-12"></div>
       </section>
     </>
   );
