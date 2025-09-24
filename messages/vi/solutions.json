@@ -27,6 +27,7 @@
         "title": "Nghi Khí Hàng Hải",
         "intro": "Là nhà cung cấp độc lập, Wheelhouse cung cấp các thiết bị định vị hàng hải chất lượng cao từ những thương hiệu uy tín hàng đầu thế giới.",
         "desc": "",
+        "href": "solutions/navigation-equipment",
         "imgSrc": "/images/solutions/wheelhouse-engineer-with-navigation-equipment.webp",
         "imgAlt": "kỹ thuật viên wheelhouse với thiết bị nghi khí hàng hải"
       },
@@ -34,6 +35,7 @@
         "title": "Thiết Bị GMDSS",
         "intro": "Giải pháp GMDSS đáng tin cậy giúp tàu duy trì liên lạc, tuân thủ SOLAS và đảm bảo an toàn cho mọi hành trình.",
         "desc": "",
+        "href": "solutions/gmdss-equipment",
         "imgSrc": "/images/solutions/gmdss-console-equipment.webp",
         "imgAlt": "gmdss console equipment"
       },
@@ -41,6 +43,7 @@
         "title": "Thông tin vệ tinh",
         "intro": "Giải pháp kết nối vệ tinh tốc độ cao giúp tàu luôn trực tuyến, vận hành ổn định ở bất kỳ vùng biển nào.",
         "desc": "",
+        "href": "solutions/connectivity-solutions",
         "imgSrc": "/images/solutions/satellite-connectivity.webp",
         "imgAlt": "satellite connectivity"
       },
@@ -48,11 +51,10 @@
         "title": "Hải đồ - Ấn phẩm điện tử",
         "intro": "Giải pháp e-navigation kết hợp thiết bị ECDIS, dữ liệu ENC và ấn phẩm điện tử, mang đến sự hỗ trợ tối ưu cho lập kế hoạch và điều hướng an toàn.",
         "desc": "",
+        "href": "solutions/e-navigation",
         "imgSrc": "/images/solutions/e-navigation.webp",
         "imgAlt": "e-navigation"
-      },
-      "ctaTitle": "Interested in Our Solutions?",
-      "ctaLabel": "Contact Us for More Information"
+      }
     }
   }
 }
