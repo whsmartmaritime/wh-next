@@ -15,7 +15,7 @@
     "ctaSecondary": "Want to Chat First?"
   },
   "overview": {
-    "title": "Overview",
+    "title": "Quality of Solutions",
     "intro": "Your Journey with Wheelhouse",
     "desc": "At Wheelhouse, every maritime electronics solution begins with understanding the needs of the vessel and its crew. We guide you through consultation, design, supply, installation, and commissioning, ensuring smooth, safe, and reliable operation at sea."
   },
@@ -55,6 +55,12 @@
         "imgSrc": "/images/solutions/e-navigation.webp",
         "imgAlt": "e-navigation"
       }
+    },
+    "ctaContent": {
+      "title": "From Solutions to Sustainable Performance",
+      "desc": "In addition to the solutions we provide, Wheelhouse also offers a range of specialized support services — from regular maintenance and on-site repairs to remote assistance — helping you keep systems running smoothly while optimizing costs and improving performance.",
+      "href": "/services",
+      "label": "Explore Our Services"
     }
   }
 }

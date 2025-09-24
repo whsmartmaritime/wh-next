@@ -6,6 +6,7 @@ import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { BackgroundScanline } from "@/components/BackgroundScanline";
 import Image from "next/image";
 import Link from "next/dist/client/link";
+import Button from "@/components/Button";
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
@@ -143,6 +144,24 @@ export default async function SolutionsPage(props: {
               </Link>
             </div>
           ))}
+          <div className="col-span-12 lg:col-span-6 lg:col-start-4 my-auto mx-auto ">
+            <h2 className="text-2xl lg:text-4xl font-bold ">
+              {t("solutionList.ctaContent.title")}
+            </h2>
+            <p className=" ">
+              {t.rich("solutionList.ctaContent.desc", {
+                bold: (chunks) => (
+                  <strong className="font-bold">{chunks}</strong>
+                ),
+              })}
+            </p>
+            <Button
+              className="col-span-12 md:col-span-6 lg:col-start-4 min-h-20 my-8 bg-white text-black hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
+              href={`/${locale}/solutions`}
+            >
+              {t("solutionList.ctaContent.label")}
+            </Button>
+          </div>
         </div>
       </section>
     </>

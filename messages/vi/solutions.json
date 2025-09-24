@@ -15,7 +15,7 @@
     "ctaSecondary": "Trò Chuyện Whatsapp?"
   },
   "overview": {
-    "title": "Tổng Quan",
+    "title": "Chất lượng giải pháp",
     "intro": "Hành Trình Cùng Wheelhouse",
     "desc": "Tại Wheelhouse, mỗi giải pháp điện tử hàng hải bắt đầu từ việc hiểu rõ nhu cầu của tàu và thủy thủ đoàn. Chúng tôi đồng hành từ tư vấn, thiết kế, cung cấp thiết bị đến lắp đặt và chạy thử, đảm bảo mọi hệ thống vận hành trơn tru, an toàn và đáng tin cậy trên biển."
   },
@@ -55,6 +55,12 @@
         "imgSrc": "/images/solutions/e-navigation.webp",
         "imgAlt": "e-navigation"
       }
+    },
+    "ctaContent": {
+      "title": "Từ giải pháp đến vận hành bền vững",
+      "desc": "Bên cạnh các giải pháp mà chúng tôi mang đến, Wheelhouse còn cung cấp nhiều dịch vụ hỗ trợ chuyên sâu — từ bảo trì định kỳ, sửa chữa tại chỗ, đến hỗ trợ từ xa — giúp hệ thống vận hành ổn định, tối ưu chi phí và nâng cao hiệu suất.",
+      "href": "/services",
+      "label": "Khám phá dịch vụ của chúng tôi"
     }
   }
 }
