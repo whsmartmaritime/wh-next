@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Solutions | WH Marine",
-    "description": "Comprehensive maritime solutions and services for vessels worldwide. From ship management to technical support and crew services.",
+    "title": "Maritime Electronics Solutions | GMDSS, Navigation & Automation",
+    "description": "Wheelhouse provides comprehensive solutions for maritime electronics, including GMDSS, Navigation, automation, and connectivity, ensuring reliable performance.",
     "ogImage": "/images/og-solutions.jpg",
     "canonical": "/en/solutions"
   },
@@ -13,5 +13,46 @@
     "description": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
     "ctaPrimary": "Start Working With Us",
     "ctaSecondary": "Want to Chat First?"
+  },
+  "overview": {
+    "title": "Overview",
+    "intro": "Your Journey with Wheelhouse",
+    "desc": "At Wheelhouse, every maritime electronics solution begins with understanding the needs of the vessel and its crew. We guide you through consultation, design, supply, installation, and commissioning, ensuring smooth, safe, and reliable operation at sea."
+  },
+  "solutionList": {
+    "title": "Our Solutions",
+    "intro": "Comprehensive Maritime Electronics Solutions",
+    "items": {
+      "item1": {
+        "title": "Navigation Equipment",
+        "intro": "As a brand-independent supplier, Wheelhouse delivers high-quality navigation equipment from world-renowned manufacturers.",
+        "desc": "",
+        "imgSrc": "/images/solutions/wheelhouse-engineer-with-navigation-equipment.webp",
+        "imgAlt": "wheelhouse service engineer with navigation equipment"
+      },
+      "item2": {
+        "title": "GMDSS Equipment",
+        "intro": "Optimize vessel operations with advanced GMDSS solutions",
+        "desc": "",
+        "imgSrc": "/images/solutions/gmdss-console-equipment.webp",
+        "imgAlt": "gmdss console equipment"
+      },
+      "item3": {
+        "title": "Connectivity Solutions",
+        "intro": "From VSAT, Iridium and Starlink, our satellite solutions deliver fast, reliable connectivity so your vessel stays online anywhere in the world",
+        "desc": "",
+        "imgSrc": "/images/solutions/satellite-connectivity.webp",
+        "imgAlt": "satellite connectivity"
+      },
+      "item4": {
+        "title": "E-Navigation",
+        "intro": "Our e-navigation solutions integrate ECDIS systems, ENC data, and electronic publications to support safe and efficient voyage planning.",
+        "desc": "",
+        "imgSrc": "/images/solutions/e-navigation.webp",
+        "imgAlt": "e-navigation"
+      },
+      "ctaTitle": "Interested in Our Solutions?",
+      "ctaLabel": "Contact Us for More Information"
+    }
   }
 }
