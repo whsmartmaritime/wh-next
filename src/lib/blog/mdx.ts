@@ -27,10 +27,24 @@ export function getContentSlugs(
   if (!fs.existsSync(targetDir)) {
     return [];
   }
-  return fs
-    .readdirSync(targetDir)
-    .filter((filename) => filename.endsWith(".mdx"))
-    .map((filename) => filename.replace(/\.mdx$/, ""));
+
+  const slugs: string[] = [];
+  const stack = [targetDir];
+
+  while (stack.length) {
+    const dir = stack.pop()!;
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) stack.push(fullPath);
+      else if (entry.isFile() && entry.name.endsWith(".mdx")) {
+        const rel = path.relative(targetDir, fullPath).replace(/\\/g, "/");
+        slugs.push(rel.replace(/\.mdx$/, ""));
+      }
+    }
+  }
+
+  return slugs;
 }
 
 export function getPostSlugs(locale?: "en" | "vi"): string[] {
