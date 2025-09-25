@@ -114,7 +114,7 @@ export default async function BlogPage({
         >
           <BackgroundGrid />
           <Link
-            href={`/blog/${featuredPost.slug}`}
+            href={`/${locale}/blog/${featuredPost.category}/${featuredPost.slug}`}
             aria-label={`Read ${featuredPost.title}`}
             className="block"
           >

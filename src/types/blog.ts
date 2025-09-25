@@ -29,6 +29,12 @@ export interface PostMeta {
   draft?: boolean;
   coverImage?: string;
   readingTime?: ReadingTime;
+  categoryMeta?: {
+    title: string;
+    description: string;
+    icon?: string;
+    order?: number;
+  } | null;
 
   // Auto-generated fields
   hasTranslation?: boolean; // Will be populated by code
