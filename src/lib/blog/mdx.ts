@@ -378,7 +378,7 @@ export function getBilingualPostByFilename(
     const viExcerpt = frontmatter.excerpt?.vi || generateExcerpt(viContent);
 
     return {
-      slugs: frontmatter.slug,
+      slugs: frontmatter.slug, // now expects 'slug' field, not 'translations'
       frontmatter,
       content: {
         en: enContent,
@@ -411,7 +411,12 @@ export function getBilingualPostBySlug(
     if (!bilingualPost) continue;
 
     // Check if this bilingual post contains the requested slug
-    if (bilingualPost.slugs.en === slug || bilingualPost.slugs.vi === slug) {
+    if (
+      bilingualPost.slugs &&
+      typeof bilingualPost.slugs.en === "string" &&
+      typeof bilingualPost.slugs.vi === "string" &&
+      (bilingualPost.slugs.en === slug || bilingualPost.slugs.vi === slug)
+    ) {
       // Determine which locale this slug belongs to
       const targetLocale = bilingualPost.slugs.en === slug ? "en" : "vi";
 

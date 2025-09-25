@@ -150,7 +150,7 @@ export default async function BlogPage({
             <div className="relative  grid grid-cols-12">
               <BackgroundScanline
                 crosshairs={["top-right", "bottom-left"]}
-                className="absolute inset-0 "
+                className="absolute inset-0 border border-neutral-500/20 bg-background"
                 opacity={0.1}
               />
               <div className="relative col-span-12 lg:col-span-6 aspect-[16/10] m-8 lg:m-12">
