@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { paginatePosts, getFeaturedPosts, getAllPosts } from "@/lib/blog/mdx";
+import { getFeaturedPosts } from "@/lib/blog/mdx";
 import BackgroundGrid from "@/components/BackgroundGrid";
 import { BackgroundScanline } from "@/components/BackgroundScanline";
 import Link from "next/link";
@@ -83,42 +83,13 @@ export default async function BlogPage({
   params,
   searchParams,
 }: BlogPageProps) {
-  const { locale } = params;
+  const resolvedParams = await Promise.resolve(params);
+  const { locale } = resolvedParams;
   const t = await getTranslations({ locale, namespace: "blog" });
-  const resolvedSearchParams = searchParams || {};
-  const currentPage = parseInt(resolvedSearchParams.page || "1");
-  const postsPerPage = 12;
 
-  // Get content
-  let posts = getAllPosts(locale);
-
-  // Apply filters
-  if (resolvedSearchParams.category) {
-    posts = posts.filter(
-      (p) => p.frontmatter.category === resolvedSearchParams.category
-    );
-  }
-  if (resolvedSearchParams.tag) {
-    posts = posts.filter((p) =>
-      p.frontmatter.tags.includes(resolvedSearchParams.tag!)
-    );
-  }
-  if (resolvedSearchParams.author) {
-    posts = posts.filter(
-      (p) => p.frontmatter.author === resolvedSearchParams.author
-    );
-  }
-  if (resolvedSearchParams.search) {
-    const term = resolvedSearchParams.search.toLowerCase();
-    posts = posts.filter((p) =>
-      [p.frontmatter.title, p.excerpt, p.frontmatter.tags.join(" ")]
-        .join(" ")
-        .toLowerCase()
-        .includes(term)
-    );
-  }
-  const featuredPost = getFeaturedPosts(1, locale)[0]; // Lấy phần tử đầu tiên
-  paginatePosts(posts, currentPage, postsPerPage); // keep call in case pagination logic is used later
+  // Get featured post for the hero section
+  const featuredPosts = await getFeaturedPosts(locale);
+  const featuredPost = featuredPosts[0]; // Get first featured post
 
   return (
     <>
@@ -144,10 +115,10 @@ export default async function BlogPage({
           <BackgroundGrid />
           <Link
             href={`/blog/${featuredPost.slug}`}
-            aria-label={`Read ${featuredPost.frontmatter.title}`}
+            aria-label={`Read ${featuredPost.title}`}
             className="block"
           >
-            <div className="relative  grid grid-cols-12">
+            <div className="relative grid grid-cols-12">
               <BackgroundScanline
                 crosshairs={["top-right", "bottom-left"]}
                 className="absolute inset-0 border border-neutral-500/20 bg-background"
@@ -155,11 +126,8 @@ export default async function BlogPage({
               />
               <div className="relative col-span-12 lg:col-span-6 aspect-[16/10] m-8 lg:m-12">
                 <Image
-                  src={
-                    featuredPost.frontmatter.coverImage ??
-                    "/images/blog/default.jpg"
-                  }
-                  alt={featuredPost.frontmatter.title}
+                  src={featuredPost.coverImage ?? "/images/blog/default.jpg"}
+                  alt={featuredPost.title}
                   fill
                   className="object-cover"
                   priority
@@ -167,14 +135,14 @@ export default async function BlogPage({
               </div>
               <div className="col-span-12 lg:col-span-6 flex flex-col justify-center">
                 <h2 className="text-2xl lg:text-4xl font-bold">
-                  {featuredPost.frontmatter.title}
+                  {featuredPost.title}
                 </h2>
                 <p className="">
-                  {new Date(
-                    featuredPost.frontmatter.publishedAt
-                  ).toLocaleDateString(locale)}
+                  {new Date(featuredPost.publishedAt).toLocaleDateString(
+                    locale
+                  )}
                 </p>
-                <p className="mt-4">{featuredPost.frontmatter.author}</p>
+                <p className="mt-4">{featuredPost.author}</p>
               </div>
             </div>
           </Link>

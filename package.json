@@ -27,6 +27,7 @@
     "rehype-highlight": "^7.0.2",
     "remark-gfm": "^4.0.1",
     "sass": "^1.90.0",
+    "slugify": "^1.6.6",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
