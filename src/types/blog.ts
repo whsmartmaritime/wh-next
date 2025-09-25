@@ -1,152 +1,50 @@
-// Bilingual support types
-export interface BilingualText {
-  en: string;
-  vi: string;
+/**
+ * Blog Types for Next.js MDX Blog with i18n Support
+ */
+import { ReactElement } from "react";
+
+// Base Types
+export type Locale = "en" | "vi";
+
+export interface ReadingTime {
+  text: string;
+  minutes: number;
+  words: number;
 }
 
-export interface BilingualArray {
-  en: string[];
-  vi: string[];
-}
-
-export interface BilingualSEO {
-  en?: {
-    metaTitle?: string;
-    metaDescription?: string;
-    keywords?: string[];
-    ogImage?: string;
-  };
-  vi?: {
-    metaTitle?: string;
-    metaDescription?: string;
-    keywords?: string[];
-    ogImage?: string;
-  };
-}
-
-// New bilingual post matter
-export interface BilingualPostMatter {
-  title: BilingualText;
-  excerpt: BilingualText;
-  publishedAt: string;
-  updatedAt?: string;
-  category: string;
-  tags: BilingualArray;
-  author: string;
-  coverImage?: string;
-  featured?: boolean;
-  draft?: boolean;
-  slug: BilingualText; // Slug riêng cho từng ngôn ngữ
-  seo?: BilingualSEO;
-}
-
-export interface BilingualPost {
-  slugs: BilingualText; // All available slugs
-  frontmatter: BilingualPostMatter;
-  content: {
-    en: string;
-    vi: string;
-  };
-  readingTime: {
-    en: {
-      text: string;
-      minutes: number;
-      time: number;
-      words: number;
-    };
-    vi: {
-      text: string;
-      minutes: number;
-      time: number;
-      words: number;
-    };
-  };
-  excerpt: BilingualText;
-}
-
-// Core blog post types
-export interface PostMatter {
-  title: string;
-  excerpt: string;
-  publishedAt: string;
-  updatedAt?: string;
-  category: string;
-  tags: string[];
-  author: string;
-  coverImage?: string;
-  featured?: boolean;
-  draft?: boolean;
-  locale?: "en" | "vi";
-  translations?: {
-    // Mapping slug của các ngôn ngữ
-    en?: string;
-    vi?: string;
-  };
-  seo?: {
-    metaTitle?: string;
-    metaDescription?: string;
-    keywords?: string[];
-    ogImage?: string;
-  };
-}
-
-export interface Post {
+// Core Types
+export interface PostMeta {
+  // Required fields
+  locale: Locale;
   slug: string;
-  frontmatter: PostMatter;
-  content: string;
-  readingTime: {
-    text: string;
-    minutes: number;
-    time: number;
-    words: number;
-  };
-  excerpt: string;
-}
-
-export interface PostCardProps {
-  post: Post;
-  priority?: boolean;
-  className?: string;
-}
-
-// Category types
-export interface CategoryMatter {
   title: string;
   description: string;
-  slug: string;
+  publishedAt: string;
+  author: string;
+  category: string;
+  tags: string[];
+
+  // Optional fields
+  featured?: boolean;
+  draft?: boolean;
   coverImage?: string;
-  color?: string;
-  locale?: "en" | "vi";
+  readingTime?: ReadingTime;
+
+  // Auto-generated fields
+  hasTranslation?: boolean; // Will be populated by code
+  translationSlug?: string; // Will be populated by code
 }
 
-export interface Category {
-  slug: string;
-  frontmatter: CategoryMatter;
-  content: string;
-  postCount: number;
+// Full Post Content
+export interface Post extends PostMeta {
+  content: ReactElement | string;
 }
 
-// Author types
-export interface AuthorMatter {
-  name: string;
-  bio: string;
-  avatar?: string;
-  position?: string;
-  company?: string;
-  social?: {
-    twitter?: string;
-    linkedin?: string;
-    github?: string;
-    website?: string;
-  };
-  locale?: "en" | "vi";
-}
-
-export interface Author {
-  slug: string;
-  frontmatter: AuthorMatter;
-  content: string;
-  postCount: number;
+// Props Types
+export interface PostCardProps {
+  post: PostMeta;
+  priority?: boolean;
+  className?: string;
 }
 
 // Pagination
@@ -158,8 +56,9 @@ export interface PaginationProps {
   baseUrl: string;
 }
 
-// Search and filter
+// Search and Filter
 export interface BlogFilters {
+  locale: Locale;
   category?: string;
   tag?: string;
   author?: string;
@@ -168,10 +67,9 @@ export interface BlogFilters {
   search?: string;
 }
 
+// Page Props
 export interface BlogPageProps {
-  posts: Post[];
-  categories: Category[];
-  authors: Author[];
+  posts: PostMeta[];
   pagination: PaginationProps;
   filters?: BlogFilters;
 }
