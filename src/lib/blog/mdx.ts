@@ -14,15 +14,9 @@ const POSTS_PATH = path.join(process.cwd(), "content/posts");
 /**
  * Lấy metadata của một bài viết
  */
-export const getPostMeta = async (
-  slug: string,
-  locale: Locale
-): Promise<PostMeta | null> => {
+export const getPostMeta = async (slug: string): Promise<PostMeta | null> => {
   const allPosts = await getAllPostMeta();
-  return (
-    allPosts.find((post) => post.slug === slug && post.locale === locale) ||
-    null
-  );
+  return allPosts.find((post) => post.slug === slug) || null;
 };
 
 // Hàm helper để sort bài viết theo ngày
@@ -91,11 +85,14 @@ export const getAllPostMeta = async (): Promise<PostMeta[]> => {
  * Lấy nội dung của một bài viết
  */
 export const getPostContent = async (
-  slug: string,
-  locale: Locale
+  slug: string
 ): Promise<ReactElement | null> => {
+  // Lấy metadata để biết locale
+  const meta = await getPostMeta(slug);
+  if (!meta) return null;
+
   // Tìm file MDX
-  const mdxFiles = await glob(`**/${locale}.mdx`, {
+  const mdxFiles = await glob(`**/${meta.locale}.mdx`, {
     cwd: POSTS_PATH,
     absolute: true,
   });
@@ -104,7 +101,7 @@ export const getPostContent = async (
   const filePath = mdxFiles.find((file) => {
     const source = fsSync.readFileSync(file, "utf8");
     const { data } = matter(source);
-    return data.slug === slug && data.locale === locale;
+    return data.slug === slug;
   });
 
   if (!filePath) return null;
@@ -123,16 +120,13 @@ export const getPostContent = async (
 /**
  * Lấy toàn bộ thông tin của một bài viết (metadata + nội dung)
  */
-export const getPost = async (
-  slug: string,
-  locale: Locale
-): Promise<Post | null> => {
+export const getPost = async (slug: string): Promise<Post | null> => {
   // Lấy metadata
-  const meta = await getPostMeta(slug, locale);
+  const meta = await getPostMeta(slug);
   if (!meta) return null;
 
   // Lấy nội dung
-  const content = await getPostContent(slug, locale);
+  const content = await getPostContent(slug);
   if (!content) return null;
 
   return {
