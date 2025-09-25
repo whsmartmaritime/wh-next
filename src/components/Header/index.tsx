@@ -12,7 +12,10 @@ export default async function Header() {
       <TopBar />
 
       <header className="sticky top-0 z-50 w-full py-0 bg-white dark:bg-zinc-900 overflow-visible border-b border-neutral-800/20 dark:border-neutral-100/20">
-        <nav className="container-gutter grid grid-cols-12 items-center gap-x-6 h-[66px] sm:h-[76px] xl:h-[90px] text-zinc-900 dark:text-white overflow-visible">
+        <nav
+          className="container-gutter grid grid-cols-12 items-center gap-x-6 h-[66px] sm:h-[76px] xl:h-[90px] text-zinc-900 dark:text-white overflow-visible"
+          aria-label="Main site navigation"
+        >
           {/* Logo */}
           <Link
             href="/"

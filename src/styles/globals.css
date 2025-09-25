@@ -3,7 +3,7 @@
 
 @layer base {
   :root {
-    --background: #e5e5e5;
+    --background: #f9fafb;
     --foreground: #171717;
     --gutter-h: 1rem;
     --block-spacing: 2rem;

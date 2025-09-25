@@ -1,5 +1,4 @@
-import "../styles/globals.css";
-import "../styles/animations.css";
+import "@/styles/globals.css";
 import { cookies } from "next/headers";
 import { getLocale } from "next-intl/server";
 import { ThemeProvider } from "@/components/ThemeProvider";

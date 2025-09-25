@@ -137,7 +137,10 @@ export default async function BlogPage({
       </section>
       {/* Featured Posts Section */}
       {featuredPost && (
-        <section className="relative container-gutter">
+        <section
+          className="relative container-gutter"
+          aria-label="Blog featured post"
+        >
           <BackgroundGrid />
           <Link
             href={`/blog/${featuredPost.slug}`}
@@ -177,6 +180,10 @@ export default async function BlogPage({
           </Link>
         </section>
       )}
+      <section
+        className="relative container-gutter"
+        aria-label="Blog post list"
+      ></section>
     </>
   );
 }

@@ -68,7 +68,10 @@ export default async function AboutPage(props: {
 
   return (
     <>
-      <section className=" bg-gradient-to-br from-sky-900 via-slate-900 to-black w-full text-neutral-300">
+      <section
+        className=" bg-gradient-to-br from-sky-900 via-slate-900 to-black w-full text-neutral-300"
+        aria-label="About hero section"
+      >
         <PageHero
           className="container-gutter"
           rightImageSrc="/images/about/wheelhouse-engineer-with-iridium.webp"
@@ -80,7 +83,10 @@ export default async function AboutPage(props: {
           ctaSecondary={t("hero.ctaSecondary")}
         />
       </section>
-      <section className="bg-neutral-200 text-neutral-900">
+      <section
+        className="bg-neutral-200 text-neutral-900"
+        aria-label="About intro section"
+      >
         <div className="relative inset-0 pointer-events-none h-[calc(var(--gutter-h))]">
           <BackgroundGrid />
         </div>
@@ -104,7 +110,10 @@ export default async function AboutPage(props: {
           <BackgroundGrid />
         </div>
       </section>
-      <section className="bg-black text-neutral-200">
+      <section
+        className="bg-black text-neutral-200"
+        aria-label="About team section"
+      >
         <div className="container-gutter">
           <div className="grid grid-cols-1 lg:grid-cols-2 border border-neutral-500/20 divide-x divide-neutral-500/20">
             {/* Cột Values */}
@@ -141,7 +150,10 @@ export default async function AboutPage(props: {
       </section>
 
       {/* Contact Section */}
-      <section className="relative bg-neutral-200 text-neutral-900">
+      <section
+        className="relative bg-neutral-200 text-neutral-900"
+        aria-label="About contact section"
+      >
         <BackgroundGrid />
         <div className="container-gutter mx-auto  pt-8 px-4 lg:px-8">
           <h2 className="uppercase tracking-[0.25em] font-bold text-xl lg:text-2xl">
@@ -177,7 +189,7 @@ export default async function AboutPage(props: {
             />
           </div>
           <div className="w-full xl:w-1/2 mx-auto  ">
-            <form className="space-y-6">
+            <form className="space-y-6" aria-label="Contact form">
               <h3 className="uppercase tracking-[0.25em]  text-lg lg:text-xl">
                 {t("contact.messageTitle")}
               </h3>

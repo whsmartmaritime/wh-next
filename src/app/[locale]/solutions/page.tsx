@@ -68,7 +68,10 @@ export default async function SolutionsPage(props: {
 
   return (
     <>
-      <section className=" bg-gradient-to-br from-sky-900 via-slate-900 to-black w-full text-neutral-300">
+      <section
+        className=" bg-gradient-to-br from-sky-900 via-slate-900 to-black w-full text-neutral-300"
+        aria-label="Solutions hero section"
+      >
         <PageHero
           className="container-gutter"
           rightImageSrc="/images/about/wheelhouse-engineer-with-iridium.webp"
@@ -82,7 +85,10 @@ export default async function SolutionsPage(props: {
       </section>
       {/** section overview **/}
 
-      <section className="relative bg-neutral-200 text-neutral-900">
+      <section
+        className="relative bg-neutral-200 text-neutral-900"
+        aria-label="Solutions intro section"
+      >
         <BackgroundGrid />
         <div className="container-gutter py-16 lg:py-32">
           <div className="relative bg-neutral-200 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
@@ -102,7 +108,10 @@ export default async function SolutionsPage(props: {
         </div>
       </section>
       {/* solution list section */}
-      <section className="relative container-gutter bg-neutral-200 text-neutral-900">
+      <section
+        className="relative container-gutter bg-neutral-200 text-neutral-900"
+        aria-label="Solutions list section"
+      >
         <BackgroundGrid />
         <div className="grid grid-cols-12 items-stretch">
           {(["item1", "item2", "item3", "item4"] as const).map((key, i) => (

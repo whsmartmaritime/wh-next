@@ -33,7 +33,10 @@ export default function MobileNav() {
   ];
 
   return (
-    <nav className="text-neutral-800 dark:text-neutral-100">
+    <nav
+      className="text-neutral-800 dark:text-neutral-100"
+      aria-label="Mobile navigation"
+    >
       <ul className="flex flex-col">
         {menuItems.map((item, index) => (
           <li

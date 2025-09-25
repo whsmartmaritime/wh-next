@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { BackgroundAnimation } from "@/components/BackgroundAnimation";
-import { BackgroundScanline } from "@/components/BackgroundScanline";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import Hero from "@/components/Hero";
 import { LogoShowcase } from "@/components/LogoShowcase";
@@ -66,8 +65,11 @@ export default async function HomePage(props: {
   const t = translations[currentIndex];
 
   return (
-    <main>
-      <section className="relative w-full min-h-screen text-neutral-200">
+    <>
+      <section
+        className="relative w-full min-h-screen text-neutral-200"
+        aria-label="Hero section"
+      >
         <BackgroundGrid gradient={true} />
         <BackgroundAnimation />
         <div className="relative container-gutter">
@@ -105,11 +107,11 @@ export default async function HomePage(props: {
         </div>
       </section>
 
-      <WhyWheelhouse />
+      <WhyWheelhouse aria-label="Why Wheelhouse section" />
 
-      <WhatWeDo />
+      <WhatWeDo aria-label="What We Do section" />
 
-      <LatestNews />
-    </main>
+      <LatestNews aria-label="Latest News section" />
+    </>
   );
 }

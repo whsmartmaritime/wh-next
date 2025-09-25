@@ -25,23 +25,39 @@ export default async function LocaleLayout({
     <>
       <NextIntlClientProvider locale={activeLocale} messages={messages}>
         <Header />
-        {children}
+        <main aria-label="Main content">{children}</main>
         <Footer />
       </NextIntlClientProvider>
     </>
   );
 }
 
+// Metadata for falling back
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
   ),
-  title: { default: "Wheelhouse", template: "%s | Wheelhouse" },
+  title: {
+    default: "Wheelhouse",
+    template: "%s | Wheelhouse",
+  },
+  description: "Wheelhouse - Maritime Electronic Services and Solutions.",
   openGraph: {
     siteName: "Wheelhouse",
     type: "website",
+    images: [
+      {
+        url: "/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Wheelhouse",
+      },
+    ],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    site: "@wheelhouse",
+  },
   icons: {
     icon: [
       { rel: "icon", url: "/favicon.svg", type: "image/svg+xml" },
