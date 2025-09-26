@@ -1,0 +1,84 @@
+---
+slug: "speed-log-technical-analysis"
+title: "Maritime Speed Log: Technical Analysis of DVL, Electromagnetic Log, and Energy Management"
+description: "In-depth analysis of Speed Log technology, the difference between speed through water (STW) and speed over ground (SOG), the working principles of DVL and Electromagnetic Log, and their role in maneuvering and fuel efficiency."
+publishedAt: "2024-01-06"
+author: "Neo Nguyen"
+category: "navigation"
+tags: ["Speed Log", "DVL", "STW", "SOG", "maritime", "fuel efficiency"]
+coverImage: "/images/blog/equipment/speed-log-dvl.jpg"
+featured: true
+---
+
+# Maritime Speed Log: Technical Analysis of DVL, Electromagnetic Log, and Energy Management
+
+<p className="text-xl text-gray-500 italic mb-8">
+  Precise dynamic control: Distinguishing between **speed through water** and
+  **speed over ground** to optimize maneuvering and fuel efficiency.
+</p>
+
+## 1. Introduction: The Importance of Velocity in Safety and Efficiency
+
+The **Speed Log** is a fundamental maritime instrument, providing necessary velocity information for most maneuvering and calculation activities. Accurate speed data is the foundation for calculating **Dead Reckoning**, supports ARPA in target tracking, and controls compliance with speed regulations. This article focuses on the difference between **STW** and **SOG**, specialized measurement technologies (**Electromagnetic Log** and **Doppler Log**), and their role in energy management and maritime safety.
+
+---
+
+## 2. Distinguishing Speed Types and Tactical Applications
+
+Speed logs provide two types of velocity with different physical origins.
+
+### 2.1. STW (Speed Through Water)
+
+- **Definition:** The ship's velocity relative to the surrounding mass of water.
+- **Application:** It is the primary indicator for assessing the ship's **Hydrodynamic Performance**, controlling propeller revolutions (RPM) to optimize fuel consumption.
+
+### 2.2. SOG (Speed Over Ground)
+
+- **Definition:** The ship's velocity relative to the seabed (or ground).
+- **Application:** This is the ship's actual speed relative to targets and terrain, paramount for **Dead Reckoning** and safe maneuvering. The difference between SOG and STW is primarily due to the influence of **Current**.
+
+---
+
+## 3. Specialized Speed Measurement Technologies
+
+SOLAS vessels are typically required to be equipped with at least one STW measuring device and one independent SOG measuring device.
+
+### 3.1. Electromagnetic Log (EM Log)
+
+- **Principle:** Based on **Faraday's Law of Electromagnetic Induction**. A coil under the hull generates a magnetic field. When water (a conductor) moves across this field, a voltage is induced in the sensor, proportional to the STW.
+- **Advantages:** High accuracy, no moving parts (low maintenance), direct STW measurement.
+
+### 3.2. Doppler Velocity Log (DVL)
+
+- **Principle:** DVL transmits high-frequency acoustic beams towards the seabed. When the beams reflect back, their frequency changes (**Doppler Effect**). This frequency shift is proportional to the relative velocity of the ship to the seabed.
+  $$\Delta f = 2 \cdot f_t \cdot \frac{v \cos \theta}{c} \text{}$$
+- **Three-Axis Measurement:** Professional DVLs use at least **three to four beams** to measure velocity along three axes: **Longitudinal**, **Transverse** (Drift), and **Vertical** (Heave).
+- **Water Track Mode:** In excessively deep water (typically over 200m), the DVL switches to measuring velocity relative to a deep water layer (STW), limiting accurate SOG measurement to certain depth limits.
+
+---
+
+## 4. Integrated Applications and Performance Management
+
+Data from the Speed Log is a crucial input for complex systems onboard.
+
+### 4.1. Maneuvering and DP Support
+
+- **Transverse Speed:** Data from DVL is essential for controlling the vessel during berthing or channel navigation, where transverse drift can be hazardous.
+- **Dynamic Positioning (DP):** In DP systems, DVL is one of the primary sensors, providing accurate SOG to counteract wind and current forces.
+
+### 4.2. Fuel Efficiency Optimization
+
+- **Current Compensation:** Comparing STW with SOG helps officers accurately calculate the **Current Set and Drift** impact, allowing for steering adjustments to optimize the desired SOG with minimum fuel consumption.
+
+---
+
+## 5. International Standards and Calibration Requirements
+
+Speed logs must strictly comply with **IMO Performance Standards** (Resolution A.824(19)).
+
+- **Mandatory Accuracy:** The accuracy of the Speed Log needs to be checked and calibrated periodically.
+- **System Errors:** Errors commonly occur due to misalignment or **fouling** (which disrupts water flow across the Transducer).
+
+Wheelhouse provides advanced Speed Log solutions from manufacturers like **Furuno**, **JRC**, and **Koden**, ensuring compliance with IMO standards and optimizing the ship's maneuvering performance.
+
+**To learn more about Speed Log technologies, fuel efficiency management solutions, and calibration services, please visit our [Solutions](/solutions) page.**
