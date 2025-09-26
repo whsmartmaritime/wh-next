@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "title": "Thiết bị Nghi Khí Hàng Hải | Cung cấp & Lắp đặt",
+    "description": "Giải pháp Nghi Khí Hàng Hải chuyên nghiệp từ Wheelhouse: Cung cấp và lắp đặt thiết bị RADAR, ECDIS, AIS, GPS, La bàn điện, đo sâu, đo tốc... theo chuẩn SOLAS V.",
+    "ogImage": "/images/og/navigation-og.jpg",
+    "canonical": "/vi/giai-phap/nghi-khi-hang-hai",
+    "slug": "nghi-khi-hang-hai"
+  },
+  "hero": {
+    "titlePre": "Our",
+    "titleMain": "Nghi Khí Hàng Hải",
+    "subtitle": "Excellence in maritime navigation solutions since inception",
+    "rightImageAlt": "wheelhouse service engineer insstalling iridium",
+    "description": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
+    "ctaPrimary": "Start Working With Us",
+    "ctaSecondary": "Want to Chat First?"
+  }
+}

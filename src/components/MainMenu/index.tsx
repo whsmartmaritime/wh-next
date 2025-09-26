@@ -30,7 +30,7 @@ interface MenuItem {
 }
 
 export default function MainMenu() {
-  const t = useTranslations("navigation");
+  const t = useTranslations("menu");
   const menuItems = t.raw("menuItems") as MenuItem[];
 
   return (

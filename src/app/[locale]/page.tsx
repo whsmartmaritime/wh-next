@@ -7,7 +7,6 @@ import Hero from "@/components/Hero";
 import { LogoShowcase } from "@/components/LogoShowcase";
 import WhyWheelhouse from "@/blocks/WhyWheelhouse";
 import WhatWeDo from "@/blocks/WhatWeDo";
-import LatestNews from "@/blocks/LatestNews";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -110,8 +109,6 @@ export default async function HomePage(props: {
       <WhyWheelhouse aria-label="Why Wheelhouse section" />
 
       <WhatWeDo aria-label="What We Do section" />
-
-      <LatestNews aria-label="Latest News section" />
     </>
   );
 }

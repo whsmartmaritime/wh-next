@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 export default function MobileMenu() {
-  const t = useTranslations("navigation");
+  const t = useTranslations("menu");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const menuItems = t.raw("menuItems") as any[];
   const [isOpen, setIsOpen] = useState(false);
