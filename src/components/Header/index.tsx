@@ -1,11 +1,9 @@
 import { Link } from "@/i18n/navigation";
 import MainMenu from "../MainMenu";
 import MobileNavToggle from "../MobileNavToggle";
-import { getTranslations } from "next-intl/server";
 import TopBar from "@/components/TopBar";
 
 export default async function Header() {
-  const t = await getTranslations("navigation");
   return (
     <>
       {/* TopBar - hidden on lg+ */}
@@ -105,24 +103,6 @@ export default async function Header() {
           <div className="hidden lg:block lg:col-span-7 static">
             <MainMenu />
           </div>
-
-          {/* Right utilities */}
-          <Link
-            href="/"
-            className="hidden lg:inline-flex lg:col-span-2 ml-auto items-center justify-end gap-2 text-inherit font-medium hover:opacity-80 transition-opacity"
-          >
-            {t("home")}
-            <svg
-              className="w-3 h-3 text-current"
-              viewBox="0 0 14 13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              stroke="currentColor"
-            >
-              <path d="M2.20117 0.5L12.7615 0.5V11.06" />
-              <path d="M0.759766 12.5L12.7601 0.5" />
-            </svg>
-          </Link>
         </nav>
       </header>
     </>
