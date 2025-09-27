@@ -1,41 +1,57 @@
-import {defineRouting} from 'next-intl/routing';
- 
+import { defineRouting } from "next-intl/routing";
+
 export const routing = defineRouting({
   // A list of all locales that are supported
-  locales: ['en', 'vi'],
- 
+  locales: ["en", "vi"],
+
   // Used when no locale matches
-  defaultLocale: 'en',
+  defaultLocale: "en",
 
   // Localized pathnames
   pathnames: {
-    '/': {
-      en: '/',
-      vi: '/'
+    "/": {
+      en: "/",
+      vi: "/",
     },
-    '/about': {
-      en: '/about',
-      vi: '/gioi-thieu'
+    "/about": {
+      en: "/about",
+      vi: "/gioi-thieu",
     },
-    '/services': {
-      en: '/services',
-      vi: '/dich-vu'
+    "/services": {
+      en: "/services",
+      vi: "/dich-vu",
     },
-    '/solutions': {
-      en: '/solutions',
-      vi: '/giai-phap'
+    "/solutions": {
+      en: "/solutions",
+      vi: "/giai-phap",
     },
-    '/contact': {
-      en: '/contact',
-      vi: '/lien-he'
+    "/solutions/[solution]": {
+      en: "/solutions/[solution]",
+      vi: "/giai-phap/[solution]",
     },
-    '/blog': {
-      en: '/blog',
-      vi: '/blog'
+    "/solutions/navigation": {
+      en: "/solutions/navigation",
+      vi: "/giai-phap/nghi-khi-hang-hai",
     },
-    '/blog/[slug]': {
-      en: '/blog/[slug]',
-      vi: '/blog/[slug]'
-    }
-  }
+    "/solutions/gmdss": {
+      en: "/solutions/gmdss",
+      vi: "/giai-phap/gmdss",
+    },
+    "/contact": {
+      en: "/contact",
+      vi: "/lien-he",
+    },
+    "/blog": {
+      en: "/blog",
+      vi: "/blog",
+    },
+    "/blog/[slug]": {
+      en: "/blog/[slug]",
+      vi: "/blog/[slug]",
+    },
+    "/solutions/[solution]/[slug]": {
+      en: "/solutions/[solution]/[slug]",
+      vi: "/giai-phap/[solution]/[slug]",
+    },
+  },
 });

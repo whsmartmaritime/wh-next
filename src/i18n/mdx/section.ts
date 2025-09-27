@@ -3,7 +3,7 @@ import { readFile } from "fs/promises";
 import matter from "gray-matter";
 import { cache } from "react";
 
-export interface CategoryMetadata {
+export interface SectionMetadata {
   title: string;
   description: string;
   icon?: string;
@@ -11,19 +11,21 @@ export interface CategoryMetadata {
   content?: string;
 }
 
-export const getCategoryMetadata = cache(
+export const getSectionMetadata = cache(
   async (
-    categoryPath: string,
+    section: string,
+    category: string,
     locale: string
-  ): Promise<CategoryMetadata | null> => {
+  ): Promise<SectionMetadata | null> => {
     try {
-      // Construct the path to the category metadata file
+      // Construct the path to the metadata file
       const metaPath = join(
         process.cwd(),
-        "content/posts",
-        categoryPath,
-        "_meta",
-        `${locale}.mdx`
+        "messages",
+        locale,
+        section,
+        category,
+        "_meta.mdx"
       );
 
       // Read and parse the metadata file
@@ -34,11 +36,11 @@ export const getCategoryMetadata = cache(
         title: data.title,
         description: data.description,
         icon: data.icon,
-        order: data.order || 99,
-        content: content,
+        order: data.order ?? 99,
+        content: content.trim(),
       };
     } catch (error) {
-      console.error(`Error reading category metadata: ${error}`);
+      console.error(`Error loading metadata: ${error}`);
       return null;
     }
   }
