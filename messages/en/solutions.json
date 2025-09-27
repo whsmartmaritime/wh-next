@@ -3,7 +3,7 @@
     "title": "Maritime Electronics Solutions | GMDSS, Navigation & Automation",
     "description": "Wheelhouse provides comprehensive solutions for maritime electronics, including GMDSS, Navigation, automation, and connectivity, ensuring reliable performance.",
     "ogImage": "/images/og-solutions.jpg",
-    "canonical": "/en/solutions"
+    "slug": "solutions"
   },
   "hero": {
     "titlePre": "Our",
