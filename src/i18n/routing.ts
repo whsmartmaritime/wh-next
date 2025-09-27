@@ -41,14 +41,6 @@ export const routing = defineRouting({
       en: "/contact",
       vi: "/lien-he",
     },
-    "/blog": {
-      en: "/blog",
-      vi: "/blog",
-    },
-    "/blog/[slug]": {
-      en: "/blog/[slug]",
-      vi: "/blog/[slug]",
-    },
     "/solutions/[solution]/[slug]": {
       en: "/solutions/[solution]/[slug]",
       vi: "/giai-phap/[solution]/[slug]",

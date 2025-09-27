@@ -16,7 +16,10 @@
             "title": "NavCom Equipment",
             "links": [
               { "title": "GMDSS Equipment", "href": "/solutions/gmdss" },
-              { "title": "Navigation Equipment", "href": "/solutions/navigation" },
+              {
+                "title": "Navigation Equipment",
+                "href": "/solutions/navigation"
+              },
               { "title": "E-Navigation", "href": "/solutions/e-navigation" }
             ]
           },
@@ -25,7 +28,10 @@
             "links": [
               { "title": "StarLink", "href": "/solutions/starlink" },
               { "title": "VSAT", "href": "/solutions/vsat" },
-              { "title": "IT Systems onboard", "href": "/solutions/it-systems" },
+              {
+                "title": "IT Systems onboard",
+                "href": "/solutions/it-systems"
+              },
               { "title": "CCTV & Access Control", "href": "/solutions/cctv" }
             ]
           }
@@ -48,14 +54,20 @@
             "links": [
               { "title": "Repair & Maintenance", "href": "/services#repair" },
               { "title": "Product Advisory", "href": "/services/advisory" },
-              { "title": "Training & Usage Support", "href": "/services/training" }
+              {
+                "title": "Training & Usage Support",
+                "href": "/services/training"
+              }
             ]
           },
           {
             "title": "Annual Survey",
             "links": [
               { "title": "Radio Survey", "href": "/services/radio-survey" },
-              { "title": "VDR Annual Performance Test", "href": "/services/vdr-test" }
+              {
+                "title": "VDR Annual Performance Test",
+                "href": "/services/vdr-test"
+              }
             ]
           }
         ]
@@ -76,8 +88,7 @@
             "title": "About Us",
             "links": [
               { "title": "About Us", "href": "/about" },
-              { "title": "Contact Us", "href": "/contact" },
-              { "title": "Blog", "href": "/blog" }
+              { "title": "Contact Us", "href": "/contact" }
             ]
           },
           {
@@ -91,5 +102,5 @@
         ]
       }
     }
-]
+  ]
 }

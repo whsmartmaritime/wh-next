@@ -5,10 +5,7 @@ import { routing } from "@/i18n/routing";
 import { PageHero } from "@/components/PageHero";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { BackgroundScanline } from "@/components/BackgroundScanline";
-import path from "path";
-import fs from "fs/promises";
-import { compileMDX } from "next-mdx-remote/rsc";
-import { components } from "@/components/mdx";
+import { loadContent, getMDXSlugs, type MDXContent } from "@/i18n";
 
 interface SubPageProps {
   params: {
@@ -18,152 +15,131 @@ interface SubPageProps {
   };
 }
 
-async function getSubPageContent(
-  locale: string,
-  solution: string,
-  slug: string
-) {
-  try {
-    const filePath = path.join(
-      process.cwd(),
-      `messages/${locale}/solutions/${solution}/${slug}.mdx`
-    );
-    const source = await fs.readFile(filePath, "utf-8");
-
-    const { content, frontmatter } = await compileMDX({
-      source,
-      components,
-      options: {
-        parseFrontmatter: true,
-      },
-    });
-
-    return {
-      content,
-      frontmatter: frontmatter as {
-        title: string;
-        description: string;
-        date?: string;
-        image?: string;
-      },
-    };
-  } catch (error) {
-    console.error("Error loading sub-page content:", error);
-    return null;
-  }
-}
-
-async function getAllSlugs(locale: string, solution: string) {
-  try {
-    const solutionPath = path.join(
-      process.cwd(),
-      `messages/${locale}/solutions/${solution}`
-    );
-    const files = await fs.readdir(solutionPath);
-    return files
-      .filter((file) => file.endsWith(".mdx"))
-      .map((file) => file.replace(/\.mdx$/, ""));
-  } catch (error) {
-    console.error("Error loading slugs:", error);
-    return [];
-  }
-}
-
-export async function generateStaticParams({
-  params: { solution },
-}: {
-  params: { solution: string };
-}) {
-  const allSlugs = await Promise.all(
+// Generate static params for all MDX sub-pages
+export async function generateStaticParams() {
+  const allSubPages = await Promise.all(
     routing.locales.map(async (locale) => {
-      const slugs = await getAllSlugs(locale, solution);
-      return slugs.map((slug) => ({
-        locale,
-        solution,
-        slug,
-      }));
+      // Common solution categories - you may want to make this dynamic
+      const categories = ["navigation", "gmdss"]; // Add more as needed
+
+      const subPages = await Promise.all(
+        categories.map(async (solution) => {
+          const slugs = await getMDXSlugs(locale, "solutions", solution);
+          return slugs.map((slug) => ({
+            locale,
+            solution,
+            slug,
+          }));
+        })
+      );
+
+      return subPages.flat();
     })
   );
-  return allSlugs.flat();
+
+  return allSubPages.flat();
 }
 
 export async function generateMetadata({
   params,
 }: SubPageProps): Promise<Metadata> {
   const { locale, solution, slug } = params;
-  const pageData = await getSubPageContent(locale, solution, slug);
 
-  if (!pageData) return {};
+  const content = await loadContent({
+    locale,
+    section: "solutions",
+    category: solution,
+    slug,
+  });
 
-  const { frontmatter } = pageData;
-  const base = new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
-  );
-  const url = new URL(`/${locale}/solutions/${solution}/${slug}`, base);
+  if (!content || content.type !== "mdx") {
+    return {
+      title: "Page not found",
+    };
+  }
 
-  // Create alternate language URLs
-  const languages = routing.locales
-    .map((l) => ({
-      [l]: new URL(`/${l}/solutions/${solution}/${slug}`, base),
-    }))
-    .reduce((acc, cur) => ({ ...acc, ...cur }), {});
+  const mdxContent = content as MDXContent;
 
   return {
-    title: frontmatter.title,
-    description: frontmatter.description,
-    alternates: {
-      canonical: url,
-      languages,
-    },
+    title: mdxContent.meta.title,
+    description: mdxContent.meta.description,
     openGraph: {
-      title: frontmatter.title,
-      description: frontmatter.description,
-      url: url.toString(),
-      images: frontmatter.image
-        ? [
-            {
-              url: frontmatter.image,
-              width: 1200,
-              height: 630,
-              alt: frontmatter.title,
-            },
-          ]
-        : undefined,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: frontmatter.title,
-      description: frontmatter.description,
-      images: frontmatter.image ? [frontmatter.image] : undefined,
+      title: mdxContent.meta.title,
+      description: mdxContent.meta.description,
+      images: mdxContent.meta.ogImage ? [mdxContent.meta.ogImage] : [],
     },
   };
 }
 
 export default async function SubPage({ params }: SubPageProps) {
   const { locale, solution, slug } = params;
-  const pageData = await getSubPageContent(locale, solution, slug);
 
-  if (!pageData) notFound();
+  const content = await loadContent({
+    locale,
+    section: "solutions",
+    category: solution,
+    slug,
+  });
 
-  const { content, frontmatter } = pageData;
+  if (!content || content.type !== "mdx") {
+    return notFound();
+  }
+
+  const mdxContent = content as MDXContent;
+  const t = await getTranslations("solutions");
 
   return (
     <>
-      <div className="relative">
-        <PageHero
-          titlePre={solution.toUpperCase()}
-          titleMain={frontmatter.title}
-          subtitle={frontmatter.description}
-        />
-        <BackgroundGrid />
-        <BackgroundScanline />
-      </div>
+      <BackgroundGrid />
+      <BackgroundScanline />
 
-      <div className="container mx-auto py-8">
-        <article className="prose dark:prose-invert max-w-none">
-          {content}
+      <main className="relative z-10">
+        <PageHero
+          titlePre=""
+          titleMain={mdxContent.meta.title}
+          subtitle={mdxContent.meta.description}
+        />
+
+        <article className="container mx-auto px-4 py-16">
+          <div className="prose prose-lg max-w-none">{mdxContent.content}</div>
+
+          {/* Additional metadata */}
+          <div className="mt-16 pt-8 border-t border-gray-200">
+            <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+              {mdxContent.meta.publishedAt && (
+                <span>
+                  Published:{" "}
+                  {new Date(mdxContent.meta.publishedAt).toLocaleDateString(
+                    locale
+                  )}
+                </span>
+              )}
+              {mdxContent.meta.author && (
+                <span>By: {mdxContent.meta.author}</span>
+              )}
+              {mdxContent.meta.category && (
+                <span>Category: {mdxContent.meta.category}</span>
+              )}
+            </div>
+
+            {mdxContent.meta.tags && mdxContent.meta.tags.length > 0 && (
+              <div className="mt-4">
+                <span className="text-sm font-medium text-gray-700 mr-2">
+                  Tags:
+                </span>
+                {mdxContent.meta.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-block bg-gray-100 text-gray-600 px-2 py-1 rounded-md text-sm mr-2 mb-2"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
         </article>
-      </div>
+      </main>
     </>
   );
 }

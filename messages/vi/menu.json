@@ -13,7 +13,10 @@
             "links": [
               { "title": "Thiết bị GMDSS", "href": "/solutions/gmdss" },
               { "title": "Nghi Khí Hàng Hải", "href": "/solutions/navigation" },
-              { "title": "Hải Đồ - Ấn Phẩm Điện tử", "href": "/solutions/e-navigation" }
+              {
+                "title": "Hải Đồ - Ấn Phẩm Điện tử",
+                "href": "/solutions/e-navigation"
+              }
             ]
           },
           {
@@ -21,7 +24,10 @@
             "links": [
               { "title": "StarLink", "href": "/solutions/starlink" },
               { "title": "VSAT", "href": "/solutions/vsat" },
-              { "title": "Hệ thống IT trên tàu", "href": "/solutions/it-systems" },
+              {
+                "title": "Hệ thống IT trên tàu",
+                "href": "/solutions/it-systems"
+              },
               { "title": "CCTV & Access Control", "href": "/solutions/cctv" }
             ]
           }
@@ -44,14 +50,20 @@
             "links": [
               { "title": "Sửa chữa - Bảo dưỡng", "href": "/services#repair" },
               { "title": "Tư vấn sản phẩm", "href": "/services/advisory" },
-              { "title": "Đào tạo & Hỗ trợ sử dụng", "href": "/services/training" }
+              {
+                "title": "Đào tạo & Hỗ trợ sử dụng",
+                "href": "/services/training"
+              }
             ]
           },
           {
             "title": "Khảo sát hàng năm",
             "links": [
               { "title": "Khảo sát Radio", "href": "/services/radio-survey" },
-              { "title": "Kiểm tra hiệu năng VDR hàng năm", "href": "/services/vdr-test" }
+              {
+                "title": "Kiểm tra hiệu năng VDR hàng năm",
+                "href": "/services/vdr-test"
+              }
             ]
           }
         ]
@@ -72,8 +84,7 @@
             "title": "Về chúng tôi",
             "links": [
               { "title": "Về chúng tôi", "href": "/about" },
-              { "title": "Liên hệ", "href": "/contact" },
-              { "title": "Blog", "href": "/blog" }
+              { "title": "Liên hệ", "href": "/contact" }
             ]
           },
           {

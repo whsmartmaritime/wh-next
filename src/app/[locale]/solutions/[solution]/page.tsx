@@ -5,27 +5,7 @@ import { routing } from "@/i18n/routing";
 import { PageHero } from "@/components/PageHero";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { BackgroundScanline } from "@/components/BackgroundScanline";
-import fs from "fs/promises";
-import path from "path";
-
-interface Solution {
-  meta: {
-    title: string;
-    description: string;
-    ogImage?: string;
-    canonical: string;
-    slug: string;
-  };
-  hero: {
-    titlePre: string;
-    titleMain: string;
-    subtitle: string;
-    rightImageAlt?: string;
-    description: string;
-    ctaPrimary?: string;
-    ctaSecondary?: string;
-  };
-}
+import { loadContent, getJSONCategories, type JSONContent } from "@/i18n";
 
 interface SolutionPageProps {
   params: {
@@ -34,46 +14,11 @@ interface SolutionPageProps {
   };
 }
 
-// Helper to load solution data
-async function getSolution(
-  locale: "en" | "vi",
-  id: string
-): Promise<Solution | null> {
-  try {
-    const filePath = path.join(
-      process.cwd(),
-      `messages/${locale}/solutions/${id}.json`
-    );
-    const content = await fs.readFile(filePath, "utf-8");
-    return JSON.parse(content) as Solution;
-  } catch (error) {
-    console.error(`Error loading solution ${id}:`, error);
-    return null;
-  }
-}
-
-// Get all available solution IDs
-async function getSolutionIds(locale: "en" | "vi"): Promise<string[]> {
-  try {
-    const solutionsPath = path.join(
-      process.cwd(),
-      `messages/${locale}/solutions`
-    );
-    const files = await fs.readdir(solutionsPath);
-    return files
-      .filter((file) => file.endsWith(".json"))
-      .map((file) => path.basename(file, ".json"));
-  } catch (error) {
-    console.error("Error loading solution IDs:", error);
-    return [];
-  }
-}
-
 // Generate static params for all solutions
 export async function generateStaticParams() {
   const allSolutions = await Promise.all(
     routing.locales.map(async (locale) => {
-      const solutions = await getSolutionIds(locale as "en" | "vi");
+      const solutions = await getJSONCategories(locale, "solutions");
       return solutions.map((solution) => ({
         locale,
         solution,
@@ -88,50 +33,27 @@ export async function generateMetadata({
 }: SolutionPageProps): Promise<Metadata> {
   const { locale, solution } = params;
 
-  // Load solution data and translations
-  const solutionData = await getSolution(locale as "en" | "vi", solution);
+  const content = await loadContent({
+    locale,
+    section: "solutions",
+    category: solution,
+  });
 
-  if (!solutionData) return {};
+  if (!content || content.type !== "json") {
+    return {
+      title: "Solution not found",
+    };
+  }
 
-  const base = new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
-  );
-
-  // Create alternate language URLs
-  const languages = routing.locales
-    .map((l) => ({
-      [l]: new URL(`/${l}/solutions/${solution}`, base),
-    }))
-    .reduce((acc, cur) => ({ ...acc, ...cur }), {});
-
-  const canonical = new URL(solutionData.meta.canonical, base);
+  const jsonContent = content as JSONContent;
 
   return {
-    title: solutionData.meta.title,
-    description: solutionData.meta.description,
-    alternates: { canonical, languages },
+    title: jsonContent.meta.title,
+    description: jsonContent.meta.description,
     openGraph: {
-      title: solutionData.meta.title,
-      description: solutionData.meta.description,
-      url: canonical.toString(),
-      images: solutionData.meta.ogImage
-        ? [
-            {
-              url: solutionData.meta.ogImage,
-              width: 1200,
-              height: 630,
-              alt: solutionData.meta.title,
-            },
-          ]
-        : undefined,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: solutionData.meta.title,
-      description: solutionData.meta.description,
-      images: solutionData.meta.ogImage
-        ? [solutionData.meta.ogImage]
-        : undefined,
+      title: jsonContent.meta.title,
+      description: jsonContent.meta.description,
+      images: jsonContent.meta.ogImage ? [jsonContent.meta.ogImage] : [],
     },
   };
 }
@@ -139,37 +61,52 @@ export async function generateMetadata({
 export default async function SolutionPage({ params }: SolutionPageProps) {
   const { locale, solution } = params;
 
-  // Load solution data and translations
-  const [solutionData, t] = await Promise.all([
-    getSolution(locale as "en" | "vi", solution),
-    getTranslations({ locale, namespace: "solutions" }),
-  ]);
+  const content = await loadContent({
+    locale,
+    section: "solutions",
+    category: solution,
+  });
 
-  if (!solutionData) notFound();
+  if (!content || content.type !== "json") {
+    return notFound();
+  }
+
+  const jsonContent = content as JSONContent;
+  const t = await getTranslations("solutions");
 
   return (
     <>
-      <div className="relative">
-        <PageHero
-          titlePre={solutionData.hero.titlePre}
-          titleMain={solutionData.hero.titleMain}
-          subtitle={solutionData.hero.subtitle}
-          ctaPrimary={solutionData.hero.ctaPrimary}
-          ctaSecondary={solutionData.hero.ctaSecondary}
-        />
-        <BackgroundGrid />
-        <BackgroundScanline />
-      </div>
+      <BackgroundGrid />
+      <BackgroundScanline />
 
-      <div className="container mx-auto py-8">
-        <div className="grid grid-cols-12 gap-8">
-          <div className="col-span-12">
-            <p className="text-lg leading-relaxed">
-              {solutionData.hero.description}
-            </p>
-          </div>
+      <main className="relative z-10">
+        <PageHero
+          titlePre={jsonContent.hero?.titlePre || ""}
+          titleMain={jsonContent.hero?.titleMain || jsonContent.meta.title}
+          subtitle={
+            jsonContent.hero?.subtitle ||
+            jsonContent.hero?.description ||
+            jsonContent.meta.description
+          }
+          rightImageAlt={jsonContent.hero?.rightImageAlt}
+          ctaPrimary={jsonContent.hero?.ctaPrimary}
+          ctaSecondary={jsonContent.hero?.ctaSecondary}
+        />
+
+        <div className="container mx-auto px-4 py-16">
+          {/* Render additional JSON sections if available */}
+          {jsonContent.sections && jsonContent.sections.length > 0 && (
+            <div className="prose max-w-none">
+              {jsonContent.sections.map((section, index) => (
+                <div key={index} className="mb-8">
+                  {/* Add custom rendering logic for different section types */}
+                  <pre>{JSON.stringify(section, null, 2)}</pre>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      </div>
+      </main>
     </>
   );
 }
