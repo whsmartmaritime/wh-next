@@ -1,11 +1,10 @@
 {
   "meta": {
     "title": "GMDSS - ĐIỀU HƯỚNG - KẾT NỐI - DỊCH VỤ | WHEELHOUSE",
-    "seoTitle": "GMDSS - ĐIỀU HƯỚNG - KẾT NỐI - DỊCH VỤ | WHEELHOUSE", 
+    "seoTitle": "GMDSS - ĐIỀU HƯỚNG - KẾT NỐI - DỊCH VỤ | WHEELHOUSE",
     "description": "Chuyên về GMDSS, Điều hướng, Kết nối và các dịch vụ kỹ thuật hàng hải. Wheelhouse đảm bảo hoạt động tàu thuyền an toàn và hiệu quả.",
     "seoDescription": "Chuyên về GMDSS, Điều hướng, Kết nối và các dịch vụ kỹ thuật hàng hải. Wheelhouse đảm bảo hoạt động tàu thuyền an toàn và hiệu quả.",
     "ogImage": "/images/og/home-vi.jpg",
-    "canonical": "/vi",
     "slug": ""
   },
   "hero": {
@@ -27,7 +26,7 @@
     "whyIntro": "Cam kết của chúng tôi trong việc cung cấp các dịch vụ và hỗ trợ tiên tiến, liên tục, cùng với niềm tin vững chắc của chúng tôi vào các hoạt động kinh doanh có đạo đức, giúp Wheelhouse trở thành một đối tác lâu dài đáng tin cậy.",
     "item1Title": "Uy Tín",
     "item1Desc": "Luôn đặt chữ Tín lên hàng đầu, với phương châm \"Lòng tin của khách hàng giúp Wheelhouse khẳng định thương hiệu\".",
-    "item2Title": "Tận Tâm", 
+    "item2Title": "Tận Tâm",
     "item2Desc": "Phục vụ khách hàng bằng sự tận tâm với sứ mệnh \"Phục vụ khách hàng tốt là phục vụ chính tương lai của mình\".",
     "item3Title": "Chất Lượng",
     "item3Desc": "Wheelhouse cam kết mang đến khách hàng những sản phẩm và dịch vụ với chất lượng tốt nhất.",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { generateHomeMetadata } from "@/lib/generate-page-metadata";
+import { generatePageMetadata } from "@/lib/generate-page-metadata";
 import { getTranslations } from "next-intl/server";
 import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
@@ -12,7 +12,7 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
-  return generateHomeMetadata(locale);
+  return generatePageMetadata(locale, "home");
 }
 
 export default async function HomePage(props: {

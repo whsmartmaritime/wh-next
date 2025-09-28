@@ -11,9 +11,7 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
-  return generatePageMetadata(locale, "solutions", {
-    robots: { index: false, follow: false },
-  });
+  return generatePageMetadata(locale, "solutions");
 }
 
 export default async function SolutionsPage(props: {

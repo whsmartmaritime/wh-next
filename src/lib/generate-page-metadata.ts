@@ -3,14 +3,13 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 
 /**
- * Generate SEO metadata for static pages using next-intl translations
- * Supports parallel translation loading for better performance
+ * Generate SEO metadata for all pages using next-intl translations
+ * Auto-generates canonical URLs from slug and locale
  */
 export async function generatePageMetadata(
   locale: string,
   namespace: string,
   options?: {
-    robots?: { index: boolean; follow: boolean };
     additionalMetadata?: Partial<Metadata>;
   }
 ): Promise<Metadata> {
@@ -72,12 +71,9 @@ export async function generatePageMetadata(
       description,
       images: [ogImage],
     },
+    // Robots tạm thời trong dev, sẽ bỏ khi production
+    robots: { index: false, follow: false },
   };
-
-  // Apply robots settings if provided
-  if (options?.robots) {
-    baseMetadata.robots = options.robots;
-  }
 
   // Merge with additional metadata if provided
   if (options?.additionalMetadata) {
@@ -85,46 +81,4 @@ export async function generatePageMetadata(
   }
 
   return baseMetadata;
-}
-
-/**
- * Generate SEO metadata for home page (single locale approach)
- * Simpler version for home page that doesn't need parallel loading
- */
-export async function generateHomeMetadata(locale: string): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace: "home" });
-
-  const title = t("meta.title");
-  const description = t("meta.seoDescription");
-  const ogImage = t("meta.ogImage");
-  const canonical = t("meta.canonical");
-
-  const base = new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
-  );
-  const url = new URL(canonical, base);
-
-  // Create alternate language URLs from pre-defined canonicals
-  const languages = Object.fromEntries(
-    routing.locales.map((l) => [l, new URL(t("meta.canonical"), base)])
-  );
-
-  return {
-    title,
-    description,
-    alternates: { canonical: url, languages },
-    openGraph: {
-      title,
-      description,
-      url,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
-    robots: { index: false, follow: false }, // Home specific setting
-  };
 }
