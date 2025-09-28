@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { generateMetadata as createSeoMetadata } from "@/lib/generate-page-metadata";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { PageHero } from "@/components/PageHero";
@@ -27,14 +28,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     params.solution
   );
 
-  return {
-    title: content?.title || "Solution not found",
-    description: content?.description || "",
-    openGraph: {
-      title: content?.title || "Solution not found",
-      description: content?.description || "",
-    },
-  };
+  if (!content) {
+    return {
+      title: "Solution not found",
+      description: "",
+    };
+  }
+
+  // Simple SEO generation directly in page - KISS principle
+  return createSeoMetadata(
+    (content.meta?.title as string) || "Solution not found",
+    (content.meta?.description as string) || "",
+    (content.meta?.ogImage as string) || "/images/default-og.jpg",
+    `/${params.locale}/solutions/${content.meta?.slug || params.solution}`
+  );
 }
 
 export default async function SolutionPage({ params }: Props) {

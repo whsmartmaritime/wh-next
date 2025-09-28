@@ -5,6 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { BackgroundScanline } from "@/components/BackgroundScanline";
 import { loadContent, getSlugs, getCategories } from "@/lib/content";
+import { generateMetadata as createSeoMetadata } from "@/lib/generate-page-metadata";
 
 interface Props {
   params: { locale: string; solution: string; slug: string };
@@ -13,10 +14,10 @@ interface Props {
 export async function generateStaticParams() {
   const allParams = await Promise.all(
     routing.locales.map(async (locale) => {
-      const categories = await getCategories(locale, 'solutions');
+      const categories = await getCategories(locale, "solutions");
       const slugParams = await Promise.all(
         categories.map(async (solution) => {
-          const slugs = await getSlugs(locale, 'solutions', solution);
+          const slugs = await getSlugs(locale, "solutions", solution);
           return slugs.map((slug) => ({ locale, solution, slug }));
         })
       );
@@ -27,21 +28,39 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const content = await loadContent(params.locale, 'solutions', params.solution, params.slug);
-  
-  return {
-    title: content?.title || 'Page not found',
-    description: content?.description || '',
-    openGraph: {
-      title: content?.title || 'Page not found', 
-      description: content?.description || '',
-    },
-  };
+  const content = await loadContent(
+    params.locale,
+    "solutions",
+    params.solution,
+    params.slug
+  );
+
+  if (!content) {
+    return {
+      title: "Page not found",
+      description: "",
+    };
+  }
+
+  // Simple SEO generation directly in page - KISS principle
+  return createSeoMetadata(
+    (content.meta?.title as string) || "Page not found",
+    (content.meta?.description as string) || "",
+    (content.meta?.ogImage as string) || "/images/default-og.jpg",
+    `/${params.locale}/solutions/${params.solution}/${
+      content.meta?.slug || params.slug
+    }`
+  );
 }
 
 export default async function SubPage({ params }: Props) {
-  const content = await loadContent(params.locale, 'solutions', params.solution, params.slug);
-  
+  const content = await loadContent(
+    params.locale,
+    "solutions",
+    params.solution,
+    params.slug
+  );
+
   if (!content || !content.content) return notFound();
 
   return (
@@ -54,11 +73,9 @@ export default async function SubPage({ params }: Props) {
           titleMain={content.title}
           subtitle={content.description}
         />
-        
+
         <article className="container mx-auto px-4 py-16">
-          <div className="prose prose-lg max-w-none">
-            {content.content}
-          </div>
+          <div className="prose prose-lg max-w-none">{content.content}</div>
         </article>
       </main>
     </>

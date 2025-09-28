@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { generatePageMetadata } from "@/lib/generate-page-metadata";
+import { generateMetadata as createSeoMetadata } from "@/lib/generate-page-metadata";
 import { getTranslations } from "next-intl/server";
 import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
@@ -12,7 +12,18 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
-  return generatePageMetadata(locale, "home");
+  const t = await getTranslations({ locale, namespace: "home" });
+
+  return createSeoMetadata(
+    t("meta.title"),
+    t("meta.description"),
+    t("meta.ogImage"),
+    `/${locale}`,
+    {
+      en: "/en",
+      vi: "/vi",
+    }
+  );
 }
 
 export default async function HomePage(props: {

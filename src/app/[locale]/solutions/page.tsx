@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { generatePageMetadata } from "@/lib/generate-page-metadata";
+import { generateMetadata as createSeoMetadata } from "@/lib/generate-page-metadata";
 import { getTranslations } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
@@ -7,11 +7,23 @@ import { BackgroundScanline } from "@/components/BackgroundScanline";
 import Image from "next/image";
 import Link from "next/dist/client/link";
 import Button from "@/components/Button";
+
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
-  return generatePageMetadata(locale, "solutions");
+  const t = await getTranslations({ locale, namespace: "solutions" });
+
+  return createSeoMetadata(
+    t("meta.title"),
+    t("meta.description"),
+    t("meta.ogImage"),
+    `/${locale}/solutions`,
+    {
+      en: "/en/solutions",
+      vi: "/vi/giai-phap",
+    }
+  );
 }
 
 export default async function SolutionsPage(props: {
