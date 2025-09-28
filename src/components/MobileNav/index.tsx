@@ -1,11 +1,6 @@
 import { Link } from "@/i18n/navigation";
 
-type AllowedPath =
-  | "/"
-  | "/about"
-  | "/services"
-  | "/solutions"
-  | "/contact";
+type AllowedPath = "/" | "/about" | "/services" | "/solutions" | "/contact";
 
 interface MenuColumn {
   title: string;
