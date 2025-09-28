@@ -25,9 +25,5 @@ export const routing = defineRouting({
       en: "/solutions",
       vi: "/giai-phap",
     },
-    "/contact": {
-      en: "/contact",
-      vi: "/lien-he",
-    },
   },
 });

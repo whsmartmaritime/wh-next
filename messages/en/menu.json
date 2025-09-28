@@ -8,7 +8,7 @@
       "desc": "Equipment and deployment. We deliver solutions for safer, easier vessel operations.",
       "ctaContent": {
         "title": "Order Solutions",
-        "href": "/contact"
+        "href": "/about"
       },
       "dropdownContent": {
         "columns": [
@@ -45,7 +45,7 @@
       "desc": "Maneuver? go Wheelhouse. Service? call Wheelhouse.",
       "ctaContent": {
         "title": "Request Service",
-        "href": "/contact"
+        "href": "/"
       },
       "dropdownContent": {
         "columns": [
@@ -88,7 +88,7 @@
             "title": "About Us",
             "links": [
               { "title": "About Us", "href": "/about" },
-              { "title": "Contact Us", "href": "/contact" }
+              { "title": "Contact Us", "href": "/about" }
             ]
           },
           {

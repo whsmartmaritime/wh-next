@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/navigation";
 
-type AllowedPath = "/" | "/about" | "/services" | "/solutions" | "/contact";
+type AllowedPath = "/" | "/about" | "/services" | "/solutions";
 
 interface MenuColumn {
   title: string;
@@ -22,7 +22,6 @@ export default function MobileNav() {
     { title: "About", href: "/about" },
     { title: "Services", href: "/services" },
     { title: "Solutions", href: "/solutions" },
-    { title: "Contact", href: "/contact" },
   ];
 
   return (

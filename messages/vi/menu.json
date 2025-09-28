@@ -41,7 +41,7 @@
       "desc": "Điều động? gọi Wheelhouse. Dịch vụ? gọi Wheelhouse.",
       "ctaContent": {
         "title": "Yêu cầu dịch vụ",
-        "href": "/contact"
+        "href": "/about"
       },
       "dropdownContent": {
         "columns": [
@@ -52,7 +52,7 @@
               { "title": "Tư vấn sản phẩm", "href": "/services/advisory" },
               {
                 "title": "Đào tạo & Hỗ trợ sử dụng",
-                "href": "/services/training"
+                "href": "/services"
               }
             ]
           },
@@ -84,7 +84,7 @@
             "title": "Về chúng tôi",
             "links": [
               { "title": "Về chúng tôi", "href": "/about" },
-              { "title": "Liên hệ", "href": "/contact" }
+              { "title": "Liên hệ", "href": "/about" }
             ]
           },
           {
