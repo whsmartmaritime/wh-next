@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { generateMetadata as createSeoMetadata } from "@/lib/generate-page-metadata";
+import { generateMetadata as createSeoMetadata } from "@/lib/generate-metadata";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { PageHero } from "@/components/PageHero";

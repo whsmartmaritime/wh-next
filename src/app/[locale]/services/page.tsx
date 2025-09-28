@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { generateMetadata as createSeoMetadata } from "@/lib/generate-page-metadata";
+import { generateMetadata as createSeoMetadata } from "@/lib/generate-metadata";
 import { getTranslations } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import BackgroundScanline from "@/components/BackgroundScanline";

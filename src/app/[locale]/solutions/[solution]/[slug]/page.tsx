@@ -5,7 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { BackgroundScanline } from "@/components/BackgroundScanline";
 import { loadContent, getSlugs, getCategories } from "@/lib/content";
-import { generateMetadata as createSeoMetadata } from "@/lib/generate-page-metadata";
+import { generateMetadata as createSeoMetadata } from "@/lib/generate-metadata";
 
 interface Props {
   params: { locale: string; solution: string; slug: string };
