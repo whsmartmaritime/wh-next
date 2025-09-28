@@ -25,5 +25,21 @@ export const routing = defineRouting({
       en: "/solutions",
       vi: "/giai-phap",
     },
+    "/solutions/navigation": {
+      en: "/solutions/navigation",
+      vi: "/giai-phap/nghi-khi-hang-hai",
+    },
+    "/solutions/gmdss": {
+      en: "/solutions/gmdss",
+      vi: "/giai-phap/gmdss",
+    },
+    "/solutions/connectivity": {
+      en: "/solutions/connectivity",
+      vi: "/giai-phap/thong-tin-ve-tinh",
+    },
+    "/solutions/e-navigation": {
+      en: "/solutions/e-navigation",
+      vi: "/giai-phap/hai-do-an-pham-dien-tu",
+    },
   },
 });
