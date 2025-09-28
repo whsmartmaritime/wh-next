@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const components = {
-  img: ({ src, alt, ...props }) => (
+  img: ({ src, alt, ...props }: { src: string; alt: string; [key: string]: unknown }) => (
     <Image
       src={src}
       alt={alt}
@@ -12,7 +12,7 @@ export const components = {
       {...props}
     />
   ),
-  a: ({ href, children, ...props }) => {
+  a: ({ href, children, ...props }: { href: string; children: React.ReactNode; [key: string]: unknown }) => {
     if (href.startsWith("/")) {
       return (
         <Link href={href} {...props}>

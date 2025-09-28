@@ -7,7 +7,7 @@ export const routing = defineRouting({
   // Used when no locale matches
   defaultLocale: "en",
 
-  // Localized pathnames
+  // Localized pathnames - only define routes with different URLs between locales
   pathnames: {
     "/": {
       en: "/",
@@ -25,25 +25,9 @@ export const routing = defineRouting({
       en: "/solutions",
       vi: "/giai-phap",
     },
-    "/solutions/[solution]": {
-      en: "/solutions/[solution]",
-      vi: "/giai-phap/[solution]",
-    },
-    "/solutions/navigation": {
-      en: "/solutions/navigation",
-      vi: "/giai-phap/nghi-khi-hang-hai",
-    },
-    "/solutions/gmdss": {
-      en: "/solutions/gmdss",
-      vi: "/giai-phap/gmdss",
-    },
     "/contact": {
       en: "/contact",
       vi: "/lien-he",
-    },
-    "/solutions/[solution]/[slug]": {
-      en: "/solutions/[solution]/[slug]",
-      vi: "/giai-phap/[solution]/[slug]",
     },
   },
 });

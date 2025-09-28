@@ -108,25 +108,42 @@ export default function MobileMenu() {
                           {/* Expanded submenu */}
                           {expandedItem === index && (
                             <div className="bg-neutral-50 dark:bg-neutral-900">
-                              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                               {item?.dropdownContent?.columns?.map(
-                                (column: any, colIndex: number) => (
+                                (
+                                  column: {
+                                    title?: string;
+                                    links?: { href?: string; label?: string }[];
+                                  },
+                                  colIndex: number
+                                ) => (
                                   <div key={colIndex} className="px-4 py-2">
                                     <div className="text-sm font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mb-2">
                                       {column?.title}
                                     </div>
                                     <ul className="space-y-1">
-                                      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                                       {column?.links?.map(
-                                        (link: any, linkIndex: number) => (
+                                        (
+                                          link: {
+                                            href?: string;
+                                            label?: string;
+                                          },
+                                          linkIndex: number
+                                        ) => (
                                           <li key={linkIndex}>
-                                            <Link
-                                              href={link?.href}
-                                              onClick={() => setIsOpen(false)}
-                                              className="block py-2 px-2 text-base no-underline hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded transition-colors"
-                                            >
-                                              {link?.title}
-                                            </Link>
+                                            {link?.href && (
+                                              <Link
+                                                href={
+                                                  link.href as
+                                                    | "/about"
+                                                    | "/services"
+                                                    | "/solutions"
+                                                }
+                                                onClick={() => setIsOpen(false)}
+                                                className="block py-2 px-2 text-base no-underline hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded transition-colors"
+                                              >
+                                                {link?.label}
+                                              </Link>
+                                            )}
                                           </li>
                                         )
                                       )}

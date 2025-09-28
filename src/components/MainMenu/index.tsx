@@ -2,13 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
-type AllowedPath =
-  | "/"
-  | "/about"
-  | "/services"
-  | "/solutions"
-  | "/contact"
-  | "/blog";
+type AllowedPath = "/" | "/about" | "/services" | "/solutions" | "/contact";
 
 interface MenuColumn {
   title: string;

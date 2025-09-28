@@ -5,8 +5,7 @@ type AllowedPath =
   | "/about"
   | "/services"
   | "/solutions"
-  | "/contact"
-  | "/blog";
+  | "/contact";
 
 interface MenuColumn {
   title: string;
@@ -29,7 +28,6 @@ export default function MobileNav() {
     { title: "Services", href: "/services" },
     { title: "Solutions", href: "/solutions" },
     { title: "Contact", href: "/contact" },
-    { title: "Blog", href: "/blog" },
   ];
 
   return (
