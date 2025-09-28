@@ -2,59 +2,52 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 
-/**
- * Generate SEO metadata for all pages using next-intl translations
- * Auto-generates canonical URLs from slug and locale
- */
+type Locale = "en" | "vi";
+
+interface MetadataOptions {
+  additionalMetadata?: Partial<Metadata>;
+}
+
 export async function generatePageMetadata(
   locale: string,
   namespace: string,
-  options?: {
-    additionalMetadata?: Partial<Metadata>;
-  }
+  options?: MetadataOptions
 ): Promise<Metadata> {
   // Parallel translation loading for better performance
   const translations = await Promise.all(
-    routing.locales.map((l) => getTranslations({ locale: l, namespace }))
+    routing.locales.map((l: Locale) =>
+      getTranslations({ locale: l, namespace })
+    )
   );
 
-  const currentIndex = routing.locales.indexOf(locale as "en" | "vi");
+  const currentIndex = routing.locales.indexOf(locale as Locale);
   const t = translations[currentIndex];
 
+  // Extract metadata from translations
   const title = t("meta.title");
   const description = t("meta.description");
   const ogImage = t("meta.ogImage");
+  const slug = t("meta.slug");
 
-  // Handle both canonical and slug patterns
-  let canonical: string;
-  try {
-    canonical = t("meta.canonical");
-  } catch {
-    // Fallback to constructing from slug if canonical doesn't exist
-    const slug = t("meta.slug");
-    canonical = `/${locale}${slug ? `/${slug}` : ""}`;
-  }
-
+  // Build base URL
   const base = new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
   );
+
+  // Generate canonical URL from locale and slug
+  const canonical = `/${locale}${slug ? `/${slug}` : ""}`;
   const url = new URL(canonical, base);
 
-  // Create alternate language URLs from canonicals or slugs
+  // Generate alternate language URLs
   const languages = Object.fromEntries(
-    routing.locales.map((l, index) => {
-      let localeCanonical: string;
-      try {
-        localeCanonical = translations[index]("meta.canonical");
-      } catch {
-        // Fallback to constructing from slug
-        const slug = translations[index]("meta.slug");
-        localeCanonical = `/${l}${slug ? `/${slug}` : ""}`;
-      }
+    routing.locales.map((l: Locale, index: number) => {
+      const localeSlug = translations[index]("meta.slug");
+      const localeCanonical = `/${l}${localeSlug ? `/${localeSlug}` : ""}`;
       return [l, new URL(localeCanonical, base)];
     })
   );
 
+  // Build metadata object
   const baseMetadata: Metadata = {
     title,
     description,
@@ -71,14 +64,11 @@ export async function generatePageMetadata(
       description,
       images: [ogImage],
     },
-    // Robots tạm thời trong dev, sẽ bỏ khi production
+    // TODO: Remove robots when going to production
     robots: { index: false, follow: false },
   };
 
-  // Merge with additional metadata if provided
-  if (options?.additionalMetadata) {
-    return { ...baseMetadata, ...options.additionalMetadata };
-  }
-
-  return baseMetadata;
+  return options?.additionalMetadata
+    ? { ...baseMetadata, ...options.additionalMetadata }
+    : baseMetadata;
 }
