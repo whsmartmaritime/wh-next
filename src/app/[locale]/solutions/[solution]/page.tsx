@@ -1,15 +1,6 @@
 import type { Metadata } from "next";
-import { generateMetadata as createSeoMetadata } from "@/lib/generate-metadata";
-import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { PageHero } from "@/components/PageHero";
-import { BackgroundGrid } from "@/components/BackgroundGrid";
-import { BackgroundScanline } from "@/components/BackgroundScanline";
-import { loadContent, getCategories } from "@/lib/content";
-
-interface Props {
-  params: { locale: string; solution: string };
-}
 
 export async function generateStaticParams() {
   const allParams = await Promise.all(
@@ -21,79 +12,60 @@ export async function generateStaticParams() {
   return allParams.flat();
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const content = await loadContent(
-    params.locale,
-    "solutions",
-    params.solution
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await props.params;
+  // Dùng chung 1 lần getTranslations cho toàn page
+  const t = await getTranslations({ locale, namespace: "home" });
+
+  const title = t("meta.title");
+  const description = t("meta.seoDescription");
+  const ogImage = t("meta.ogImage");
+  const canonical = t("meta.canonical");
+
+  const base = new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  );
+  const url = new URL(canonical, base);
+
+  // Create alternate language URLs from pre-defined canonicals
+  const languages = Object.fromEntries(
+    routing.locales.map((l) => [l, new URL(t("meta.canonical"), base)])
   );
 
-  if (!content) {
-    return {
-      title: "Solution not found",
-      description: "",
-    };
-  }
-
-  // Simple SEO generation directly in page - KISS principle
-  return createSeoMetadata(
-    (content.meta?.title as string) || "Solution not found",
-    (content.meta?.description as string) || "",
-    (content.meta?.ogImage as string) || "/images/default-og.jpg",
-    `/${params.locale}/solutions/${content.meta?.slug || params.solution}`
-  );
+  return {
+    title,
+    description,
+    alternates: { canonical: url, languages },
+    openGraph: {
+      title,
+      description,
+      url,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+    robots: { index: false, follow: false }, // Ngăn bot index trang này
+  };
 }
 
-export default async function SolutionPage({ params }: Props) {
-  const content = await loadContent(
-    params.locale,
-    "solutions",
-    params.solution
+export default async function SolutionPage(props: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await props.params;
+
+  const translations = await Promise.all(
+    routing.locales.map((l) =>
+      getTranslations({ locale: l, namespace: "home" })
+    )
   );
+  const currentIndex = routing.locales.indexOf(locale as "en" | "vi");
+  const t = translations[currentIndex];
 
-  if (!content) return notFound();
-
-  return (
-    <>
-      <BackgroundGrid />
-      <BackgroundScanline />
-      <main className="relative z-10">
-        <PageHero
-          titlePre={
-            typeof content.hero?.titlePre === "string"
-              ? content.hero.titlePre
-              : ""
-          }
-          titleMain={
-            typeof content.hero?.titleMain === "string"
-              ? content.hero.titleMain
-              : typeof content.title === "string"
-              ? content.title
-              : ""
-          }
-          subtitle={
-            typeof content.hero?.subtitle === "string"
-              ? content.hero.subtitle
-              : typeof content.hero?.description === "string"
-              ? content.hero.description
-              : typeof content.description === "string"
-              ? content.description
-              : ""
-          }
-        />
-
-        <div className="container mx-auto px-4 py-16">
-          {content.content && (
-            <div className="prose max-w-none">{content.content}</div>
-          )}
-          {!content.content && content.sections && (
-            <div>
-              {/* Render JSON sections as needed */}
-              <pre>{JSON.stringify(content.sections, null, 2)}</pre>
-            </div>
-          )}
-        </div>
-      </main>
-    </>
-  );
+  return <></>;
 }

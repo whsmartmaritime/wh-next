@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { generateMetadata as createSeoMetadata } from "@/lib/generate-metadata";
 import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import Hero from "@/components/Hero";
@@ -14,22 +14,49 @@ export async function generateMetadata(props: {
   const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: "home" });
 
-  return createSeoMetadata(
-    t("meta.title"),
-    t("meta.description"),
-    t("meta.ogImage"),
-    `/${locale}`,
-    {
-      en: "/en",
-      vi: "/vi",
-    }
+  const title = t("meta.title");
+  const description = t("meta.description");
+  const ogImage = t("meta.ogImage");
+
+  const base = new URL(
+    (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(
+      /\/$/,
+      ""
+    )
   );
+
+  const url = new URL(`${locale}`, base);
+
+  // Create alternate language URLs from pre-defined canonicals
+  const languages = Object.fromEntries(
+    routing.locales.map((l) => [l, new URL(`${l}`, base)])
+  );
+
+  return {
+    title,
+    description,
+    alternates: { canonical: url, languages },
+    openGraph: {
+      title,
+      description,
+      url,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
 }
 
 export default async function HomePage(props: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await props.params;
+
+  // Chỉ tải file ngôn ngữ cần thiết -> TỐI ƯU
   const t = await getTranslations({ locale, namespace: "home" });
 
   return (
