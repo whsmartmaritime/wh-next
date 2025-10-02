@@ -181,32 +181,32 @@ export default async function AboutPage(props: {
           <div className="w-full xl:w-1/2 mx-auto  ">
             <form className="space-y-6" aria-label="Contact form">
               <h3 className="uppercase tracking-[0.25em]  text-lg lg:text-xl">
-                {t("contact.messageTitle")}
+                {t("about.contactForm.messageTitle")}
               </h3>
               <input
                 type="text"
                 className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("contact.namePlaceholder") + " *"}
+                placeholder={t("about.contactForm.namePlaceholder") + " *"}
                 required
               />
 
               <input
                 type="email"
                 className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("contact.emailPlaceholder") + " *"}
+                placeholder={t("about.contactForm.emailPlaceholder") + " *"}
                 required
               />
 
               <input
                 type="tel"
                 className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("contact.phonePlaceholder")}
+                placeholder={t("about.contactForm.phonePlaceholder")}
               />
 
               <textarea
                 rows={5}
                 className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("contact.messagePlaceholder") + " *"}
+                placeholder={t("about.contactForm.messagePlaceholder") + " *"}
                 required
               ></textarea>
 
@@ -214,7 +214,7 @@ export default async function AboutPage(props: {
                 type="submit"
                 className="w-full min-h-20 my-8 hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
               >
-                {t("contact.submitButton")}
+                {t("about.contactForm.submitButton")}
               </Submit>
             </form>
           </div>

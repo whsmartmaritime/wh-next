@@ -36,12 +36,26 @@
     "value5": "Trong khi nhớ về những trách nhiệm của hôm nay."
   },
   "contact": {
-    "title": "Thông Tin Liên Hệ",
-    "messageTitle": "Gửi tin nhắn",
-    "namePlaceholder": "Họ và tên",
-    "emailPlaceholder": "Email",
-    "phonePlaceholder": "Số điện thoại",
-    "messagePlaceholder": "Nội dung",
-    "submitButton": "Gửi"
+    "title": "Thông tin liên hệ",
+    "name": "Công ty TNHH Wheelhouse",
+    "address": "Địa chỉ:21 An Lộc, Phường An Hải, TP Hải Phòng",
+    "email": "Email:info@wheelhouse.vn",
+    "phone": {
+      "display": "Điện thoại: 84-865716079",
+      "link": "+84865716079"
+    },
+
+    "social": {
+      "facebook": "https://facebook.com",
+      "linkedin": "https://linkedin.com"
+    },
+    "contactForm": {
+      "messageTitle": "Gửi tin nhắn",
+      "namePlaceholder": "Họ và tên",
+      "emailPlaceholder": "Email",
+      "phonePlaceholder": "Số điện thoại",
+      "messagePlaceholder": "Nội dung",
+      "submitButton": "Gửi"
+    }
   }
 }

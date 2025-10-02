@@ -19,7 +19,6 @@ export default async function LocaleLayout({
     getLocale(),
     getMessages(),
   ]);
-
   // Nested layout: providers + chrome only (no <html>/<body>)
   return (
     <>

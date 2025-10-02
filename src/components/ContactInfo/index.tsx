@@ -1,12 +1,12 @@
 import { getTranslations } from "next-intl/server";
 
 export default async function ContactInfo({ className = "" }) {
-  const t = await getTranslations("contact");
+  const t = await getTranslations("about");
 
   return (
     <div className={`space-y-4 ${className}`}>
       <div className="flex items-start space-x-3">
-        <p>{t("name")}</p>
+        <p>{t("contact.name")}</p>
       </div>
       <div className="flex items-start space-x-3">
         <svg
@@ -28,7 +28,7 @@ export default async function ContactInfo({ className = "" }) {
             d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
           />
         </svg>
-        <p>{t("address")}</p>
+        <p>{t("contact.address")}</p>
       </div>
 
       <div className="flex items-center space-x-3">
@@ -45,7 +45,7 @@ export default async function ContactInfo({ className = "" }) {
             d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
           />
         </svg>
-        <p>{t("phone.display")}</p>
+        <p>{t("contact.phone.display")}</p>
       </div>
 
       <div className="flex items-center space-x-3">
@@ -62,7 +62,7 @@ export default async function ContactInfo({ className = "" }) {
             d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
           />
         </svg>
-        <p>{t("email")}</p>
+        <p>{t("contact.email")}</p>
       </div>
     </div>
   );

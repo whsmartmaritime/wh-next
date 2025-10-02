@@ -2,12 +2,27 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 
-eexport async function generateMetadata(props: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await props.params;
-  const t = await getTranslations({ locale, namespace: "solutions" });
+export function generateStaticParams() {
+  // Lấy tất cả solution keys từ pathnames
+  const solutionPaths = Object.keys(routing.pathnames).filter(
+    (key) => key.startsWith("/solutions/") && key.split("/").length === 3
+  );
+  return routing.locales.flatMap((locale) =>
+    solutionPaths.map((pathKey) => {
+      const solution = pathKey.split("/")[2]; // lấy slug
+      return { locale, solution };
+    })
+  );
+}
 
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string; solution: string }>;
+}): Promise<Metadata> {
+  const { locale, solution } = await props.params;
+  const t = await getTranslations({
+    locale,
+    namespace: `solutions/${solution}`,
+  });
   const title = t("meta.title");
   const description = t("meta.description");
   const ogImage = t("meta.ogImage");
@@ -19,11 +34,15 @@ eexport async function generateMetadata(props: {
     )
   );
 
-  const url = new URL(`${locale}/solutions`, base);
-
+  const url = new URL(`${locale}/solutions/${solution}`, base);
   // Create alternate language URLs from pre-defined canonicals
   const languages = Object.fromEntries(
-    routing.locales.map((l) => [l, routing.pathnames["/solutions"][l]])
+    routing.locales.map((l) => [
+      l,
+      (routing.pathnames as Record<string, { [key: string]: string }>)[
+        `/solutions/${solution}`
+      ]?.[l],
+    ])
   );
   return {
     title,
@@ -44,15 +63,18 @@ eexport async function generateMetadata(props: {
   };
 }
 
-export default async function SolutionsPage(props: {
-  params: Promise<{ locale: string }>;
+export default async function SolutionPage(props: {
+  params: Promise<{ locale: string; solution: string }>;
 }) {
-  const { locale } = await props.params;
-
-  const t = await getTranslations({ locale, namespace: "solutions" });
-
+  const { locale, solution } = await props.params;
+  const t = await getTranslations({
+    locale,
+    namespace: `solutions/${solution}`,
+  });
   return (
-  <>
-  </>
+    <>
+      <h1>{t("hero.titleMain")}</h1>
+      <p>{t("hero.description")}</p>
+    </>
   );
 }
