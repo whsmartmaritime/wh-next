@@ -12,24 +12,25 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
-  // Dùng chung 1 lần getTranslations cho toàn page
-  const t = await getTranslations({ locale, namespace: "home" });
+  const t = await getTranslations({ locale, namespace: "solutions" });
 
   const title = t("meta.title");
-  const description = t("meta.seoDescription");
+  const description = t("meta.description");
   const ogImage = t("meta.ogImage");
-  const canonical = t("meta.canonical");
 
   const base = new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+    (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(
+      /\/$/,
+      ""
+    )
   );
-  const url = new URL(canonical, base);
+
+  const url = new URL(`${locale}/solutions`, base);
 
   // Create alternate language URLs from pre-defined canonicals
   const languages = Object.fromEntries(
-    routing.locales.map((l) => [l, new URL(t("meta.canonical"), base)])
+    routing.locales.map((l) => [l, routing.pathnames["/solutions"][l]])
   );
-
   return {
     title,
     description,
@@ -46,7 +47,6 @@ export async function generateMetadata(props: {
       description,
       images: [ogImage],
     },
-    robots: { index: false, follow: false }, // Ngăn bot index trang này
   };
 }
 
@@ -55,13 +55,7 @@ export default async function SolutionsPage(props: {
 }) {
   const { locale } = await props.params;
 
-  const translations = await Promise.all(
-    routing.locales.map((l) =>
-      getTranslations({ locale: l, namespace: "home" })
-    )
-  );
-  const currentIndex = routing.locales.indexOf(locale as "en" | "vi");
-  const t = translations[currentIndex];
+  const t = await getTranslations({ locale, namespace: "solutions" });
 
   return (
     <>

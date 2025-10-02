@@ -28,10 +28,7 @@ export async function generateMetadata(props: {
   const url = new URL(`${locale}`, base);
 
   // Create alternate language URLs from pre-defined canonicals
-  const languages = Object.fromEntries(
-    routing.locales.map((l) => [l, new URL(`${l}`, base)])
-  );
-
+  const languages = Object.fromEntries(routing.locales.map((l) => [l, `${l}`]));
   return {
     title,
     description,
@@ -50,13 +47,14 @@ export async function generateMetadata(props: {
     },
   };
 }
-
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 export default async function HomePage(props: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await props.params;
 
-  // Chỉ tải file ngôn ngữ cần thiết -> TỐI ƯU
   const t = await getTranslations({ locale, namespace: "home" });
 
   return (
