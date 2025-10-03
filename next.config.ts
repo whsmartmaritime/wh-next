@@ -1,13 +1,13 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
-import withMDX from "@next/mdx";
+import createMDX from "@next/mdx";
 
-const mdx = withMDX({
-  extension: /\.mdx?$/,
+const withMDX = createMDX({
+  // Add remark/rehype plugins here if needed later.
 });
 
 const nextConfig: NextConfig = {
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 };
 
-export default createNextIntlPlugin()(mdx(nextConfig));
+export default createNextIntlPlugin()(withMDX(nextConfig));

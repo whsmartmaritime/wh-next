@@ -21,9 +21,7 @@
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"],
-      "@scss/*": [
-        "css/*"
-      ],
+      "@messages/*": ["../messages/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
