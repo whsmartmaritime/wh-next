@@ -4,9 +4,6 @@ import matter from "gray-matter";
 import { routing as existingRouting } from "../i18n/routing";
 
 // --- Config & Types -------------------------------------------------------
-const ROOT = process.cwd();
-const MESSAGES = path.join(ROOT, "messages");
-const ROUTING_FILE = path.join(ROOT, "src/i18n/routing.ts");
 type RouteMap = Record<string, Record<string, string>>;
 interface Frontmatter {
   slug?: string;
@@ -38,8 +35,15 @@ async function buildGroups() {
     { canonical: string; perLocale: Record<string, string> }
   > = {};
   for (const locale of locales) {
-    for (const file of await walk(path.join(MESSAGES, locale))) {
-      const rel = norm(path.relative(path.join(MESSAGES, locale), file));
+    for (const file of await walk(
+      path.join(path.join(process.cwd(), "src", "content"), locale)
+    )) {
+      const rel = norm(
+        path.relative(
+          path.join(path.join(process.cwd(), "src", "content"), locale),
+          file
+        )
+      );
       const parts = rel.split("/");
       const base = parts.pop()!.replace(/\.mdx$/, "");
       const dirRoute = parts.length ? `/${parts.join("/")}` : "";
@@ -129,7 +133,11 @@ async function run() {
   )},\n  defaultLocale: ${JSON.stringify(
     existingRouting.defaultLocale
   )},\n  pathnames: ${printPathnames(merged)}\n});\n`;
-  await fs.writeFile(ROUTING_FILE, content, "utf8");
+  await fs.writeFile(
+    path.join(process.cwd(), "src", "i18n", "routing.ts"),
+    content,
+    "utf8"
+  );
   console.log(
     `✅ updatePathname: groups=${Object.keys(groups).length}, totalRoutes=${
       Object.keys(merged).length

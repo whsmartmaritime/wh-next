@@ -36,37 +36,37 @@ export const routing = defineRouting({
       en: "/solutions/navigation",
       vi: "/giai-phap/nghi-khi-hang-hai",
     },
-    "/solutions/navigation/ais-technical-analysis": {
-      en: "/solutions/navigation/ais-technical-analysis",
-      vi: "/solutions/navigation/ais-phan-tich-ky-thuat",
+    "/solutions/navigation/ais-introduction": {
+      en: "/solutions/navigation/ais-introduction",
+      vi: "/solutions/navigation/gioi-thieu-ais",
     },
-    "/solutions/navigation/anemometer-true-relative-wind": {
-      en: "/solutions/navigation/anemometer-true-relative-wind",
-      vi: "/solutions/navigation/may-do-gio-phan-tich-ky-thuat",
+    "/solutions/navigation/anemometer-introduction": {
+      en: "/solutions/navigation/anemometer-introduction",
+      vi: "/solutions/navigation/gioi-thieu-anemometer",
     },
-    "/solutions/navigation/ecdis-technical-analysis": {
-      en: "/solutions/navigation/ecdis-technical-analysis",
-      vi: "/solutions/navigation/ecdis-phan-tich-ky-thuat",
+    "/solutions/navigation/ecdis-introduction": {
+      en: "/solutions/navigation/ecdis-introduction",
+      vi: "/solutions/navigation/gioi-thieu-ecdis",
     },
-    "/solutions/navigation/echosounder-technical-analysis": {
-      en: "/solutions/navigation/echosounder-technical-analysis",
-      vi: "/solutions/navigation/may-do-sau-phan-tich-ky-thuat",
+    "/solutions/navigation/echo-sounder-introduction": {
+      en: "/solutions/navigation/echo-sounder-introduction",
+      vi: "/solutions/navigation/gioi-thieu-may-do-sau",
     },
-    "/solutions/navigation/gnss-navigation-systems": {
-      en: "/solutions/navigation/gnss-navigation-systems",
-      vi: "/solutions/navigation/he-thong-dinh-vi-gnss",
+    "/solutions/navigation/gnss-introduction": {
+      en: "/solutions/navigation/gnss-introduction",
+      vi: "/solutions/navigation/gioi-thieu-he-thong-dinh-vi",
     },
-    "/solutions/navigation/radar-technical-analysis": {
-      en: "/solutions/navigation/radar-technical-analysis",
-      vi: "/solutions/navigation/radar-phan-tich-ky-thuat",
+    "/solutions/navigation/radar-introduction": {
+      en: "/solutions/navigation/radar-introduction",
+      vi: "/solutions/navigation/gioi-thieu-radar",
     },
-    "/solutions/navigation/speed-log-technical-analysis": {
-      en: "/solutions/navigation/speed-log-technical-analysis",
-      vi: "/solutions/navigation/may-do-toc-do-phan-tich-ky-thuat",
+    "/solutions/navigation/speed-log-introduction": {
+      en: "/solutions/navigation/speed-log-introduction",
+      vi: "/solutions/navigation/gioi-thieu-may-do-toc-do",
     },
-    "/solutions/navigation/ssas-isps-technical-analysis": {
-      en: "/solutions/navigation/ssas-isps-technical-analysis",
-      vi: "/solutions/navigation/ssas-phan-tich-ky-thuat",
+    "/solutions/navigation/ssas-introduction": {
+      en: "/solutions/navigation/ssas-introduction",
+      vi: "/solutions/navigation/gioi-thieu-ssas",
     },
   },
 });
