@@ -34,6 +34,33 @@ async function buildGroups() {
     string,
     { canonical: string; perLocale: Record<string, string> }
   > = {};
+
+  // Resolve the deepest translated ancestor path for a given canonical dirRoute.
+  // Example: dirRoute=/solutions/navigation, locale=vi, existing mapping has
+  //   '/solutions/navigation': { vi: '/giai-phap/nghi-khi-hang-hai' }
+  // Returns '/giai-phap/nghi-khi-hang-hai'. If no translation found, returns original dirRoute.
+  function localizeDirRoute(dirRoute: string, locale: string): string {
+    if (!dirRoute) return dirRoute;
+    if (locale === defaultLocale) return dirRoute; // canonical stays unchanged
+    const { pathnames } = existingRouting as unknown as {
+      pathnames: Record<string, Record<string, string>>;
+    };
+    // Build list of ancestor paths: '/solutions', '/solutions/navigation'
+    const segs = dirRoute.split("/").filter(Boolean);
+    const ancestors: string[] = [];
+    for (let i = 0; i < segs.length; i++) {
+      ancestors.push("/" + segs.slice(0, i + 1).join("/"));
+    }
+    // Search deepest first for a translation.
+    for (let i = ancestors.length - 1; i >= 0; i--) {
+      const a = ancestors[i];
+      const entry = pathnames[a];
+      if (entry && entry[locale]) {
+        return entry[locale];
+      }
+    }
+    return dirRoute; // fallback unchanged
+  }
   for (const locale of locales) {
     for (const file of await walk(
       path.join(path.join(process.cwd(), "src", "content"), locale)
@@ -54,7 +81,9 @@ async function buildGroups() {
         console.warn("⚠️ Missing slug:", file);
         continue;
       }
-      const route = `${dirRoute}/${slug}`.replace(/\/+/g, "/");
+      // Build localized directory route (parent segments) if translation exists.
+      const localizedDir = localizeDirRoute(dirRoute, locale);
+      const route = `${localizedDir}/${slug}`.replace(/\/+/g, "/");
       const groupId = `${dirRoute}|${base}`;
       groups[groupId] ||= { canonical: route, perLocale: {} };
       if (locale === defaultLocale) groups[groupId].canonical = route;
@@ -84,8 +113,10 @@ function merge(groups: Awaited<ReturnType<typeof buildGroups>>): RouteMap {
         return p;
       }, "");
     merged[key] ||= {};
-    for (const [loc, locPath] of Object.entries(g.perLocale))
-      merged[key][loc] ||= locPath;
+    for (const [loc, locPath] of Object.entries(g.perLocale)) {
+      // Overwrite to ensure refreshed localized parent segments are applied.
+      merged[key][loc] = locPath;
+    }
   }
   return Object.fromEntries(
     Object.keys(merged)
