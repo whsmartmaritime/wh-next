@@ -39,8 +39,8 @@ export default function PostCard({
   return (
     <div
       className={
-        "relative grid grid-cols-1 lg:grid-cols-2 group overflow-hidden border border-neutral-800 bg-neutral-900/40 transition hover:border-neutral-700 hover:shadow-xl " +
-        (isFeatured ? "md:col-span-2 " : "") +
+        "relative grid grid-cols-1  group overflow-hidden  bg-neutral-100 mb-12 lg:mb-16 " +
+        (isFeatured ? "md:col-span-2 lg:grid-cols-2 " : "md:grid-cols-2") +
         className
       }
     >
@@ -64,17 +64,13 @@ export default function PostCard({
           />
         </div>
       ) : null}
-      <div className=" p-4 md:p-6">
+      <div className={" p-4 md:p-6" + (isFeatured ? "" : "m-2 lg:m-4")}>
         {date ? (
           <div className="mb-2 text-xs uppercase tracking-widest text-neutral-400">
             {date}
           </div>
         ) : null}
-        <h3
-          className={
-            "mb-3 text-lg font-semibold leading-snug text-neutral-100 md:text-xl"
-          }
-        >
+        <h3 className={"mb-3 text-lg font-semibold leading-snug  md:text-xl"}>
           <Link href={entry.route} className="hover:underline">
             {entry.title || entry.route}
           </Link>

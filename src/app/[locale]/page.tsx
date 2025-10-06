@@ -62,7 +62,7 @@ export default async function HomePage(props: {
   const l = locale as Locales;
   const all = entries[l] || [];
   const feature = featureEntry[l] ?? null;
-  const list = all.slice(0, 3);
+  const list = all.slice(0, 2);
 
   return (
     <>
