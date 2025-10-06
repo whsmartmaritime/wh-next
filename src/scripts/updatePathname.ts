@@ -219,7 +219,12 @@ function computePosts(byLocale: PostsByLocale) {
   const sortByDateDesc = makeSortByDateDesc<PostEntry>();
   const out: Record<
     string,
-    { featureEntry: PostEntry | null; entries: PostEntry[] }
+    {
+      featureEntry: PostEntry | null;
+      entries: PostEntry[];
+      featureByCategory: Record<string, PostEntry | null>;
+      entriesByCategory: Record<string, PostEntry[]>;
+    }
   > = {};
   for (const l of existingRouting.locales) {
     const list = byLocale[l] || [];
@@ -229,7 +234,28 @@ function computePosts(byLocale: PostsByLocale) {
     const entries = featureEntry
       ? allSorted.filter((p) => p.route !== featureEntry.route)
       : allSorted;
-    out[l] = { featureEntry, entries };
+
+    // Group by category
+    const groups: Record<string, PostEntry[]> = {};
+    for (const p of allSorted) {
+      if (!p.category) continue; // chỉ nhóm khi có category rõ ràng
+      (groups[p.category] ||= []).push(p);
+    }
+
+    const featureByCategory: Record<string, PostEntry | null> = {};
+    const entriesByCategory: Record<string, PostEntry[]> = {};
+    for (const [cat, arr] of Object.entries(groups)) {
+      const catSorted = arr.slice().sort(sortByDateDesc);
+      const catFeatured =
+        catSorted.find((p) => p.featured) || catSorted[0] || null;
+      const catEntries = catFeatured
+        ? catSorted.filter((p) => p.route !== catFeatured.route)
+        : catSorted;
+      featureByCategory[cat] = catFeatured;
+      entriesByCategory[cat] = catEntries;
+    }
+
+    out[l] = { featureEntry, entries, featureByCategory, entriesByCategory };
   }
   return out;
 }
@@ -252,15 +278,27 @@ async function writeRoutingFile(merged: RouteMap) {
 async function writePostsFile(
   byLocaleEntries: Record<
     string,
-    { featureEntry: PostEntry | null; entries: PostEntry[] }
+    {
+      featureEntry: PostEntry | null;
+      entries: PostEntry[];
+      featureByCategory: Record<string, PostEntry | null>;
+      entriesByCategory: Record<string, PostEntry[]>;
+    }
   >
 ) {
-  // Chỉ xuất một map duy nhất: entries theo locale (đã sắp xếp), tránh trùng lặp dữ liệu.
+  // Xuất maps theo locale
   const featureMap: Record<string, PostEntry | null> = {};
   const entriesMap: Record<string, PostEntry[]> = {};
+  const featureByCategoryMap: Record<
+    string,
+    Record<string, PostEntry | null>
+  > = {};
+  const entriesByCategoryMap: Record<string, Record<string, PostEntry[]>> = {};
   for (const [loc, obj] of Object.entries(byLocaleEntries)) {
     featureMap[loc] = obj.featureEntry;
     entriesMap[loc] = obj.entries;
+    featureByCategoryMap[loc] = obj.featureByCategory;
+    entriesByCategoryMap[loc] = obj.entriesByCategory;
   }
 
   const moduleText = `export type PostEntry = {\n  route: string;\n  locale: string;\n  title?: string;\n  featured?: boolean;\n  publishedAt?: string;\n  author?: string;\n  category?: string;\n  tags?: string[];\n  ogImage?: string;\n};\n\nexport const featureEntry = ${JSON.stringify(
@@ -269,6 +307,14 @@ async function writePostsFile(
     2
   )} as const;\n\nexport const entries = ${JSON.stringify(
     entriesMap,
+    null,
+    2
+  )} as const;\n\nexport const featureByCategory = ${JSON.stringify(
+    featureByCategoryMap,
+    null,
+    2
+  )} as const;\n\nexport const entriesByCategory = ${JSON.stringify(
+    entriesByCategoryMap,
     null,
     2
   )} as const;\n\nexport type Locales = keyof typeof entries;\n`;
