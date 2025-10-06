@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import PostCard from "@/components/PostCard/PostCard";
+import {
+  featureByCategory,
+  entriesByCategory,
+  type Locales,
+  type PostEntry,
+} from "@/lib/postIndex.generated";
 
 export function generateStaticParams() {
   // Lấy tất cả solution keys từ pathnames
@@ -71,10 +78,46 @@ export default async function SolutionPage(props: {
     locale,
     namespace: `solutions/${solution}`,
   });
+
+  const l = locale as Locales;
+  // Cho phép index bằng string mà không dùng any
+  const featureMap = featureByCategory as unknown as Record<
+    Locales,
+    Record<string, PostEntry | null>
+  >;
+  const entriesMap = entriesByCategory as unknown as Record<
+    Locales,
+    Record<string, ReadonlyArray<PostEntry>>
+  >;
+
+  const feature = featureMap[l]?.[solution] ?? null;
+  const items = entriesMap[l]?.[solution] ?? [];
+
   return (
     <>
-      <h1>{t("hero.titleMain")}</h1>
-      <p>{t("hero.description")}</p>
+      <header className="container-gutter py-10">
+        <h1 className="text-3xl font-bold text-neutral-100">
+          {t("hero.titleMain")}
+        </h1>
+        <p className="mt-3 text-neutral-300">{t("hero.description")}</p>
+      </header>
+
+      {feature || items.length > 0 ? (
+        <section className="container-gutter py-8" aria-label="Category posts">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {feature ? (
+              <PostCard
+                entry={feature}
+                variant="featured"
+                className="lg:col-span-3"
+              />
+            ) : null}
+            {items.map((p: PostEntry) => (
+              <PostCard key={p.route} entry={p} />
+            ))}
+          </div>
+        </section>
+      ) : null}
     </>
   );
 }
