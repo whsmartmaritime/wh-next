@@ -1,7 +1,7 @@
 import { Link } from "@/i18n/navigation";
-import MainMenu from "../MainMenu";
 import MobileNavToggle from "../MobileNavToggle";
 import TopBar from "@/components/TopBar";
+import Nav from "../Nav";
 
 export default async function Header() {
   return (
@@ -100,8 +100,8 @@ export default async function Header() {
           </div>
 
           {/* Main nav / Main menu */}
-          <div className="hidden lg:block lg:col-span-7 static">
-            <MainMenu />
+          <div className="hidden lg:block lg:col-span-7 lg:col-start-6 static">
+            <Nav />
           </div>
         </nav>
       </header>

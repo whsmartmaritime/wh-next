@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "home": "Trang Chủ",
+    "solutions": {
+      "title": "Giải Pháp",
+      "gmdss": "GMDSS",
+      "navigation": "Nghi Khí Hàng Hải",
+      "connectivity": "SatComm",
+      "e-navigation": "E-Navigation"
+    },
+    "services": {
+      "title": "Dịch Vụ",
+      "repair-maintenance": "Sửa Chữa & Bảo Trì",
+      "installation": "Lắp Đặt",
+      "annual-survey": "Kiểm Tra Hàng Năm",
+      "spare-parts": "Vật tư - Phụ Tùng"
+    },
+    "about": "Giới Thiệu",
+    "contact": "Liên Hệ",
+    "blog": "Blog"
+  }
+}
