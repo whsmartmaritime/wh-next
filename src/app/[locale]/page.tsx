@@ -9,6 +9,7 @@ import WhyWheelhouse from "@/blocks/WhyWheelhouse";
 import WhatWeDo from "@/blocks/WhatWeDo";
 import PostCard from "@/components/PostCard/PostCard";
 import { entries, featureEntry, type Locales } from "@/lib/postIndex.generated";
+import Link from "next/dist/client/link";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -110,25 +111,27 @@ export default async function HomePage(props: {
 
       <WhatWeDo aria-label="What We Do section" />
 
-      {/* Posts section */}
-      <section className="container-gutter py-16" aria-label="Latest posts">
+      {/* Recent Articles section */}
+      <section
+        className="relative container-gutter py-16"
+        aria-label="Recent Articles section"
+      >
+        <BackgroundGrid />
+
         <div className="mb-6 flex items-end justify-between">
-          <h2 className="text-2xl font-semibold text-neutral-100">
-            {t("latestPosts.title", { defaultValue: "Latest Articles" })}
+          <h2 className="text-2xl font-semibold">
+            {t("recentArticles.title", { defaultValue: "Recent Articles" })}
           </h2>
+          <Link href="/blog" className="text-sm font-medium">
+            {t("recentArticles.viewAll", { defaultValue: "View all articles" })}
+          </Link>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {feature ? (
-            <PostCard
-              entry={feature}
-              variant="featured"
-              className="lg:col-span-3"
-            />
-          ) : null}
+        <article className="grid grid-cols-1 md:grid-cols-2">
+          {feature ? <PostCard entry={feature} variant="featured" /> : null}
           {list.map((p) => (
             <PostCard key={p.route} entry={p} />
           ))}
-        </div>
+        </article>
       </section>
     </>
   );

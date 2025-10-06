@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { PostEntry } from "@/lib/postIndex.generated";
+import BackgroundScanline from "../BackgroundScanline";
 
 type EntryLike = Omit<PostEntry, "tags"> & {
   tags?: readonly string[] | string[];
@@ -9,7 +10,7 @@ type EntryLike = Omit<PostEntry, "tags"> & {
 export type PostCardProps = {
   entry: EntryLike;
   className?: string;
-  variant?: "featured" | "compact";
+  variant?: "featured" | "compact" | "service";
 };
 
 function formatDate(input?: string, locale?: string) {
@@ -36,26 +37,34 @@ export default function PostCard({
   const isFeatured = variant === "featured";
 
   return (
-    <article
+    <div
       className={
-        "group overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900/40 shadow-lg transition hover:border-neutral-700 hover:shadow-xl " +
+        "relative grid grid-cols-1 lg:grid-cols-2 group overflow-hidden border border-neutral-800 bg-neutral-900/40 transition hover:border-neutral-700 hover:shadow-xl " +
         (isFeatured ? "md:col-span-2 " : "") +
         className
       }
     >
+      <BackgroundScanline
+        crosshairs={["top-right", "bottom-left"]}
+        className="absolute inset-0 "
+        opacity={0.1}
+      />
       {entry.ogImage ? (
-        <div className={"relative aspect-[16/9] w-full overflow-hidden"}>
+        <div
+          className={
+            "relative aspect-[16/10] " + (isFeatured ? "m-8 lg:m-12" : "")
+          }
+        >
           <Image
             src={entry.ogImage}
             alt={entry.title || "Post image"}
             fill
-            sizes="(min-width: 768px) 600px, 100vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            className="object-cover"
             priority={isFeatured}
           />
         </div>
       ) : null}
-      <div className="p-4 md:p-6">
+      <div className=" p-4 md:p-6">
         {date ? (
           <div className="mb-2 text-xs uppercase tracking-widest text-neutral-400">
             {date}
@@ -74,6 +83,6 @@ export default function PostCard({
           <div className="text-xs text-neutral-400">{entry.category}</div>
         ) : null}
       </div>
-    </article>
+    </div>
   );
 }

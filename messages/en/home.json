@@ -54,8 +54,8 @@
     "buttonLabel": "Discover More",
     "buttonHref": "/services"
   },
-  "latestNews": {
-    "title": "Latest News",
+  "recentArticles": {
+    "title": "Recent Articles",
     "description": "Stay updated with our latest insights, industry news, and maritime technology developments.",
     "viewAll": "View all articles"
   }

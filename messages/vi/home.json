@@ -54,8 +54,8 @@
     "buttonLabel": "Khám Phá Thêm",
     "buttonHref": "/dich-vu"
   },
-  "latestNews": {
-    "title": "Tin tức mới nhất",
+  "recentArticles": {
+    "title": "Bài viết gần đây",
     "description": "Cập nhật những thông tin mới nhất về ngành hàng hải, công nghệ và các xu hướng phát triển.",
     "viewAll": "Xem tất cả bài viết"
   }
