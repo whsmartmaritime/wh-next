@@ -113,23 +113,17 @@ export default async function ServicesPage(props: {
             })}
           </p>
         </div>
-        <div className="relative mb-8 lg:mb-16 border border-white/15">
-          <BackgroundScanline
-            crosshairs={["top-right", "bottom-left"]}
-            className="absolute inset-0"
-            opacity={0.1}
-          />
-          <MediaCard
-            data={{
-              route: `/${locale}/solutions`,
-              title: t("repairMaintenance.items.item1.title"),
-              description: t("repairMaintenance.items.item1.intro"),
-              ogImage: t.raw("repairMaintenance.items.item1.imgSrc"),
-              locale,
-            }}
-            variant="featured"
-          />
-        </div>
+        <MediaCard
+          className=" mb-8 lg:mb-16"
+          data={{
+            href: `/${locale}/solutions`,
+            title: t("repairMaintenance.items.item1.title"),
+            description: t("repairMaintenance.items.item1.intro"),
+            imgSrc: t.raw("repairMaintenance.items.item1.imgSrc"),
+            imgAlt: t("repairMaintenance.items.item1.imgAlt"),
+          }}
+          variant="featured"
+        />
         <div className="grid grid-cols-12  mb-8 lg:mb-16 text-lg lg:text-xl leading-relaxed">
           <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-justify">
             {t.rich("repairMaintenance.items.item1.desc1", {
@@ -150,18 +144,14 @@ export default async function ServicesPage(props: {
             >
               <MediaCard
                 data={{
-                  route: `/${locale}/solutions`,
+                  href: `/${locale}/solutions`,
                   title: t(`repairMaintenance.items.${key}.title`),
                   description: t(`repairMaintenance.items.${key}.intro`),
-                  ogImage: t.raw(`repairMaintenance.items.${key}.imgSrc`),
-                  locale,
+                  imgSrc: t.raw(`repairMaintenance.items.${key}.imgSrc`),
+                  imgAlt: t(`repairMaintenance.items.${key}.imgAlt`),
                 }}
                 variant="compact"
               />
-
-              <p className="mt-4 px-4 md:px-8">
-                {t(`repairMaintenance.items.${key}.desc`)}
-              </p>
             </div>
           ))}
         </div>

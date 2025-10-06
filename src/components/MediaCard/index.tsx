@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BackgroundScanline } from "../BackgroundScanline";
 
 export type MediaCardData = {
-  route: string; // href
+  href: string; // href
   title?: string;
   description?: string;
-  ogImage?: string;
-  publishedAt?: string;
-  locale?: string;
-  category?: string;
-  tags?: readonly string[] | string[];
+  imgSrc?: string;
+  imgAlt?: string;
 };
 
 export type MediaCardProps = {
@@ -18,67 +16,63 @@ export type MediaCardProps = {
   variant?: "featured" | "compact";
 };
 
-function formatDate(input?: string, locale?: string) {
-  if (!input) return null;
-  const t = Date.parse(input);
-  if (!Number.isFinite(t)) return null;
-  try {
-    return new Intl.DateTimeFormat(locale || undefined, {
-      year: "numeric",
-      month: "short",
-      day: "2-digit",
-    }).format(new Date(t));
-  } catch {
-    return input;
-  }
-}
-
 export default function MediaCard({
   data,
   className = "",
   variant = "compact",
 }: MediaCardProps) {
-  const date = formatDate(data.publishedAt, data.locale);
   const isFeatured = variant === "featured";
 
-  const outerCls =
-    "relative grid grid-cols-1 group overflow-hidden bg-neutral-100 mb-8 " +
-    (isFeatured ? "md:col-span-2 lg:grid-cols-2 " : "md:grid-cols-2 ") +
-    className;
-  const imgWrapCls = "relative aspect-[16/10]";
-  const contentCls = "p-4 md:p-6";
-
   return (
-    <article className={outerCls}>
-      {data.ogImage ? (
-        <div className={imgWrapCls}>
-          <Image
-            src={data.ogImage}
-            alt={data.title || "Media image"}
-            fill
-            className="object-cover"
-            priority={isFeatured}
-          />
-        </div>
-      ) : null}
-      <div className={contentCls}>
-        {date ? (
-          <div className="mb-2 text-xs uppercase tracking-widest text-neutral-500">
-            {date}
+    <Link href={data.href}>
+      <div
+        className={
+          "relative grid grid-cols-1 group bg-neutral-50 hover:bg-neutral-100 mb-8  before:content-[''] before:block before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full before:origin-left before:scale-x-0 before:bg-neutral-900 before:transition-transform before:duration-1000 hover:before:scale-x-100 " +
+          (isFeatured ? "md:col-span-2 lg:grid-cols-2 " : "lg:grid-cols-2 ") +
+          className
+        }
+      >
+        <BackgroundScanline
+          crosshairs={["top-right", "bottom-left"]}
+          enableBorders={true}
+          className={
+            "absolute inset-0  group-hover:opacity-100 transition-transform " +
+            (isFeatured ? "opacity-100" : "opacity-0")
+          }
+        />
+        {data.imgSrc ? (
+          <div
+            className={
+              "relative aspect-[16/10] " + (isFeatured ? "m-8 lg:m-12" : "")
+            }
+          >
+            <Image
+              src={data.imgSrc}
+              alt={data.imgAlt || "Media image"}
+              fill
+              className="object-cover"
+              priority={isFeatured}
+            />
           </div>
         ) : null}
-        <h3 className="mb-3 text-lg font-semibold md:text-xl text-neutral-900">
-          <Link href={data.route} className="hover:underline">
-            {data.title || data.route}
-          </Link>
-        </h3>
-        {data.category ? (
-          <div className="text-xs text-neutral-500">{data.category}</div>
-        ) : null}
-        {data.description ? (
-          <p className="mt-3 text-sm text-neutral-700">{data.description}</p>
-        ) : null}
+        <div
+          className={
+            "flex flex-col justify-center " + (isFeatured ? "" : "m-2 lg:m-4")
+          }
+        >
+          <h3
+            className={
+              "mb-3 font-semibold " +
+              (isFeatured ? "text-2xl lg:text-4xl" : "text-xl lg:text-2xl")
+            }
+          >
+            {data.title}
+          </h3>
+          {data.description ? (
+            <p className="mt-3 text-sm lg:text-base">{data.description}</p>
+          ) : null}
+        </div>
       </div>
-    </article>
+    </Link>
   );
 }

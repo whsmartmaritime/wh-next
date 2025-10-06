@@ -25,8 +25,8 @@
     "intro": "Dịch vụ sửa chữa và bảo dưỡng chuyên nghiệp cho <bold>thiết bị điện tử hàng hải</bold>.",
     "items": {
       "item1": {
-        "title": "Sửa chữa",
-        "intro": "Sửa chữa nhanh chóng, hiệu quả với chi phí tối ưu",
+        "title": "Sửa chữa nhanh chóng, hiệu quả với chi phí tối ưu",
+        "intro": "Với đội kỹ thuật lành nghề và chuẩn bị kỹ lưỡng—bao gồm kế hoạch, phương án thực hiện và vật tư phụ tùng—công việc sửa chữa được thực hiện đúng tiến độ, đáp ứng yêu cầu kỹ thuật và đảm bảo chất lượng cao.",
         "desc": "Với đội kỹ thuật lành nghề và chuẩn bị kỹ lưỡng—bao gồm kế hoạch, phương án thực hiện và vật tư phụ tùng—công việc sửa chữa được thực hiện đúng tiến độ, đáp ứng yêu cầu kỹ thuật và đảm bảo chất lượng cao.",
         "desc1": "Sĩ quan vận hành trong môi trường hàng hải ngày nay dựa vào một loạt các <bold>thiết bị điện tử hàng hải</bold> để đảm bảo an toàn cho con tàu và thủy thủ đoàn, đồng thời hoàn thành chuyến đi một cách nhanh chóng. Các thiết bị điện tử tiên tiến đã làm cho hành trình trên biển <bold>dễ dàng và an toàn hơn</bold>.",
         "desc2": "Bạn cần các dịch vụ tốt nhất cho các thiết bị điện tử trên tàu để duy trì tình trạng hoạt động ổn định và ảnh hưởng nhỏ nhất đến lợi nhuận tài chính của bạn. <bold>Wheelhouse</bold> sẵn lòng cung cấp cho bạn những dịch vụ <bold>sửa chữa, bảo dưỡng</bold> các thiết bị nhằm đạt được mục đích trên với <bold>chi phí tiết kiệm nhất có thể</bold>.",
@@ -35,16 +35,14 @@
         "imgAlt": "Kỹ thuật viên Wheelhouse sửa chữa VSAT"
       },
       "item2": {
-        "title": "Bảo Dưỡng",
-        "intro": "Bảo dưỡng định kỳ để duy trì độ tin cậy và kéo dài tuổi thọ.",
-        "desc": "Các thiết bị, hệ thống trang bị trên tàu, cần được bảo dưỡng đúng kỳ hạn, để kéo dài tuổi thọ, tăng sự ổn định, và đảm bảo an toàn khi tàu hành trình. Các thiết bị thường được bảo dưỡng và thay thế phụ tùng theo kỳ hạn gồm: Các thiết bị trong hệ thống GMDSS; RADAR hàng hải; La bàn con quay…",
+        "title": "Bảo dưỡng định kỳ để duy trì độ tin cậy và kéo dài tuổi thọ.",
+        "intro": "Các thiết bị, hệ thống trang bị trên tàu, cần được bảo dưỡng đúng kỳ hạn, để kéo dài tuổi thọ, tăng sự ổn định, và đảm bảo an toàn khi tàu hành trình.",
         "imgSrc": "/images/services/wheelhouse-engineer-in-ship-bridge.webp",
         "imgAlt": "Kỹ thuật viên Wheelhouse thực hiện bảo dưỡng"
       },
       "item3": {
-        "title": "Hỗ trợ từ xa",
-        "intro": "Hỗ trợ kỹ thuật nhanh chóng, hiệu quả từ xa",
-        "desc": "Đội ngũ hỗ trợ kỹ thuật của chúng tôi luôn sẵn sàng hỗ trợ bạn khi cần. Chúng tôi cung cấp hướng dẫn sử dụng, bảo trì định kỳ, cũng như tư vấn và xử lý sự cố nhanh chóng để tối ưu hiệu suất vận hành.",
+        "title": "Hỗ trợ kỹ thuật nhanh chóng, hiệu quả từ xa",
+        "intro": "Chúng tôi cung cấp hướng dẫn sử dụng, bảo trì định kỳ, cũng như tư vấn và xử lý sự cố nhanh chóng để tối ưu hiệu suất vận hành",
         "imgSrc": "/images/services/wheelhouse-engineer-remote-supporting.webp",
         "imgAlt": "Kỹ thuật viên Wheelhouse hỗ trợ từ xa"
       }
