@@ -6,6 +6,7 @@ import BackgroundScanline from "@/components/BackgroundScanline";
 import BackgroundGrid from "@/components/BackgroundGrid";
 import Image from "next/image";
 import Button from "@/components/Button";
+import MediaCard from "@/components/MediaCard";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -75,10 +76,7 @@ export default async function ServicesPage(props: {
       </section>
       {/** section qualityOfService **/}
 
-      <section
-        className="relative bg-neutral-200 text-neutral-900"
-        aria-label="Services intro section"
-      >
+      <section className="relative " aria-label="Services intro section">
         <BackgroundGrid />
         <div className="container-gutter py-16 lg:py-32">
           <div className="relative bg-neutral-200 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
@@ -101,7 +99,7 @@ export default async function ServicesPage(props: {
       {/** section repairMaintenance **/}
 
       <section
-        className="relative container-gutter dark bg-black text-neutral-200"
+        className="relative container-gutter "
         aria-label="Services details section"
       >
         <BackgroundGrid />
@@ -115,27 +113,22 @@ export default async function ServicesPage(props: {
             })}
           </p>
         </div>
-        <div className="relative grid grid-cols-12 bg-black w-full h-full items-center justify-center border border-white/15 mb-8 lg:mb-16">
+        <div className="relative mb-8 lg:mb-16 border border-white/15">
           <BackgroundScanline
             crosshairs={["top-right", "bottom-left"]}
-            className="absolute inset-0 "
+            className="absolute inset-0"
             opacity={0.1}
           />
-          <div className="relative col-span-12 lg:col-span-6 aspect-[16/10] m-8 lg:m-12">
-            <Image
-              src={t("repairMaintenance.items.item1.imgSrc")}
-              alt={t("repairMaintenance.items.item1.imgAlt")}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="col-span-12 lg:col-span-6 text-sm sm:text-lg lg:text-2xl px-8 lg:px-0 text-justify leading-relaxed">
-            <h3 className="text-2xl lg:text-4xl font-bold mb-4">
-              {t("repairMaintenance.items.item1.title")}
-            </h3>
-            <p className="mb-4">{t("repairMaintenance.items.item1.intro")}</p>
-          </div>
+          <MediaCard
+            data={{
+              route: `/${locale}/solutions`,
+              title: t("repairMaintenance.items.item1.title"),
+              description: t("repairMaintenance.items.item1.intro"),
+              ogImage: t.raw("repairMaintenance.items.item1.imgSrc"),
+              locale,
+            }}
+            variant="featured"
+          />
         </div>
         <div className="grid grid-cols-12  mb-8 lg:mb-16 text-lg lg:text-xl leading-relaxed">
           <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-justify">
@@ -155,25 +148,16 @@ export default async function ServicesPage(props: {
               className="col-span-12 lg:col-span-6 flex flex-col mb-16"
               key={i}
             >
-              <div className="flex flex-col md:flex-row justify-center items-center">
-                <div className="relative w-full md:w-1/2 aspect-[16/10]">
-                  <Image
-                    src={t.raw(`repairMaintenance.items.${key}.imgSrc`)}
-                    alt={t(`repairMaintenance.items.${key}.imgAlt`)}
-                    width={1600}
-                    height={1000}
-                    className="object-cover"
-                  />
-                </div>
-                <div className="w-full md:w-1/2 ">
-                  <h3 className="text-xl lg:text-2xl font-bold m-4">
-                    {t(`repairMaintenance.items.${key}.title`)}
-                  </h3>
-                  <p className="text-lg lg:text-xl  m-4">
-                    {t(`repairMaintenance.items.${key}.intro`)}
-                  </p>
-                </div>
-              </div>
+              <MediaCard
+                data={{
+                  route: `/${locale}/solutions`,
+                  title: t(`repairMaintenance.items.${key}.title`),
+                  description: t(`repairMaintenance.items.${key}.intro`),
+                  ogImage: t.raw(`repairMaintenance.items.${key}.imgSrc`),
+                  locale,
+                }}
+                variant="compact"
+              />
 
               <p className="mt-4 px-4 md:px-8">
                 {t(`repairMaintenance.items.${key}.desc`)}
@@ -195,7 +179,7 @@ export default async function ServicesPage(props: {
       </section>
       {/** section installation **/}
       <section
-        className="relative container-gutter bg-neutral-200 text-neutral-900"
+        className="relative container-gutter "
         aria-label="Services list section"
       >
         <BackgroundGrid />

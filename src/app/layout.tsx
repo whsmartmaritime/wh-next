@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import { cookies } from "next/headers";
 import { getLocale } from "next-intl/server";
 import { ThemeProvider } from "@/components/ThemeProvider";
 export default async function RootLayout({
@@ -7,18 +6,18 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Theme from cookie + current locale for <html lang>
-  const [cookieStore, locale] = await Promise.all([cookies(), getLocale()]);
-  const theme = cookieStore.get("theme")?.value;
+  // Current locale for <html lang>
+  const locale = await getLocale();
 
   return (
-    <html
-      lang={locale}
-      className={theme === "dark" ? "dark" : ""}
-      suppressHydrationWarning
-    >
+    <html lang={locale} suppressHydrationWarning>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          forcedTheme="light"
+          enableSystem={false}
+        >
           {children}
         </ThemeProvider>
       </body>
