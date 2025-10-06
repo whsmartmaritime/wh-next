@@ -10,7 +10,7 @@ type EntryLike = Omit<PostEntry, "tags"> & {
 export type PostCardProps = {
   entry: EntryLike;
   className?: string;
-  variant?: "featured" | "compact" | "service";
+  variant?: "featured" | "compact";
 };
 
 function formatDate(input?: string, locale?: string) {
