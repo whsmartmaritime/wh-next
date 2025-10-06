@@ -5,10 +5,33 @@ import { routing as existingRouting } from "../i18n/routing";
 
 // --- Config & Types -------------------------------------------------------
 type RouteMap = Record<string, Record<string, string>>;
+interface FrontmatterMeta {
+  slug?: string;
+  title?: string;
+  ogImage?: string;
+}
 interface Frontmatter {
   slug?: string;
-  meta?: { slug?: string };
+  meta?: FrontmatterMeta;
+  title?: string;
+  featured?: boolean; // yêu cầu boolean chuẩn
+  publishedAt?: string;
+  author?: string;
+  category?: string;
+  tags?: string[];
+  ogImage?: string;
 }
+type PostEntry = {
+  route: string;
+  locale: string;
+  title?: string;
+  featured?: boolean;
+  publishedAt?: string;
+  author?: string;
+  category?: string;
+  tags?: string[];
+  ogImage?: string;
+};
 
 // --- Helpers --------------------------------------------------------------
 const walk = async (dir: string): Promise<string[]> => {
@@ -28,12 +51,39 @@ const walk = async (dir: string): Promise<string[]> => {
 const norm = (p: string) => p.replace(/\\/g, "/");
 
 // --- Core -----------------------------------------------------------------
-async function buildGroups() {
+function isValidDateStr(s?: string): boolean {
+  if (!s) return false;
+  const t = Date.parse(s);
+  return Number.isFinite(t);
+}
+
+function makeSortByDateDesc<T extends { publishedAt?: string }>() {
+  return (a: T, b: T) => {
+    const da = a.publishedAt ? Date.parse(a.publishedAt) : NaN;
+    const db = b.publishedAt ? Date.parse(b.publishedAt) : NaN;
+    if (Number.isNaN(da) && Number.isNaN(db)) return 0;
+    if (Number.isNaN(da)) return 1;
+    if (Number.isNaN(db)) return -1;
+    return db - da;
+  };
+}
+
+type GroupMap = Record<
+  string,
+  { canonical: string; perLocale: Record<string, string> }
+>;
+type PostsByLocale = Record<string, Array<PostEntry>>;
+
+async function collectContent(): Promise<{
+  groups: GroupMap;
+  postsByLocale: PostsByLocale;
+}> {
   const { locales, defaultLocale } = existingRouting;
-  const groups: Record<
-    string,
-    { canonical: string; perLocale: Record<string, string> }
-  > = {};
+  const groups: GroupMap = {};
+  // Thu thập metadata cho card theo từng locale, chỉ đọc file 1 lần
+  const postsByLocale: PostsByLocale = Object.fromEntries(
+    locales.map((l) => [l, [] as PostEntry[]])
+  );
 
   // Resolve the deepest translated ancestor path for a given canonical dirRoute.
   // Example: dirRoute=/solutions/navigation, locale=vi, existing mapping has
@@ -62,20 +112,14 @@ async function buildGroups() {
     return dirRoute; // fallback unchanged
   }
   for (const locale of locales) {
-    for (const file of await walk(
-      path.join(path.join(process.cwd(), "src", "content"), locale)
-    )) {
-      const rel = norm(
-        path.relative(
-          path.join(path.join(process.cwd(), "src", "content"), locale),
-          file
-        )
-      );
+    const baseDir = path.join(process.cwd(), "src", "content", locale);
+    for (const file of await walk(baseDir)) {
+      const rel = norm(path.relative(baseDir, file));
       const parts = rel.split("/");
       const base = parts.pop()!.replace(/\.mdx$/, "");
       const dirRoute = parts.length ? `/${parts.join("/")}` : "";
-      const { data } = matter(await fs.readFile(file, "utf8"));
-      const fm = data as Frontmatter;
+      const { data } = matter(await fs.readFile(file, "utf8")); // Đọc mỗi file đúng 1 lần
+      const fm = data as Frontmatter; // Parse frontmatter một lần, dùng cho cả route & posts
       const slug = fm.slug ?? fm.meta?.slug;
       if (!slug) {
         console.warn("⚠️ Missing slug:", file);
@@ -93,12 +137,29 @@ async function buildGroups() {
         continue;
       }
       groups[groupId].perLocale[locale] = route;
+
+      // Thu thập metadata cho bài viết để render card
+      // Quy ước: không có publishedAt (hoặc ngày không hợp lệ) => coi như draft, KHÔNG hiển thị
+      if (isValidDateStr(fm.publishedAt)) {
+        const entry: PostEntry = {
+          route,
+          locale,
+          title: fm.meta?.title ?? fm.title,
+          featured: fm.featured,
+          publishedAt: fm.publishedAt,
+          author: fm.author,
+          category: fm.category,
+          tags: fm.tags,
+          ogImage: fm.meta?.ogImage ?? fm.ogImage,
+        };
+        postsByLocale[locale].push(entry);
+      }
     }
   }
-  return groups;
+  return { groups, postsByLocale };
 }
 
-function merge(groups: Awaited<ReturnType<typeof buildGroups>>): RouteMap {
+function merge(groups: GroupMap): RouteMap {
   const { defaultLocale, pathnames: existing } = existingRouting;
   const merged: RouteMap = { ...existing };
   for (const g of Object.values(groups)) {
@@ -154,9 +215,26 @@ function printPathnames(map: RouteMap) {
   ].join("\n");
 }
 
-async function run() {
-  const groups = await buildGroups();
-  const merged = merge(groups);
+function computePosts(byLocale: PostsByLocale) {
+  const sortByDateDesc = makeSortByDateDesc<PostEntry>();
+  const out: Record<
+    string,
+    { featureEntry: PostEntry | null; entries: PostEntry[] }
+  > = {};
+  for (const l of existingRouting.locales) {
+    const list = byLocale[l] || [];
+    const allSorted = list.slice().sort(sortByDateDesc);
+    const featuredList = allSorted.filter((p) => p.featured);
+    const featureEntry = featuredList[0] || null;
+    const entries = featureEntry
+      ? allSorted.filter((p) => p.route !== featureEntry.route)
+      : allSorted;
+    out[l] = { featureEntry, entries };
+  }
+  return out;
+}
+
+async function writeRoutingFile(merged: RouteMap) {
   const content = `import { defineRouting } from "next-intl/routing";\n\nexport const routing = defineRouting({\n  locales: ${JSON.stringify(
     existingRouting.locales,
     null,
@@ -169,10 +247,54 @@ async function run() {
     content,
     "utf8"
   );
+}
+
+async function writePostsFile(
+  byLocaleEntries: Record<
+    string,
+    { featureEntry: PostEntry | null; entries: PostEntry[] }
+  >
+) {
+  // Chỉ xuất một map duy nhất: entries theo locale (đã sắp xếp), tránh trùng lặp dữ liệu.
+  const featureMap: Record<string, PostEntry | null> = {};
+  const entriesMap: Record<string, PostEntry[]> = {};
+  for (const [loc, obj] of Object.entries(byLocaleEntries)) {
+    featureMap[loc] = obj.featureEntry;
+    entriesMap[loc] = obj.entries;
+  }
+
+  const moduleText = `export type PostEntry = {\n  route: string;\n  locale: string;\n  title?: string;\n  featured?: boolean;\n  publishedAt?: string;\n  author?: string;\n  category?: string;\n  tags?: string[];\n  ogImage?: string;\n};\n\nexport const featureEntry = ${JSON.stringify(
+    featureMap,
+    null,
+    2
+  )} as const;\n\nexport const entries = ${JSON.stringify(
+    entriesMap,
+    null,
+    2
+  )} as const;\n\nexport type Locales = keyof typeof entries;\n`;
+
+  const libDir = path.join(process.cwd(), "src", "lib");
+  await fs.mkdir(libDir, { recursive: true });
+  try {
+    await fs.rm(path.join(libDir, "posts.generated.ts"));
+  } catch {}
+  await fs.writeFile(
+    path.join(libDir, "postIndex.generated.ts"),
+    moduleText,
+    "utf8"
+  );
+}
+
+async function run() {
+  const { groups, postsByLocale } = await collectContent();
+  const merged = merge(groups);
+  await writeRoutingFile(merged);
+  const computed = computePosts(postsByLocale);
+  await writePostsFile(computed);
   console.log(
     `✅ updatePathname: groups=${Object.keys(groups).length}, totalRoutes=${
       Object.keys(merged).length
-    }`
+    }. Posts file generated.`
   );
 }
 

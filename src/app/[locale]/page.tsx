@@ -7,6 +7,8 @@ import Hero from "@/components/Hero";
 import { LogoShowcase } from "@/components/LogoShowcase";
 import WhyWheelhouse from "@/blocks/WhyWheelhouse";
 import WhatWeDo from "@/blocks/WhatWeDo";
+import PostCard from "@/components/PostCard/PostCard";
+import { entries, featureEntry, type Locales } from "@/lib/postIndex.generated";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -56,6 +58,10 @@ export default async function HomePage(props: {
   const { locale } = await props.params;
 
   const t = await getTranslations({ locale, namespace: "home" });
+  const l = locale as Locales;
+  const all = entries[l] || [];
+  const feature = featureEntry[l] ?? null;
+  const list = all.slice(0, 3);
 
   return (
     <>
@@ -103,6 +109,27 @@ export default async function HomePage(props: {
       <WhyWheelhouse aria-label="Why Wheelhouse section" />
 
       <WhatWeDo aria-label="What We Do section" />
+
+      {/* Posts section */}
+      <section className="container-gutter py-16" aria-label="Latest posts">
+        <div className="mb-6 flex items-end justify-between">
+          <h2 className="text-2xl font-semibold text-neutral-100">
+            {t("latestPosts.title", { defaultValue: "Latest Articles" })}
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {feature ? (
+            <PostCard
+              entry={feature}
+              variant="featured"
+              className="lg:col-span-3"
+            />
+          ) : null}
+          {list.map((p) => (
+            <PostCard key={p.route} entry={p} />
+          ))}
+        </div>
+      </section>
     </>
   );
 }
