@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import PostCard from "@/components/PostCard/PostCard";
+import MediaCard from "@/components/MediaCard";
 import {
   featureByCategory,
   entriesByCategory,
@@ -104,16 +104,36 @@ export default async function SolutionPage(props: {
 
       {feature || items.length > 0 ? (
         <section className="container-gutter py-8" aria-label="Category posts">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {feature ? (
-              <PostCard
-                entry={feature}
-                variant="featured"
+              <MediaCard
                 className="lg:col-span-3"
+                data={{
+                  href: feature.route,
+                  title: feature.title,
+                  description: [feature.publishedAt, feature.author]
+                    .filter(Boolean)
+                    .join(" • "),
+                  imgSrc: feature.ogImage,
+                  imgAlt: feature.title ?? "Article image",
+                }}
+                variant="featured"
               />
             ) : null}
             {items.map((p: PostEntry) => (
-              <PostCard key={p.route} entry={p} />
+              <MediaCard
+                key={p.route}
+                data={{
+                  href: p.route,
+                  title: p.title,
+                  description: [p.publishedAt, p.author]
+                    .filter(Boolean)
+                    .join(" • "),
+                  imgSrc: p.ogImage,
+                  imgAlt: p.title ?? "Article image",
+                }}
+                variant="compact"
+              />
             ))}
           </div>
         </section>

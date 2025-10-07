@@ -7,9 +7,9 @@ import Hero from "@/components/Hero";
 import { LogoShowcase } from "@/components/LogoShowcase";
 import WhyWheelhouse from "@/blocks/WhyWheelhouse";
 import WhatWeDo from "@/blocks/WhatWeDo";
-import PostCard from "@/components/PostCard/PostCard";
+import MediaCard from "@/components/MediaCard";
 import { entries, featureEntry, type Locales } from "@/lib/postIndex.generated";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -126,10 +126,36 @@ export default async function HomePage(props: {
             {t("recentArticles.viewAll", { defaultValue: "View all articles" })}
           </Link>
         </div>
-        <article className="grid grid-cols-1 md:grid-cols-2">
-          {feature ? <PostCard entry={feature} variant="featured" /> : null}
+        <article className="grid grid-cols-1 md:grid-cols-2 gap-y-8">
+          {feature ? (
+            <MediaCard
+              className="col-span-1 md:col-span-2"
+              data={{
+                href: feature.route,
+                title: feature.title,
+                description: [feature.publishedAt, feature.author]
+                  .filter(Boolean)
+                  .join(" • "),
+                imgSrc: feature.ogImage,
+                imgAlt: feature.title ?? "Article image",
+              }}
+              variant="featured"
+            />
+          ) : null}
           {list.map((p) => (
-            <PostCard key={p.route} entry={p} />
+            <MediaCard
+              key={p.route}
+              data={{
+                href: p.route,
+                title: p.title,
+                description: [p.publishedAt, p.author]
+                  .filter(Boolean)
+                  .join(" • "),
+                imgSrc: p.ogImage,
+                imgAlt: p.title ?? "Article image",
+              }}
+              variant="compact"
+            />
           ))}
         </article>
       </section>
