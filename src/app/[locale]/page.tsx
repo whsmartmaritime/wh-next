@@ -4,7 +4,7 @@ import { routing } from "@/i18n/routing";
 import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import Hero from "@/components/Hero";
-import { LogoShowcase } from "@/components/LogoShowcase";
+import LogoShowcase from "@/components/LogoShowcase";
 import WhyWheelhouse from "@/blocks/WhyWheelhouse";
 import WhatWeDo from "@/blocks/WhatWeDo";
 import MediaCard from "@/components/MediaCard";
@@ -101,6 +101,10 @@ export default async function HomePage(props: {
                 { id: "6", src: "/images/logos/partnerLogo6.png" },
                 { id: "7", src: "/images/logos/partnerLogo7.png" },
                 { id: "8", src: "/images/logos/partnerLogo8.png" },
+                { id: "9", src: "/images/logos/partnerLogo9.png" },
+                { id: "20", src: "/images/logos/partnerLogo20.jpg" },
+                { id: "21", src: "/images/logos/partnerLogo21.jpg" },
+                { id: "22", src: "/images/logos/partnerLogo22.jpg" },
               ]}
             />
           </div>

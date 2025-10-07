@@ -1,63 +1,100 @@
-import React from 'react'
-import Image from 'next/image'
-import { CrosshairIcon } from '@/components/icons/CrosshairIcon'
+"use client";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import { BackgroundScanline } from "@/components/BackgroundScanline";
 
-interface LogoItem {
-  id: string
-  src: string
-  name?: string
-  alt?: string
-}
+type LogoItem = { id: string; src: string; name?: string; alt?: string };
+type LogoShowcaseProps = { logos: LogoItem[]; className?: string };
 
-interface LogoShowcaseProps {
-  logos: LogoItem[]
-  className?: string
-}
+export default function LogoShowcase({
+  logos,
+  className = "",
+}: LogoShowcaseProps) {
+  const visibleCount = Math.min(6, logos.length);
+  const [idx, setIdx] = useState<number[]>(() =>
+    Array.from({ length: visibleCount }, (_, i) => i)
+  );
+  const [anim, setAnim] = useState<number | null>(null);
 
-export const LogoShowcase: React.FC<LogoShowcaseProps> = ({ logos, className = '' }) => {
-  const displayLogos = logos.slice(0, 6)
-  if (!displayLogos.length) return null
+  // Reset indices when logos length changes
+  useEffect(() => {
+    const n = Math.min(6, logos.length);
+    setIdx(Array.from({ length: n }, (_, i) => i));
+  }, [logos]);
 
-  const LogoCell = ({ logo, index }: { logo: LogoItem; index: number }) => {
-    const crosshairClass = 
-      index === 0 ? "absolute w-3 h-3 text-white/40 top-0 right-0 -translate-y-1/2 translate-x-1/2 z-10" :
-      index === 5 ? "absolute w-3 h-3 text-white/40 bottom-0 left-0 translate-y-1/2 -translate-x-1/2 z-10" : ""
+  // Simple swap loop every 3s with a short pre-swap animation
+  useEffect(() => {
+    if (logos.length <= 1) return;
+    const interval = window.setInterval(() => {
+      const n = Math.min(6, logos.length);
+      const slot = Math.floor(Math.random() * n);
+      setAnim(slot);
+      window.setTimeout(() => {
+        setIdx((cur) => {
+          const next = cur.slice(0, n);
+          const visible = new Set(next);
+          const pool = logos.map((_, i) => i).filter((i) => !visible.has(i));
+          if (pool.length) {
+            next[slot] = pool[Math.floor(Math.random() * pool.length)];
+          } else if (next.length > 1) {
+            let j = Math.floor(Math.random() * next.length);
+            if (j === slot) j = (j + 1) % next.length;
+            [next[slot], next[j]] = [next[j], next[slot]];
+          }
+          return next;
+        });
+      }, 300);
+      window.setTimeout(() => setAnim(null), 700);
+    }, 3000);
+    return () => window.clearInterval(interval);
+  }, [logos]);
 
-    return (
-      <div className="relative">
-        <div className="relative aspect-square border border-white/10 flex items-center justify-center p-4 md:p-8 overflow-hidden group hover:bg-white/5 transition-colors duration-500">
-          <div className="relative w-full h-full group-hover:scale-95 transition-transform duration-1000">
-            <Image
-              src={logo.src}
-              alt={logo.alt || logo.name || 'Partner logo'}
-              fill
-              className="object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500"
-              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out" />
-        </div>
-        {crosshairClass && <CrosshairIcon className={crosshairClass} />}
-      </div>
-    )
-  }
-
-  // Tạo array 8 items: [empty, logo1, logo2, logo3, logo4, logo5, logo6, empty]
-  const gridItems = [null, ...displayLogos, null]
+  const n = Math.min(6, logos.length);
+  if (n === 0) return null;
+  const slots = idx.slice(0, n);
 
   return (
     <div className={`relative ${className}`}>
       <div className="grid grid-cols-4 lg:grid-cols-8 gap-0 mx-auto">
-        {gridItems.map((logo, index) => 
-          logo ? (
-            <LogoCell key={logo.id} logo={logo} index={displayLogos.indexOf(logo)} />
-          ) : (
-            <div key={`empty-${index}`} className="aspect-square invisible" />
-          )
-        )}
+        <div className="aspect-square invisible" />
+        {slots.map((logoIdx, i) => {
+          const logo = logos[logoIdx];
+          return (
+            <div key={`slot-${i}`} className="relative">
+              <div
+                className={`relative aspect-square border border-white/10 flex items-center justify-center overflow-hidden transition-all duration-500 ${
+                  anim === i ? "scale-95" : ""
+                }`}
+              >
+                {/* Scanline overlay, fades in when animating */}
+                <BackgroundScanline
+                  className={`pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ${
+                    anim === i ? "opacity-100" : ""
+                  }`}
+                  crosshairs={["top-right", "bottom-left"]}
+                  opacity={0.1}
+                />
+                {logo ? (
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt || logo.name || "Partner logo"}
+                    fill
+                    className={`object-contain p-4 md:p-8 transition-[filter,opacity,transform] duration-500 ${
+                      anim === i ? "blur-[16px] opacity-0" : "opacity-100"
+                    }`}
+                    loading="eager"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                    draggable={false}
+                  />
+                ) : (
+                  <div className="w-full h-full" />
+                )}
+              </div>
+            </div>
+          );
+        })}
+        <div className="aspect-square invisible" />
       </div>
     </div>
-  )
+  );
 }
-
-export default LogoShowcase
