@@ -75,13 +75,10 @@ export default async function SolutionsPage(props: {
       </section>
       {/** section overview **/}
 
-      <section
-        className="relative bg-neutral-200 text-neutral-900"
-        aria-label="Solutions intro section"
-      >
+      <section className="relative" aria-label="Solutions intro section">
         <BackgroundGrid />
         <div className="container-gutter py-16 lg:py-32">
-          <div className="relative bg-neutral-200 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
+          <div className="relative bg-neutral-50 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
             <BackgroundScanline
               crosshairs="all"
               className="absolute inset-0 "
@@ -89,7 +86,7 @@ export default async function SolutionsPage(props: {
             />
             <h2 className="sr-only">{t("overview.title")}</h2>
             <p className="uppercase tracking-[0.25em] opacity-95 font-bold py-8">
-              {t("overview.intro")}
+              {t("overview.subtitle")}
             </p>
             <div className="text-sm sm:text-lg lg:text-4xl text-justify mx-[calc(var(--gutter-h))]">
               <p className="block mb-8">{t("overview.desc")}</p>
@@ -99,7 +96,7 @@ export default async function SolutionsPage(props: {
       </section>
       {/* solution list section */}
       <section
-        className="relative container-gutter bg-neutral-200 text-neutral-900"
+        className="relative container-gutter"
         aria-label="Solutions list section"
       >
         <BackgroundGrid />
@@ -111,7 +108,7 @@ export default async function SolutionsPage(props: {
               data={{
                 href: `/${locale}/solutions`,
                 title: t(`solutionList.items.${key}.title`),
-                description: t(`solutionList.items.${key}.intro`),
+                description: t(`solutionList.items.${key}.description`),
                 imgSrc: t.raw(`solutionList.items.${key}.imgSrc`),
                 imgAlt: t(`solutionList.items.${key}.imgAlt`),
               }}
@@ -123,7 +120,7 @@ export default async function SolutionsPage(props: {
               {t("solutionList.ctaContent.title")}
             </h2>
             <p className=" ">
-              {t.rich("solutionList.ctaContent.desc", {
+              {t.rich("solutionList.ctaContent.description", {
                 bold: (chunks) => (
                   <strong className="font-bold">{chunks}</strong>
                 ),

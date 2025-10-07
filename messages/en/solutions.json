@@ -16,41 +16,37 @@
   },
   "overview": {
     "title": "Quality of Solutions",
-    "intro": "Your Journey with Wheelhouse",
+    "subtitle": "Your Journey with Wheelhouse",
     "desc": "At Wheelhouse, every maritime electronics solution begins with understanding the needs of the vessel and its crew. We guide you through consultation, design, supply, installation, and commissioning, ensuring smooth, safe, and reliable operation at sea."
   },
   "solutionList": {
     "title": "Our Solutions",
-    "intro": "Comprehensive Maritime Electronics Solutions",
+    "subtitle": "Comprehensive Maritime Electronics Solutions",
     "items": {
       "item1": {
         "title": "Navigation Equipment",
-        "intro": "As a brand-independent supplier, Wheelhouse delivers high-quality navigation equipment from world-renowned manufacturers.",
-        "desc": "",
+        "description": "As a brand-independent supplier, Wheelhouse delivers high-quality navigation equipment from world-renowned manufacturers.",
         "href": "solutions/navigation-equipment",
         "imgSrc": "/images/solutions/wheelhouse-engineer-with-navigation-equipment.webp",
         "imgAlt": "wheelhouse service engineer with navigation equipment"
       },
       "item2": {
         "title": "GMDSS Equipment",
-        "intro": "Optimize vessel operations with advanced GMDSS solutions",
-        "desc": "",
+        "description": "Optimize vessel operations with advanced GMDSS solutions",
         "href": "solutions/gmdss-equipment",
         "imgSrc": "/images/solutions/gmdss-console-equipment.webp",
         "imgAlt": "gmdss console equipment"
       },
       "item3": {
         "title": "Connectivity Solutions",
-        "intro": "From VSAT, Iridium and Starlink, our satellite solutions deliver fast, reliable connectivity so your vessel stays online anywhere in the world",
-        "desc": "",
+        "description": "From VSAT, Iridium and Starlink, our satellite solutions deliver fast, reliable connectivity so your vessel stays online anywhere in the world",
         "href": "solutions/connectivity-solutions",
         "imgSrc": "/images/solutions/satellite-connectivity.webp",
         "imgAlt": "satellite connectivity"
       },
       "item4": {
         "title": "E-Navigation",
-        "intro": "Our e-navigation solutions integrate ECDIS systems, ENC data, and electronic publications to support safe and efficient voyage planning.",
-        "desc": "",
+        "description": "Our e-navigation solutions integrate ECDIS systems, ENC data, and electronic publications to support safe and efficient voyage planning.",
         "href": "solutions/e-navigation",
         "imgSrc": "/images/solutions/e-navigation.webp",
         "imgAlt": "e-navigation"
@@ -58,7 +54,7 @@
     },
     "ctaContent": {
       "title": "From Solutions to Sustainable Performance",
-      "desc": "In addition to the solutions we provide, Wheelhouse also offers a range of specialized support services — from regular maintenance and on-site repairs to remote assistance — helping you keep systems running smoothly while optimizing costs and improving performance.",
+      "description": "In addition to the solutions we provide, Wheelhouse also offers a range of specialized support services — from regular maintenance and on-site repairs to remote assistance — helping you keep systems running smoothly while optimizing costs and improving performance.",
       "href": "/services",
       "label": "Explore Our Services"
     }
