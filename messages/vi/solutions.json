@@ -6,10 +6,9 @@
     "slug": "giai-phap"
   },
   "hero": {
-    "titlePre": "",
-    "titleMain": "Giải Pháp",
-    "subtitle": "Xuất sắc trong dịch vụ hàng hải từ khi thành lập",
-    "rightImageAlt": "Kỹ thuật viên Wheelhouse lắp đặt Iridium",
+    "title": "Giải pháp thiết bị điện tử trên tàu",
+    "subtitle": "Giải pháp cho các hệ thống thông tin liên lạc, nghi khí hàng hải và internet vệ tinh",
+    "imgAlt": "Kỹ thuật viên Wheelhouse lắp đặt Iridium",
     "description": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, đáng tin cậy và đổi mới.",
     "ctaPrimary": "Liên Hệ Hợp Tác",
     "ctaSecondary": "Trò Chuyện Whatsapp?"

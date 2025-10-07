@@ -64,10 +64,9 @@ export default async function SolutionsPage(props: {
       >
         <PageHero
           className="container-gutter"
-          rightImageSrc="/images/about/wheelhouse-engineer-with-iridium.webp"
-          rightImageAlt={t("hero.rightImageAlt")}
-          titlePre={t("hero.titlePre")}
-          titleMain={t("hero.titleMain")}
+          imgSrc="/images/about/wheelhouse-engineer-with-iridium.webp"
+          imgAlt={t("hero.imgAlt")}
+          title={t("hero.title")}
           subtitle={t("hero.subtitle")}
           ctaPrimary={t("hero.ctaPrimary")}
           ctaSecondary={t("hero.ctaSecondary")}
