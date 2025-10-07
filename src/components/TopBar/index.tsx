@@ -20,7 +20,7 @@ export default async function TopBar({ className }: TopBarProps) {
             className="tracking-tight text-gray-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 transition-colors"
           >
             <span className="hidden lg:inline text-md">
-              Email: {t("contact.email")}
+              {t("contact.email")}
             </span>
             <span className="lg:hidden text-sm">E: {t("contact.email")}</span>
           </a>
@@ -29,10 +29,10 @@ export default async function TopBar({ className }: TopBarProps) {
             className="tracking-tight text-gray-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 transition-colors"
           >
             <span className="hidden lg:inline text-md">
-              Hotline: {t("contact.phone.display")}
+              {t("contact.phone.display")}
             </span>
             <span className="lg:hidden text-sm">
-              T: {t("contact.phone.display")}
+              {t("contact.phone.display")}
             </span>
           </a>
         </div>
