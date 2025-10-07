@@ -8,7 +8,8 @@ import {
   type Locales,
   type PostEntry,
 } from "@/lib/postIndex.generated";
-
+import { BackgroundGrid } from "@/components/BackgroundGrid";
+import { BackgroundScanline } from "@/components/BackgroundScanline";
 export function generateStaticParams() {
   // Lấy tất cả solution keys từ pathnames
   const solutionPaths = Object.keys(routing.pathnames).filter(
@@ -95,12 +96,52 @@ export default async function SolutionPage(props: {
 
   return (
     <>
-      <header className="container-gutter py-10">
-        <h1 className="text-3xl font-bold text-neutral-100">
-          {t("hero.titleMain")}
-        </h1>
-        <p className="mt-3 text-neutral-300">{t("hero.description")}</p>
+      <header className="relative container-gutter scroll-mt-16">
+        <BackgroundGrid />
+        <div className="  grid grid-cols-12 py-12 lg:py-16">
+          <h1 className="text-4xl lg:text-6xl font-bold col-span-12 lg:col-span-6 ">
+            {t("hero.title")}
+          </h1>
+          <h2 className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-muted-foreground text-justify whitespace-pre-line  max-w-2xl">
+            {t.rich("hero.subtitle", {
+              bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
+            })}
+          </h2>
+        </div>
+        <MediaCard
+          className=" mb-8 lg:mb-16"
+          data={{
+            href: `/${locale}/solutions`,
+            title: t("hero.cardTitle"),
+            description: t("hero.cardDescription"),
+            imgSrc: t.raw("hero.imgSrc"),
+            imgAlt: t("hero.imgAlt"),
+          }}
+          variant="featured"
+        />
       </header>
+
+      {/** overview **/}
+
+      <section className="relative " aria-label="Overview section">
+        <BackgroundGrid />
+        <div className="container-gutter py-16 lg:py-32">
+          <div className="relative bg-neutral-200 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
+            <BackgroundScanline
+              crosshairs="all"
+              className="absolute inset-0 "
+              opacity={0.1}
+            />
+            <h2 className="text-sm sm:text-lg lg:text-4xl font-bold py-8">
+              {t("overview.title")}
+            </h2>
+
+            <p className="text-sm sm:text-lg lg:text-4xl text-justify mx-[calc(var(--gutter-h))] py-8">
+              {t("overview.description")}
+            </p>
+          </div>
+        </div>
+      </section>
 
       {feature || items.length > 0 ? (
         <section className="container-gutter py-8" aria-label="Category posts">

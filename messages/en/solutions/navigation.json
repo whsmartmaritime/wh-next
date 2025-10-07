@@ -6,12 +6,15 @@
     "slug": "navigation"
   },
   "hero": {
-    "titlePre": "Our",
-    "titleMain": "navigation solutions",
+    "title": "Navigation Solutions",
     "subtitle": "Excellence in maritime navigation solutions since inception",
-    "rightImageAlt": "wheelhouse service engineer insstalling iridium",
-    "description": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
-    "ctaPrimary": "Start Working With Us",
-    "ctaSecondary": "Want to Chat First?"
+    "cardTitle": "AIS, RADAR, ECDIS, GNSS, COMPASS, AUTOPILOT, ECHO SOUNDER, SPEED LOG and more",
+    "cardDescription": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
+    "imgSrc": "/images/solutions/navigation/navigation-equipment-overview.webp",
+    "imgAlt": "navigation equipment on a ship bridge"
+  },
+  "overview": {
+    "title": "Contributing to the Safety of Vessels and Crews",
+    "description": "At Wheelhouse, we understand that safety at sea is always the top priority. Modern navigation systems not only enable vessels to sail accurately and efficiently, but also reduce operational risks and support crew members in making timely decisions in any situation. With SOLAS V-compliant navigation solutions and our professional lifecycle support services, Wheelhouse plays a crucial role in safeguarding vessels, cargo, and human lives throughout every voyage."
   }
 }

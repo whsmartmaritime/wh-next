@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { BackgroundGrid } from "../BackgroundGrid";
 import Button from "@/components/Button";
-import BackgroundScanline from "../BackgroundScanline";
 interface PageHeroProps {
   title: string;
   subtitle: string;
