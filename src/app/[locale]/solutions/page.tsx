@@ -5,7 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { BackgroundScanline } from "@/components/BackgroundScanline";
 import Image from "next/image";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 import Button from "@/components/Button";
 
 export async function generateMetadata(props: {
@@ -104,25 +104,22 @@ export default async function SolutionsPage(props: {
         aria-label="Solutions list section"
       >
         <BackgroundGrid />
-        <div className="grid grid-cols-12 items-stretch">
+        <div className="grid grid-cols-12 items-stretch gap-y-16">
           {(["item1", "item2", "item3", "item4"] as const).map((key, i) => (
-            <div
-              className="col-span-12 lg:col-span-6 flex flex-col mb-16"
-              key={i}
-            >
+            <div className="col-span-12 lg:col-span-6 flex flex-col" key={i}>
               <Link
                 href={t(`solutionList.items.${key}.href`)}
-                className="group block relative overflow-hidden transition-all duration-500"
+                className="group block relative overflow-hidden transition-all duration-500 h-full"
               >
                 {/* Component scanline - ẩn mặc định, hiện khi hover */}
                 <BackgroundScanline
                   crosshairs="all"
-                  className="absolute inset-0 boder boder-neutral-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0 "
+                  className="absolute inset-0 border border-neutral-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0 "
                   opacity={0.1}
                 />
 
                 {/* Nội dung card */}
-                <div className="flex flex-col md:flex-row relative z-10">
+                <div className="flex flex-col md:flex-row relative z-10 h-full">
                   <div className="relative w-full md:w-1/2 aspect-[16/10]">
                     <Image
                       src={t.raw(`solutionList.items.${key}.imgSrc`)}

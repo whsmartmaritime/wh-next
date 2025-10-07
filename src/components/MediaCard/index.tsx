@@ -25,7 +25,7 @@ export default function MediaCard({
 
   return (
     <Link href={data.href} className={"block h-full " + className}>
-      <div className="relative grid grid-cols-1 h-full group bg-neutral-50 hover:bg-neutral-100 mb-8  before:content-[''] before:block before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full before:origin-left before:scale-x-0 before:bg-neutral-900 before:transition-transform before:duration-1000 hover:before:scale-x-100 lg:grid-cols-2">
+      <div className="relative grid grid-cols-1 h-full group bg-neutral-50 hover:bg-neutral-100 before:content-[''] before:block before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full before:origin-left before:scale-x-0 before:bg-neutral-900 before:transition-transform before:duration-1000 hover:before:scale-x-100 lg:grid-cols-2">
         <BackgroundScanline
           crosshairs={["top-right", "bottom-left"]}
           enableBorders={true}
@@ -51,7 +51,7 @@ export default function MediaCard({
         ) : null}
         <div
           className={
-            "flex flex-col justify-center " + (isFeatured ? "" : "m-2 lg:m-4")
+            "flex flex-col justify-center " + (isFeatured ? "" : "mx-2 lg:mx-4")
           }
         >
           <h3
@@ -63,7 +63,9 @@ export default function MediaCard({
             {data.title}
           </h3>
           {data.description ? (
-            <p className="mt-3 text-sm lg:text-base">{data.description}</p>
+            <p className="text-sm lg:text-base line-clamp-4">
+              {data.description}
+            </p>
           ) : null}
         </div>
       </div>
