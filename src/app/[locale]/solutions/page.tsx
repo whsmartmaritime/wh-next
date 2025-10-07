@@ -4,8 +4,7 @@ import { routing } from "@/i18n/routing";
 import { PageHero } from "@/components/PageHero";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { BackgroundScanline } from "@/components/BackgroundScanline";
-import Image from "next/image";
-import Link from "next/link";
+import MediaCard from "@/components/MediaCard";
 import Button from "@/components/Button";
 
 export async function generateMetadata(props: {
@@ -106,40 +105,18 @@ export default async function SolutionsPage(props: {
         <BackgroundGrid />
         <div className="grid grid-cols-12 items-stretch gap-y-16">
           {(["item1", "item2", "item3", "item4"] as const).map((key, i) => (
-            <div className="col-span-12 lg:col-span-6 flex flex-col" key={i}>
-              <Link
-                href={t(`solutionList.items.${key}.href`)}
-                className="group block relative overflow-hidden transition-all duration-500 h-full"
-              >
-                {/* Component scanline - ẩn mặc định, hiện khi hover */}
-                <BackgroundScanline
-                  crosshairs="all"
-                  className="absolute inset-0 border border-neutral-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0 "
-                  opacity={0.1}
-                />
-
-                {/* Nội dung card */}
-                <div className="flex flex-col md:flex-row relative z-10 h-full">
-                  <div className="relative w-full md:w-1/2 aspect-[16/10]">
-                    <Image
-                      src={t.raw(`solutionList.items.${key}.imgSrc`)}
-                      alt={t(`solutionList.items.${key}.imgAlt`)}
-                      width={1600}
-                      height={1000}
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="w-full md:w-1/2 group-hover:border group-hover:border-neutral-500/20 group-hover:border-b-neutral-700">
-                    <h2 className="text-xl xl:text-2xl font-bold mx-4 mt-4">
-                      {t(`solutionList.items.${key}.title`)}
-                    </h2>
-                    <p className="text-lg xl:text-xl line-clamp-4 m-4">
-                      {t(`solutionList.items.${key}.intro`)}
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            </div>
+            <MediaCard
+              className="col-span-12 lg:col-span-6"
+              key={i}
+              data={{
+                href: `/${locale}/solutions`,
+                title: t(`solutionList.items.${key}.title`),
+                description: t(`solutionList.items.${key}.intro`),
+                imgSrc: t.raw(`solutionList.items.${key}.imgSrc`),
+                imgAlt: t(`solutionList.items.${key}.imgAlt`),
+              }}
+              variant="compact"
+            />
           ))}
           <div className="col-span-12 lg:col-span-6 lg:col-start-4 my-auto mx-auto ">
             <h2 className="text-2xl lg:text-4xl font-bold ">
