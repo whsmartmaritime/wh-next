@@ -4,7 +4,6 @@ import { getTranslations } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import BackgroundScanline from "@/components/BackgroundScanline";
 import BackgroundGrid from "@/components/BackgroundGrid";
-import Image from "next/image";
 import Button from "@/components/Button";
 import MediaCard from "@/components/MediaCard";
 
@@ -100,7 +99,7 @@ export default async function ServicesPage(props: {
 
       <section
         className="relative container-gutter "
-        aria-label="Services details section"
+        aria-label="Repair and Maintenance Services section"
       >
         <BackgroundGrid />
         <div className="  grid grid-cols-12 py-12 lg:py-16">
@@ -136,23 +135,19 @@ export default async function ServicesPage(props: {
             })}
           </p>
         </div>
-        <div className="grid grid-cols-12 items-stretch ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch mb-8 lg:mb-16">
           {(["item2", "item3"] as const).map((key, i) => (
-            <div
-              className="col-span-12 lg:col-span-6 flex flex-col mb-16"
+            <MediaCard
               key={i}
-            >
-              <MediaCard
-                data={{
-                  href: `/${locale}/solutions`,
-                  title: t(`repairMaintenance.items.${key}.title`),
-                  description: t(`repairMaintenance.items.${key}.intro`),
-                  imgSrc: t.raw(`repairMaintenance.items.${key}.imgSrc`),
-                  imgAlt: t(`repairMaintenance.items.${key}.imgAlt`),
-                }}
-                variant="compact"
-              />
-            </div>
+              data={{
+                href: `/${locale}/solutions`,
+                title: t(`repairMaintenance.items.${key}.title`),
+                description: t(`repairMaintenance.items.${key}.intro`),
+                imgSrc: t.raw(`repairMaintenance.items.${key}.imgSrc`),
+                imgAlt: t(`repairMaintenance.items.${key}.imgAlt`),
+              }}
+              variant="compact"
+            />
           ))}
         </div>
         <div className="grid grid-cols-12  mb-8 lg:mb-16 ">
@@ -170,7 +165,7 @@ export default async function ServicesPage(props: {
       {/** section installation **/}
       <section
         className="relative container-gutter "
-        aria-label="Services list section"
+        aria-label="Installation Services section"
       >
         <BackgroundGrid />
         <div className="  grid grid-cols-12 py-16">
@@ -183,28 +178,19 @@ export default async function ServicesPage(props: {
             })}
           </p>
         </div>
-        <div className="relative grid grid-cols-12 bg-neutral-200 w-full h-full items-center justify-center border border-black/15 mb-8 lg:mb-16">
-          <BackgroundScanline
-            crosshairs={["top-right", "bottom-left"]}
-            className="absolute inset-0 "
-            opacity={0.1}
-          />
-          <div className="relative col-span-12 lg:col-span-6 aspect-[16/10] m-8 lg:m-12">
-            <Image
-              src="/images/services/wheelhouse-engineer-repairing.webp"
-              alt={t("installation.items.item1.imgAlt")}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="col-span-12 lg:col-span-6 text-sm sm:text-lg lg:text-2xl px-8 lg:px-0 leading-relaxed">
-            <h3 className="text-2xl lg:text-4xl font-bold mb-4">
-              {t("installation.items.item1.title")}
-            </h3>
-            <p className="mb-4">{t("installation.items.item1.intro")}</p>
-          </div>
-        </div>
+
+        <MediaCard
+          className=" mb-8 lg:mb-16"
+          data={{
+            href: `/${locale}/solutions`,
+            title: t("installation.items.item1.title"),
+            description: t("installation.items.item1.intro"),
+            imgSrc: t.raw("installation.items.item1.imgSrc"),
+            imgAlt: t("installation.items.item1.imgAlt"),
+          }}
+          variant="featured"
+        />
+
         <div className="grid grid-cols-12  mb-8 lg:mb-16 text-lg lg:text-xl leading-relaxed">
           <p className="col-span-12 lg:col-span-6 lg:col-start-4 ">
             {t.rich("installation.items.item1.desc", {

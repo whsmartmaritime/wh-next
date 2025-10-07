@@ -63,28 +63,5 @@
         "imgAlt": "Kỹ thuật viên Wheelhouse lắp đặt thiết bị"
       }
     }
-  },
-  "items": [
-    {
-      "slug": "navigation-gmdss",
-      "title": "Giải pháp Điều hướng & GMDSS",
-      "shortDesc": "Hệ thống được chứng nhận cho điều hướng đáng tin cậy và liên lạc cấp cứu toàn cầu.",
-      "image": "/images/services/navigation-thumb.jpg",
-      "tags": ["điều hướng", "gmdss"]
-    },
-    {
-      "slug": "connectivity",
-      "title": "Kết nối vệ tinh",
-      "shortDesc": "Kết nối toàn cầu liền mạch cho dữ liệu, thoại và vận hành đội tàu.",
-      "image": "/images/services/connectivity-thumb.jpg",
-      "tags": ["kết nối", "vệ tinh"]
-    },
-    {
-      "slug": "repair-maintenance",
-      "title": "Sửa chữa & Bảo trì",
-      "shortDesc": "Dịch vụ sửa chữa và bảo trì chuyên nghiệp cho thiết bị hàng hải.",
-      "image": "/images/services/repair-thumb.jpg",
-      "tags": ["bảo trì", "sửa chữa"]
-    }
-  ]
+  }
 }

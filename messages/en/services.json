@@ -61,28 +61,5 @@
         "imgAlt": "wheelhouse service engineer installing equipment"
       }
     }
-  },
-  "items": [
-    {
-      "slug": "navigation-gmdss",
-      "title": "Navigation & GMDSS Solutions",
-      "shortDesc": "Certified systems for reliable navigation and global distress communication.",
-      "image": "/images/services/navigation-thumb.jpg",
-      "tags": ["navigation", "gmdss"]
-    },
-    {
-      "slug": "connectivity",
-      "title": "Satellite Connectivity",
-      "shortDesc": "Seamless global connectivity for data, voice and fleet operations.",
-      "image": "/images/services/connectivity-thumb.jpg",
-      "tags": ["connectivity", "satellite"]
-    },
-    {
-      "slug": "repair-maintenance",
-      "title": "Repair & Maintenance",
-      "shortDesc": "Professional repair and maintenance services for maritime equipment.",
-      "image": "/images/services/repair-thumb.jpg",
-      "tags": ["maintenance", "repair"]
-    }
-  ]
+  }
 }
