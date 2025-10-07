@@ -75,7 +75,7 @@ export default async function ServicesPage(props: {
       </section>
       {/** section qualityOfService **/}
 
-      <section className="relative " aria-label="Services intro section">
+      <section className="relative " aria-label="Quality of service section">
         <BackgroundGrid />
         <div className="container-gutter py-16 lg:py-32">
           <div className="relative bg-neutral-200 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
@@ -86,11 +86,16 @@ export default async function ServicesPage(props: {
             />
             <h2 className="sr-only">{t("qualityOfService.title")}</h2>
             <p className="uppercase tracking-[0.25em] opacity-95 font-bold py-8">
-              {t("qualityOfService.intro")}
+              {t("qualityOfService.subtitle")}
             </p>
             <div className="text-sm sm:text-lg lg:text-4xl text-justify mx-[calc(var(--gutter-h))]">
-              <p className="block mb-8">{t("qualityOfService.desc1")}</p>
-              <p className="block mb-8">{t("qualityOfService.desc2")}</p>
+              {[t.raw("qualityOfService.description")]
+                .flat()
+                .map((p: unknown, i: number) => (
+                  <p key={i} className="block mb-8">
+                    {String(p)}
+                  </p>
+                ))}
             </div>
           </div>
         </div>
@@ -107,7 +112,7 @@ export default async function ServicesPage(props: {
             {t("repairMaintenance.title")}
           </h2>
           <p className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-muted-foreground text-justify whitespace-pre-line  max-w-2xl">
-            {t.rich("repairMaintenance.intro", {
+            {t.rich("repairMaintenance.subtitle", {
               bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
             })}
           </p>
@@ -117,23 +122,27 @@ export default async function ServicesPage(props: {
           data={{
             href: `/${locale}/solutions`,
             title: t("repairMaintenance.items.item1.title"),
-            description: t("repairMaintenance.items.item1.intro"),
+            description: t("repairMaintenance.items.item1.description"),
             imgSrc: t.raw("repairMaintenance.items.item1.imgSrc"),
             imgAlt: t("repairMaintenance.items.item1.imgAlt"),
           }}
           variant="featured"
         />
         <div className="grid grid-cols-12  mb-8 lg:mb-16 text-lg lg:text-xl leading-relaxed">
-          <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-justify">
-            {t.rich("repairMaintenance.items.item1.desc1", {
-              bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
-            })}
-          </p>
-          <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-justify">
-            {t.rich("repairMaintenance.items.item1.desc2", {
-              bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
-            })}
-          </p>
+          {[t.raw("repairMaintenance.items.item1.details")]
+            .flat()
+            .map((_, i: number) => (
+              <p
+                key={i}
+                className="col-span-12 lg:col-span-6 lg:col-start-4 text-justify"
+              >
+                {t.rich(`repairMaintenance.items.item1.details.${i}`, {
+                  bold: (chunks) => (
+                    <strong className="font-bold">{chunks}</strong>
+                  ),
+                })}
+              </p>
+            ))}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch mb-8 lg:mb-16">
           {(["item2", "item3"] as const).map((key, i) => (
@@ -142,7 +151,7 @@ export default async function ServicesPage(props: {
               data={{
                 href: `/${locale}/solutions`,
                 title: t(`repairMaintenance.items.${key}.title`),
-                description: t(`repairMaintenance.items.${key}.intro`),
+                description: t(`repairMaintenance.items.${key}.description`),
                 imgSrc: t.raw(`repairMaintenance.items.${key}.imgSrc`),
                 imgAlt: t(`repairMaintenance.items.${key}.imgAlt`),
               }}
@@ -152,56 +161,69 @@ export default async function ServicesPage(props: {
         </div>
         <div className="grid grid-cols-12  mb-8 lg:mb-16 ">
           <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
-            {t("repairMaintenance.ctaTitle")}
+            {t("repairMaintenance.ctaContent.title")}
           </p>
           <Button
             className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-            href={`/${locale}/about#contactForm`}
+            href={`/about#contactForm`}
           >
-            {t("repairMaintenance.ctaLabel")}
+            {t("repairMaintenance.ctaContent.label")}
           </Button>
         </div>
       </section>
+
       {/** section installation **/}
       <section
         className="relative container-gutter "
         aria-label="Installation Services section"
       >
         <BackgroundGrid />
-        <div className="  grid grid-cols-12 py-16">
+        <div className="  grid grid-cols-12 py-12 lg:py-16">
           <h2 className="text-4xl lg:text-6xl font-bold col-span-12 lg:col-span-6 ">
             {t("installation.title")}
           </h2>
           <p className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-muted-foreground text-justify whitespace-pre-line  max-w-2xl">
-            {t.rich("installation.intro", {
+            {t.rich("installation.subtitle", {
               bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
             })}
           </p>
         </div>
-
         <MediaCard
           className=" mb-8 lg:mb-16"
           data={{
             href: `/${locale}/solutions`,
             title: t("installation.items.item1.title"),
-            description: t("installation.items.item1.intro"),
+            description: t("installation.items.item1.description"),
             imgSrc: t.raw("installation.items.item1.imgSrc"),
             imgAlt: t("installation.items.item1.imgAlt"),
           }}
           variant="featured"
         />
 
-        <div className="grid grid-cols-12  mb-8 lg:mb-16 text-lg lg:text-xl leading-relaxed">
-          <p className="col-span-12 lg:col-span-6 lg:col-start-4 ">
-            {t.rich("installation.items.item1.desc", {
-              bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
-            })}
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch mb-8 lg:mb-16">
+          {(["item2", "item3"] as const).map((key, i) => (
+            <MediaCard
+              key={i}
+              data={{
+                href: `/${locale}/solutions`,
+                title: t(`installation.items.${key}.title`),
+                description: t(`installation.items.${key}.description`),
+                imgSrc: t.raw(`installation.items.${key}.imgSrc`),
+                imgAlt: t(`installation.items.${key}.imgAlt`),
+              }}
+              variant="compact"
+            />
+          ))}
+        </div>
+        <div className="grid grid-cols-12  mb-8 lg:mb-16 ">
+          <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
+            {t("ctaContent.title")}
           </p>
           <Button
-            className="col-span-12 md:col-span-6 lg:col-start-4 min-h-20 my-8 bg-white text-black hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
-            href={`/${locale}/solutions`}
+            className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+            href={`/solutions`}
           >
-            {t("installation.ctaLabel")}
+            {t("ctaContent.label")}
           </Button>
         </div>
       </section>

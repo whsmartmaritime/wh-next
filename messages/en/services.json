@@ -16,50 +16,74 @@
   },
   "qualityOfService": {
     "title": "Quality of Service",
-    "intro": "Why Our Clients Trust Us",
-    "desc1": "Wheelhouse not only delivers high-quality services but also accompanies clients comprehensively throughout their entire journey. Our experienced engineers proactively identify and strive to resolve issues before they impact equipment operations.",
-    "desc2": "With dedication, expertise, and smart workflows, clients can be fully confident that every need is prioritized, and service quality is consistently maintained at the highest level."
+    "subtitle": "Why Our Clients Trust Us",
+    "description": [
+      "Wheelhouse not only delivers high-quality services but also accompanies clients comprehensively throughout their entire journey. Our experienced engineers proactively identify and strive to resolve issues before they impact equipment operations.",
+      "With dedication, expertise, and smart workflows, clients can be fully confident that every need is prioritized, and service quality is consistently maintained at the highest level."
+    ]
   },
   "repairMaintenance": {
     "title": "Repair & Maintenance",
-    "intro": "Professional repair and maintenance services for <bold>maritime electronic equipment</bold>.",
+    "subtitle": "Professional repair and maintenance services for <bold>maritime electronic equipment</bold>.",
     "items": {
       "item1": {
         "title": "High-quality repair services",
-        "intro": "With a skilled technical team and thorough preparation—including planning, execution procedures, and spare parts—repair work is carried out on schedule, meeting technical requirements and ensuring high quality standards",
-        "desc1": "A ship's officer in today's maritime environment relies on a wide range of <bold>marine electronic equipment</bold> to ensure the safety of the vessel and its crew, while successfully completing missions at sea. Cutting-edge marine electronics has made the journey at sea <bold>smoother and safer</bold>.",
-        "desc2": "You need the best services to keep your ship’s equipment in optimal working order without negatively impacting your financial bottom line. Wheelhouse is ready to provide <bold>maintenance and repair services</bold> that ensure your equipment operates reliably and efficiently, at the <bold>most cost-effective approach possible</bold>.",
+        "description": "With a skilled technical team and thorough preparation—including planning, execution procedures, and spare parts—repair work is carried out on schedule, meeting technical requirements and ensuring high quality standards",
+        "details": [
+          "A ship's officer in today's maritime environment relies on a wide range of <bold>marine electronic equipment</bold> to ensure the safety of the vessel and its crew, while successfully completing missions at sea. Cutting-edge marine electronics has made the journey at sea <bold>smoother and safer</bold>.",
+          "You need the best services to keep your ship’s equipment in optimal working order without negatively impacting your financial bottom line. Wheelhouse is ready to provide <bold>maintenance and repair services</bold> that ensure your equipment operates reliably and efficiently, at the <bold>most cost-effective approach possible</bold>."
+        ],
         "imgSrc": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
         "imgAlt": "wheelhouse service engineer repairing VSAT"
       },
       "item2": {
         "title": "Comprehensive maintenance solutions",
-        "intro": "Shipboard equipment and systems require regular maintenance to extend their lifespan, maintain stability, and ensure safe operation.",
+        "description": "Shipboard equipment and systems require regular maintenance to extend their lifespan, maintain stability, and ensure safe operation.",
         "imgSrc": "/images/services/wheelhouse-engineer-in-ship-bridge.webp",
         "imgAlt": "wheelhouse engineer performing maintenance"
       },
       "item3": {
         "title": "24/7 remote technical support",
-        "intro": "We provide user guidance, scheduled maintenance, as well as prompt consultation and troubleshooting to optimize operational performance.",
+        "description": "We provide user guidance, scheduled maintenance, as well as prompt consultation and troubleshooting to optimize operational performance.",
         "imgSrc": "/images/services/wheelhouse-engineer-remote-supporting.webp",
         "imgAlt": "wheelhouse technician supporting up via internet"
       }
     },
-    "ctaTitle": "Do You Need a Repair, Maintenance or Spare Parts?",
-    "ctaLabel": "Book Your Service Now!"
+    "ctaContent": {
+      "title": "Need repair, maintenance, or spare parts?",
+      "description": "We are always ready to assist you. Contact us for timely advice and support.",
+      "label": "Book Your Service Now!"
+    }
   },
   "installation": {
     "title": "Installation",
-    "intro": "Supply and installation the <bold>maritime electronic equipment</bold>.",
+    "subtitle": "Supply and installation the <bold>maritime electronic equipment</bold>.",
     "ctaLabel": "Learn more about our solutions",
     "items": {
       "item1": {
-        "title": "GMDSS, Navigation and Communication",
-        "intro": "Include full solution from supply, installation, commissioning to maintenance",
-        "desc": "We provide comprehensive solutions for maritime electronic equipment, covering product consultation, design, supply, installation, and commissioning, ensuring optimal quality and performance. Detailed information on equipment and solutions is available on the Solutions page.",
+        "title": "Supply and Installation on Demand",
+        "description": "Whether you require a turnkey solution from supply to installation, or simply need on-site installation of existing equipment, our team ensures that all installation and commissioning processes are carried out according to manufacturer standards and international conventions, guaranteeing that your equipment operates reliably and at peak efficiency.",
         "imgSrc": "/images/services/wheelhouse-engineer-installing-equipment.webp",
-        "imgAlt": "wheelhouse service engineer installing equipment"
+        "imgAlt": "Wheelhouse technician installing equipment"
+      },
+      "item2": {
+        "title": "Retrofit & Modernization",
+        "description": "We support the replacement, modification, or integration of new equipment into existing systems to meet the latest international standards, expand functionality, and optimize operational performance.",
+        "imgSrc": "/images/services/retrofit-modernization.webp",
+        "imgAlt": "Technician upgrading equipment on ship"
+      },
+      "item3": {
+        "title": "New Build Installation",
+        "description": "From the design phase, we collaborate with the shipyards to optimize system architecture, select equipment, space layout, and equipment integration, ensuring compliance with the international maritime conventions.",
+        "imgSrc": "/images/services/retrofit-modernization.webp",
+        "imgAlt": "Technician installing equipment on ship"
       }
     }
+  },
+  "annualSurvey": "Annual Survey",
+  "ctaContent": {
+    "title": "",
+    "description": "We provide comprehensive solutions for maritime electronic equipment, including product consulting, design, supply, installation, and testing, ensuring quality and optimal performance. Detailed information about the equipment and solutions is available on the Solutions page.",
+    "label": "Learn more about our solutions"
   }
 }
