@@ -73,15 +73,10 @@ export default async function AboutPage(props: {
           ctaSecondary={t("hero.ctaSecondary")}
         />
       </section>
-      <section
-        className="bg-neutral-200 text-neutral-900"
-        aria-label="About intro section"
-      >
-        <div className="relative inset-0 pointer-events-none h-[calc(var(--gutter-h))]">
-          <BackgroundGrid />
-        </div>
-        <div className="container-gutter">
-          <div className="relative w-full h-full items-center justify-center border border-neutral-500/20 pb-16">
+      <section className="relative " aria-label="About who we are section">
+        <BackgroundGrid />
+        <div className="container-gutter py-16 lg:py-32">
+          <div className="relative bg-neutral-200 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
             <BackgroundScanline
               crosshairs="all"
               className="absolute inset-0 "
@@ -91,13 +86,15 @@ export default async function AboutPage(props: {
               {t("whoWeAre.title")}
             </h2>
             <div className="text-sm sm:text-lg lg:text-4xl text-justify mx-[calc(var(--gutter-h))]">
-              <p className="block mb-8">{t("whoWeAre.desc1")}</p>
-              <p className="block mb-8">{t("whoWeAre.desc2")}</p>
+              {[t.raw("whoWeAre.description")]
+                .flat()
+                .map((p: unknown, i: number) => (
+                  <p key={i} className="block mb-8">
+                    {String(p)}
+                  </p>
+                ))}
             </div>
           </div>
-        </div>
-        <div className="relative inset-0 pointer-events-none h-[calc(var(--gutter-h))]">
-          <BackgroundGrid />
         </div>
       </section>
       <section
@@ -181,32 +178,32 @@ export default async function AboutPage(props: {
           <div className="w-full xl:w-1/2 mx-auto  ">
             <form className="space-y-6" aria-label="Contact form">
               <h3 className="uppercase tracking-[0.25em]  text-lg lg:text-xl">
-                {t("about.contactForm.messageTitle")}
+                {t("contact.contactForm.messageTitle")}
               </h3>
               <input
                 type="text"
                 className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("about.contactForm.namePlaceholder") + " *"}
+                placeholder={t("contact.contactForm.namePlaceholder") + " *"}
                 required
               />
 
               <input
                 type="email"
                 className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("about.contactForm.emailPlaceholder") + " *"}
+                placeholder={t("contact.contactForm.emailPlaceholder") + " *"}
                 required
               />
 
               <input
                 type="tel"
                 className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("about.contactForm.phonePlaceholder")}
+                placeholder={t("contact.contactForm.phonePlaceholder")}
               />
 
               <textarea
                 rows={5}
                 className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("about.contactForm.messagePlaceholder") + " *"}
+                placeholder={t("contact.contactForm.messagePlaceholder") + " *"}
                 required
               ></textarea>
 
@@ -214,7 +211,7 @@ export default async function AboutPage(props: {
                 type="submit"
                 className="w-full min-h-20 my-8 hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
               >
-                {t("about.contactForm.submitButton")}
+                {t("contact.contactForm.submitButton")}
               </Submit>
             </form>
           </div>

@@ -16,8 +16,10 @@
   },
   "whoWeAre": {
     "title": "Chúng Tôi Là Ai",
-    "desc1": "Wheelhouse Co., Ltd là công ty công nghệ và dịch vụ hàng hải, hướng tới mục tiêu tối ưu hóa hiệu suất tàu và đội tàu.",
-    "desc2": "Sức mạnh của chúng tôi đến từ đội ngũ giàu kinh nghiệm, luôn lắng nghe và mang đến giải pháp phù hợp, bền vững cho ngành hàng hải."
+    "description": [
+      "Wheelhouse Co., Ltd là công ty công nghệ và dịch vụ hàng hải, hướng tới mục tiêu tối ưu hóa hiệu suất tàu và đội tàu.",
+      "Sức mạnh của chúng tôi đến từ đội ngũ giàu kinh nghiệm, luôn lắng nghe và mang đến giải pháp phù hợp, bền vững cho ngành hàng hải."
+    ]
   },
   "ourValues": {
     "title": "Sứ Mệnh",
