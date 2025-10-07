@@ -53,7 +53,6 @@ export default async function NavMenu() {
             <li>
               <Link
                 href={{ pathname: "/services", hash: "repair-maintenance" }}
-                scroll={false}
                 className="block px-4 py-2 hover:bg-gray-100"
               >
                 {t("nav.services.repair-maintenance")}
@@ -62,7 +61,6 @@ export default async function NavMenu() {
             <li>
               <Link
                 href={{ pathname: "/services", hash: "installation" }}
-                scroll={false}
                 className="block px-4 py-2 hover:bg-gray-100"
               >
                 {t("nav.services.installation")}
@@ -94,7 +92,6 @@ export default async function NavMenu() {
         <li className="p-6">
           <Link
             href={{ pathname: "/about", hash: "contact" }}
-            scroll={false}
             className="font-semibold"
           >
             {t("nav.contact")}

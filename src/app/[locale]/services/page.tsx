@@ -103,7 +103,8 @@ export default async function ServicesPage(props: {
       {/** section repairMaintenance **/}
 
       <section
-        className="relative container-gutter "
+        id="repair-maintenance"
+        className="relative container-gutter scroll-mt-16"
         aria-label="Repair and Maintenance Services section"
       >
         <BackgroundGrid />
@@ -174,7 +175,8 @@ export default async function ServicesPage(props: {
 
       {/** section installation **/}
       <section
-        className="relative container-gutter "
+        id="installation"
+        className="relative container-gutter scroll-mt-16"
         aria-label="Installation Services section"
       >
         <BackgroundGrid />
