@@ -10,6 +10,8 @@ import {
 } from "@/lib/postIndex.generated";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { BackgroundScanline } from "@/components/BackgroundScanline";
+import Button from "@/components/Button";
+
 export function generateStaticParams() {
   // Lấy tất cả solution keys từ pathnames
   const solutionPaths = Object.keys(routing.pathnames).filter(
@@ -109,7 +111,7 @@ export default async function SolutionPage(props: {
           </h2>
         </div>
         <MediaCard
-          className=" mb-8 lg:mb-16"
+          className=" "
           data={{
             href: `/${locale}/solutions`,
             title: t("hero.cardTitle"),
@@ -126,7 +128,7 @@ export default async function SolutionPage(props: {
       <section className="relative " aria-label="Overview section">
         <BackgroundGrid />
         <div className="container-gutter py-16 lg:py-32">
-          <div className="relative bg-neutral-200 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
+          <div className="relative bg-neutral-200 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16 mb-8 lg:mb-16">
             <BackgroundScanline
               crosshairs="all"
               className="absolute inset-0 "
@@ -140,15 +142,35 @@ export default async function SolutionPage(props: {
               {t("overview.description")}
             </p>
           </div>
+          <div className=" items-center mb-8 lg:mb-16 ">
+            <h2 className="font-semibold text-2xl lg:text-4xl mb4 lg:mb-8">
+              {t("ctaContent.title")}
+            </h2>
+            <p className="w-full lg:w-1/2 text-sm sm:text-lg lg:text-2xl text-justify mb-4 lg:mb-8">
+              {t("ctaContent.description")}
+            </p>
+            <Button
+              className="w-full lg:w-1/2 min-h-20 mb-4 lg:mb-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+              href={`/about#contact`}
+            >
+              {t("ctaContent.label")}
+            </Button>
+          </div>
         </div>
       </section>
 
       {feature || items.length > 0 ? (
         <section className="container-gutter py-8" aria-label="Category posts">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <h2 className="font-semibold text-2xl lg:text-4xl mb4 lg:mb-8">
+            {t("blogPosts.title")}
+          </h2>
+          <p className="max-w-lg mb-4 lg:mb-8 text-muted-foreground">
+            {t("blogPosts.description")}
+          </p>
+          <article className="grid grid-cols-1 md:grid-cols-2">
             {feature ? (
               <MediaCard
-                className="lg:col-span-3"
+                className=""
                 data={{
                   href: feature.route,
                   title: feature.title,
@@ -176,7 +198,7 @@ export default async function SolutionPage(props: {
                 variant="compact"
               />
             ))}
-          </div>
+          </article>
         </section>
       ) : null}
     </>

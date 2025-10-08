@@ -16,5 +16,16 @@
   "overview": {
     "title": "Contributing to the Safety of Vessels and Crews",
     "description": "At Wheelhouse, we understand that safety at sea is always the top priority. Modern navigation systems not only enable vessels to sail accurately and efficiently, but also reduce operational risks and support crew members in making timely decisions in any situation. With SOLAS V-compliant navigation solutions and our professional lifecycle support services, Wheelhouse plays a crucial role in safeguarding vessels, cargo, and human lives throughout every voyage."
+  },
+  "ctaContent": {
+    "title": "Contact Us",
+    "description": "Don't hesitate to contact our team of experts – together, we will create the most effective solution, whether it's a single device or a fully integrated system.",
+    "ctaLabel": "Let's Connect",
+    "href": "/about#contact"
+  },
+  "blogPosts": {
+    "title": "Insights & Articles",
+    "description": "This section aims to analyze and share in-depth perspectives that help clarify and expand upon the solutions we provide.",
+    "seeAll": "See All Articles"
   }
 }
