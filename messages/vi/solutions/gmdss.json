@@ -6,12 +6,25 @@
     "slug": "thiet-bi-radio-gmdss"
   },
   "hero": {
-    "titlePre": "Our",
-    "titleMain": "Hệ thống GMDSS",
-    "subtitle": "Excellence in maritime GMDSS solutions since inception",
-    "rightImageAlt": "wheelhouse service engineer insstalling iridium",
-    "description": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
-    "ctaPrimary": "Start Working With Us",
-    "ctaSecondary": "Want to Chat First?"
+    "title": "Thông tin liên lạc & GMDSS",
+    "subtitle": "Xuất sắc trong các giải pháp thiết bị hàng hải từ khi thành lập",
+    "cardTitle": "MF/HF, VHF, SAT-C, EPIRB, SART, IRIDIUM ...",
+    "cardDescription": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, độ tin cậy và đổi mới.",
+    "imgSrc": "/images/solutions/gmdss/gmdss-equipment-overview.webp",
+    "imgAlt": "thiết bị GMDSS trên tàu"
+  },
+  "overview": {
+    "title": "Giải pháp tùy chỉnh, phù hợp với từng loại tàu",
+    "description": "Với nhiều năm kinh nghiệm trong lĩnh vực thiết bị điện tử hàng hải, Wheelhouse có khả năng cung cấp giải pháp linh hoạt và phù hợp với từng nhu cầu cụ thể. Dù là tàu nội địa hay tàu viễn dương, dù cần thiết bị đơn lẻ hay hệ thống buồng lái tích hợp hoàn chỉnh, chúng tôi luôn lựa chọn giải pháp tối ưu từ các nhà sản xuất uy tín, đảm bảo hiệu suất cao, độ tin cậy lâu dài và khả năng vận hành ổn định cho tàu của bạn."
+  },
+  "ctaContent": {
+    "title": "Liên hệ",
+    "description": "Đừng ngần ngại liên hệ với đội ngũ chuyên gia của chúng tôi – chúng ta sẽ cùng tạo nên giải pháp hiệu quả nhất, dù đó là thiết bị đơn lẻ hay hệ thống tích hợp hoàn chỉnh.",
+    "label": "Kết nối với chúng tôi!"
+  },
+  "blogPosts": {
+    "title": "Bài viết & Phân tích",
+    "description": "Phần bài viết này nhằm phân tích và chia sẻ các góc nhìn chuyên sâu giúp làm rõ và mở rộng các giải pháp mà chúng tôi cung cấp",
+    "seeAll": "Xem tất cả bài viết"
   }
 }

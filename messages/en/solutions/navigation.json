@@ -20,7 +20,7 @@
   "ctaContent": {
     "title": "Contact Us",
     "description": "Don't hesitate to contact our team of experts – together, we will create the most effective solution, whether it's a single device or a fully integrated system.",
-    "ctaLabel": "Let's Connect",
+    "label": "Let's Connect",
     "href": "/about#contact"
   },
   "blogPosts": {

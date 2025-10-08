@@ -113,7 +113,7 @@ export default async function SolutionPage(props: {
         <MediaCard
           className=" "
           data={{
-            href: `/${locale}/solutions`,
+            href: `#`,
             title: t("hero.cardTitle"),
             description: t("hero.cardDescription"),
             imgSrc: t.raw("hero.imgSrc"),
