@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack -H 0.0.0.0",
+    "dev": "next dev -H 0.0.0.0",
     "prebuild": "tsx src/scripts/updatePathname.ts",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "dev:tp": "next dev --turbopack -H 0.0.0.0",
+    "build:tp": "next build --turbopack"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
