@@ -1,9 +1,17 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 import createMDX from "@next/mdx";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkMdxFrontmatter from "remark-mdx-frontmatter";
 
 const withMDX = createMDX({
-  // Add remark/rehype plugins here if needed later.
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [
+      remarkFrontmatter,
+      [remarkMdxFrontmatter, { name: "frontmatter" }],
+    ],
+  },
 });
 
 const nextConfig: NextConfig = {
