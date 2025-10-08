@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
-import fs from "fs/promises";
-import path from "path";
-import matter from "gray-matter";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
+
+type EntryFrontmatter = {
+  author?: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  category?: string;
+  meta: { title: string; description?: string; ogImage: string };
+};
+type MdxModule = {
+  default: React.ComponentType;
+  frontmatter: EntryFrontmatter;
+};
 
 export function generateStaticParams() {
   // Lấy toàn bộ path dạng /solutions/[solution]/[entry]
@@ -25,20 +34,9 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string; solution: string; entry: string }>;
 }): Promise<Metadata> {
   const { locale, solution, entry } = await props.params;
-
-  const raw = await fs.readFile(
-    path.join(
-      process.cwd(),
-      "src",
-      "content",
-      locale,
-      "solutions",
-      solution,
-      `${entry}.mdx`
-    ),
-    "utf-8"
-  );
-  const { data: frontmatter } = matter(raw);
+  const { frontmatter } = (await import(
+    `@/content/${locale}/solutions/${solution}/${entry}.mdx`
+  )) as { frontmatter: EntryFrontmatter };
 
   const title = frontmatter.meta.title;
   const description = frontmatter.meta.description;
@@ -98,23 +96,9 @@ export default async function EntryPage(props: {
 }) {
   const { locale, solution, entry } = await props.params;
   const t = await getTranslations("entry");
-
-  const raw = await fs.readFile(
-    path.join(
-      process.cwd(),
-      "src",
-      "content",
-      locale,
-      "solutions",
-      solution,
-      `${entry}.mdx`
-    ),
-    "utf-8"
-  );
-  const { data: frontmatter } = matter(raw);
-  const { default: Entry } = await import(
+  const { default: Entry, frontmatter } = (await import(
     `@/content/${locale}/solutions/${solution}/${entry}.mdx`
-  );
+  )) as MdxModule;
 
   return (
     <>
