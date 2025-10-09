@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-
+import MediaCard from "@/components/MediaCard";
+import {
+  featureByCategory,
+  entriesByCategory,
+  type Locales,
+  type PostEntry,
+} from "@/lib/postIndex.generated";
 type EntryFrontmatter = {
   author?: string;
   publishedAt?: string;
@@ -99,6 +105,18 @@ export default async function EntryPage(props: {
   const { default: Entry, frontmatter } = (await import(
     `@/content/${locale}/solutions/${solution}/${entry}.mdx`
   )) as MdxModule;
+  const l = locale as Locales;
+  const featureMap = featureByCategory as unknown as Record<
+    Locales,
+    Record<string, PostEntry | null>
+  >;
+  const entriesMap = entriesByCategory as unknown as Record<
+    Locales,
+    Record<string, ReadonlyArray<PostEntry>>
+  >;
+
+  const feature = featureMap[l]?.[solution] ?? null;
+  const items = entriesMap[l]?.[solution] ?? [];
 
   return (
     <>
@@ -169,6 +187,56 @@ export default async function EntryPage(props: {
           <Entry />
         </div>
       </article>
+      {feature || items.length > 0 ? (
+        <section
+          className="relative container-gutter flex flex-col items-center py-8"
+          aria-label="related posts"
+        >
+          <div className="w-1/2">
+            <h2 className="font-semibold text-2xl lg:text-4xl mb-4 lg:mb-8">
+              {t("relatedPosts")}
+            </h2>
+            <div className="mb-4 lg:mb-8">
+              {feature ? (
+                <article className="mb-4 lg:mb-8 text-muted-foreground">
+                  <MediaCard
+                    className=""
+                    data={{
+                      href: feature.route,
+                      title: feature.title,
+                      description: [feature.publishedAt, feature.author]
+                        .filter(Boolean)
+                        .join(" • "),
+                      imgSrc: feature.ogImage,
+                      imgAlt: feature.title ?? "Article image",
+                    }}
+                    variant="compact"
+                  />
+                </article>
+              ) : null}
+              {items.slice(0, 2).map((p: PostEntry) => (
+                <article
+                  className="mb-4 lg:mb-8 text-muted-foreground"
+                  key={p.route}
+                >
+                  <MediaCard
+                    data={{
+                      href: p.route,
+                      title: p.title,
+                      description: [p.publishedAt, p.author]
+                        .filter(Boolean)
+                        .join(" • "),
+                      imgSrc: p.ogImage,
+                      imgAlt: p.title ?? "Article image",
+                    }}
+                    variant="compact"
+                  />
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
     </>
   );
 }

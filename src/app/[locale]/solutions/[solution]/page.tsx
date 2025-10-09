@@ -160,45 +160,53 @@ export default async function SolutionPage(props: {
       </section>
 
       {feature || items.length > 0 ? (
-        <section className="container-gutter py-8" aria-label="Category posts">
-          <h2 className="font-semibold text-2xl lg:text-4xl mb4 lg:mb-8">
+        <section
+          className="relative container-gutter py-8"
+          aria-label="Category posts"
+        >
+          <BackgroundGrid />
+
+          <h2 className="font-semibold text-2xl lg:text-4xl mb-4 lg:mb-8">
             {t("blogPosts.title")}
           </h2>
           <p className="max-w-lg mb-4 lg:mb-8 text-muted-foreground">
             {t("blogPosts.description")}
           </p>
-          <article className="grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2">
             {feature ? (
-              <MediaCard
-                className=""
-                data={{
-                  href: feature.route,
-                  title: feature.title,
-                  description: [feature.publishedAt, feature.author]
-                    .filter(Boolean)
-                    .join(" • "),
-                  imgSrc: feature.ogImage,
-                  imgAlt: feature.title ?? "Article image",
-                }}
-                variant="featured"
-              />
+              <article>
+                <MediaCard
+                  className=""
+                  data={{
+                    href: feature.route,
+                    title: feature.title,
+                    description: [feature.publishedAt, feature.author]
+                      .filter(Boolean)
+                      .join(" • "),
+                    imgSrc: feature.ogImage,
+                    imgAlt: feature.title ?? "Article image",
+                  }}
+                  variant="featured"
+                />
+              </article>
             ) : null}
             {items.map((p: PostEntry) => (
-              <MediaCard
-                key={p.route}
-                data={{
-                  href: p.route,
-                  title: p.title,
-                  description: [p.publishedAt, p.author]
-                    .filter(Boolean)
-                    .join(" • "),
-                  imgSrc: p.ogImage,
-                  imgAlt: p.title ?? "Article image",
-                }}
-                variant="compact"
-              />
+              <article key={p.route}>
+                <MediaCard
+                  data={{
+                    href: p.route,
+                    title: p.title,
+                    description: [p.publishedAt, p.author]
+                      .filter(Boolean)
+                      .join(" • "),
+                    imgSrc: p.ogImage,
+                    imgAlt: p.title ?? "Article image",
+                  }}
+                  variant="compact"
+                />
+              </article>
             ))}
-          </article>
+          </div>
         </section>
       ) : null}
     </>
