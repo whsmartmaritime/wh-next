@@ -112,6 +112,13 @@ export default async function EntryPage(props: {
   >;
 
   const items = entriesMap[l]?.[solution] ?? [];
+  // Lọc bỏ bài hiện tại khỏi danh sách liên quan
+  const pathKey = `/solutions/${solution}/${entry}`;
+  const currentRoute =
+    (routing.pathnames as Record<string, Record<string, string>>)[pathKey]?.[
+      l
+    ] ?? `/${l}${pathKey}`;
+  const related = items.filter((p) => p.route !== currentRoute);
 
   return (
     <>
@@ -182,7 +189,7 @@ export default async function EntryPage(props: {
           <Entry />
         </div>
       </article>
-      {items.length > 0 ? (
+      {related.length > 0 ? (
         <section
           className="relative container-gutter flex flex-col items-center py-8"
           aria-label="related posts"
@@ -192,7 +199,7 @@ export default async function EntryPage(props: {
               {t("relatedPosts")}
             </h2>
             <div className="mb-4 lg:mb-8">
-              {items.slice(0, 3).map((p: PostEntry) => (
+              {related.slice(0, 3).map((p: PostEntry) => (
                 <article
                   className="mb-4 lg:mb-8 text-muted-foreground"
                   key={p.route}
