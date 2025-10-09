@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "katex/dist/katex.min.css";
 import { getLocale } from "next-intl/server";
 import { ThemeProvider } from "@/components/ThemeProvider";
 export default async function RootLayout({

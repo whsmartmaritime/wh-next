@@ -119,7 +119,7 @@ export const entries = {
         "safety",
         "technology"
       ],
-      "ogImage": "/images/blog/equipment/maritime-radar.jpg"
+      "ogImage": "/images/solutions/navigation/wheelhouse-engineer-repairing-repairing-radar.webp"
     },
     {
       "route": "/solutions/navigation/anemometer-introduction",
@@ -227,7 +227,7 @@ export const entries = {
         "an toàn",
         "công nghệ"
       ],
-      "ogImage": "/images/blog/equipment/maritime-radar.jpg"
+      "ogImage": "/images/solutions/navigation/wheelhouse-engineer-repairing-repairing-radar.webp"
     },
     {
       "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-anemometer",
@@ -382,7 +382,7 @@ export const entriesByCategory = {
           "safety",
           "technology"
         ],
-        "ogImage": "/images/blog/equipment/maritime-radar.jpg"
+        "ogImage": "/images/solutions/navigation/wheelhouse-engineer-repairing-repairing-radar.webp"
       },
       {
         "route": "/solutions/navigation/anemometer-introduction",
@@ -492,7 +492,7 @@ export const entriesByCategory = {
           "an toàn",
           "công nghệ"
         ],
-        "ogImage": "/images/blog/equipment/maritime-radar.jpg"
+        "ogImage": "/images/solutions/navigation/wheelhouse-engineer-repairing-repairing-radar.webp"
       },
       {
         "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-anemometer",
