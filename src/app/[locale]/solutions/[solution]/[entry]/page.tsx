@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import MediaCard from "@/components/MediaCard";
 import {
-  entriesByCategory,
+  entries,
   type Locales,
   type PostEntry,
 } from "@/lib/postIndex.generated";
@@ -13,6 +13,7 @@ type EntryFrontmatter = {
   publishedAt?: string;
   updatedAt?: string;
   category?: string;
+  tags?: string[];
   meta: { title: string; description?: string; ogImage: string };
 };
 type MdxModule = {
@@ -106,19 +107,12 @@ export default async function EntryPage(props: {
   )) as MdxModule;
   const l = locale as Locales;
 
-  const entriesMap = entriesByCategory as unknown as Record<
+  // Lấy toàn bộ bài viết theo locale để lọc theo tag
+  const allEntries = entries as unknown as Record<
     Locales,
-    Record<string, ReadonlyArray<PostEntry>>
+    ReadonlyArray<PostEntry>
   >;
-
-  const items = entriesMap[l]?.[solution] ?? [];
-  // Lọc bỏ bài hiện tại khỏi danh sách liên quan
-  const pathKey = `/solutions/${solution}/${entry}`;
-  const currentRoute =
-    (routing.pathnames as Record<string, Record<string, string>>)[pathKey]?.[
-      l
-    ] ?? `/${l}${pathKey}`;
-  const related = items.filter((p) => p.route !== currentRoute);
+  const pool = allEntries[l] ?? [];
 
   return (
     <>
@@ -189,39 +183,57 @@ export default async function EntryPage(props: {
           <Entry />
         </div>
       </article>
-      {related.length > 0 ? (
-        <section
-          className="relative container-gutter flex flex-col items-center py-8"
-          aria-label="related posts"
-        >
-          <div className="w-1/2">
-            <h2 className="font-semibold text-2xl lg:text-4xl mb-4 lg:mb-8">
-              {t("relatedPosts")}
-            </h2>
-            <div className="mb-4 lg:mb-8">
-              {related.slice(0, 3).map((p: PostEntry) => (
-                <article
-                  className="mb-4 lg:mb-8 text-muted-foreground"
-                  key={p.route}
-                >
-                  <MediaCard
-                    data={{
-                      href: p.route,
-                      title: p.title,
-                      description: [p.publishedAt, p.author]
-                        .filter(Boolean)
-                        .join(" • "),
-                      imgSrc: p.ogImage,
-                      imgAlt: p.title ?? "Article image",
-                    }}
-                    variant="compact"
-                  />
-                </article>
-              ))}
+      {/* Lọc bài liên quan theo tag chung, loại bỏ bài hiện tại */}
+      {(() => {
+        const pathKey = `/solutions/${solution}/${entry}`;
+        const currentRoute =
+          (routing.pathnames as Record<string, Record<string, string>>)[
+            pathKey
+          ]?.[l] ?? `/${l}${pathKey}`;
+        const tagSet = new Set(frontmatter.tags ?? []);
+        const score = (p: PostEntry) =>
+          (p.tags ?? []).reduce((acc, t) => acc + (tagSet.has(t) ? 1 : 0), 0);
+        const related = pool
+          .filter(
+            (p) =>
+              p.route !== currentRoute &&
+              (p.tags ?? []).some((t) => tagSet.has(t))
+          )
+          .sort((a, b) => score(b) - score(a));
+        return related.length > 0 ? (
+          <section
+            className="relative container-gutter flex flex-col items-center py-8"
+            aria-label="related posts"
+          >
+            <div className="w-1/2">
+              <h2 className="font-semibold text-2xl lg:text-4xl mb-4 lg:mb-8">
+                {t("relatedPosts")}
+              </h2>
+              <div className="mb-4 lg:mb-8">
+                {related.slice(0, 3).map((p: PostEntry) => (
+                  <article
+                    className="mb-4 lg:mb-8 text-muted-foreground"
+                    key={p.route}
+                  >
+                    <MediaCard
+                      data={{
+                        href: p.route,
+                        title: p.title,
+                        description: [p.publishedAt, p.author]
+                          .filter(Boolean)
+                          .join(" • "),
+                        imgSrc: p.ogImage,
+                        imgAlt: p.title ?? "Article image",
+                      }}
+                      variant="compact"
+                    />
+                  </article>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      ) : null}
+          </section>
+        ) : null;
+      })()}
     </>
   );
 }
