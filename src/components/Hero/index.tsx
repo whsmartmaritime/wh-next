@@ -38,7 +38,7 @@ export default function Hero({
           </h2>
 
           <Button
-            href="/contact"
+            href="/about#contact"
             className="w-full min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
           >
             {ctaText}
@@ -50,7 +50,7 @@ export default function Hero({
           <div className="relative w-full lg:w-[calc(var(--column)*10)] h-[calc(var(--column)*7)] lg:h-[calc(var(--column)*6)]">
             {/* Image 1 (top-right) - 8 cols wide, positioned at right of container */}
             <div className="absolute top-0 right-0 z-10 w-[calc(var(--column)*10)] lg:w-[calc(var(--column)*8.5)] h-auto  bg-white/10 border border-white/5 rounded-lg backdrop-blur-2xl shadow-[0px_3rem_4rem_1rem_rgba(0,0,0,0.5)] overflow-hidden">
-              <div className="w-full h-full rounded-md border border-white/5 bg-gray-900 shadow-[0px_0rem_0.25rem_0rem_rgba(0,0,0,0.5)] overflow-hidden aspect-[16/10]">
+              <div className=" relative w-full h-full rounded-md border border-white/5 bg-gray-900 shadow-[0px_0rem_0.25rem_0rem_rgba(0,0,0,0.5)] overflow-hidden aspect-[16/10]">
                 <Image
                   src={heroImage1Src}
                   alt={heroImage1Alt}
@@ -64,7 +64,7 @@ export default function Hero({
 
             {/* Image 2 (bottom-left) - 8 cols wide, positioned at left of container */}
             <div className="absolute bottom-0 left-0 z-0 w-[calc(var(--column)*10)] lg:w-[calc(var(--column)*8.5)] h-auto bg-white/10 border border-white/5 rounded-lg backdrop-blur-2xl shadow-[0px_3rem_4rem_1rem_rgba(0,0,0,0.5)] overflow-hidden ">
-              <div className="w-full h-full rounded-md border border-white/5 bg-gray-900 shadow-[0px_0rem_0.25rem_0rem_rgba(0,0,0,0.5)] overflow-hidden aspect-[16/10]">
+              <div className="relative w-full h-full rounded-md border border-white/5 bg-gray-900 shadow-[0px_0rem_0.25rem_0rem_rgba(0,0,0,0.5)] overflow-hidden aspect-[16/10]">
                 <Image
                   src={heroImage2Src}
                   alt={heroImage2Alt}

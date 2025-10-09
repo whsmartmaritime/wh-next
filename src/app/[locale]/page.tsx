@@ -5,11 +5,12 @@ import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import Hero from "@/components/Hero";
 import LogoShowcase from "@/components/LogoShowcase";
-import WhyWheelhouse from "@/blocks/WhyWheelhouse";
+import Slider from "@/components/Slider";
 import WhatWeDo from "@/blocks/WhatWeDo";
 import MediaCard from "@/components/MediaCard";
 import { entries, featureEntry, type Locales } from "@/lib/postIndex.generated";
 import Link from "next/link";
+import Button from "@/components/Button";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -59,6 +60,7 @@ export default async function HomePage(props: {
   const { locale } = await props.params;
 
   const t = await getTranslations({ locale, namespace: "home" });
+
   const l = locale as Locales;
   const all = entries[l] || [];
   const feature = featureEntry[l] ?? null;
@@ -110,8 +112,70 @@ export default async function HomePage(props: {
           </div>
         </div>
       </section>
+      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950/30 relative overflow-hidden text-neutral-300">
+        <BackgroundGrid />
+        <div className="container-gutter grid grid-cols-12">
+          <div className="col-span-12 lg:col-span-6">
+            <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
+              {t("whyWheelhouse.missionTitle")}
+            </h2>
+            <p className="text-md xl:text-xl text-justify whitespace-pre-line mb-8 max-w-3xl">
+              {t("whyWheelhouse.missionIntro")}
+            </p>
+          </div>
 
-      <WhyWheelhouse aria-label="Why Wheelhouse section" />
+          <Slider
+            images={[
+              {
+                src: "/images/whywh/wave-ship.webp",
+                alt: `${t("whyWheelhouse.imageAlt1")}`,
+              },
+              {
+                src: "/images/whywh/wheelhouse-engineer-with-radar.webp",
+                alt: `${t("whyWheelhouse.imageAlt2")}`,
+              },
+              {
+                src: "/images/whywh/wheelhouse-engineer-with-bridge.webp",
+                alt: `${t("whyWheelhouse.imageAlt3")}`,
+              },
+            ]}
+            className="col-span-12 lg:col-span-6 shadow-lg"
+          />
+        </div>
+      </section>
+      <section className="bg-gradient-to-bl from-neutral-900 via-slate-900 to-stone-900/50 relative overflow-hidden text-neutral-300">
+        <BackgroundGrid />
+        <div className="container-gutter grid grid-cols-12">
+          <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
+            {t("whyWheelhouse.whyTitle")}
+          </h2>
+          <p className="col-span-12 text-md xl:text-xl text-muted-foreground text-justify whitespace-pre-line mb-8 max-w-2xl">
+            {t("whyWheelhouse.whyIntro")}
+          </p>
+
+          {/* Feature Cards */}
+          {[1, 2, 3, 4].map((i) => (
+            <div
+              key={i}
+              className="col-span-12 md:col-span-6 lg:col-span-3 border border-gray-900/20 p-6 transition-colors duration-300 m-3 bg-black/20 backdrop-blur-sm"
+            >
+              <h3 className="text-sm lg:text-base font-semibold mb-3 uppercase text-center">
+                {t(`whyWheelhouse.item${i}Title`)}
+              </h3>
+              <p className="text-sm lg:text-base text-muted-foreground leading-relaxed text-center my-8">
+                {t(`whyWheelhouse.item${i}Desc`)}
+              </p>
+            </div>
+          ))}
+
+          <Button
+            className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+            href="/about"
+          >
+            {t("whyWheelhouse.ctaPrimary")}
+          </Button>
+        </div>
+      </section>
 
       <WhatWeDo aria-label="What We Do section" />
 
