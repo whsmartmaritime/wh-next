@@ -67,7 +67,7 @@ export const entries = {
         "maritime",
         "fuel efficiency"
       ],
-      "ogImage": "/images/blog/equipment/speed-log-dvl.jpg"
+      "ogImage": "/images/solutions/navigation/speedlog.webp"
     },
     {
       "route": "/solutions/navigation/gnss-introduction",
@@ -175,7 +175,7 @@ export const entries = {
         "hàng hải",
         "hiệu suất nhiên liệu"
       ],
-      "ogImage": "/images/blog/equipment/speed-log-dvl.jpg"
+      "ogImage": "/images/solutions/navigation/speedlog.webp"
     },
     {
       "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-he-thong-dinh-vi",
@@ -330,7 +330,7 @@ export const entriesByCategory = {
           "maritime",
           "fuel efficiency"
         ],
-        "ogImage": "/images/blog/equipment/speed-log-dvl.jpg"
+        "ogImage": "/images/solutions/navigation/speedlog.webp"
       },
       {
         "route": "/solutions/navigation/gnss-introduction",
@@ -440,7 +440,7 @@ export const entriesByCategory = {
           "hàng hải",
           "hiệu suất nhiên liệu"
         ],
-        "ogImage": "/images/blog/equipment/speed-log-dvl.jpg"
+        "ogImage": "/images/solutions/navigation/speedlog.webp"
       },
       {
         "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-he-thong-dinh-vi",
