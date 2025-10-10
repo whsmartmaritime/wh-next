@@ -84,7 +84,7 @@ export const entries = {
         "maritime",
         "technology"
       ],
-      "ogImage": "/images/blog/equipment/gnss-navigation.jpg"
+      "ogImage": "/images/solutions/navigation/gnss.jpg"
     },
     {
       "route": "/solutions/navigation/echo-sounder-introduction",
@@ -102,7 +102,7 @@ export const entries = {
         "safety",
         "depth"
       ],
-      "ogImage": "/images/blog/equipment/echosounder-tech.jpg"
+      "ogImage": "/images/solutions/navigation/echo-sounder.jpg"
     },
     {
       "route": "/solutions/navigation/radar-introduction",
@@ -137,7 +137,7 @@ export const entries = {
         "maritime",
         "maneuvering"
       ],
-      "ogImage": "/images/blog/equipment/ultrasonic-anemometer.jpg"
+      "ogImage": "/images/solutions/navigation/anemometer.webp"
     },
     {
       "route": "/solutions/navigation/ais-introduction",
@@ -155,7 +155,7 @@ export const entries = {
         "VHF",
         "COLREGs"
       ],
-      "ogImage": "/images/blog/equipment/maritime-ais.jpg"
+      "ogImage": "/images/solutions/navigation/ais.jpg"
     }
   ],
   "vi": [
@@ -192,7 +192,7 @@ export const entries = {
         "hàng hải",
         "công nghệ"
       ],
-      "ogImage": "/images/blog/equipment/gnss-navigation.jpg"
+      "ogImage": "/images/solutions/navigation/gnss.jpg"
     },
     {
       "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-may-do-sau",
@@ -210,7 +210,7 @@ export const entries = {
         "an toàn",
         "độ sâu"
       ],
-      "ogImage": "/images/blog/equipment/echosounder-tech.jpg"
+      "ogImage": "/images/solutions/navigation/echo-sounder.jpg"
     },
     {
       "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-radar",
@@ -245,7 +245,7 @@ export const entries = {
         "hàng hải",
         "điều động"
       ],
-      "ogImage": "/images/blog/equipment/ultrasonic-anemometer.jpg"
+      "ogImage": "/images/solutions/navigation/anemometer.webp"
     },
     {
       "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-ais",
@@ -263,7 +263,7 @@ export const entries = {
         "VHF",
         "COLREGs"
       ],
-      "ogImage": "/images/blog/equipment/maritime-ais.jpg"
+      "ogImage": "/images/solutions/navigation/ais.jpg"
     }
   ]
 } as const;
@@ -347,7 +347,7 @@ export const entriesByCategory = {
           "maritime",
           "technology"
         ],
-        "ogImage": "/images/blog/equipment/gnss-navigation.jpg"
+        "ogImage": "/images/solutions/navigation/gnss.jpg"
       },
       {
         "route": "/solutions/navigation/echo-sounder-introduction",
@@ -365,7 +365,7 @@ export const entriesByCategory = {
           "safety",
           "depth"
         ],
-        "ogImage": "/images/blog/equipment/echosounder-tech.jpg"
+        "ogImage": "/images/solutions/navigation/echo-sounder.jpg"
       },
       {
         "route": "/solutions/navigation/radar-introduction",
@@ -400,7 +400,7 @@ export const entriesByCategory = {
           "maritime",
           "maneuvering"
         ],
-        "ogImage": "/images/blog/equipment/ultrasonic-anemometer.jpg"
+        "ogImage": "/images/solutions/navigation/anemometer.webp"
       },
       {
         "route": "/solutions/navigation/ais-introduction",
@@ -418,7 +418,7 @@ export const entriesByCategory = {
           "VHF",
           "COLREGs"
         ],
-        "ogImage": "/images/blog/equipment/maritime-ais.jpg"
+        "ogImage": "/images/solutions/navigation/ais.jpg"
       }
     ]
   },
@@ -457,7 +457,7 @@ export const entriesByCategory = {
           "hàng hải",
           "công nghệ"
         ],
-        "ogImage": "/images/blog/equipment/gnss-navigation.jpg"
+        "ogImage": "/images/solutions/navigation/gnss.jpg"
       },
       {
         "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-may-do-sau",
@@ -475,7 +475,7 @@ export const entriesByCategory = {
           "an toàn",
           "độ sâu"
         ],
-        "ogImage": "/images/blog/equipment/echosounder-tech.jpg"
+        "ogImage": "/images/solutions/navigation/echo-sounder.jpg"
       },
       {
         "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-radar",
@@ -510,7 +510,7 @@ export const entriesByCategory = {
           "hàng hải",
           "điều động"
         ],
-        "ogImage": "/images/blog/equipment/ultrasonic-anemometer.jpg"
+        "ogImage": "/images/solutions/navigation/anemometer.webp"
       },
       {
         "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-ais",
@@ -528,7 +528,7 @@ export const entriesByCategory = {
           "VHF",
           "COLREGs"
         ],
-        "ogImage": "/images/blog/equipment/maritime-ais.jpg"
+        "ogImage": "/images/solutions/navigation/ais.jpg"
       }
     ]
   }
