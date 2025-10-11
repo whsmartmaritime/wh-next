@@ -40,58 +40,58 @@
       {
         "title": "Nghi Khí Hàng Hải",
         "href": "/solutions/navigation",
-        "images": [
-          {
+        "images": {
+          "bg": {
             "src": "/images/key-offerings/navigation-key-offering-back.webp",
             "alt": "kỹ sư Wheelhouse sửa chữa thiết bị nghi khí hàng hải trên tàu"
           },
-          {
+          "fg": {
             "src": "/images/key-offerings/navigation-key-offering-fore.webp",
             "alt": "kỹ sư Wheelhouse sửa chữa ăng ten trên tàu"
           }
-        ]
+        }
       },
       {
         "title": "Thiết bị GMDSS",
         "href": "/solutions/gmdss",
-        "images": [
-          {
+        "images": {
+          "bg": {
             "src": "/images/key-offerings/gmdss-key-offering-back.webp",
             "alt": "GMDSS"
           },
-          {
+          "fg": {
             "src": "/images/key-offerings/gmdss-key-offering-fore.webp",
             "alt": "GMDSS"
           }
-        ]
+        }
       },
       {
         "title": "Internet trên biển",
         "href": "/solutions/connectivity",
-        "images": [
-          {
+        "images": {
+          "bg": {
             "src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
             "alt": "kỹ sư Wheelhouse sửa chữa thiết bị VSAT trên tàu"
           },
-          {
+          "fg": {
             "src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
             "alt": "kỹ sư Wheelhouse sửa chữa thiết bị VSAT trên tàu"
           }
-        ]
+        }
       },
       {
         "title": "Sửa chữa, Bảo dưỡng",
         "href": "/services#repair-maintenance",
-        "images": [
-          {
+        "images": {
+          "bg": {
             "src": "/images/key-offerings/wheelhouse-engineer-repairing-equipment-on-bridge.webp",
             "alt": "kỹ sư Wheelhouse sửa chữa thiết bị nghi khí hàng hải trên tàu"
           },
-          {
+          "fg": {
             "src": "/images/key-offerings/wheelhouse-engineer-repairing-auto-pilot.webp",
             "alt": "kỹ sư Wheelhouse sửa chữa thiết bị lái tự động trên tàu"
           }
-        ]
+        }
       }
     ],
     "primaryButton": {

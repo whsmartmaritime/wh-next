@@ -11,13 +11,13 @@ export type HighlightMedia = {
 export type HighlightItem = {
   title: ReactNode;
   href: string;
-  images: [HighlightMedia, HighlightMedia];
+  images: { bg: HighlightMedia; fg: HighlightMedia };
 };
 
 export type HighlightsProps = {
   title?: ReactNode;
-  lead?: string;
-  closing?: string;
+  lead?: ReactNode;
+  closing?: ReactNode;
   items: HighlightItem[];
   className?: string;
 };
@@ -30,6 +30,8 @@ export default function Highlights({
   items,
   className = "",
 }: HighlightsProps) {
+  const safeItems: HighlightItem[] = items ?? [];
+
   return (
     <div className={` h-full min-h-[50vh] ${className}`}>
       <div className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold  text-left my-8">
@@ -43,7 +45,7 @@ export default function Highlights({
           ) : null}
 
           <div className="group/allkeys flex flex-col">
-            {items.map((item, idx) => (
+            {safeItems.map((item, idx) => (
               <div key={idx} className="group/key py-4">
                 <Link
                   href={item.href}
@@ -60,8 +62,8 @@ export default function Highlights({
                 <div className="hidden md:block absolute inset-y-0 right-0 w-1/2 h-full pointer-events-none ">
                   <div className="relative w-full aspect-[16/9]  transform opacity-100 group-hover/allkeys:opacity-0 group-hover/key:opacity-100 transition-all duration-700 ease-in-out ">
                     <Image
-                      src={item.images[0].src}
-                      alt={item.images[0].alt}
+                      src={item.images.bg.src}
+                      alt={item.images.bg.alt}
                       fill
                       className="object-cover transform translate-y-10 group-hover/key:translate-y-0 transition-all duration-800 ease-in-out delay-200"
                       sizes="(max-width: 768px) 100vw, 50vw"
@@ -71,8 +73,8 @@ export default function Highlights({
                     {/* Foreground image */}
 
                     <Image
-                      src={item.images[1].src}
-                      alt={item.images[1].alt}
+                      src={item.images.fg.src}
+                      alt={item.images.fg.alt}
                       fill
                       className="object-cover  transform translate-y-30 group-hover/key:translate-y-20 translate-x-20 opacity-100 group-hover/allkeys:opacity-0 group-hover/key:opacity-100 transition-all duration-800 ease-in-out delay-400 z-10"
                       sizes="(max-width: 768px) 100vw, 40vw"
