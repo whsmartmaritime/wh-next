@@ -32,10 +32,10 @@
     "item4Desc": "With our experience, knowledge and acumen in handling situations, our human resources always strive to bring practical benefits to customers.",
     "ctaPrimary": "About Us"
   },
-  "whatWeDo": {
-    "title": "What We Do",
-    "beforeHighlights": "At Wheelhouse, we provide solutions and services to make your vessel operate more safely.",
-    "afterHighlights": "Let us be your trusted companion on your journey.",
+  "keyOfferings": {
+    "title": "Our Key Offerings",
+    "lead": "At Wheelhouse, we provide solutions and services to make your vessel operate more safely.",
+    "closing": "Let us be your trusted companion on your journey.",
     "items": [
       {
         "text": "Navigation solution",

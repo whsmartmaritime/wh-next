@@ -1,21 +1,18 @@
 import React from "react";
 import { getMessages, getTranslations } from "next-intl/server";
-import HoverHighlights from "@/components/HoverHighlights";
+import Highlights from "@/components/Highlights";
 import Button from "@/components/Button";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
-import type {
-  HoverHighlightsProps,
-  HoverHighlightMedia,
-} from "@/components/HoverHighlights";
+import type { HighlightItem } from "@/components/Highlights";
 
-interface WhatWeDoProps {
+interface keyOfferingsProps {
   className?: string;
 }
 
-export default async function WhatWeDo({}: WhatWeDoProps) {
+export default async function keyOfferings({}: keyOfferingsProps) {
   // Handle translations at this level
-  const t = await getTranslations("home.whatWeDo");
-  // Đọc cấu hình whatWeDo trực tiếp từ next-intl messages đã được load (RSC)
+  const t = await getTranslations("home.keyOfferings");
+  // Đọc cấu hình keyOfferings trực tiếp từ next-intl messages đã được load (RSC)
   const messages = await getMessages();
   type ImageEntry =
     | string
@@ -23,7 +20,7 @@ export default async function WhatWeDo({}: WhatWeDoProps) {
         src: string;
         alt?: string;
       };
-  type WhatWeDoItem = {
+  type keyOfferingsItem = {
     text: string;
     desc?: string;
     href: string;
@@ -31,11 +28,11 @@ export default async function WhatWeDo({}: WhatWeDoProps) {
   };
 
   type HomeMessages = {
-    whatWeDo?: {
+    keyOfferings?: {
       title?: string;
-      beforeHighlights?: string;
-      afterHighlights?: string;
-      items?: WhatWeDoItem[];
+      lead?: string;
+      closing?: string;
+      items?: keyOfferingsItem[];
       primaryButton?: { label: string; href: string };
       secondaryButton?: { label: string; href: string };
     };
@@ -43,60 +40,36 @@ export default async function WhatWeDo({}: WhatWeDoProps) {
 
   type RootMessages = {
     home?: {
-      whatWeDo?: HomeMessages["whatWeDo"];
+      keyOfferings?: HomeMessages["keyOfferings"];
     };
   };
 
   const root = messages as unknown as RootMessages;
-  const whatWeDo = root.home?.whatWeDo;
-  const items: WhatWeDoItem[] = whatWeDo?.items ?? [];
+  const keyOfferings = root.home?.keyOfferings;
+  const items: keyOfferingsItem[] = keyOfferings?.items ?? [];
 
-  // Build clean data for HoverHighlights
-  const highlightsData: HoverHighlightsProps = {
-    beforeHighlights: t("beforeHighlights"),
-    afterHighlights: t("afterHighlights"),
-    highlights: items.map((item, index) => {
-      // Coerce images to exactly two HoverHighlightMedia objects
-      const arr = (Array.isArray(item.images) ? item.images : []).slice(0, 2);
-      const [bg, fg] = (arr.length === 2 ? arr : ["", ""]) as [
-        ImageEntry,
-        ImageEntry
-      ];
+  // Build data for simplified Highlights component
+  const highlightItems: HighlightItem[] = items.map((item) => {
+    const arr = (Array.isArray(item.images) ? item.images : []).slice(0, 2);
+    const [bg, fg] = (arr.length === 2 ? arr : ["", ""]) as [
+      ImageEntry,
+      ImageEntry
+    ];
 
-      const toMedia = (
-        it: ImageEntry,
-        fallbackAlt: string
-      ): HoverHighlightMedia => {
-        if (typeof it === "string") {
-          return { src: it, alt: fallbackAlt, width: 600, height: 400 };
-        }
-        return {
-          src: it?.src ?? "",
-          alt: it?.alt ?? fallbackAlt,
-          width: 600,
-          height: 400,
-        };
-      };
+    const normalize = (it: ImageEntry, fallback: string) =>
+      typeof it === "string"
+        ? { src: it, alt: fallback }
+        : { src: it?.src ?? "", alt: it?.alt ?? fallback };
 
-      const mediaTuple: [HoverHighlightMedia, HoverHighlightMedia] = [
-        toMedia(bg, `${item.text} Background`),
-        toMedia(fg, `${item.text} Foreground`),
-      ];
-
-      return {
-        id: `highlight-${index}`,
-        text: (
-          <h3 className="text-2xl lg:text-3xl xl:text-5xl font-bold m-0 leading-tight">
-            {item.text}
-          </h3>
-        ),
-        description: item.desc ?? undefined,
-        href: item.href,
-        newTab: false,
-        images: mediaTuple,
-      };
-    }),
-  };
+    return {
+      text: item.text,
+      href: item.href,
+      images: [
+        normalize(bg, `${item.text} Background`),
+        normalize(fg, `${item.text} Foreground`),
+      ],
+    };
+  });
 
   return (
     <section className="bg-gradient-to-br  from-gray-900 via-black/90 to-black relative overflow-hidden text-neutral-300">
@@ -108,22 +81,26 @@ export default async function WhatWeDo({}: WhatWeDoProps) {
         </h2>
 
         <div className="col-span-12">
-          <HoverHighlights {...highlightsData} />
+          <Highlights
+            lead={<h3>{t("lead")}</h3>}
+            closing={<h3>{t("closing")}</h3>}
+            items={highlightItems}
+          />
         </div>
 
         <Button
           className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-          href={whatWeDo?.primaryButton?.href ?? t("buttonHref")}
+          href={keyOfferings?.primaryButton?.href ?? t("buttonHref")}
         >
-          {whatWeDo?.primaryButton?.label ?? t("buttonLabel")}
+          {keyOfferings?.primaryButton?.label ?? t("buttonLabel")}
         </Button>
 
-        {whatWeDo?.secondaryButton ? (
+        {keyOfferings?.secondaryButton ? (
           <Button
             className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-            href={whatWeDo.secondaryButton.href}
+            href={keyOfferings.secondaryButton.href}
           >
-            {whatWeDo.secondaryButton.label}
+            {keyOfferings.secondaryButton.label}
           </Button>
         ) : null}
       </div>

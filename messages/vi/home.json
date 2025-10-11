@@ -32,10 +32,10 @@
     "item4Desc": "Bằng kinh nghiệm, kiến thức và sự nhạy bén trong xử lý tình huống, đội ngũ nhân lực của chúng tôi luôn nỗ lực mang lại lợi ích thiết thực cho khách hàng.",
     "ctaPrimary": "Về Chúng Tôi"
   },
-  "whatWeDo": {
-    "title": "Chúng Tôi Làm Gì",
-    "beforeHighlights": "Tại Wheelhouse, chúng tôi cung cấp các giải pháp và dịch vụ để giúp tàu của bạn hoạt động an toàn hơn.",
-    "afterHighlights": "Hãy để chúng tôi trở thành người bạn đồng hành đáng tin cậy trên hành trình của bạn.",
+  "keyOfferings": {
+    "title": "Giải pháp chủ lực",
+    "lead": "Tại Wheelhouse, chúng tôi cung cấp các giải pháp và dịch vụ để giúp tàu của bạn hoạt động an toàn hơn.",
+    "closing": "Hãy để chúng tôi trở thành người bạn đồng hành đáng tin cậy trên hành trình của bạn.",
     "items": [
       {
         "text": "Nghi Khí Hàng Hải",
@@ -52,7 +52,7 @@
         ]
       },
       {
-        "text": "GMDSS và thông tin liên lạc",
+        "text": "Thiết bị GMDSS",
         "href": "/solutions/gmdss",
         "images": [
           {
@@ -66,7 +66,7 @@
         ]
       },
       {
-        "text": "Thông tin liên lạc vệ tinh",
+        "text": "Internet trên biển",
         "href": "/solutions/connectivity",
         "images": [
           {
@@ -80,27 +80,27 @@
         ]
       },
       {
-        "text": "Dịch vụ Sửa chữa, Bảo dưỡng",
+        "text": "Sửa chữa, Bảo dưỡng",
         "href": "/services#repair-maintenance",
         "images": [
           {
             "src": "/images/whatwedo/repair-maintenance.jpg",
-            "alt": "Dịch vụ sửa chữa và bảo trì"
+            "alt": "Dịch vụ sửa chữa và bảo dưỡng"
           },
           {
             "src": "/images/whatwedo/repair-maintenance2.jpg",
-            "alt": "Chi tiết dịch vụ sửa chữa và bảo trì"
+            "alt": "Chi tiết dịch vụ sửa chữa và bảo dưỡng"
           }
         ]
       }
     ],
     "primaryButton": {
-      "label": "Khám phá thêm giải pháp",
-      "href": "/giai-phap"
+      "label": "Xem thêm các giải pháp",
+      "href": "/solutions"
     },
     "secondaryButton": {
-      "label": "Khám phá thêm dịch vụ",
-      "href": "/dich-vu"
+      "label": "Xem thêm các dịch vụ",
+      "href": "/services"
     }
   },
   "recentArticles": {
