@@ -35,13 +35,13 @@ export const PageHero: React.FC<PageHeroProps> = ({
       </h2>
       <div className="flex flex-col md:flex-row lg:flex-col  w-full">
         <Button
-          href="/contact"
+          href="/about#contact"
           className="w-full md:w-1/2 lg:w-full min-h-20 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
         >
           {ctaPrimary}
         </Button>
         <Button
-          href="/contact"
+          href="https://wa.me/84865716079"
           className="w-full md:w-1/2 lg:w-full min-h-20 text-white hover:bg-white hover:text-black border-t border-b border-white/20 focus:ring-white"
         >
           {ctaSecondary}

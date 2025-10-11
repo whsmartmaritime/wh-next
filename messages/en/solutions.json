@@ -25,21 +25,21 @@
       "item1": {
         "title": "Navigation Equipment",
         "description": "As a brand-independent supplier, Wheelhouse delivers high-quality navigation equipment from world-renowned manufacturers.",
-        "href": "solutions/navigation-equipment",
+        "href": "solutions/navigation",
         "imgSrc": "/images/solutions/wheelhouse-engineer-with-navigation-equipment.webp",
         "imgAlt": "wheelhouse service engineer with navigation equipment"
       },
       "item2": {
         "title": "GMDSS Equipment",
         "description": "Optimize vessel operations with advanced GMDSS solutions",
-        "href": "solutions/gmdss-equipment",
+        "href": "solutions/gmdss",
         "imgSrc": "/images/solutions/gmdss-console-equipment.webp",
         "imgAlt": "gmdss console equipment"
       },
       "item3": {
         "title": "Connectivity Solutions",
         "description": "From VSAT, Iridium and Starlink, our satellite solutions deliver fast, reliable connectivity so your vessel stays online anywhere in the world",
-        "href": "solutions/connectivity-solutions",
+        "href": "solutions/connectivity",
         "imgSrc": "/images/solutions/satellite-connectivity.webp",
         "imgAlt": "satellite connectivity"
       },

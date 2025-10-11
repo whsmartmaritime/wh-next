@@ -120,7 +120,6 @@ export default async function ServicesPage(props: {
         <MediaCard
           className=" mb-8 lg:mb-16"
           data={{
-            href: `/${locale}/solutions`,
             title: t("repairMaintenance.items.item1.title"),
             description: t("repairMaintenance.items.item1.description"),
             imgSrc: t.raw("repairMaintenance.items.item1.imgSrc"),
@@ -149,7 +148,6 @@ export default async function ServicesPage(props: {
             <MediaCard
               key={i}
               data={{
-                href: `/${locale}/solutions`,
                 title: t(`repairMaintenance.items.${key}.title`),
                 description: t(`repairMaintenance.items.${key}.description`),
                 imgSrc: t.raw(`repairMaintenance.items.${key}.imgSrc`),
@@ -206,7 +204,6 @@ export default async function ServicesPage(props: {
             <MediaCard
               key={i}
               data={{
-                href: `/${locale}/solutions`,
                 title: t(`installation.items.${key}.title`),
                 description: t(`installation.items.${key}.description`),
                 imgSrc: t.raw(`installation.items.${key}.imgSrc`),

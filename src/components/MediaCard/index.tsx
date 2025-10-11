@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BackgroundScanline } from "../BackgroundScanline";
 
 export type MediaCardData = {
-  href: string; // href
+  href?: string; // optional href; if absent, card is non-clickable
   title?: string;
   description?: string;
   imgSrc?: string;
@@ -24,8 +24,8 @@ export default function MediaCard({
   const isFeatured = variant === "featured";
 
   return (
-    <Link href={data.href} className={"block h-full " + className}>
-      <div className="relative grid grid-cols-1 h-full group bg-neutral-50 hover:bg-neutral-100 before:content-[''] before:block before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full before:origin-left before:scale-x-0 before:bg-neutral-900 before:transition-transform before:duration-1000 hover:before:scale-x-100 lg:grid-cols-2">
+    <div className={"relative block h-full group " + className}>
+      <div className="relative grid grid-cols-1 h-full bg-neutral-50 group-hover:bg-neutral-100 before:content-[''] before:block before:absolute before:bottom-0 before:left-0 before:h-[2px] before:w-full before:origin-left before:scale-x-0 before:bg-neutral-900 before:transition-transform before:duration-1000 group-hover:before:scale-x-100 lg:grid-cols-2">
         <BackgroundScanline
           crosshairs={["top-right", "bottom-left"]}
           enableBorders={true}
@@ -70,6 +70,13 @@ export default function MediaCard({
           ) : null}
         </div>
       </div>
-    </Link>
+      {data.href ? (
+        <Link
+          href={data.href}
+          aria-label={data.title || data.imgAlt || "Open"}
+          className="absolute inset-0 z-10"
+        />
+      ) : null}
+    </div>
   );
 }

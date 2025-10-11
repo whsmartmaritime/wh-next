@@ -25,21 +25,21 @@
       "item1": {
         "title": "Nghi Khí Hàng Hải",
         "description": "Là nhà cung cấp độc lập, Wheelhouse cung cấp các thiết bị định vị hàng hải chất lượng cao từ những thương hiệu uy tín hàng đầu thế giới.",
-        "href": "solutions/navigation-equipment",
+        "href": "solutions/navigation",
         "imgSrc": "/images/solutions/wheelhouse-engineer-with-navigation-equipment.webp",
         "imgAlt": "kỹ thuật viên wheelhouse với thiết bị nghi khí hàng hải"
       },
       "item2": {
         "title": "Thiết Bị GMDSS",
         "description": "Giải pháp GMDSS đáng tin cậy giúp tàu duy trì liên lạc, tuân thủ SOLAS và đảm bảo an toàn cho mọi hành trình.",
-        "href": "solutions/gmdss-equipment",
+        "href": "solutions/gmdss",
         "imgSrc": "/images/solutions/gmdss-console-equipment.webp",
         "imgAlt": "gmdss console equipment"
       },
       "item3": {
         "title": "Thông tin vệ tinh",
         "description": "Giải pháp kết nối vệ tinh tốc độ cao giúp tàu luôn trực tuyến, vận hành ổn định ở bất kỳ vùng biển nào.",
-        "href": "solutions/connectivity-solutions",
+        "href": "solutions/connectivity",
         "imgSrc": "/images/solutions/satellite-connectivity.webp",
         "imgAlt": "satellite connectivity"
       },

@@ -105,7 +105,7 @@ export default async function SolutionsPage(props: {
               className="col-span-12 lg:col-span-6"
               key={i}
               data={{
-                href: `/${locale}/solutions`,
+                href: t(`solutionList.items.${key}.href`),
                 title: t(`solutionList.items.${key}.title`),
                 description: t(`solutionList.items.${key}.description`),
                 imgSrc: t.raw(`solutionList.items.${key}.imgSrc`),
