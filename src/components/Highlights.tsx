@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { ReactNode } from "react";
 import ArrowIcon from "@/components/icons/ArrowIcon";
 
 export type HighlightMedia = {
@@ -9,14 +9,14 @@ export type HighlightMedia = {
 };
 
 export type HighlightItem = {
-  text: string;
+  title: ReactNode;
   href: string;
   images: [HighlightMedia, HighlightMedia];
 };
 
 export type HighlightsProps = {
-  lead?: React.ReactNode;
-  closing?: React.ReactNode;
+  lead?: string;
+  closing?: string;
   items: HighlightItem[];
   className?: string;
 };
@@ -70,7 +70,7 @@ export default function Highlights({
                 href={item.href}
                 className="flex items-center gap-4 text-2xl lg:text-4xl xl:text-6xl font-bold transition-colors duration-1000 text-neutral-600 hover:text-neutral-100 md:max-w-full"
               >
-                {item.text}
+                {item.title}
                 <ArrowIcon
                   size="large"
                   className="ml-3 opacity-0 transition-all duration-1000 group-hover:opacity-100"

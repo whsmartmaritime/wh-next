@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { getMessages, getTranslations } from "next-intl/server";
 import Highlights from "@/components/Highlights";
 import Button from "@/components/Button";
@@ -21,7 +21,7 @@ export default async function keyOfferings({}: keyOfferingsProps) {
         alt?: string;
       };
   type keyOfferingsItem = {
-    text: string;
+    title: ReactNode;
     desc?: string;
     href: string;
     images: [ImageEntry, ImageEntry] | ImageEntry[]; // expecting 2 items, allow array and coerce below
@@ -62,11 +62,11 @@ export default async function keyOfferings({}: keyOfferingsProps) {
         : { src: it?.src ?? "", alt: it?.alt ?? fallback };
 
     return {
-      text: item.text,
+      title: <h3>{item.title}</h3>,
       href: item.href,
       images: [
-        normalize(bg, `${item.text} Background`),
-        normalize(fg, `${item.text} Foreground`),
+        normalize(bg, `${item.title} Background`),
+        normalize(fg, `${item.title} Foreground`),
       ],
     };
   });
@@ -82,8 +82,8 @@ export default async function keyOfferings({}: keyOfferingsProps) {
 
         <div className="col-span-12">
           <Highlights
-            lead={<h3>{t("lead")}</h3>}
-            closing={<h3>{t("closing")}</h3>}
+            lead={t("lead")}
+            closing={t("closing")}
             items={highlightItems}
           />
         </div>

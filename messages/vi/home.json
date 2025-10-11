@@ -38,7 +38,7 @@
     "closing": "Hãy để chúng tôi trở thành người bạn đồng hành đáng tin cậy trên hành trình của bạn.",
     "items": [
       {
-        "text": "Nghi Khí Hàng Hải",
+        "title": "Nghi Khí Hàng Hải",
         "href": "/solutions/navigation",
         "images": [
           {
@@ -52,7 +52,7 @@
         ]
       },
       {
-        "text": "Thiết bị GMDSS",
+        "title": "Thiết bị GMDSS",
         "href": "/solutions/gmdss",
         "images": [
           {
@@ -66,7 +66,7 @@
         ]
       },
       {
-        "text": "Internet trên biển",
+        "title": "Internet trên biển",
         "href": "/solutions/connectivity",
         "images": [
           {
@@ -80,7 +80,7 @@
         ]
       },
       {
-        "text": "Sửa chữa, Bảo dưỡng",
+        "title": "Sửa chữa, Bảo dưỡng",
         "href": "/services#repair-maintenance",
         "images": [
           {
