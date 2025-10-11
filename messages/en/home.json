@@ -36,23 +36,72 @@
     "title": "What We Do",
     "beforeHighlights": "At Wheelhouse, we provide solutions and services to make your vessel operate more safely.",
     "afterHighlights": "Let us be your trusted companion on your journey.",
-    "highlight1Text": "Navigation & GMDSS solution",
-    "highlight1Desc": "Advanced navigation monitoring and optimization solutions for maximum operational efficiency",
-    "highlight1Href": "/solutions#navigation",
-    "highlight2Text": "Satellite Communication",
-    "highlight2Desc": "Cutting-edge satellite communication systems ensuring seamless connectivity at sea",
-    "highlight2Href": "/solutions#satcom",
-    "highlight3Text": "Repair & Maintenance",
-    "highlight3Desc": "Reliable maritime communication systems keeping your fleet connected worldwide",
-    "highlight3Href": "/services#repair-maintenance",
-    "highlight4Text": "E-Navigation",
-    "highlight4Desc": "Expert guidance and installation services for optimal maritime system performance",
-    "highlight4Href": "/solutions#e-navigation",
-    "highlight5Text": "Annual Survey",
-    "highlight5Desc": "Thorough annual inspections and assessments to maintain compliance and safety standards",
-    "highlight5Href": "/services#annual-survey",
-    "buttonLabel": "Discover More",
-    "buttonHref": "/services"
+    "items": [
+      {
+        "text": "Navigation solution",
+        "href": "/solutions/navigation",
+        "images": [
+          {
+            "src": "/images/whatwedo/e-navigation.jpg",
+            "alt": "E-navigation system"
+          },
+          {
+            "src": "/images/whatwedo/e-navigation2.jpg",
+            "alt": "E-navigation interface"
+          }
+        ]
+      },
+      {
+        "text": "GMDSS solution",
+        "href": "/solutions/gmdss",
+        "images": [
+          {
+            "src": "/images/whatwedo/navigation-gmdss.jpg",
+            "alt": "GMDSS and navigation equipment"
+          },
+          {
+            "src": "/images/whatwedo/navigation-gmdss2.jpg",
+            "alt": "GMDSS system interface"
+          }
+        ]
+      },
+      {
+        "text": "Satellite Communication",
+        "href": "/solutions/connectivity",
+        "images": [
+          {
+            "src": "/images/whatwedo/connectivity.jpg",
+            "alt": "Satellite communication equipment"
+          },
+          {
+            "src": "/images/whatwedo/connectivity2.jpg",
+            "alt": "Satellite communication interface"
+          }
+        ]
+      },
+      {
+        "text": "Repair & Maintenance",
+        "href": "/services#repair-maintenance",
+        "images": [
+          {
+            "src": "/images/whatwedo/repair-maintenance.jpg",
+            "alt": "Repair and maintenance service"
+          },
+          {
+            "src": "/images/whatwedo/repair-maintenance2.jpg",
+            "alt": "Repair and maintenance details"
+          }
+        ]
+      }
+    ],
+    "primaryButton": {
+      "label": "Discover more our solutions",
+      "href": "/solutions"
+    },
+    "secondaryButton": {
+      "label": "Discover more our services",
+      "href": "/services"
+    }
   },
   "recentArticles": {
     "title": "Recent Articles",
