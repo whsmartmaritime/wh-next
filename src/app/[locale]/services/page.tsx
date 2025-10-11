@@ -111,7 +111,7 @@ export default async function ServicesPage(props: {
           <h2 className="text-4xl lg:text-6xl font-bold col-span-12 lg:col-span-6 ">
             {t("repairMaintenance.title")}
           </h2>
-          <p className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-muted-foreground text-justify whitespace-pre-line  max-w-2xl">
+          <p className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-justify whitespace-pre-line  max-w-2xl">
             {t.rich("repairMaintenance.subtitle", {
               bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
             })}
@@ -181,7 +181,7 @@ export default async function ServicesPage(props: {
           <h2 className="text-4xl lg:text-6xl font-bold col-span-12 lg:col-span-6 ">
             {t("installation.title")}
           </h2>
-          <p className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-muted-foreground text-justify whitespace-pre-line  max-w-2xl">
+          <p className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-justify whitespace-pre-line  max-w-2xl">
             {t.rich("installation.subtitle", {
               bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
             })}
