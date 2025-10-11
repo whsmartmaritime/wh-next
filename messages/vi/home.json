@@ -42,12 +42,12 @@
         "href": "/solutions/navigation",
         "images": [
           {
-            "src": "/images/whatwedo/e-navigation.jpg",
-            "alt": "E-navigation system"
+            "src": "/images/key-offerings/navigation-key-offering-back.webp",
+            "alt": "kỹ sư Wheelhouse sửa chữa thiết bị nghi khí hàng hải trên tàu"
           },
           {
-            "src": "/images/whatwedo/e-navigation2.jpg",
-            "alt": "E-navigation interface"
+            "src": "/images/key-offerings/navigation-key-offering-fore.webp",
+            "alt": "kỹ sư Wheelhouse sửa chữa ăng ten trên tàu"
           }
         ]
       },
@@ -56,12 +56,12 @@
         "href": "/solutions/gmdss",
         "images": [
           {
-            "src": "/images/whatwedo/navigation-gmdss.jpg",
-            "alt": "GMDSS and navigation equipment"
+            "src": "/images/key-offerings/gmdss-key-offering-back.webp",
+            "alt": "GMDSS"
           },
           {
-            "src": "/images/whatwedo/navigation-gmdss2.jpg",
-            "alt": "GMDSS system interface"
+            "src": "/images/key-offerings/gmdss-key-offering-fore.webp",
+            "alt": "GMDSS"
           }
         ]
       },
@@ -70,12 +70,12 @@
         "href": "/solutions/connectivity",
         "images": [
           {
-            "src": "/images/whatwedo/connectivity.jpg",
-            "alt": "Thiết bị thông tin liên lạc vệ tinh"
+            "src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
+            "alt": "kỹ sư Wheelhouse sửa chữa thiết bị VSAT trên tàu"
           },
           {
-            "src": "/images/whatwedo/connectivity2.jpg",
-            "alt": "Satellite communication interface"
+            "src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
+            "alt": "kỹ sư Wheelhouse sửa chữa thiết bị VSAT trên tàu"
           }
         ]
       },
@@ -84,12 +84,12 @@
         "href": "/services#repair-maintenance",
         "images": [
           {
-            "src": "/images/whatwedo/repair-maintenance.jpg",
-            "alt": "Dịch vụ sửa chữa và bảo dưỡng"
+            "src": "/images/key-offerings/wheelhouse-engineer-repairing-equipment-on-bridge.webp",
+            "alt": "kỹ sư Wheelhouse sửa chữa thiết bị nghi khí hàng hải trên tàu"
           },
           {
-            "src": "/images/whatwedo/repair-maintenance2.jpg",
-            "alt": "Chi tiết dịch vụ sửa chữa và bảo dưỡng"
+            "src": "/images/key-offerings/wheelhouse-engineer-repairing-auto-pilot.webp",
+            "alt": "kỹ sư Wheelhouse sửa chữa thiết bị lái tự động trên tàu"
           }
         ]
       }

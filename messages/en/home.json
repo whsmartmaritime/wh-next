@@ -42,12 +42,12 @@
         "href": "/solutions/navigation",
         "images": [
           {
-            "src": "/images/whatwedo/e-navigation.jpg",
-            "alt": "E-navigation system"
+            "src": "/images/key-offerings/navigation-key-offering-back.webp",
+            "alt": "wheelhouse service engineer repairing navigation equipment on board"
           },
           {
-            "src": "/images/whatwedo/e-navigation2.jpg",
-            "alt": "E-navigation interface"
+            "src": "/images/key-offerings/navigation-key-offering-fore.webp",
+            "alt": "wheelhouse service engineer repairing navigation antenna on board"
           }
         ]
       },
@@ -56,12 +56,12 @@
         "href": "/solutions/gmdss",
         "images": [
           {
-            "src": "/images/whatwedo/navigation-gmdss.jpg",
-            "alt": "GMDSS and navigation equipment"
+            "src": "/images/key-offerings/gmdss-key-offering-back.webp",
+            "alt": "GMDSS"
           },
           {
-            "src": "/images/whatwedo/navigation-gmdss2.jpg",
-            "alt": "GMDSS system interface"
+            "src": "/images/key-offerings/gmdss-key-offering-fore.webp",
+            "alt": "GMDSS"
           }
         ]
       },
@@ -70,12 +70,12 @@
         "href": "/solutions/connectivity",
         "images": [
           {
-            "src": "/images/whatwedo/connectivity.jpg",
-            "alt": "Satellite communication equipment"
+            "src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
+            "alt": "wheelhouse service engineer repairing VSAT antenna on board"
           },
           {
-            "src": "/images/whatwedo/connectivity2.jpg",
-            "alt": "Satellite communication interface"
+            "src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
+            "alt": "wheelhouse service engineer repairing VSAT equipment on board"
           }
         ]
       },
@@ -84,12 +84,12 @@
         "href": "/services#repair-maintenance",
         "images": [
           {
-            "src": "/images/whatwedo/repair-maintenance.jpg",
-            "alt": "Repair and maintenance service"
+            "src": "/images/key-offerings/wheelhouse-engineer-repairing-equipment-on-bridge.webp",
+            "alt": "wheelhouse service engineer repairing equipment on bridge"
           },
           {
-            "src": "/images/whatwedo/repair-maintenance2.jpg",
-            "alt": "Repair and maintenance details"
+            "src": "/images/key-offerings/wheelhouse-engineer-repairing-auto-pilot.webp",
+            "alt": "wheelhouse service engineer repairing auto pilot on board"
           }
         ]
       }

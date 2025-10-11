@@ -29,7 +29,7 @@ export default async function keyOfferings({}: keyOfferingsProps) {
 
   type HomeMessages = {
     keyOfferings?: {
-      title?: string;
+      title?: ReactNode;
       lead?: string;
       closing?: string;
       items?: keyOfferingsItem[];
@@ -76,33 +76,29 @@ export default async function keyOfferings({}: keyOfferingsProps) {
       <BackgroundGrid />
 
       <div className="container-gutter grid grid-cols-12 before:hidden lg:before:block before:absolute before:inset-y-0 before:right-16 before:w-px before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent before:opacity-30 before:content-['']">
-        <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold  text-left my-8">
-          {t("title")}
-        </h2>
-
-        <div className="col-span-12">
+        <div className="col-span-12 mb-4 lg:mb-8">
           <Highlights
+            title={<h2>{t("title")}</h2>}
             lead={t("lead")}
             closing={t("closing")}
             items={highlightItems}
           />
         </div>
-
-        <Button
-          className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-          href={keyOfferings?.primaryButton?.href ?? t("buttonHref")}
-        >
-          {keyOfferings?.primaryButton?.label ?? t("buttonLabel")}
-        </Button>
-
-        {keyOfferings?.secondaryButton ? (
+        <div className="col-span-12 lg:col-span-6 justify-center ">
           <Button
-            className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-            href={keyOfferings.secondaryButton.href}
+            className=" w-full md:w-1/2 min-h-20  text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+            href={keyOfferings?.primaryButton?.href ?? t("buttonHref")}
           >
-            {keyOfferings.secondaryButton.label}
+            {keyOfferings?.primaryButton?.label ?? t("buttonLabel")}
           </Button>
-        ) : null}
+
+          <Button
+            className=" w-full md:w-1/2 min-h-20 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white mb-4 lg:mb-8"
+            href={keyOfferings?.secondaryButton?.href ?? t("buttonHref")}
+          >
+            {keyOfferings?.secondaryButton?.label ?? t("buttonLabel")}
+          </Button>
+        </div>
       </div>
     </section>
   );
