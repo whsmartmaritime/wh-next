@@ -66,22 +66,6 @@ export default async function NavMenu() {
                 {t("nav.services.installation")}
               </Link>
             </li>
-            <li>
-              <Link
-                href="/services"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
-                {t("nav.services.annual-survey")}
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/services"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
-                {t("nav.services.spare-parts")}
-              </Link>
-            </li>
           </ul>
         </li>
         <li className="p-6">

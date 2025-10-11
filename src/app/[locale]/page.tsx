@@ -6,7 +6,7 @@ import { BackgroundGrid } from "@/components/BackgroundGrid";
 import Hero from "@/components/Hero";
 import LogoShowcase from "@/components/LogoShowcase";
 import Slider from "@/components/Slider";
-import WhatWeDo from "@/blocks/WhatWeDo";
+import Highlights from "@/components/Highlights";
 import MediaCard from "@/components/MediaCard";
 import { entries, featureEntry, type Locales } from "@/lib/postIndex.generated";
 import Link from "next/link";
@@ -177,7 +177,45 @@ export default async function HomePage(props: {
         </div>
       </section>
 
-      <WhatWeDo aria-label="What We Do section" />
+      {/* key offerings section (inlined) */}
+      <section
+        className="bg-gradient-to-br  from-gray-900 via-black/90 to-black relative overflow-hidden text-neutral-300"
+        aria-label="key offerings section"
+      >
+        <BackgroundGrid />
+        <div className="container-gutter grid grid-cols-12 before:hidden lg:before:block before:absolute before:inset-y-0 before:right-16 before:w-px before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent before:opacity-30 before:content-['']">
+          <div className="col-span-12 mb-4 lg:mb-8">
+            <Highlights
+              title={<h2>{t("keyOfferings.title")}</h2>}
+              lead={t("keyOfferings.lead")}
+              closing={t("keyOfferings.closing")}
+              items={
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (t as any).raw?.("keyOfferings.items")?.map((it: any) => ({
+                  title: <h3>{it.title}</h3>,
+                  href: it.href,
+                  images: it.images,
+                })) ?? []
+              }
+            />
+          </div>
+          <div className="col-span-12 lg:col-span-6 justify-center ">
+            <Button
+              className=" w-full md:w-1/2 min-h-20  text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+              href={t("keyOfferings.primaryButton.href")}
+            >
+              {t("keyOfferings.primaryButton.label")}
+            </Button>
+
+            <Button
+              className=" w-full md:w-1/2 min-h-20 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white mb-4 lg:mb-8"
+              href={t("keyOfferings.secondaryButton.href")}
+            >
+              {t("keyOfferings.secondaryButton.label")}
+            </Button>
+          </div>
+        </div>
+      </section>
 
       {/* Recent Articles section */}
       <section

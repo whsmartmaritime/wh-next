@@ -26,9 +26,10 @@ export default async function footer() {
                   className="h-10 w-auto"
                 />
               </Link>
+              <h2 className="text-2xl font-bold mt-4">{t("companyName")}</h2>
             </div>
             <p className=" mb-6 leading-relaxed">{t("description")}</p>
-            <div className="flex space-x-4">
+            {/*  <div aria-label="Social Media Links" className="flex space-x-4">
               <Link
                 href="#"
                 className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
@@ -81,11 +82,11 @@ export default async function footer() {
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                 </svg>
               </Link>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
-          <div>
+          <nav aria-label="Quick Links">
             <h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
               {t("quickLinks", { defaultValue: "Quick Links" })}
             </h3>
@@ -117,32 +118,24 @@ export default async function footer() {
 
               <li>
                 <Link
-                  href="/news"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {t("news", { defaultValue: "News & Updates" })}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
+                  href="/about#contact"
                   className="text-white/60 hover:text-white transition-colors"
                 >
                   {t("contact", { defaultValue: "Contact" })}
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Services */}
-          <div>
+          <nav aria-label="Services and Solutions">
             <h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
-              {t("ssTitle", { defaultValue: "Services" })}
+              {t("ssTitle", { defaultValue: "Services & Solutions" })}
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/services/repair"
+                  href="/services#repair"
                   className="text-white/60 hover:text-white transition-colors"
                 >
                   {t("repairMaintenance", {
@@ -150,14 +143,7 @@ export default async function footer() {
                   })}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/services/survey"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {t("periodicalSurvey", { defaultValue: "Periodical Survey" })}
-                </Link>
-              </li>
+
               <li>
                 <Link
                   href="/solutions/navigation"
@@ -186,7 +172,7 @@ export default async function footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
           {/* Contact Info */}
           <div>
