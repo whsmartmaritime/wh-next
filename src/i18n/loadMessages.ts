@@ -2,10 +2,8 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 export async function loadMessages(
-  locale: string,
-  options?: { defaultLocale?: string }
+  locale: string
 ): Promise<Record<string, unknown>> {
-  const defaultLocale = options?.defaultLocale ?? "en";
   const localeDir = path.join(process.cwd(), "messages", locale);
 
   try {
@@ -34,28 +32,17 @@ export async function loadMessages(
 
     await readDirRecursive(localeDir);
 
-    // Nếu không có file nào, fallback sang monolithic
+    // Nếu không có file nào, trả về rỗng hoặc throw error
     if (Object.keys(result).length === 0) {
-      return await loadFromMonolith(locale, defaultLocale);
+      // Có thể throw hoặc trả về {} tuỳ ý
+      throw new Error(`Không tìm thấy messages cho locale: ${locale}`);
+      // return {};
     }
 
     return result;
-  } catch {
-    return await loadFromMonolith(locale, defaultLocale);
-  }
-}
-
-async function loadFromMonolith(
-  locale: string,
-  defaultLocale: string
-): Promise<Record<string, unknown>> {
-  try {
-    return (await import(`../../messages/${locale}.json`)).default as Record<
-      string,
-      unknown
-    >;
-  } catch {
-    return (await import(`../../messages/${defaultLocale}.json`))
-      .default as Record<string, unknown>;
+  } catch (err) {
+    // Có thể log lỗi hoặc trả về rỗng
+    throw new Error(`Lỗi load messages cho locale: ${locale}: ${err}`);
+    // return {};
   }
 }
