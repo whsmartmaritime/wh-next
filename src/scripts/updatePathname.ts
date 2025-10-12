@@ -21,7 +21,7 @@ interface Frontmatter {
   tags?: string[];
   ogImage?: string;
 }
-type PostEntry = {
+export type PostEntry = {
   route: string;
   locale: string;
   title?: string;
@@ -50,7 +50,6 @@ const walk = async (dir: string): Promise<string[]> => {
 };
 const norm = (p: string) => p.replace(/\\/g, "/");
 
-// --- Core -----------------------------------------------------------------
 function isValidDateStr(s?: string): boolean {
   if (!s) return false;
   const t = Date.parse(s);
@@ -68,10 +67,13 @@ function makeSortByDateDesc<T extends { publishedAt?: string }>() {
   };
 }
 
+// --- Core -----------------------------------------------------------------
+
 type GroupMap = Record<
   string,
   { canonical: string; perLocale: Record<string, string> }
 >;
+
 type PostsByLocale = Record<string, Array<PostEntry>>;
 
 async function collectContent(): Promise<{
@@ -127,7 +129,7 @@ async function collectContent(): Promise<{
       }
       // Build localized directory route (parent segments) if translation exists.
       const localizedDir = localizeDirRoute(dirRoute, locale);
-      const route = `${localizedDir}/${slug}`.replace(/\/+/g, "/");
+      const route = `${localizedDir}/${slug}`.replace(/\/+/, "/");
       const groupId = `${dirRoute}|${base}`;
       groups[groupId] ||= { canonical: route, perLocale: {} };
       if (locale === defaultLocale) groups[groupId].canonical = route;
@@ -169,7 +171,7 @@ function merge(groups: GroupMap): RouteMap {
       .split("/")
       .filter(Boolean)
       .reduce((acc, seg) => {
-        const p = `${acc}/${seg}`.replace(/\/+/g, "/");
+        const p = `${acc}/${seg}`.replace(/\/+/, "/");
         if (!merged[p]) merged[p] = { [defaultLocale]: p };
         return p;
       }, "");
@@ -337,6 +339,47 @@ async function run() {
   await writeRoutingFile(merged);
   const computed = computePosts(postsByLocale);
   await writePostsFile(computed);
+  // Emit sitemap paths for next-sitemap additionalPaths
+  try {
+    const routes = new Set<string>();
+    const prefix = (l: string, p: string) => {
+      const base = p === "/" ? "" : p;
+      const out = `/${l}${base}`.replace(/\/+$/, "");
+      return out || `/${l}`;
+    };
+    // Add base locale roots (e.g., /en, /vi)
+    for (const l of existingRouting.locales) routes.add(`/${l}`);
+    // Add localized static routes from merged pathnames, prefixed by locale
+    for (const [, locMap] of Object.entries(merged)) {
+      for (const l of existingRouting.locales) {
+        const p = (locMap as Record<string, string>)[l];
+        if (typeof p === "string" && p.startsWith("/"))
+          routes.add(prefix(l, p));
+      }
+    }
+    // Add dynamic post routes (feature + entries) per locale, prefixed by locale
+    for (const l of existingRouting.locales) {
+      const obj = computed[l];
+      if (!obj) continue;
+      const add = (p?: string) => {
+        if (typeof p === "string" && p.startsWith("/"))
+          routes.add(prefix(l, p));
+      };
+      add(obj.featureEntry?.route);
+      for (const e of obj.entries) add(e.route);
+      for (const arr of Object.values(obj.entriesByCategory)) {
+        for (const e of arr) add(e.route);
+      }
+    }
+    const list = Array.from(routes).sort();
+    await fs.writeFile(
+      path.join(process.cwd(), "sitemap.paths.json"),
+      JSON.stringify(list, null, 2) + "\n",
+      "utf8"
+    );
+  } catch (e) {
+    console.warn("⚠️ Failed to emit sitemap.paths.json:", e);
+  }
   console.log(
     `✅ updatePathname: groups=${Object.keys(groups).length}, totalRoutes=${
       Object.keys(merged).length
