@@ -32,7 +32,9 @@ export async function generateMetadata(props: {
   const url = new URL(`${locale}`, base);
 
   // Create alternate language URLs from pre-defined canonicals
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, `${l}`]));
+  const languages = Object.fromEntries(
+    routing.locales.map((l) => [l, `/${l}`])
+  );
   return {
     title,
     description,
