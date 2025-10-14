@@ -76,7 +76,7 @@ export default function Highlights({
                       src={item.images.fg.src}
                       alt={item.images.fg.alt}
                       fill
-                      className="object-cover  transform translate-y-30 group-hover/key:translate-y-20 translate-x-20 opacity-100 group-hover/allkeys:opacity-0 group-hover/key:opacity-100 transition-all duration-800 ease-in-out delay-400 z-10"
+                      className="object-cover  transform translate-y-30 group-hover/key:translate-y-20 translate-x-20 opacity-100 group-hover/allkeys:opacity-0 group-hover/key:opacity-100 transition-all duration-800 ease-in-out delay-400 z-10 rounded-xl"
                       sizes="(max-width: 768px) 100vw, 40vw"
                       priority={idx === 0}
                     />
