@@ -32,7 +32,7 @@ export const BackgroundScanline: React.FC<Props> = ({
       aria-hidden="true"
       className={`absolute inset-0 pointer-events-none z-0 ${
         enableBorders
-          ? "border-t border-b border-neutral-500/20 dark:border-neutral-700"
+          ? "border border-neutral-500/20 dark:border-neutral-700"
           : ""
       } ${className || ""}`}
       style={style}

@@ -45,7 +45,7 @@ export default function MediaCard({
               alt={data.imgAlt || "Media image"}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover"
+              className="object-cover border border-neutral-500/20"
               priority={isFeatured}
             />
           </div>

@@ -1,9 +1,7 @@
 import Image from "next/image";
 
-export type SliderImage = { src: string; alt: string };
-
 interface SliderProps {
-  images: SliderImage[];
+  images: [{ src: string; alt: string }];
   intervalSeconds?: number; // thời gian hiển thị mỗi ảnh
   transitionSeconds?: number; // thời gian trượt
   aspectRatio?: string;

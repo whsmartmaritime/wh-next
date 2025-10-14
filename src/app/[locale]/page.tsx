@@ -3,13 +3,14 @@ import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
+import BgGrid from "@/components/BgGrid";
+import { BackgroundScanline } from "@/components/BackgroundScanline";
 import Hero from "@/components/Hero";
 import LogoShowcase from "@/components/LogoShowcase";
 import Slider from "@/components/Slider";
 import Highlights from "@/components/Highlights";
 import MediaCard from "@/components/MediaCard";
 import { entries, featureEntry, type Locales } from "@/lib/postIndex.generated";
-import Link from "next/link";
 import Button from "@/components/Button";
 
 export async function generateMetadata(props: {
@@ -17,7 +18,6 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const { locale } = await props.params;
   const t = await getTranslations({ locale, namespace: "home" });
-
   const title = t("meta.title");
   const description = t("meta.description");
   const ogImage = t("meta.ogImage");
@@ -62,7 +62,6 @@ export default async function HomePage(props: {
   const { locale } = await props.params;
 
   const t = await getTranslations({ locale, namespace: "home" });
-
   const l = locale as Locales;
   const all = entries[l] || [];
   const feature = featureEntry[l] ?? null;
@@ -114,74 +113,86 @@ export default async function HomePage(props: {
           </div>
         </div>
       </section>
-      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950/30 relative overflow-hidden text-neutral-300">
-        <BackgroundGrid />
-        <div className="container-gutter grid grid-cols-12">
-          <div className="col-span-12 lg:col-span-6">
-            <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
-              {t("whyWheelhouse.missionTitle")}
+
+      <section
+        aria-label="Our Purpose section"
+        className="relative container-gutter py-16 lg:py-32"
+      >
+        <BgGrid />
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 h-full border border-neutral-900/20 bg-neutral-50 ">
+          <BackgroundScanline />
+
+          <div className={"flex flex-col justify-center "}>
+            <h2 className="text-2xl lg:text-3xl xl:text-4xl font-semibold mb-8">
+              {t("ourPurpose.title")}
             </h2>
-            <p className="text-md xl:text-xl text-justify whitespace-pre-line mb-8 max-w-3xl">
-              {t("whyWheelhouse.missionIntro")}
+            <p className="text-md xl:text-xl text-justify whitespace-pre-line mb-8">
+              {t("ourPurpose.description")}
             </p>
           </div>
-
-          <Slider
-            images={[
-              {
-                src: "/images/whywh/wave-ship.webp",
-                alt: `${t("whyWheelhouse.imageAlt1")}`,
-              },
-              {
-                src: "/images/whywh/wheelhouse-engineer-with-radar.webp",
-                alt: `${t("whyWheelhouse.imageAlt2")}`,
-              },
-              {
-                src: "/images/whywh/wheelhouse-engineer-with-bridge.webp",
-                alt: `${t("whyWheelhouse.imageAlt3")}`,
-              },
-            ]}
-            className="col-span-12 lg:col-span-6 shadow-lg"
-          />
+          <div className={"relative aspect-[16/9] m-8 lg:m-12"}>
+            <Slider
+              aspectRatio="16/9"
+              images={t.raw("ourPurpose.images")}
+              className="col-span-12 lg:col-span-6 shadow-lg"
+            />
+          </div>
         </div>
       </section>
-      <section className="bg-gradient-to-bl from-neutral-900 via-slate-900 to-stone-900/50 relative overflow-hidden text-neutral-300">
-        <BackgroundGrid />
-        <div className="container-gutter grid grid-cols-12">
-          <h2 className="col-span-12 text-2xl lg:text-3xl xl:text-4xl font-bold my-8">
-            {t("whyWheelhouse.whyTitle")}
+      <section
+        className="relative overflow-hidden"
+        aria-label="why clients choose wheelhouse section"
+      >
+        <BgGrid />
+        <div className="container-gutter">
+          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold mb-8">
+            {t("keyValues.title")}
           </h2>
-          <p className="col-span-12 text-md xl:text-xl text-muted-foreground text-justify whitespace-pre-line mb-8 max-w-2xl">
-            {t("whyWheelhouse.whyIntro")}
+          <p className="text-md xl:text-xl  text-justify whitespace-pre-line mb-8 max-w-2xl">
+            {t("keyValues.description")}
           </p>
-
-          {/* Feature Cards */}
-          {[1, 2, 3, 4].map((i) => (
-            <div
-              key={i}
-              className="col-span-12 md:col-span-6 lg:col-span-3 border border-gray-900/20 p-6 transition-colors duration-300 m-3 bg-black/20 backdrop-blur-sm"
-            >
-              <h3 className="text-sm lg:text-base font-semibold mb-3 uppercase text-center">
-                {t(`whyWheelhouse.item${i}Title`)}
-              </h3>
-              <p className="text-sm lg:text-base text-muted-foreground leading-relaxed text-center my-8">
-                {t(`whyWheelhouse.item${i}Desc`)}
-              </p>
-            </div>
-          ))}
-
+        </div>
+        <div className="relative mb-8 lg:mb-16">
+          <BackgroundScanline enableBorders={true} />
+          <div className="container-gutter grid grid-cols-12">
+            {t
+              .raw("keyValues.items")
+              .map(
+                (
+                  item: { title: string; description: string },
+                  index: number
+                ) => (
+                  <div
+                    key={index}
+                    className="col-span-12 md:col-span-6 lg:col-span-3 bg-neutral-50 hover:bg-transparent  transition-colors duration-300  border border-neutral-500/20 z-10"
+                  >
+                    <p className="text-sm lg:text-base  leading-relaxed  m-4 lg:m-8">
+                      {"0" + (index + 1)}
+                    </p>
+                    <h3 className="text-xl lg:text-2xl font-semibold m-4 lg:m-8 uppercase ">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm lg:text-base  leading-relaxed  m-4 lg:m-8">
+                      {item.description}
+                    </p>
+                  </div>
+                )
+              )}
+          </div>
+        </div>
+        <div className="container-gutter relative grid grid-cols-12">
           <Button
-            className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 my-8 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+            className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 mb-8 hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
             href="/about"
           >
-            {t("whyWheelhouse.ctaPrimary")}
+            {t("keyValues.ctaPrimary")}
           </Button>
         </div>
       </section>
 
       {/* key offerings section (inlined) */}
       <section
-        className="bg-gradient-to-br  from-gray-900 via-black/90 to-black relative overflow-hidden text-neutral-300"
+        className="bg-gradient-to-br pt-16 from-gray-900 via-black/90 to-black relative overflow-hidden text-neutral-300"
         aria-label="key offerings section"
       >
         <BackgroundGrid />
@@ -230,9 +241,6 @@ export default async function HomePage(props: {
           <h2 className="text-2xl font-semibold">
             {t("recentArticles.title", { defaultValue: "Recent Articles" })}
           </h2>
-          <Link href="/blog" className="text-sm font-medium">
-            {t("recentArticles.viewAll", { defaultValue: "View all articles" })}
-          </Link>
         </div>
         <article className="grid grid-cols-1 md:grid-cols-2 gap-y-8">
           {feature ? (

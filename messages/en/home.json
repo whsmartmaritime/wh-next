@@ -14,22 +14,45 @@
     "heroImage2Alt": "Wheelhouse Service Engineer Worked On Board",
     "partnerShowcase": "Partners and Customers"
   },
-  "whyWheelhouse": {
-    "missionTitle": "Our Mission",
-    "missionIntro": "Empowering maritime journeys with precision, trust, and sustainable value — because every voyage deserves dedication.\nWe deliver optimized solutions for safety and efficiency, combining advanced technology with extensive expertise.\nCommitted to transparency, reliability, and respect for the marine environment, we drive sustainable growth.",
-    "imageAlt1": "Ship on ocean",
-    "imageAlt2": "Wheelhouse service engineer inspecting the radar antenna on board",
-    "imageAlt3": "Wheelhouse service engineer inspecting the equipment on bridge",
-    "item1Title": "Reliability You Can Trust",
-    "whyTitle": "Why Wheelhouse?",
-    "whyIntro": "Our commitment to offering advanced, continuous support and services, together with our firm belief in ethical business practices, makes Wheelhouse a trusted long-term partner.",
-    "item1Desc": "Always putting Reliability first, with the motto \"Customers trust helps Wheelhouse affirm the brand\".",
-    "item2Title": "Wholeheartedness",
-    "item2Desc": "Serving customers whole-heartedly with the mission \"Serving customers well is serving our own future\".",
-    "item3Title": "Quality",
-    "item3Desc": "Wheelhouse is committed to providing customers with the best quality products and services.",
-    "item4Title": "Excellent Human Resource",
-    "item4Desc": "With our experience, knowledge and acumen in handling situations, our human resources always strive to bring practical benefits to customers.",
+  "ourPurpose": {
+    "title": "Our Purpose",
+    "description": "Empowering maritime journeys with precision, trust, and sustainable value — because every voyage deserves dedication.\nWe deliver optimized solutions for safety and efficiency, combining advanced technology with extensive expertise.\nCommitted to transparency, reliability, and respect for the marine environment, we drive sustainable growth.",
+    "images": [
+      {
+        "src": "/images/whywh/wave-ship.webp",
+        "alt": "Ship on ocean"
+      },
+      {
+        "src": "/images/whywh/wheelhouse-engineer-with-radar.webp",
+        "alt": "Wheelhouse service engineer inspecting the radar antenna on board"
+      },
+      {
+        "src": "/images/whywh/wheelhouse-engineer-with-bridge.webp",
+        "alt": "Wheelhouse service engineer inspecting the equipment on bridge"
+      }
+    ]
+  },
+  "keyValues": {
+    "title": "Trusted Marine Solutions — Why Clients Choose Wheelhouse",
+    "description": "Our commitment to offering advanced, continuous support and services, together with our firm belief in ethical business practices, makes Wheelhouse a trusted long-term partner.",
+    "items": [
+      {
+        "title": "Reliability",
+        "description": "Always putting Reliability first, with the motto \"Customers trust helps Wheelhouse affirm the brand\"."
+      },
+      {
+        "title": "Wholeheartedness",
+        "description": "Serving customers whole-heartedly with the mission \"Serving customers well is serving our own future\"."
+      },
+      {
+        "title": "Enduring Quality",
+        "description": "Wheelhouse is committed to providing customers with the best quality products and services."
+      },
+      {
+        "title": "Excellent Human Resource",
+        "description": "With our experience, knowledge and acumen in handling situations, our human resources always strive to bring practical benefits to customers."
+      }
+    ],
     "ctaPrimary": "About Us"
   },
   "keyOfferings": {

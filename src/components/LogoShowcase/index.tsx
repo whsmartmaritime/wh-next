@@ -62,9 +62,7 @@ export default function LogoShowcase({
           return (
             <div key={`slot-${i}`} className="relative">
               <div
-                className={`relative aspect-square border border-white/10 flex items-center justify-center overflow-hidden transition-all duration-500 ${
-                  anim === i ? "scale-95" : ""
-                }`}
+                className={`relative aspect-square border border-white/10 flex items-center justify-center overflow-hidden transition-all duration-500 `}
               >
                 {/* Scanline overlay, fades in when animating */}
                 <BackgroundScanline

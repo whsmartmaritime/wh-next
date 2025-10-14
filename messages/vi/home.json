@@ -14,22 +14,45 @@
     "heroImage2Alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu",
     "partnerShowcase": "Các khách hàng và đối tác"
   },
-  "whyWheelhouse": {
-    "missionTitle": "Nhiệm vụ của chúng tôi",
-    "missionIntro": "Thúc đẩy hành trình hàng hải bằng sự chính xác, tin cậy và giá trị bền vững — vì mỗi chuyến đi đều xứng đáng với sự tận tâm.\nChúng tôi cung cấp giải pháp tối ưu, đảm bảo an toàn và hiệu quả, kết hợp công nghệ tiên tiến với kinh nghiệm dày dạn.\nLuôn cam kết minh bạch, tin cậy và tôn trọng môi trường biển để phát triển bền vững.",
-    "imageAlt1": "Tàu và sóng ",
-    "imageAlt2": "Kỹ sư dịch vụ Wheelhouse kiểm tra ăng-ten radar trên tàu",
-    "imageAlt3": "Kỹ sư dịch vụ Wheelhouse kiểm tra thiết bị trên buồng lái",
-    "whyTitle": "Tại sao chọn Wheelhouse?",
-    "whyIntro": "Cam kết của chúng tôi trong việc cung cấp các dịch vụ và hỗ trợ tiên tiến, liên tục, cùng với niềm tin vững chắc của chúng tôi vào các hoạt động kinh doanh có đạo đức, giúp Wheelhouse trở thành một đối tác lâu dài đáng tin cậy.",
-    "item1Title": "Uy Tín",
-    "item1Desc": "Luôn đặt chữ Tín lên hàng đầu, với phương châm \"Lòng tin của khách hàng giúp Wheelhouse khẳng định thương hiệu\".",
-    "item2Title": "Tận Tâm",
-    "item2Desc": "Phục vụ khách hàng bằng sự tận tâm với sứ mệnh \"Phục vụ khách hàng tốt là phục vụ chính tương lai của mình\".",
-    "item3Title": "Chất Lượng",
-    "item3Desc": "Wheelhouse cam kết mang đến khách hàng những sản phẩm và dịch vụ với chất lượng tốt nhất.",
-    "item4Title": "Nhân Lực Xuất Sắc",
-    "item4Desc": "Bằng kinh nghiệm, kiến thức và sự nhạy bén trong xử lý tình huống, đội ngũ nhân lực của chúng tôi luôn nỗ lực mang lại lợi ích thiết thực cho khách hàng.",
+  "ourPurpose": {
+    "title": "Nhiệm vụ của chúng tôi",
+    "description": "Thúc đẩy hành trình hàng hải bằng sự chính xác, tin cậy và giá trị bền vững — vì mỗi chuyến đi đều xứng đáng với sự tận tâm.\nChúng tôi cung cấp giải pháp tối ưu, đảm bảo an toàn và hiệu quả, kết hợp công nghệ tiên tiến với kinh nghiệm dày dạn.\nLuôn cam kết minh bạch, tin cậy và tôn trọng môi trường biển để phát triển bền vững.",
+    "images": [
+      {
+        "src": "/images/whywh/wave-ship.webp",
+        "alt": "Tàu trên đại dương"
+      },
+      {
+        "src": "/images/whywh/wheelhouse-engineer-with-radar.webp",
+        "alt": "Kỹ sư dịch vụ Wheelhouse kiểm tra ăng-ten radar trên tàu"
+      },
+      {
+        "src": "/images/whywh/wheelhouse-engineer-with-bridge.webp",
+        "alt": "Kỹ sư dịch vụ Wheelhouse kiểm tra thiết bị trên buồng lái"
+      }
+    ]
+  },
+  "keyValues": {
+    "title": "Tại sao khách hàng chọn Wheelhouse?",
+    "description": "Cam kết của chúng tôi trong việc cung cấp các dịch vụ và hỗ trợ tiên tiến, liên tục, cùng với niềm tin vững chắc của chúng tôi vào các hoạt động kinh doanh có đạo đức, giúp Wheelhouse trở thành một đối tác lâu dài đáng tin cậy.",
+    "items": [
+      {
+        "title": "Uy Tín",
+        "description": "Luôn đặt chữ Tín lên hàng đầu, với phương châm \"Lòng tin của khách hàng giúp Wheelhouse khẳng định thương hiệu\"."
+      },
+      {
+        "title": "Tận Tâm",
+        "description": "Phục vụ khách hàng bằng sự tận tâm với sứ mệnh \"Phục vụ khách hàng tốt là phục vụ chính tương lai của mình\"."
+      },
+      {
+        "title": "Chất Lượng",
+        "description": "Wheelhouse cam kết mang đến khách hàng những sản phẩm và dịch vụ với chất lượng tốt nhất."
+      },
+      {
+        "title": "Nhân Lực Xuất Sắc",
+        "description": "Bằng kinh nghiệm, kiến thức và sự nhạy bén trong xử lý tình huống, đội ngũ nhân lực của chúng tôi luôn nỗ lực mang lại lợi ích thiết thực cho khách hàng."
+      }
+    ],
     "ctaPrimary": "Về Chúng Tôi"
   },
   "keyOfferings": {
