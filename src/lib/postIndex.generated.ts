@@ -102,7 +102,7 @@ export const entries = {
         "safety",
         "depth"
       ],
-      "ogImage": "/images/solutions/navigation/echo-sounder.jpg"
+      "ogImage": "/images/solutions/navigation/echo-sounder.png"
     },
     {
       "route": "/solutions/navigation/radar-introduction",
@@ -210,7 +210,7 @@ export const entries = {
         "an toàn",
         "độ sâu"
       ],
-      "ogImage": "/images/solutions/navigation/echo-sounder.jpg"
+      "ogImage": "/images/solutions/navigation/echo-sounder.png"
     },
     {
       "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-radar",
@@ -365,7 +365,7 @@ export const entriesByCategory = {
           "safety",
           "depth"
         ],
-        "ogImage": "/images/solutions/navigation/echo-sounder.jpg"
+        "ogImage": "/images/solutions/navigation/echo-sounder.png"
       },
       {
         "route": "/solutions/navigation/radar-introduction",
@@ -475,7 +475,7 @@ export const entriesByCategory = {
           "an toàn",
           "độ sâu"
         ],
-        "ogImage": "/images/solutions/navigation/echo-sounder.jpg"
+        "ogImage": "/images/solutions/navigation/echo-sounder.png"
       },
       {
         "route": "/giai-phap/nghi-khi-hang-hai/gioi-thieu-radar",

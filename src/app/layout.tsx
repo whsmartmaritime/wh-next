@@ -39,10 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@wheelhouse",
   },
-  icons: [
-    { rel: "icon", url: "/favicon.svg", type: "image/svg+xml" },
-    { rel: "alternate icon", url: "/favicon.ico" },
-  ],
+  icons: [{ rel: "icon", url: "/favicon.svg", type: "image/svg+xml" }],
 };
 export default async function RootLayout({
   children,
