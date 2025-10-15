@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import MediaCard from "@/components/MediaCard";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import {
   featureByCategory,
   entriesByCategory,
@@ -122,6 +123,24 @@ export default async function SolutionPage(props: {
           variant="featured"
         />
       </header>
+
+      <div className="container-gutter mt-4">
+        <Breadcrumbs
+          items={[
+            {
+              label: locale === "vi" ? "Trang chủ" : "Home",
+              href: `/${locale}`,
+            },
+            {
+              label: locale === "vi" ? "Giải pháp" : "Solutions",
+              href: `/solutions`,
+            },
+            {
+              label: t("hero.title"),
+            },
+          ]}
+        />
+      </div>
 
       {/** overview **/}
 
