@@ -3,6 +3,7 @@ import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import MediaCard from "@/components/MediaCard";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import {
   entries,
   type Locales,
@@ -125,6 +126,22 @@ export default async function EntryPage(props: {
         <div className="col-start-4 border-l border-neutral-500/20 h-full hidden lg:block" />
         <div className="col-start-14 border-l border-neutral-500/20 h-full hidden lg:block" />
         <div className="col-start-16 border-r border-neutral-500/20 h-full" />
+      </div>
+      <div className="container-gutter mt-4">
+        <Breadcrumbs
+          items={[
+            { label: locale === "vi" ? "Trang chủ" : "Home", href: `/` },
+            {
+              label: locale === "vi" ? "Giải pháp" : "Solutions",
+              href: `/solutions`,
+            },
+            {
+              label: locale === "vi" ? solution : solution,
+              href: `/${locale}/solutions/${solution}`,
+            },
+            { label: frontmatter.meta.title },
+          ]}
+        />
       </div>
       <article className="container-gutter grid grid-cols-16">
         {/** Cột 1 */}
