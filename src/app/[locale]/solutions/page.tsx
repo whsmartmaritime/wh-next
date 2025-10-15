@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { PageHero } from "@/components/PageHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { BackgroundScanline } from "@/components/BackgroundScanline";
 import MediaCard from "@/components/MediaCard";
@@ -72,8 +73,20 @@ export default async function SolutionsPage(props: {
           ctaSecondary={t("hero.ctaSecondary")}
         />
       </section>
+      <div className="container-gutter mt-4">
+        <Breadcrumbs
+          items={[
+            {
+              label: locale === "vi" ? "Trang chủ" : "Home",
+              href: `/${locale}`,
+            },
+            {
+              label: locale === "vi" ? "Giải pháp" : "Solutions",
+            },
+          ]}
+        />
+      </div>
       {/** section overview **/}
-
       <section className="relative" aria-label="Solutions intro section">
         <BackgroundGrid />
         <div className="container-gutter py-16 lg:py-32">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { PageHero } from "@/components/PageHero";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import BackgroundScanline from "@/components/BackgroundScanline";
 import BackgroundGrid from "@/components/BackgroundGrid";
 import ContactInfo from "@/components/ContactInfo";
@@ -71,6 +72,20 @@ export default async function AboutPage(props: {
           ctaSecondary={t("hero.ctaSecondary")}
         />
       </section>
+      <div className="container-gutter mt-4">
+        <Breadcrumbs
+          className="text-sm lg:text-base"
+          items={[
+            {
+              href: `/${locale}`,
+              label: locale === "vi" ? "Trang chủ" : "Home",
+            },
+            {
+              label: locale === "vi" ? "Về chúng tôi" : "About Us",
+            },
+          ]}
+        />
+      </div>
       <section className="relative " aria-label="About who we are section">
         <BackgroundGrid />
         <div className="container-gutter py-16 lg:py-32">

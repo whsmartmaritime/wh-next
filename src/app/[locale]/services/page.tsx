@@ -6,6 +6,7 @@ import BackgroundScanline from "@/components/BackgroundScanline";
 import BackgroundGrid from "@/components/BackgroundGrid";
 import Button from "@/components/Button";
 import MediaCard from "@/components/MediaCard";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -72,6 +73,19 @@ export default async function ServicesPage(props: {
           ctaSecondary={t("hero.ctaSecondary")}
         />
       </section>
+      <div className="container-gutter mt-4">
+        <Breadcrumbs
+          items={[
+            {
+              label: locale === "vi" ? "Trang chủ" : "Home",
+              href: `/${locale}`,
+            },
+            {
+              label: locale === "vi" ? "Dịch vụ" : "Services",
+            },
+          ]}
+        />
+      </div>
       {/** section qualityOfService **/}
 
       <section className="relative " aria-label="Quality of service section">
