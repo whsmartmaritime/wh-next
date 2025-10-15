@@ -215,7 +215,7 @@ export default async function ServicesPage(props: {
         </div>
         <div className="grid grid-cols-12  mb-8 lg:mb-16 ">
           <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
-            {t("ctaContent.title")}
+            {t("ctaContent.description")}
           </p>
           <Button
             className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
