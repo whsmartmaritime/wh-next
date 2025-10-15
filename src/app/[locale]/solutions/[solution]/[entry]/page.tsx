@@ -127,8 +127,9 @@ export default async function EntryPage(props: {
         <div className="col-start-14 border-l border-neutral-500/20 h-full hidden lg:block" />
         <div className="col-start-16 border-r border-neutral-500/20 h-full" />
       </div>
-      <div className="container-gutter mt-4">
+      <div className="container-gutter grid grid-cols-16 mt-4">
         <Breadcrumbs
+          className="col-span-8 col-start-4 mx-8 lg:mx-16"
           items={[
             { label: locale === "vi" ? "Trang chủ" : "Home", href: `/` },
             {
@@ -139,7 +140,7 @@ export default async function EntryPage(props: {
               label: locale === "vi" ? solution : solution,
               href: `/${locale}/solutions/${solution}`,
             },
-            { label: frontmatter.meta.title },
+            { label: frontmatter.publishedAt },
           ]}
         />
       </div>
@@ -181,7 +182,7 @@ export default async function EntryPage(props: {
         </div>
         {/** Cột 2 */}
         <div className="col-span-16 lg:col-span-13 ">
-          <div className="  flex flex-col items-start justify-center py-8 lg:py-16 ">
+          <div className="  flex flex-col items-start justify-center ">
             <h1 className="text-4xl lg:text-6xl font-bold m-8 lg:m-16">
               {frontmatter.meta.title}
             </h1>
