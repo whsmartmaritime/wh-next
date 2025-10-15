@@ -1,9 +1,3 @@
-# *
 User-agent: *
-Allow: /
-
-# Host
-Host: https://wheelhousemaris.com
-
-# Sitemaps
+Disallow:
 Sitemap: https://wheelhousemaris.com/sitemap.xml

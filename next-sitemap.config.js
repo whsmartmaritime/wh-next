@@ -2,11 +2,7 @@
 
 module.exports = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-  generateRobotsTxt: true,
-  robotsTxtOptions: {
-    // Allow all by default; manage sensitive paths via Disallow entries as needed
-    policies: [{ userAgent: "*", allow: "/" }],
-  },
+  generateRobotsTxt: false,
   alternateRefs: [
     { href: "https://wheelhousemaris.com/en", hreflang: "en" },
     { href: "https://wheelhousemaris.com/vi", hreflang: "vi" },
