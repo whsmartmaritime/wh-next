@@ -53,9 +53,7 @@ export async function generateMetadata(props: {
     },
   };
 }
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+
 export default async function HomePage(props: {
   params: Promise<{ locale: string }>;
 }) {
