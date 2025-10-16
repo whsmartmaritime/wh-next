@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
-import { PageHero } from "@/components/PageHero";
 import BackgroundScanline from "@/components/BackgroundScanline";
 import BackgroundGrid from "@/components/BackgroundGrid";
+import BgGrid from "@/components/BgGrid";
 import Button from "@/components/Button";
 import MediaCard from "@/components/MediaCard";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { HeroPage } from "@/components/Hero/HeroPage";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -60,17 +61,26 @@ export default async function ServicesPage(props: {
   return (
     <>
       <section
-        className=" bg-gradient-to-br from-sky-900 via-slate-900 to-black w-full text-neutral-300"
+        className="relative container-gutter mt-16 lg:mt-32"
         aria-label="Services hero section"
       >
-        <PageHero
+        <BgGrid className="fixed" />
+        <HeroPage
+          title={<h1>{t("hero.title")}</h1>}
+          subtitle={
+            <p>
+              {t.rich("hero.subtitle", {
+                bold: (chunks) => (
+                  <strong className="font-bold">{chunks}</strong>
+                ),
+              })}
+            </p>
+          }
+          cardTitle={<p>{t("hero.cardTitle")}</p>}
+          cardDescription={<p>{t("hero.cardDescription")}</p>}
           className="container-gutter"
-          imgSrc="/images/about/wheelhouse-engineer-with-iridium.webp"
-          imgAlt={t("hero.imgAlt")}
-          title={t("hero.title")}
-          subtitle={t("hero.subtitle")}
-          ctaPrimary={t("hero.ctaPrimary")}
-          ctaSecondary={t("hero.ctaSecondary")}
+          cardImgSrc={t("hero.imgSrc")}
+          cardImgAlt={t("hero.imgAlt")}
         />
       </section>
       <div className="container-gutter mt-4">
@@ -91,30 +101,33 @@ export default async function ServicesPage(props: {
       <section className="relative " aria-label="Quality of service section">
         <BackgroundGrid />
         <div className="container-gutter py-16 lg:py-32">
-          <div className="relative bg-neutral-200 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
-            <BackgroundScanline
-              crosshairs="all"
-              className="absolute inset-0 "
-              opacity={0.1}
-            />
-            <h2 className="sr-only">{t("qualityOfService.title")}</h2>
-            <p className="uppercase tracking-[0.25em] opacity-95 font-bold py-8">
-              {t("qualityOfService.subtitle")}
-            </p>
-            <div className="text-sm sm:text-lg lg:text-4xl text-justify mx-[calc(var(--gutter-h))]">
-              {[t.raw("qualityOfService.description")]
+          <div className="relative flex flex-col gap-8 bg-neutral-200 w-full h-full border border-neutral-500/20 pb-16 ">
+            <BackgroundScanline crosshairs="all" opacity={0.1} />
+            <h2 className="uppercase tracking-[0.25em] opacity-95 font-bold mt-8">
+              {t("qualityOfService.title")}
+            </h2>
+            <div className="flex flex-col gap-8 mx-[calc(var(--gutter-h))] ">
+              {t
+                .raw("qualityOfService.description")
                 .flat()
-                .map((p: unknown, i: number) => (
-                  <p key={i} className="block mb-8">
-                    {String(p)}
+                .map((_: unknown, i: number) => (
+                  <p
+                    key={i}
+                    className="block text-sm sm:text-lg lg:text-3xl text-justify "
+                  >
+                    {t.rich(`qualityOfService.description.${i}`, {
+                      bold: (chunks) => (
+                        <strong className="font-bold">{chunks}</strong>
+                      ),
+                    })}
                   </p>
                 ))}
             </div>
           </div>
         </div>
       </section>
-      {/** section repairMaintenance **/}
 
+      {/** section repairMaintenance **/}
       <section
         id="repair-maintenance"
         className="relative container-gutter scroll-mt-16"

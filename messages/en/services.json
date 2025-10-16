@@ -7,18 +7,19 @@
   },
   "hero": {
     "title": "Maritime Electronic Services",
-    "subtitle": "Professional Installation, Maintenance, Repair, and Inspection for Shipborne Electronics",
-    "imgAlt": "wheelhouse service engineer insstalling iridium",
-    "description": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
-    "ctaPrimary": "Start Working With Us",
+    "subtitle": "Professional services for <bold>maritime electronic equipment</bold>.",
+    "cardTitle": "Installation, Repair, Maintenance, and Inspection of Maritime Electronic Equipment",
+    "cardDescription": "We are committed to providing professional marine equipment services with a focus on speed, reliability, and efficiency.",
+    "imgAlt": "Wheelhouse technician installing Iridium",
+    "imgSrc": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
+    "ctaPrimary": "Contact Us",
     "ctaSecondary": "Want to Chat First?"
   },
   "qualityOfService": {
-    "title": "Quality of Service",
-    "subtitle": "Why Our Clients Trust Us",
+    "title": "Why Our Clients Trust Us",
     "description": [
-      "Wheelhouse not only delivers high-quality services but also accompanies clients comprehensively throughout their entire journey. Our experienced engineers proactively identify and strive to resolve issues before they impact equipment operations.",
-      "With dedication, expertise, and smart workflows, clients can be fully confident that every need is prioritized, and service quality is consistently maintained at the highest level."
+      "Wheelhouse not only delivers <bold>high-quality services</bold> but also accompanies clients comprehensively throughout their entire journey. Our <bold>experienced engineers</bold> proactively identify and strive to resolve issues before they impact equipment operations.",
+      "With <bold>dedication, expertise</bold>, and smart workflows, clients can be fully confident that every need is <bold>prioritized</bold>, and <bold>service quality</bold> is consistently maintained at the <bold>highest level</bold>."
     ]
   },
   "repairMaintenance": {

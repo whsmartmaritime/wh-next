@@ -21,17 +21,23 @@ export default async function Breadcrumbs({
 
   return (
     <nav aria-label="Breadcrumb" className={` text-xl ${className}`}>
-      <ol className="flex flex-wrap items-center gap-1">
+      <ol className="flex flex-wrap items-center gap-2">
         {currentItems.map((c, i) => {
           const isLast = i === currentItems.length - 1;
           const isLink = !isLast && !!c.href;
           const LabelWrapper = ({ children }: { children: ReactNode }) =>
             isLink ? (
-              <Link href={c.href!} className="text-muted-foreground hover:underline">
+              <Link
+                href={c.href!}
+                className="text-muted-foreground hover:underline"
+              >
                 {children}
               </Link>
             ) : (
-              <span aria-current={isLast ? "page" : undefined} className={isLast ? "font-medium" : "text-muted-foreground"}>
+              <span
+                aria-current={isLast ? "page" : undefined}
+                className={isLast ? "font-medium" : "text-muted-foreground"}
+              >
                 {children}
               </span>
             );

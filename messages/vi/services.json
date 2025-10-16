@@ -7,18 +7,19 @@
   },
   "hero": {
     "title": "Dịch Vụ Điện tử Hàng hải",
-    "subtitle": "Lắp đặt, Bảo dưỡng, Sửa chữa và Kiểm tra thiết bị điện tử hàng hải",
+    "subtitle": "Dịch vụ chuyên nghiệp cho <bold>thiết bị điện tử hàng hải</bold>.",
+    "cardTitle": "Lắp đặt, Sửa chữa, Bảo dưỡng và Kiểm tra thiết bị điện tử hàng hải",
+    "cardDescription": "Chúng tôi cam kết cung cấp các dịch vụ thiết bị hàng hải chuyên nghiệp với trọng tâm là nhanh chóng, tin cậy và hiệu quả.",
     "imgAlt": "Kỹ thuật viên Wheelhouse lắp đặt Iridium",
-    "description": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, đáng tin cậy và đổi mới.",
+    "imgSrc": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
     "ctaPrimary": "Liên Hệ Hợp Tác",
     "ctaSecondary": "Trò Chuyện Whatsapp?"
   },
   "qualityOfService": {
-    "title": "Chất lượng dịch vụ",
-    "subtitle": "Tại sao khách hàng tin tưởng chúng tôi",
+    "title": "Tại sao khách hàng tin tưởng chúng tôi",
     "description": [
-      "Wheelhouse không chỉ cung cấp dịch vụ chất lượng cao, mà còn đồng hành cùng khách hàng trong suốt hành trình. Đội ngũ kỹ sư giàu kinh nghiệm của chúng tôi chủ động phát hiện và cố gắng giải quyết vấn đề trước khi ảnh hưởng đến vận hành thiết bị.",
-      "Nhờ sự tận tâm, chuyên môn và quy trình làm việc thông minh, khách hàng có thể hoàn toàn yên tâm rằng mọi nhu cầu đều được ưu tiên hàng đầu, và chất lượng dịch vụ luôn được duy trì ở mức cao nhất."
+      "Wheelhouse không chỉ cung cấp <bold>dịch vụ chất lượng cao</bold>, mà còn đồng hành cùng khách hàng trong suốt hành trình. Đội ngũ kỹ sư <bold>giàu kinh nghiệm</bold> của chúng tôi chủ động phát hiện và cố gắng giải quyết vấn đề trước khi ảnh hưởng đến vận hành thiết bị.",
+      "Nhờ sự <bold>tận tâm, chuyên môn</bold> và quy trình làm việc thông minh, khách hàng có thể hoàn toàn yên tâm rằng mọi nhu cầu đều được <bold>ưu tiên hàng đầu</bold>, và <bold>chất lượng dịch vụ</bold> luôn được duy trì ở mức <bold>cao nhất</bold>."
     ]
   },
   "repairMaintenance": {

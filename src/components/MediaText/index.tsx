@@ -36,7 +36,8 @@ export default function MediaText({
         />
         <div
           className={
-            "relative aspect-[16/9] " + (isFeatured ? "m-8 lg:m-12" : "")
+            "relative aspect-[16/9] border border-neutral-500/20 " +
+            (isFeatured ? "m-8 lg:m-12" : "")
           }
         >
           {data.videoSrc ? (
