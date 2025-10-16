@@ -22,17 +22,18 @@
       "Nhờ sự <bold>tận tâm, chuyên môn</bold> và quy trình làm việc thông minh, khách hàng có thể hoàn toàn yên tâm rằng mọi nhu cầu đều được <bold>ưu tiên hàng đầu</bold>, và <bold>chất lượng dịch vụ</bold> luôn được duy trì ở mức <bold>cao nhất</bold>."
     ]
   },
-  "repairMaintenance": {
+  "rm": {
     "title": "Sửa chữa & Bảo dưỡng",
     "subtitle": "Dịch vụ sửa chữa và bảo dưỡng chuyên nghiệp cho <bold>thiết bị điện tử hàng hải</bold>.",
+    "details": [
+      "Sĩ quan vận hành trong môi trường hàng hải ngày nay dựa vào một loạt các <bold>thiết bị điện tử hàng hải</bold> để đảm bảo an toàn cho con tàu và thủy thủ đoàn, đồng thời hoàn thành chuyến đi một cách nhanh chóng. Các thiết bị điện tử tiên tiến đã làm cho hành trình trên biển <bold>dễ dàng và an toàn hơn</bold>.",
+      "Bạn cần các dịch vụ tốt nhất cho các thiết bị điện tử trên tàu để duy trì tình trạng hoạt động ổn định và ảnh hưởng nhỏ nhất đến lợi nhuận tài chính của bạn. <bold>Wheelhouse</bold> sẵn lòng cung cấp cho bạn những dịch vụ <bold>sửa chữa, bảo dưỡng</bold> các thiết bị nhằm đạt được mục đích trên với <bold>chi phí tiết kiệm nhất có thể</bold>."
+    ],
     "items": {
       "item1": {
         "title": "Sửa chữa nhanh chóng, hiệu quả với chi phí tối ưu",
         "description": "Với đội kỹ thuật lành nghề và chuẩn bị kỹ lưỡng—bao gồm kế hoạch, phương án thực hiện và vật tư phụ tùng—công việc sửa chữa được thực hiện đúng tiến độ, đáp ứng yêu cầu kỹ thuật và đảm bảo chất lượng cao.",
-        "details": [
-          "Sĩ quan vận hành trong môi trường hàng hải ngày nay dựa vào một loạt các <bold>thiết bị điện tử hàng hải</bold> để đảm bảo an toàn cho con tàu và thủy thủ đoàn, đồng thời hoàn thành chuyến đi một cách nhanh chóng. Các thiết bị điện tử tiên tiến đã làm cho hành trình trên biển <bold>dễ dàng và an toàn hơn</bold>.",
-          "Bạn cần các dịch vụ tốt nhất cho các thiết bị điện tử trên tàu để duy trì tình trạng hoạt động ổn định và ảnh hưởng nhỏ nhất đến lợi nhuận tài chính của bạn. <bold>Wheelhouse</bold> sẵn lòng cung cấp cho bạn những dịch vụ <bold>sửa chữa, bảo dưỡng</bold> các thiết bị nhằm đạt được mục đích trên với <bold>chi phí tiết kiệm nhất có thể</bold>."
-        ],
+
         "imgSrc": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
         "imgAlt": "Kỹ thuật viên Wheelhouse sửa chữa VSAT"
       },

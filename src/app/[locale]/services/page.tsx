@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import BackgroundScanline from "@/components/BackgroundScanline";
-import BackgroundGrid from "@/components/BackgroundGrid";
 import BgGrid from "@/components/BgGrid";
 import Button from "@/components/Button";
 import MediaCard from "@/components/MediaCard";
+import MediaText from "@/components/MediaText";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { HeroPage } from "@/components/Hero/HeroPage";
 
@@ -61,11 +61,12 @@ export default async function ServicesPage(props: {
   return (
     <>
       <section
-        className="relative container-gutter mt-16 lg:mt-32"
+        className="relative  mt-8 lg:mt-16"
         aria-label="Services hero section"
       >
         <BgGrid className="fixed" />
         <HeroPage
+          className="relative container-gutter"
           title={<h1>{t("hero.title")}</h1>}
           subtitle={
             <p>
@@ -78,7 +79,6 @@ export default async function ServicesPage(props: {
           }
           cardTitle={<p>{t("hero.cardTitle")}</p>}
           cardDescription={<p>{t("hero.cardDescription")}</p>}
-          className="container-gutter"
           cardImgSrc={t("hero.imgSrc")}
           cardImgAlt={t("hero.imgAlt")}
         />
@@ -96,12 +96,11 @@ export default async function ServicesPage(props: {
           ]}
         />
       </div>
-      {/** section qualityOfService **/}
 
+      {/** section qualityOfService **/}
       <section className="relative " aria-label="Quality of service section">
-        <BackgroundGrid />
-        <div className="container-gutter py-16 lg:py-32">
-          <div className="relative flex flex-col gap-8 bg-neutral-200 w-full h-full border border-neutral-500/20 pb-16 ">
+        <div className="container-gutter">
+          <div className="relative flex flex-col gap-8 bg-neutral-200 w-full h-full border border-neutral-500/20 mt-16 pb-16 ">
             <BackgroundScanline crosshairs="all" opacity={0.1} />
             <h2 className="uppercase tracking-[0.25em] opacity-95 font-bold mt-8">
               {t("qualityOfService.title")}
@@ -130,70 +129,54 @@ export default async function ServicesPage(props: {
       {/** section repairMaintenance **/}
       <section
         id="repair-maintenance"
-        className="relative container-gutter scroll-mt-16"
+        className="relative scroll-mt-16 mt-16"
         aria-label="Repair and Maintenance Services section"
       >
-        <BackgroundGrid />
-        <div className="  grid grid-cols-12 py-12 lg:py-16">
-          <h2 className="text-4xl lg:text-6xl font-bold col-span-12 lg:col-span-6 ">
-            {t("repairMaintenance.title")}
-          </h2>
-          <p className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-justify whitespace-pre-line  max-w-2xl">
-            {t.rich("repairMaintenance.subtitle", {
-              bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
-            })}
-          </p>
-        </div>
-        <MediaCard
-          className=" mb-8 lg:mb-16"
-          data={{
-            title: t("repairMaintenance.items.item1.title"),
-            description: t("repairMaintenance.items.item1.description"),
-            imgSrc: t.raw("repairMaintenance.items.item1.imgSrc"),
-            imgAlt: t("repairMaintenance.items.item1.imgAlt"),
-          }}
-          variant="featured"
-        />
-        <div className="grid grid-cols-12  mb-8 lg:mb-16 text-lg lg:text-xl leading-relaxed">
-          {[t.raw("repairMaintenance.items.item1.details")]
-            .flat()
-            .map((_, i: number) => (
-              <p
+        <div className="container-gutter flex flex-col gap-8">
+          <div className="grid grid-cols-12">
+            <div className="col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
+              <h2 className="text-4xl lg:text-6xl font-bold">
+                {t("rm.title")}
+              </h2>
+              {[t.raw("rm.details")].flat().map((_, i: number) => (
+                <p
+                  key={i}
+                  className=" text-justify text-sm sm:text-lg lg:text-2xl"
+                >
+                  {t.rich(`rm.details.${i}`, {
+                    bold: (chunks) => (
+                      <strong className="font-bold">{chunks}</strong>
+                    ),
+                  })}
+                </p>
+              ))}
+            </div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
+            {(["item1", "item2", "item3"] as const).map((key, i) => (
+              <MediaText
                 key={i}
-                className="col-span-12 lg:col-span-6 lg:col-start-4 text-justify"
-              >
-                {t.rich(`repairMaintenance.items.item1.details.${i}`, {
-                  bold: (chunks) => (
-                    <strong className="font-bold">{chunks}</strong>
-                  ),
-                })}
-              </p>
+                data={{
+                  title: <h3>{t(`rm.items.${key}.title`)}</h3>,
+                  description: t(`rm.items.${key}.description`),
+                  imgSrc: t.raw(`rm.items.${key}.imgSrc`),
+                  imgAlt: t(`rm.items.${key}.imgAlt`),
+                }}
+                variant="compact"
+              />
             ))}
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch mb-8 lg:mb-16">
-          {(["item2", "item3"] as const).map((key, i) => (
-            <MediaCard
-              key={i}
-              data={{
-                title: t(`repairMaintenance.items.${key}.title`),
-                description: t(`repairMaintenance.items.${key}.description`),
-                imgSrc: t.raw(`repairMaintenance.items.${key}.imgSrc`),
-                imgAlt: t(`repairMaintenance.items.${key}.imgAlt`),
-              }}
-              variant="compact"
-            />
-          ))}
-        </div>
-        <div className="grid grid-cols-12  mb-8 lg:mb-16 ">
-          <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
-            {t("repairMaintenance.ctaContent.title")}
-          </p>
-          <Button
-            className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-            href={`/about#contactForm`}
-          >
-            {t("repairMaintenance.ctaContent.label")}
-          </Button>
+          </div>
+          <div className="grid grid-cols-12 ">
+            <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
+              {t("rm.ctaContent.title")}
+            </p>
+            <Button
+              className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+              href={`/about#contactForm`}
+            >
+              {t("rm.ctaContent.label")}
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -203,7 +186,6 @@ export default async function ServicesPage(props: {
         className="relative container-gutter scroll-mt-16"
         aria-label="Installation Services section"
       >
-        <BackgroundGrid />
         <div className="  grid grid-cols-12 py-12 lg:py-16">
           <h2 className="text-4xl lg:text-6xl font-bold col-span-12 lg:col-span-6 ">
             {t("installation.title")}
