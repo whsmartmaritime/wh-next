@@ -4,10 +4,9 @@ import { getTranslations } from "next-intl/server";
 import BackgroundScanline from "@/components/BackgroundScanline";
 import BgGrid from "@/components/BgGrid";
 import Button from "@/components/Button";
-import MediaText from "@/components/MediaText";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { HeroPage } from "@/components/Hero/HeroPage";
-import ScrollRevealImagePinned from "@/components/ScrollReveal";
+import ScrollShowcase from "@/components/ScrollShowcase";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -152,20 +151,19 @@ export default async function ServicesPage(props: {
               ))}
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-stretch">
-            {(["item1", "item2", "item3"] as const).map((key, i) => (
-              <MediaText
-                key={i}
-                data={{
-                  title: <h3>{t(`rm.items.${key}.title`)}</h3>,
-                  description: t(`rm.items.${key}.description`),
-                  imgSrc: t.raw(`rm.items.${key}.imgSrc`),
-                  imgAlt: t(`rm.items.${key}.imgAlt`),
-                }}
-                variant="compact"
-              />
-            ))}
-          </div>
+          <ScrollShowcase
+            items={(
+              t.raw("rm.items") as Array<{
+                title: string;
+                description: string;
+                image: { src: string; alt: string };
+              }>
+            ).map((item) => ({
+              title: <h3>{item.title}</h3>,
+              description: <p>{item.description}</p>,
+              image: { src: item.image.src, alt: item.image.alt },
+            }))}
+          />
           <div className="grid grid-cols-12 ">
             <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
               {t("rm.ctaContent.title")}
@@ -196,22 +194,7 @@ export default async function ServicesPage(props: {
             })}
           </p>
         </div>
-        <ScrollRevealImagePinned
-          sections={[
-            {
-              text: t("rm.items.item1.title"),
-              image: t.raw("rm.items.item1.imgSrc") as string,
-            },
-            {
-              text: t("rm.items.item2.title"),
-              image: t.raw("rm.items.item2.imgSrc") as string,
-            },
-            {
-              text: t("rm.items.item3.title"),
-              image: t.raw("rm.items.item3.imgSrc") as string,
-            },
-          ]}
-        />
+
         <div className="grid grid-cols-12  mb-8 lg:mb-16 ">
           <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
             {t("ctaContent.description")}

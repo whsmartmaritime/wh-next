@@ -1,20 +1,20 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
-import "@/styles/animations.css";
+import { useEffect, useState, useRef, ReactNode } from "react";
 
-interface ScrollSection {
-  text: string;
-  image: string;
+interface ScrollShowcaseProps {
+  items: {
+    title: ReactNode;
+    description: ReactNode;
+    image: { src: string; alt: string };
+  }[];
+  className?: string;
 }
 
-interface ScrollRevealImagePinnedProps {
-  sections: ScrollSection[];
-}
-
-export default function ScrollRevealImagePinned({
-  sections,
-}: ScrollRevealImagePinnedProps) {
+export default function ScrollShowcase({
+  items,
+  className,
+}: ScrollShowcaseProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const textRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -43,22 +43,22 @@ export default function ScrollRevealImagePinned({
     return () => {
       observers.forEach((observer) => observer?.disconnect());
     };
-  }, [sections.length]);
+  }, [items.length]);
 
   return (
-    <div className="relative flex min-h-screen">
+    <div className={`relative flex min-h-screen ${className}`}>
       <div className="w-1/2">
-        {sections.map((section, index) => (
+        {items.map((item, index) => (
           <div
             key={index}
             ref={(el) => {
               textRefs.current[index] = el;
             }}
-            className="h-screen flex items-center justify-center p-8"
+            className="h-screen flex items-center justify-center"
           >
-            <div className="max-w-md">
-              <h2 className="text-4xl font-bold mb-4">{section.text}</h2>
-              <p className="text-lg"></p>
+            <div className="">
+              <div className="text-4xl font-bold mb-4">{item.title}</div>
+              <div className="text-lg">{item.description}</div>
             </div>
           </div>
         ))}
@@ -67,11 +67,11 @@ export default function ScrollRevealImagePinned({
       {/* Pinned Image Container */}
       <div className="sticky top-0 h-screen w-1/2 flex items-center justify-center bg-gray-100">
         <div className="relative w-full h-full">
-          {sections.map((section, index) => (
+          {items.map((item, index) => (
             <Image
               key={index}
-              src={section.image}
-              alt={`Image for ${section.text}`}
+              src={item.image.src}
+              alt={item.image.alt}
               fill
               priority={index === 0}
               sizes="(max-width: 768px) 100vw, 50vw"

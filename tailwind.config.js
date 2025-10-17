@@ -8,7 +8,6 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
-      // Giữ breakpoints chuẩn Tailwind + thêm custom
       screens: {
         xs: "400px",
         // sm: 640px (default)
@@ -16,23 +15,13 @@ module.exports = {
         // lg: 1024px (default)
         // xl: 1280px (default)
         // 2xl: 1536px (default)
-        "header-lg": "1171px", // Custom cho header size
+        "header-lg": "1171px",
         "3xl": "1920px",
       },
-      // Thêm spacing theo sample
       spacing: {
         gutter: "var(--gutter-h)",
         block: "var(--block-spacing)",
         header: "var(--header-height)",
-      },
-      animation: {
-        slide: "slide 60s linear infinite",
-      },
-      keyframes: {
-        slide: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
       },
     },
   },
