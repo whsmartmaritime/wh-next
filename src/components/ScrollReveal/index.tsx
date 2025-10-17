@@ -13,41 +13,16 @@ interface ScrollRevealImagePinnedProps {
 export default function ScrollRevealImagePinned({
   sections,
 }: ScrollRevealImagePinnedProps) {
-  const sectionHeight = 100 / sections.length; // % per section
+  // Overlapping ranges for smoother transitions
+  // Image 0: 0-50%, Image 1: 25-75%, Image 2: 50-100%
 
   return (
     <div
       className="relative flex min-h-screen"
       style={{
-        scrollTimeline: "root block",
+        viewTimeline: "block",
       }}
     >
-      {/* Pinned Image Container */}
-      <div className="sticky top-0 h-screen w-1/2 flex items-center justify-center bg-gray-100">
-        <div className="relative w-full h-full">
-          {sections.map((section, index) => (
-            <Image
-              key={index}
-              src={section.image}
-              alt={`Image for ${section.text}`}
-              fill
-              priority={index === 0}
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover scroll-image"
-              style={{
-                opacity: 0, // Initial opacity 0
-                animationTimeline: "scroll(root block)",
-                animationName: "fadeInOut",
-                animationRange: `${index * sectionHeight}% ${
-                  (index + 1) * sectionHeight
-                }%`,
-                animationFillMode: "forwards",
-              }}
-            />
-          ))}
-        </div>
-      </div>
-
       <div className="w-1/2">
         {sections.map((section, index) => (
           <div
@@ -81,6 +56,30 @@ export default function ScrollRevealImagePinned({
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Pinned Image Container */}
+      <div className="sticky top-0 h-screen w-1/2 flex items-center justify-center bg-gray-100">
+        <div className="relative w-full h-full">
+          {sections.map((section, index) => (
+            <Image
+              key={index}
+              src={section.image}
+              alt={`Image for ${section.text}`}
+              fill
+              priority={index === 0}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover scroll-image"
+              style={{
+                opacity: 0, // Initial opacity 0
+                animationTimeline: "view(block)",
+                animationName: "fadeInOut",
+                animationRange: `${index * 25}% ${(index + 1) * 25}%`,
+                animationFillMode: "forwards",
+              }}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
