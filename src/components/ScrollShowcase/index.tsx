@@ -59,7 +59,7 @@ export default function ScrollShowcase({
           >
             <div className="">
               <div className="text-4xl font-bold mb-4">{item.title}</div>
-              {item.description}
+              <div>{item.description}</div>
             </div>
           </div>
         ))}

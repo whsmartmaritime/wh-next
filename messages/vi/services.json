@@ -7,14 +7,26 @@
   },
   "hero": {
     "title": "Dịch Vụ Điện tử Hàng hải",
-    "subtitle": "Dịch vụ chuyên nghiệp cho <bold>thiết bị điện tử hàng hải</bold>.",
-    "cardTitle": "Lắp đặt, Sửa chữa, Bảo dưỡng và Kiểm tra thiết bị điện tử hàng hải",
-    "cardDescription": "Chúng tôi cam kết cung cấp các dịch vụ thiết bị hàng hải chuyên nghiệp với trọng tâm là nhanh chóng, tin cậy và hiệu quả.",
-    "imgAlt": "Kỹ thuật viên Wheelhouse lắp đặt Iridium",
-    "imgSrc": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
-    "ctaPrimary": "Liên Hệ Hợp Tác",
-    "ctaSecondary": "Trò Chuyện Whatsapp?"
+    "subtitle": "Dịch vụ chuyên nghiệp cho thiết bị điện tử hàng hải.",
+    "images": {
+      "back": {
+        "src": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
+        "alt": "Wheelhouse technician installing VSAT"
+      }
+    },
+
+    "ctas": [
+      {
+        "label": "Liên hệ với chúng tôi",
+        "href": "/about#contact"
+      },
+      {
+        "label": "Muốn trò chuyện trước?",
+        "href": "https://wa.me/84981829002"
+      }
+    ]
   },
+
   "qualityOfService": {
     "title": "Tại sao khách hàng tin tưởng chúng tôi",
     "description": [
@@ -44,6 +56,14 @@
         "image": {
           "src": "/images/services/wheelhouse-engineer-in-ship-bridge.webp",
           "alt": "Kỹ thuật viên Wheelhouse thực hiện bảo dưỡng"
+        }
+      },
+      {
+        "title": "Cung cấp và lắp đặt theo yêu cầu",
+        "description": "Chúng tôi cung cấp hướng dẫn sử dụng, bảo trì định kỳ, cũng như tư vấn và xử lý sự cố nhanh chóng để tối ưu hiệu suất vận hành",
+        "image": {
+          "src": "/images/services/wheelhouse-engineer-installing-equipment.webp",
+          "alt": "Kỹ thuật viên Wheelhouse hỗ trợ từ xa"
         }
       },
       {

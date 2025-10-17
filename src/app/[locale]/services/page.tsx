@@ -3,9 +3,9 @@ import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import BackgroundScanline from "@/components/BackgroundScanline";
 import BgGrid from "@/components/BgGrid";
+import Hero from "@/components/Hero";
 import Button from "@/components/Button";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { HeroPage } from "@/components/Hero/HeroPage";
 import ScrollShowcase from "@/components/ScrollShowcase";
 
 export async function generateMetadata(props: {
@@ -59,28 +59,24 @@ export default async function ServicesPage(props: {
 
   return (
     <>
-      <section
-        className="relative  mt-8 lg:mt-16"
-        aria-label="Services hero section"
-      >
-        <BgGrid className="fixed" />
-        <HeroPage
-          className="relative container-gutter"
-          title={<h1>{t("hero.title")}</h1>}
-          subtitle={
-            <p>
-              {t.rich("hero.subtitle", {
-                bold: (chunks) => (
-                  <strong className="font-bold">{chunks}</strong>
-                ),
-              })}
-            </p>
-          }
-          cardTitle={<p>{t("hero.cardTitle")}</p>}
-          cardDescription={<p>{t("hero.cardDescription")}</p>}
-          cardImgSrc={t("hero.imgSrc")}
-          cardImgAlt={t("hero.imgAlt")}
-        />
+      <section className="relative" aria-label="Services hero section">
+        <div className="container-gutter ">
+          <BgGrid className="fixed" />
+          <Hero
+            title={
+              <h1>
+                {t.rich("hero.title", {
+                  highlight: (chunk) => (
+                    <span className="text-sky-700">{chunk}</span>
+                  ),
+                })}
+              </h1>
+            }
+            subtitle={<h2>{t("hero.subtitle")}</h2>}
+            images={t.raw("hero.images")}
+            ctas={t.raw("hero.ctas")}
+          />
+        </div>
       </section>
       <div className="container-gutter mt-4">
         <Breadcrumbs

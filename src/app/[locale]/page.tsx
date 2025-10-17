@@ -64,7 +64,6 @@ export default async function HomePage(props: {
   const all = entries[l] || [];
   const feature = featureEntry[l] ?? null;
   const list = all.slice(0, 2);
-
   return (
     <>
       <section
@@ -76,15 +75,21 @@ export default async function HomePage(props: {
         <div className="relative container-gutter">
           <Hero
             className="pt-20 pb-16 lg:pt-32 lg:pb-24 mb-8"
-            brand={t("hero.brand")}
-            title={t("hero.title")}
-            subtitle={t("hero.subtitle")}
-            ctaText={t("hero.ctaPrimary")}
-            heroImage1Alt={t("hero.heroImage1Alt")}
-            heroImage2Alt={t("hero.heroImage2Alt")}
-            heroImage1Src="/images/Picture1.png"
-            heroImage2Src="/images/Picture2.png"
+            isHome={true}
+            title={
+              <h1>
+                {t.rich("hero.title", {
+                  highlight: (chunk) => (
+                    <span className="text-sky-700">{chunk}</span>
+                  ),
+                })}
+              </h1>
+            }
+            subtitle={<h2>{t("hero.subtitle")}</h2>}
+            images={t.raw("hero.images")}
+            ctas={t.raw("hero.ctas")}
           />
+
           <div className="relative  text-center ">
             <p className="text-sm uppercase tracking-widest font-medium mb-8 ">
               {t("hero.partnerShowcase", {

@@ -6,13 +6,25 @@
     "slug": ""
   },
   "hero": {
-    "brand": "Wheelhouse",
-    "title": "Your Partner In Maritime Electronics",
+    "title": "<highlight> Wheelhouse </highlight> - Your Partner In Maritime Electronics",
     "subtitle": "Specialized in GMDSS, Navigation, Connectivity & Onboard Services.",
-    "ctaPrimary": "Contact us",
-    "heroImage1Alt": "Wheelhouse Service Engineer Worked On Board",
-    "heroImage2Alt": "Wheelhouse Service Engineer Worked On Board",
-    "partnerShowcase": "Partners and Customers"
+    "images": {
+      "back": {
+        "src": "/images/Picture1.png",
+        "alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
+      },
+      "fore": {
+        "src": "/images/Picture2.png",
+        "alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
+      }
+    },
+    "ctas": [
+      {
+        "label": "Liên hệ với chúng tôi",
+        "href": "/about#contact"
+      }
+    ],
+    "partnerShowcase": "Các khách hàng và đối tác"
   },
   "ourPurpose": {
     "title": "Our Purpose",

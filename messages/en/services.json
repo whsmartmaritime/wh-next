@@ -7,14 +7,25 @@
   },
   "hero": {
     "title": "Maritime Electronic Services",
-    "subtitle": "Professional services for <bold>maritime electronic equipment</bold>.",
-    "cardTitle": "Installation, Repair, Maintenance, and Inspection of Maritime Electronic Equipment",
-    "cardDescription": "We are committed to providing professional marine equipment services with a focus on speed, reliability, and efficiency.",
-    "imgAlt": "Wheelhouse technician installing Iridium",
-    "imgSrc": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
-    "ctaPrimary": "Contact Us",
-    "ctaSecondary": "Want to Chat First?"
+    "subtitle": "Professional services for maritime electronic equipment.",
+    "images": {
+      "back": {
+        "src": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
+        "alt": "Wheelhouse technician installing VSAT"
+      }
+    },
+    "ctas": [
+      {
+        "label": "Contact Us",
+        "href": "/about#contact"
+      },
+      {
+        "label": "Want to Chat First?",
+        "href": "https://wa.me/84981829002"
+      }
+    ]
   },
+
   "qualityOfService": {
     "title": "Why Our Clients Trust Us",
     "description": [

@@ -6,12 +6,24 @@
     "slug": ""
   },
   "hero": {
-    "brand": "Wheelhouse",
-    "title": "Đối tác tin cậy trong dịch vụ điện tử Hàng hải",
+    "title": " <highlight> Wheelhouse </highlight> - đối tác tin cậy trong dịch vụ điện tử Hàng hải",
     "subtitle": "Chuyên môn trong GMDSS, Nghi Khí Hàng Hải, Thông tin vệ tinh & Dịch vụ trên tàu.",
-    "ctaPrimary": "Liên hệ với chúng tôi",
-    "heroImage1Alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu",
-    "heroImage2Alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu",
+    "images": {
+      "back": {
+        "src": "/images/Picture1.png",
+        "alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
+      },
+      "fore": {
+        "src": "/images/Picture2.png",
+        "alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
+      }
+    },
+    "ctas": [
+      {
+        "label": "Liên hệ với chúng tôi",
+        "href": "/about#contact"
+      }
+    ],
     "partnerShowcase": "Các khách hàng và đối tác"
   },
   "ourPurpose": {
