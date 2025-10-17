@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState, useRef, ReactNode } from "react";
+import BackgroundScanline from "@/components/BackgroundScanline";
 
 interface ScrollShowcaseProps {
   items: {
@@ -46,8 +47,8 @@ export default function ScrollShowcase({
   }, [items.length]);
 
   return (
-    <div className={`relative flex min-h-screen ${className}`}>
-      <div className="w-1/2">
+    <div className={`relative grid grid-cols-12 ${className}`}>
+      <div className="col-span-4">
         {items.map((item, index) => (
           <div
             key={index}
@@ -58,15 +59,20 @@ export default function ScrollShowcase({
           >
             <div className="">
               <div className="text-4xl font-bold mb-4">{item.title}</div>
-              <div className="text-lg">{item.description}</div>
+              {item.description}
             </div>
           </div>
         ))}
       </div>
 
       {/* Pinned Image Container */}
-      <div className="sticky top-0 h-screen w-1/2 flex items-center justify-center bg-gray-100">
-        <div className="relative w-full h-full">
+      <div className="sticky top-0 h-screen col-span-7 col-start-6 flex items-center justify-end relative">
+        <BackgroundScanline
+          opacity={0.1}
+          className="inset-auto w-6/7 h-full"
+          crosshairs="all"
+        />
+        <div className="relative w-full aspect-[4/3] max-h-full">
           {items.map((item, index) => (
             <Image
               key={index}
