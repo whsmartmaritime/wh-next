@@ -3,7 +3,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { LogoEffect } from "./LogoEffect";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 import ContactInfo from "@/components/ContactInfo";
 
 export default async function footer() {
@@ -181,7 +180,6 @@ export default async function footer() {
             </h3>
             <div className="space-y-4">
               <ContactInfo />
-              <ThemeSwitcher />
             </div>
           </div>
         </div>

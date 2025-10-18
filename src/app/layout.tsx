@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import "katex/dist/katex.min.css";
 import { getLocale } from "next-intl/server";
-import { ThemeProvider } from "@/components/ThemeProvider";
 import type { Metadata, Viewport } from "next";
 
 export const viewport: Viewport = {
@@ -51,16 +50,7 @@ export default async function RootLayout({
 
   return (
     <html className="scroll-smooth" lang={locale} suppressHydrationWarning>
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          forcedTheme="light"
-          enableSystem={false}
-        >
-          {children}
-        </ThemeProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
