@@ -6,17 +6,16 @@ export default function LanguageSwitcher() {
   const pathname = usePathname();
 
   return (
-    <div className="flex items-end">
+    <div className="flex gap-2 items-end">
       <Link
         href={`/vi${pathname}`}
-        className="px-1 py-1 text-md font-normal opacity-70 hover:opacity-100 transition-opacity"
+        className="w-5 h-3 text-md font-normal opacity-70 hover:opacity-100 transition-opacity"
       >
         <svg
-          width="20"
-          height="15"
+          className="w-full h-full"
           viewBox="0 0 30 20"
-          fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
         >
           <rect width="30" height="20" fill="#da251d" />
           <polygon
@@ -27,31 +26,31 @@ export default function LanguageSwitcher() {
       </Link>
       <Link
         href={`/en${pathname}`}
-        className="px-1 py-1 text-md font-normal opacity-70 hover:opacity-100 transition-opacity"
+        className="w-5 h-3 text-md font-normal opacity-70 hover:opacity-100 transition-opacity"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 50 30"
-          width="20"
-          height="15"
+          className="w-full h-full"
         >
-          <clipPath id="t">
-            <path d="M25,15h25v15zv15h-25zh-25v-15zv-15h25z" />
+          <clipPath id="s">
+            <path d="M0,0 v30 h60 v-30 z" />
           </clipPath>
-          <path d="M0,0v30h50v-30z" fill="#012169" />
-          <path d="M0,0 50,30M50,0 0,30" stroke="#fff" stroke-width="6" />
-          <path
-            d="M0,0 50,30M50,0 0,30"
-            clip-path="url(#t)"
-            stroke="#C8102E"
-            stroke-width="4"
-          />
-          <path
-            d="M-1 11h22v-12h8v12h22v8h-22v12h-8v-12h-22z"
-            fill="#C8102E"
-            stroke="#FFF"
-            stroke-width="2"
-          />
+          <clipPath id="t">
+            <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
+          </clipPath>
+          <g clip-path="url(#s)">
+            <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+            <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+            <path
+              d="M0,0 L60,30 M60,0 L0,30"
+              clip-path="url(#t)"
+              stroke="#C8102E"
+              stroke-width="4"
+            />
+            <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10" />
+            <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6" />
+          </g>
         </svg>
       </Link>
     </div>
