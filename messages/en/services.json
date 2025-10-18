@@ -93,7 +93,7 @@
         "title": "Custom System Installation",
         "description": [
           "Whether adding new equipment or integrating existing systems, we conduct detailed surveys, prepare technical drawings, and specific installation plans. Our deployment process strictly complies with all technical requirements, ensuring maximum <b>compatibility</b> and <b>aesthetic integrity</b>.",
-          "Custom installation projects include **communication equipment**, supplemental **navigational instruments**, **power monitoring systems**, and **specialized sensors**."
+          "Custom installation projects include <b>communication equipment</b>, supplemental <b>navigational instruments</b>, <b>power monitoring systems</b>, and <b>specialized sensors</b>."
         ],
         "image": {
           "src": "/images/services/wheelhouse-engineer-installing-ecdis.webp",
@@ -104,7 +104,7 @@
         "title": "Electronic System Upgrade & Modernization",
         "description": [
           "To maintain competitiveness and comply with new industry regulations, equipment upgrades are essential. We provide services to replace legacy systems with the latest technologies.",
-          "We manage the entire upgrade process, from **changeover planning** to sea trials, handover, and crew training, enabling the vessel to quickly access the superior features of modern equipment."
+          "We manage the entire upgrade process, from <b>changeover planning</b> to sea trials, handover, and crew training, enabling the vessel to quickly access the superior features of modern equipment."
         ],
         "image": {
           "src": "/images/services/wheelhouse-engineer-servicing-navigation-equipment.webp",
@@ -114,8 +114,8 @@
       {
         "title": "New Building Installation",
         "description": [
-          "We engage in new shipbuilding projects from the initial design phase. This early involvement ensures the seamless integration of marine electronic systems into the vessel's structure, strictly complying with **international standards** and owner requirements.",
-          "The service encompasses the complete installation of **Navigation, Communication, Safety Systems, and Electrical Automation**, ensuring the new vessel enters service with optimal technical performance and is ready for Classification Society certification."
+          "We engage in new shipbuilding projects from the initial design phase. This early involvement ensures the seamless integration of marine electronic systems into the vessel's structure, strictly complying with <b>international standards</b> and owner requirements.",
+          "The service encompasses the complete installation of <b>Navigation, Communication, Safety Systems, and Electrical Automation</b>, ensuring the new vessel enters service with optimal technical performance and is ready for Classification Society certification."
         ],
         "image": {
           "src": "/images/services/installing-on-new-ship.webp",
