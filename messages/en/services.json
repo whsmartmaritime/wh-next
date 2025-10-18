@@ -124,16 +124,25 @@
       }
     ],
     "ctaContent": {
-      "title": "",
+      "title": "Do you need installation services or full solutions?",
       "description": "We offer comprehensive solutions for marine electronic equipment, including product consultation, design, supply, installation, and commissioning. Visit our Solutions page to discover the potential and the latest technologies that can be applied to your vessel.",
       "href": "/solutions",
       "label": "Learn More About Our Solutions"
     }
   },
-  "annualSurvey": "Annual Survey",
-  "ctaContent": {
-    "title": "",
-    "description": "We provide comprehensive solutions for maritime electronic equipment, including product consulting, design, supply, installation, and testing, ensuring quality and optimal performance. Detailed information about the equipment and solutions is available on the Solutions page.",
-    "label": "Learn more about our solutions"
+  "survey": {
+    "title": "Annual Marine System Survey & Certification",
+    "subtitle": "Ensuring <b>strict compliance</b> with Classification and International requirements.",
+    "details": [
+      "Maintaining operational certificates according to the correct survey schedule is a <b>mandatory legal requirement</b> for every vessel. Periodic inspection not only confirms compliance but also helps in early detection of potential damage, ensuring <b>absolute safety</b> during the voyage.",
+      "The highly experienced technical team at <b>Wheelhouse</b>, in collaboration with our trusted partners and authorized service providers, ensures that annual surveys (GMDSS, VDR/S-VDR) are performed <b>quickly and accurately</b>, helping your vessel pass the inspection and receive new <b>certification</b> efficiently and on schedule.",
+      "Combined with our <b>reliable repair services</b>, we can promptly address any issue if a system component fails to meet the standards of IMO and the classification societies, helping your vessel become <b>safer</b> more <b>quickly</b> without the hassle of multiple troubleshooting steps."
+    ],
+    "ctaContent": {
+      "title": "Do You Need to Schedule an Annual Survey?",
+      "description": "To ensure your vessel's certificates are not interrupted, contact us immediately for consultation and timely survey planning.",
+      "href": "/about#contact",
+      "label": "Learn More About Our Solutions"
+    }
   }
 }

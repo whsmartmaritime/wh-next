@@ -124,16 +124,25 @@
       }
     ],
     "ctaContent": {
-      "title": "",
+      "title": "Bạn cần một giải pháp triển khai hệ thống mới?",
       "description": "Chúng tôi cung cấp các giải pháp toàn diện cho thiết bị điện tử hàng hải, bao gồm tư vấn sản phẩm, thiết kế, cung cấp, lắp đặt và chạy thử. Hãy truy cập trang Giải pháp của chúng tôi để khám phá tiềm năng và các công nghệ mới nhất có thể ứng dụng cho con tàu của bạn.",
       "href": "/solutions",
       "label": "Tìm hiểu thêm về giải pháp của chúng tôi"
     }
   },
-  "annualSurvey": "Khảo sát vô tuyến hàng năm",
-  "ctaContent": {
-    "title": "",
-    "description": "Chúng tôi cung cấp các giải pháp toàn diện cho thiết bị điện tử hàng hải, bao gồm tư vấn sản phẩm, thiết kế, cung cấp, lắp đặt và chạy thử, đảm bảo chất lượng và hiệu suất tối ưu. Thông tin chi tiết về thiết bị và giải pháp có sẵn trên trang Giải pháp.",
-    "label": "Tìm hiểu thêm về giải pháp của chúng tôi"
+  "survey": {
+    "title": "Kiểm tra & Chứng nhận Hệ thống Hàng hải Hàng năm",
+    "subtitle": "Đảm bảo <b>tuân thủ nghiêm ngặt</b> các yêu cầu của Tổ chức Phân cấp và Quốc tế.",
+    "details": [
+      "Việc duy trì các chứng chỉ hoạt động theo đúng kỳ hạn kiểm tra là <b>yêu cầu pháp lý bắt buộc</b> đối với mọi con tàu. Việc kiểm tra định kỳ không chỉ xác nhận sự tuân thủ mà còn giúp phát hiện sớm các hư hỏng tiềm ẩn, đảm bảo <b>an toàn tuyệt đối</b> khi hành trình.",
+      "Đội ngũ kỹ thuật viên giàu kinh nghiệm của <b>Wheelhouse</b>, kết hợp cùng các đối tác và nhà cung cấp dịch vụ ủy nhiệm uy tín, đảm bảo thực hiện các đợt kiểm tra hàng năm (GMDSS, VDR/S-VDR) một cách <b>nhanh chóng, chính xác</b>, giúp tàu của bạn vượt qua kỳ kiểm tra và nhận được <b>chứng nhận mới</b> đúng thời hạn với hiệu suất cao nhất.",
+      "Kết hợp cùng với <b>dịch vụ sửa chữa uy tín</b>, chúng tôi có thể xử lý vấn đề một cách nhanh chóng nếu bất kỳ thành phần nào của hệ thống không đáp ứng được các tiêu chuẩn của IMO và các tổ chức đăng kiểm, giúp tàu của bạn <b>nhanh chóng</b> trở lên <b>an toàn hơn</b> mà không cần trải qua nhiều khâu khắc phục sự cố."
+    ],
+    "ctaContent": {
+      "title": "Bạn cần lên lịch kiểm tra hàng năm?",
+      "description": "Để đảm bảo các chứng chỉ của tàu không bị gián đoạn, hãy liên hệ với chúng tôi ngay để được tư vấn và lập kế hoạch kiểm tra kịp thời.",
+      "href": "/about#contact",
+      "label": "Tìm hiểu thêm về giải pháp của chúng tôi"
+    }
   }
 }

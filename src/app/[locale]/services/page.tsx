@@ -239,6 +239,46 @@ export default async function ServicesPage(props: {
           </div>
         </div>
       </section>
+      {/** section repairMaintenance **/}
+      <section
+        id="repair-maintenance"
+        className="relative scroll-mt-16 mt-16"
+        aria-label="Repair and Maintenance Services section"
+      >
+        <div className="container-gutter flex flex-col gap-8">
+          <div className="grid grid-cols-12">
+            <div className="col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
+              <h2 className="text-4xl lg:text-6xl font-bold">
+                {t("survey.title")}
+              </h2>
+              {[t.raw("survey.details")].flat().map((_, i: number) => (
+                <p
+                  key={i}
+                  className=" text-justify text-sm sm:text-lg lg:text-2xl"
+                >
+                  {t.rich(`survey.details.${i}`, {
+                    b: (chunks) => (
+                      <strong className="font-bold">{chunks}</strong>
+                    ),
+                  })}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-12 ">
+            <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
+              {t("rm.ctaContent.title")}
+            </p>
+            <Button
+              className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+              href={t("survey.ctaContent.href")}
+            >
+              {t("survey.ctaContent.label")}
+            </Button>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
