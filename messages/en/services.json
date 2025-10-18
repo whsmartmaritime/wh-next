@@ -25,7 +25,6 @@
       }
     ]
   },
-
   "qualityOfService": {
     "title": "Why Our Clients Trust Us",
     "description": [
@@ -78,32 +77,57 @@
     "ctaContent": {
       "title": "Need repair, maintenance, or spare parts?",
       "description": "We are always ready to assist you. Contact us for timely advice and support.",
+      "href": "/about#contact",
       "label": "Book Your Service Now!"
     }
   },
-  "installation": {
-    "title": "Installation",
-    "subtitle": "Supply and installation the <b>maritime electronic equipment</b>.",
-    "ctaLabel": "Learn more about our solutions",
-    "items": {
-      "item1": {
-        "title": "Supply and Installation on Demand",
-        "description": "Whether you require a turnkey solution from supply to installation, or simply need on-site installation of existing equipment, our team ensures that all installation and commissioning processes are carried out according to manufacturer standards and international conventions, guaranteeing that your equipment operates reliably and at peak efficiency.",
-        "imgSrc": "/images/services/wheelhouse-engineer-installing-equipment.webp",
-        "imgAlt": "Wheelhouse technician installing equipment"
+  "install": {
+    "title": "Installation & Deployment",
+    "subtitle": "Deploying <b>marine electronic systems</b>, ensuring high standards and efficiency.",
+    "details": [
+      "The installation process for marine electronic equipment demands precision and strict adherence to Classification Society and manufacturer standards. A system installed with <b>accuracy</b> provides the foundation for the vessel's <b>safe and stable</b> operation.",
+      "The expert engineers at <b>Wheelhouse</b> specialize in deploying complex systems, ranging from new builds to modernization upgrades. We commit to delivering installation solutions that are <b>technically sound, on schedule</b>, and ensure the <b>highest possible efficiency</b>."
+    ],
+    "items": [
+      {
+        "title": "Custom System Installation",
+        "description": [
+          "Whether adding new equipment or integrating existing systems, we conduct detailed surveys, prepare technical drawings, and specific installation plans. Our deployment process strictly complies with all technical requirements, ensuring maximum <b>compatibility</b> and <b>aesthetic integrity</b>.",
+          "Custom installation projects include **communication equipment**, supplemental **navigational instruments**, **power monitoring systems**, and **specialized sensors**."
+        ],
+        "image": {
+          "src": "/images/services/wheelhouse-engineer-installing-ecdis.webp",
+          "alt": "Wheelhouse technician installing ECDIS system"
+        }
       },
-      "item2": {
-        "title": "Retrofit & Modernization",
-        "description": "We support the replacement, modification, or integration of new equipment into existing systems to meet the latest international standards, expand functionality, and optimize operational performance.",
-        "imgSrc": "/images/services/retrofit-modernization.webp",
-        "imgAlt": "Technician upgrading equipment on ship"
+      {
+        "title": "Electronic System Upgrade & Modernization",
+        "description": [
+          "To maintain competitiveness and comply with new industry regulations, equipment upgrades are essential. We provide services to replace legacy systems with the latest technologies.",
+          "We manage the entire upgrade process, from **changeover planning** to sea trials, handover, and crew training, enabling the vessel to quickly access the superior features of modern equipment."
+        ],
+        "image": {
+          "src": "/images/services/wheelhouse-engineer-servicing-navigation-equipment.webp",
+          "alt": "Wheelhouse technician performing system upgrade"
+        }
       },
-      "item3": {
-        "title": "New Build Installation",
-        "description": "From the design phase, we collaborate with the shipyards to optimize system architecture, select equipment, space layout, and equipment integration, ensuring compliance with the international maritime conventions.",
-        "imgSrc": "/images/services/retrofit-modernization.webp",
-        "imgAlt": "Technician installing equipment on ship"
+      {
+        "title": "New Building Installation",
+        "description": [
+          "We engage in new shipbuilding projects from the initial design phase. This early involvement ensures the seamless integration of marine electronic systems into the vessel's structure, strictly complying with **international standards** and owner requirements.",
+          "The service encompasses the complete installation of **Navigation, Communication, Safety Systems, and Electrical Automation**, ensuring the new vessel enters service with optimal technical performance and is ready for Classification Society certification."
+        ],
+        "image": {
+          "src": "/images/services/installing-on-new-ship.webp",
+          "alt": "Wheelhouse technician installing equipment on a new building vessel"
+        }
       }
+    ],
+    "ctaContent": {
+      "title": "",
+      "description": "We offer comprehensive solutions for marine electronic equipment, including product consultation, design, supply, installation, and commissioning. Visit our Solutions page to discover the potential and the latest technologies that can be applied to your vessel.",
+      "href": "/solutions",
+      "label": "Learn More About Our Solutions"
     }
   },
   "annualSurvey": "Annual Survey",

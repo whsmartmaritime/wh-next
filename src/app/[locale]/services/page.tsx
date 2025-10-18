@@ -173,41 +173,70 @@ export default async function ServicesPage(props: {
             </p>
             <Button
               className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-              href={`/about#contactForm`}
+              href={t("rm.ctaContent.href")}
             >
               {t("rm.ctaContent.label")}
             </Button>
           </div>
         </div>
       </section>
-
       {/** section installation **/}
       <section
         id="installation"
-        className="relative container-gutter scroll-mt-16"
+        className="relative scroll-mt-16 mt-16"
         aria-label="Installation Services section"
       >
-        <div className="  grid grid-cols-12 py-12 lg:py-16">
-          <h2 className="text-4xl lg:text-6xl font-bold col-span-12 lg:col-span-6 ">
-            {t("rm.title")}
-          </h2>
-          <p className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-justify whitespace-pre-line  max-w-2xl">
-            {t.rich("installation.subtitle", {
-              b: (chunks) => <strong className="font-bold">{chunks}</strong>,
-            })}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-12  mb-8 lg:mb-16 ">
-          <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
-            {t("ctaContent.description")}
-          </p>
-          <Button
-            className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-            href={`/solutions`}
-          >
-            {t("ctaContent.label")}
-          </Button>
+        <div className="container-gutter flex flex-col gap-8">
+          <div className="grid grid-cols-12">
+            <div className="col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
+              <h2 className="text-4xl lg:text-6xl font-bold">
+                {t("install.title")}
+              </h2>
+              {[t.raw("install.details")].flat().map((_, i: number) => (
+                <p
+                  key={i}
+                  className=" text-justify text-sm sm:text-lg lg:text-2xl"
+                >
+                  {t.rich(`install.details.${i}`, {
+                    b: (chunks) => (
+                      <strong className="font-bold">{chunks}</strong>
+                    ),
+                  })}
+                </p>
+              ))}
+            </div>
+          </div>
+          <ScrollShowcase
+            items={(
+              t.raw("install.items") as Array<{
+                title: string;
+                description: string[];
+                image: { src: string; alt: string };
+              }>
+            ).map((item) => ({
+              title: <h3>{item.title}</h3>,
+              description: item.description.map(
+                (desc: string, descIndex: number) => (
+                  <p
+                    key={descIndex}
+                    dangerouslySetInnerHTML={{ __html: desc }}
+                  />
+                )
+              ),
+              image: { src: item.image.src, alt: item.image.alt },
+            }))}
+          />
+          <div className="grid grid-cols-12 ">
+            <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
+              {t("install.ctaContent.description")}
+            </p>
+            <Button
+              className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+              href={t("install.ctaContent.href")}
+            >
+              {t("install.ctaContent.label")}
+            </Button>
+          </div>
         </div>
       </section>
     </>
