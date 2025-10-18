@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
