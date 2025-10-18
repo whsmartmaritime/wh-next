@@ -168,15 +168,20 @@ export default async function ServicesPage(props: {
             }))}
           />
           <div className="grid grid-cols-12 ">
-            <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
-              {t("rm.ctaContent.title")}
-            </p>
-            <Button
-              className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-              href={t("rm.ctaContent.href")}
-            >
-              {t("rm.ctaContent.label")}
-            </Button>
+            <div className="relative col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
+              <h3 className="text-xl lg:text-3xl font-semibold">
+                {t("rm.ctaContent.title")}
+              </h3>
+              <p className="text-sm sm:text-lg lg:text-2xl">
+                {t("rm.ctaContent.description")}
+              </p>
+              <Button
+                className="w-1/2 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+                href={t("rm.ctaContent.href")}
+              >
+                {t("rm.ctaContent.label")}
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -227,23 +232,28 @@ export default async function ServicesPage(props: {
             }))}
           />
           <div className="grid grid-cols-12 ">
-            <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
-              {t("install.ctaContent.description")}
-            </p>
-            <Button
-              className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-              href={t("install.ctaContent.href")}
-            >
-              {t("install.ctaContent.label")}
-            </Button>
+            <div className="relative col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
+              <h3 className="text-xl lg:text-3xl font-semibold">
+                {t("install.ctaContent.title")}
+              </h3>
+              <p className="text-sm sm:text-lg lg:text-2xl">
+                {t("install.ctaContent.description")}
+              </p>
+              <Button
+                className="w-1/2 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+                href={t("install.ctaContent.href")}
+              >
+                {t("install.ctaContent.label")}
+              </Button>
+            </div>
           </div>
         </div>
       </section>
-      {/** section repairMaintenance **/}
+      {/** section survey **/}
       <section
-        id="repair-maintenance"
+        id="survey"
         className="relative scroll-mt-16 mt-16"
-        aria-label="Repair and Maintenance Services section"
+        aria-label="Survey Services section"
       >
         <div className="container-gutter flex flex-col gap-8">
           <div className="grid grid-cols-12">
@@ -267,15 +277,20 @@ export default async function ServicesPage(props: {
           </div>
 
           <div className="grid grid-cols-12 ">
-            <p className="col-span-12 lg:col-span-6 lg:col-start-4 text-xl lg:text-3xl">
-              {t("rm.ctaContent.title")}
-            </p>
-            <Button
-              className="col-span-12 lg:col-span-6 lg:col-start-4 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-              href={t("survey.ctaContent.href")}
-            >
-              {t("survey.ctaContent.label")}
-            </Button>
+            <div className="relative col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
+              <h3 className="text-xl lg:text-3xl font-semibold">
+                {t("survey.ctaContent.title")}
+              </h3>
+              <p className="text-sm sm:text-lg lg:text-2xl">
+                {t("survey.ctaContent.description")}
+              </p>
+              <Button
+                className="w-1/2 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+                href={t("survey.ctaContent.href")}
+              >
+                {t("survey.ctaContent.label")}
+              </Button>
+            </div>
           </div>
         </div>
       </section>
