@@ -124,7 +124,7 @@ export default async function ServicesPage(props: {
       {/** section repairMaintenance **/}
       <section
         id="repair-maintenance"
-        className="relative scroll-mt-16 mt-16"
+        className="scroll-mt-32 mt-16"
         aria-label="Repair and Maintenance Services section"
       >
         <div className="container-gutter flex flex-col gap-8">
@@ -188,7 +188,7 @@ export default async function ServicesPage(props: {
       {/** section installation **/}
       <section
         id="installation"
-        className="relative scroll-mt-16 mt-16"
+        className="relative scroll-mt-32 mt-16"
         aria-label="Installation Services section"
       >
         <div className="container-gutter flex flex-col gap-8">
@@ -252,7 +252,7 @@ export default async function ServicesPage(props: {
       {/** section survey **/}
       <section
         id="survey"
-        className="relative scroll-mt-16 mt-16"
+        className="relative scroll-mt-32 mt-16"
         aria-label="Survey Services section"
       >
         <div className="container-gutter flex flex-col gap-8">
