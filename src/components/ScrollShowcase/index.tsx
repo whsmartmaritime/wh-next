@@ -54,30 +54,32 @@ export default function ScrollShowcase({
         {items.map((item, index) => (
           <div
             key={index}
-            ref={(el) => {
-              textRefs.current[index] = el;
-            }}
-            className="lg:h-screen flex items-center justify-center"
+            className="lg:min-h-screen flex flex-col gap-8 items-center justify-center lg:before:content-[''] lg:before:block lg:before:h-[50vh] lg:after:content-[''] lg:after:block lg:after:h-[50vh]"
           >
-            <div className="flex flex-col gap-4 lg:gap-8">
-              <div className="text-3xl lg:text-4xl font-bold">{item.title}</div>
-              <div className="flex flex-col text-sm sm:text-lg lg:text-2xl text-justify gap-4">
-                {item.description}
-              </div>
-              <div className="relative w-full aspect-[16/9] lg:hidden">
-                <BackgroundScanline />
-                <Image
-                  key={index}
-                  src={item.image.src}
-                  alt={item.image.alt}
-                  fill
-                  priority={index === 0}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className={`object-cover transition-opacity duration-1000 ease-out p-8 ${
-                    activeIndex === index ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-              </div>
+            <div
+              ref={(el) => {
+                textRefs.current[index] = el;
+              }}
+              className="text-3xl lg:text-4xl font-bold"
+            >
+              {item.title}
+            </div>
+            <div className="flex flex-col text-sm sm:text-lg lg:text-2xl text-justify gap-4">
+              {item.description}
+            </div>
+            <div className="relative w-full aspect-[16/9] lg:hidden">
+              <BackgroundScanline />
+              <Image
+                key={index}
+                src={item.image.src}
+                alt={item.image.alt}
+                fill
+                priority={index === 0}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className={`object-cover transition-opacity duration-1000 ease-out p-8 ${
+                  activeIndex === index ? "opacity-100" : "opacity-0"
+                }`}
+              />
             </div>
           </div>
         ))}
