@@ -29,16 +29,16 @@
   "qualityOfService": {
     "title": "Why Our Clients Trust Us",
     "description": [
-      "Wheelhouse not only delivers <bold>high-quality services</bold> but also accompanies clients comprehensively throughout their entire journey. Our <bold>experienced engineers</bold> proactively identify and strive to resolve issues before they impact equipment operations.",
-      "With <bold>dedication, expertise</bold>, and smart workflows, clients can be fully confident that every need is <bold>prioritized</bold>, and <bold>service quality</bold> is consistently maintained at the <bold>highest level</bold>."
+      "Wheelhouse not only delivers <b>high-quality services</b> but also accompanies clients comprehensively throughout their entire journey. Our <b>experienced engineers</b> proactively identify and strive to resolve issues before they impact equipment operations.",
+      "With <b>dedication, expertise</b>, and smart workflows, clients can be fully confident that every need is <b>prioritized</b>, and <b>service quality</b> is consistently maintained at the <b>highest level</b>."
     ]
   },
   "rm": {
     "title": "Repair & Maintenance",
-    "subtitle": "Professional repair and maintenance services for <bold>maritime electronic equipment</bold>.",
+    "subtitle": "Professional repair and maintenance services for <b>maritime electronic equipment</b>.",
     "details": [
-      "A ship's officer in today's maritime environment relies on a wide range of <bold>marine electronic equipment</bold> to ensure the safety of the vessel and its crew, while successfully completing missions at sea. Cutting-edge marine electronics has made the journey at sea <bold>smoother and safer</bold>.",
-      "You need the best services to keep your ship’s equipment in optimal working order without negatively impacting your financial bottom line. Wheelhouse is ready to provide <bold>maintenance and repair services</bold> that ensure your equipment operates reliably and efficiently, at the <bold>most cost-effective approach possible</bold>."
+      "A ship's officer in today's maritime environment relies on a wide range of <b>marine electronic equipment</b> to ensure the safety of the vessel and its crew, while successfully completing missions at sea. Cutting-edge marine electronics has made the journey at sea <b>smoother and safer</b>.",
+      "You need the best services to keep your ship’s equipment in optimal working order without negatively impacting your financial bottom line. Wheelhouse is ready to provide <b>maintenance and repair services</b> that ensure your equipment operates reliably and efficiently, at the <b>most cost-effective approach possible</b>."
     ],
     "items": [
       {
@@ -83,7 +83,7 @@
   },
   "installation": {
     "title": "Installation",
-    "subtitle": "Supply and installation the <bold>maritime electronic equipment</bold>.",
+    "subtitle": "Supply and installation the <b>maritime electronic equipment</b>.",
     "ctaLabel": "Learn more about our solutions",
     "items": {
       "item1": {

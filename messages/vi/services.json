@@ -30,16 +30,16 @@
   "qualityOfService": {
     "title": "Tại sao khách hàng tin tưởng chúng tôi",
     "description": [
-      "Wheelhouse không chỉ cung cấp <bold>dịch vụ chất lượng cao</bold>, mà còn đồng hành cùng khách hàng trong suốt hành trình. Đội ngũ kỹ sư <bold>giàu kinh nghiệm</bold> của chúng tôi chủ động phát hiện và cố gắng giải quyết vấn đề trước khi ảnh hưởng đến vận hành thiết bị.",
-      "Nhờ sự <bold>tận tâm, chuyên môn</bold> và quy trình làm việc thông minh, khách hàng có thể hoàn toàn yên tâm rằng mọi nhu cầu đều được <bold>ưu tiên hàng đầu</bold>, và <bold>chất lượng dịch vụ</bold> luôn được duy trì ở mức <bold>cao nhất</bold>."
+      "Wheelhouse không chỉ cung cấp <b>dịch vụ chất lượng cao</b>, mà còn đồng hành cùng khách hàng trong suốt hành trình. Đội ngũ kỹ sư <b>giàu kinh nghiệm</b> của chúng tôi chủ động phát hiện và cố gắng giải quyết vấn đề trước khi ảnh hưởng đến vận hành thiết bị.",
+      "Nhờ sự <b>tận tâm, chuyên môn</b> và quy trình làm việc thông minh, khách hàng có thể hoàn toàn yên tâm rằng mọi nhu cầu đều được <b>ưu tiên hàng đầu</b>, và <b>chất lượng dịch vụ</b> luôn được duy trì ở mức <b>cao nhất</b>."
     ]
   },
   "rm": {
     "title": "Sửa chữa & Bảo dưỡng",
-    "subtitle": "Dịch vụ sửa chữa và bảo dưỡng chuyên nghiệp cho <bold>thiết bị điện tử hàng hải</bold>.",
+    "subtitle": "Dịch vụ sửa chữa và bảo dưỡng chuyên nghiệp cho <b>thiết bị điện tử hàng hải</b>.",
     "details": [
-      "Sĩ quan vận hành trong môi trường hàng hải ngày nay dựa vào một loạt các <bold>thiết bị điện tử hàng hải</bold> để đảm bảo an toàn cho con tàu và thủy thủ đoàn, đồng thời hoàn thành chuyến đi một cách nhanh chóng. Các thiết bị điện tử tiên tiến đã làm cho hành trình trên biển <bold>dễ dàng và an toàn hơn</bold>.",
-      "Bạn cần các dịch vụ tốt nhất cho các thiết bị điện tử trên tàu để duy trì tình trạng hoạt động ổn định và ảnh hưởng nhỏ nhất đến lợi nhuận tài chính của bạn. <bold>Wheelhouse</bold> sẵn lòng cung cấp cho bạn những dịch vụ <bold>sửa chữa, bảo dưỡng</bold> các thiết bị nhằm đạt được mục đích trên với <bold>chi phí tiết kiệm nhất có thể</bold>."
+      "Sĩ quan vận hành trong môi trường hàng hải ngày nay dựa vào một loạt các <b>thiết bị điện tử hàng hải</b> để đảm bảo an toàn cho con tàu và thủy thủ đoàn, đồng thời hoàn thành chuyến đi một cách nhanh chóng. Các thiết bị điện tử tiên tiến đã làm cho hành trình trên biển <b>dễ dàng và an toàn hơn</b>.",
+      "Bạn cần các dịch vụ tốt nhất cho các thiết bị điện tử trên tàu để duy trì tình trạng hoạt động ổn định và ảnh hưởng nhỏ nhất đến lợi nhuận tài chính của bạn. <b>Wheelhouse</b> sẵn lòng cung cấp cho bạn những dịch vụ <b>sửa chữa, bảo dưỡng</b> các thiết bị nhằm đạt được mục đích trên với <b>chi phí tiết kiệm nhất có thể</b>."
     ],
     "items": [
       {
@@ -82,9 +82,57 @@
       "label": "Yêu cầu dịch vụ ngay!"
     }
   },
+  "install": {
+    "title": "Lắp đặt & Triển khai",
+    "subtitle": "Triển khai hệ thống <b>điện tử hàng hải</b>, đảm bảo tiêu chuẩn và hiệu suất cao.",
+    "details": [
+      "Quá trình lắp đặt thiết bị điện tử hàng hải đòi hỏi sự chính xác tuyệt đối, tuân thủ nghiêm ngặt các tiêu chuẩn của Tổ chức Phân cấp và nhà sản xuất. Một hệ thống được lắp đặt <b>chính xác</b> sẽ là nền tảng cho sự vận hành <b>an toàn và ổn định</b> của con tàu.",
+      "Đội ngũ kỹ sư của <b>Wheelhouse</b> chuyên sâu trong việc triển khai các hệ thống phức tạp, từ tàu đóng mới đến nâng cấp hiện đại hóa. Chúng tôi cam kết mang lại giải pháp lắp đặt <b>đúng kỹ thuật, đúng tiến độ</b> với <b>hiệu suất tối ưu</b>."
+    ],
+    "items": [
+      {
+        "title": "Lắp đặt Hệ thống theo Yêu cầu Khách hàng",
+        "description": [
+          "Dù là lắp đặt thêm thiết bị mới hay tích hợp các hệ thống đã có, chúng tôi đều thực hiện khảo sát chi tiết, lập bản vẽ kỹ thuật và phương án lắp đặt cụ thể. Quy trình triển khai của chúng tôi tuân thủ mọi yêu cầu kỹ thuật, đảm bảo <b>tính tương thích</b> và <b>tính thẩm mỹ</b> cao nhất.",
+          "Các hạng mục lắp đặt theo yêu cầu bao gồm thiết bị <b>thông tin liên lạc</b>, <b>nghi khí hàng hải</b> bổ sung, các hệ thống <b>giám sát năng lượng</b> và <b>cảm biến chuyên dụng</b>."
+        ],
+        "image": {
+          "src": "/images/services/wheelhouse-engineer-custom-install.webp",
+          "alt": "Kỹ thuật viên Wheelhouse lắp đặt hệ thống theo yêu cầu"
+        }
+      },
+      {
+        "title": "Nâng cấp & Hiện đại hóa Hệ thống Điện tử",
+        "description": [
+          "Để duy trì khả năng cạnh tranh và đáp ứng các quy định mới của ngành, việc nâng cấp thiết bị là rất cần thiết. Chúng tôi cung cấp dịch vụ thay thế các hệ thống cũ bằng các công nghệ mới nhất, như chuyển đổi từ la bàn từ sang <b>la bàn điện tử</b> hoặc nâng cấp hệ thống <b>AIS/ECDIS</b>.",
+          "Chúng tôi quản lý toàn bộ quá trình nâng cấp, từ việc <b>lập kế hoạch chuyển đổi</b> đến chạy thử, bàn giao và huấn luyện thuyền viên, giúp tàu nhanh chóng tiếp cận hiệu suất và tính năng vượt trội của thiết bị hiện đại."
+        ],
+        "image": {
+          "src": "/images/services/wheelhouse-engineer-upgrade-modernization.webp",
+          "alt": "Kỹ thuật viên Wheelhouse thực hiện nâng cấp hệ thống"
+        }
+      },
+      {
+        "title": "Lắp đặt Tàu đóng mới (New Building Installation)",
+        "description": [
+          "Chúng tôi tham gia vào các dự án đóng tàu mới ngay từ giai đoạn thiết kế ban đầu. Sự tham gia sớm này đảm bảo việc tích hợp hoàn hảo các hệ thống điện tử hàng hải vào cấu trúc tàu, tuân thủ chặt chẽ các <b>quy chuẩn quốc tế</b> và yêu cầu của chủ tàu.",
+          "Dịch vụ bao gồm việc lắp đặt toàn bộ các hệ thống <b>Hàng hải, Thông tin liên lạc, Tự động hóa Buồng máy và Điện Động lực</b>, đảm bảo tàu mới ra đời với hiệu suất kỹ thuật tối ưu và sẵn sàng được Tổ chức Phân cấp chứng nhận."
+        ],
+        "image": {
+          "src": "/images/services/wheelhouse-engineer-new-building-install.webp",
+          "alt": "Kỹ thuật viên Wheelhouse lắp đặt thiết bị trên tàu đóng mới"
+        }
+      }
+    ],
+    "ctaContent": {
+      "title": "Bạn cần một giải pháp triển khai hệ thống mới?",
+      "description": "Hãy để các chuyên gia của chúng tôi tư vấn về giải pháp lắp đặt tối ưu cho con tàu của bạn. Liên hệ ngay!",
+      "label": "Yêu cầu tư vấn ngay!"
+    }
+  },
   "installation": {
     "title": "Dịch vụ lắp đặt",
-    "subtitle": "Cung cấp và lắp đặt các <bold>thiết bị điện tử hàng hải</bold>.",
+    "subtitle": "Cung cấp và lắp đặt các <b>thiết bị điện tử hàng hải</b>.",
     "items": {
       "item1": {
         "title": "Cung cấp và lắp đặt theo yêu cầu",

@@ -110,7 +110,7 @@ export default async function ServicesPage(props: {
                     className="block text-sm sm:text-lg lg:text-3xl text-justify "
                   >
                     {t.rich(`qualityOfService.description.${i}`, {
-                      bold: (chunks) => (
+                      b: (chunks) => (
                         <strong className="font-bold">{chunks}</strong>
                       ),
                     })}
@@ -139,7 +139,7 @@ export default async function ServicesPage(props: {
                   className=" text-justify text-sm sm:text-lg lg:text-2xl"
                 >
                   {t.rich(`rm.details.${i}`, {
-                    bold: (chunks) => (
+                    b: (chunks) => (
                       <strong className="font-bold">{chunks}</strong>
                     ),
                   })}
@@ -193,7 +193,7 @@ export default async function ServicesPage(props: {
           </h2>
           <p className="col-span-12 lg:col-span-3 lg:col-start-10 text-lg lg:text-xl text-justify whitespace-pre-line  max-w-2xl">
             {t.rich("installation.subtitle", {
-              bold: (chunks) => <strong className="font-bold">{chunks}</strong>,
+              b: (chunks) => <strong className="font-bold">{chunks}</strong>,
             })}
           </p>
         </div>
