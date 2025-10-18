@@ -151,12 +151,19 @@ export default async function ServicesPage(props: {
             items={(
               t.raw("rm.items") as Array<{
                 title: string;
-                description: string;
+                description: string[];
                 image: { src: string; alt: string };
               }>
             ).map((item) => ({
               title: <h3>{item.title}</h3>,
-              description: <p>{item.description}</p>,
+              description: item.description.map(
+                (desc: string, descIndex: number) => (
+                  <p
+                    key={descIndex}
+                    dangerouslySetInnerHTML={{ __html: desc }}
+                  />
+                )
+              ),
               image: { src: item.image.src, alt: item.image.alt },
             }))}
           />

@@ -42,27 +42,36 @@
     ],
     "items": [
       {
-        "title": "High-quality repair services",
-        "description": "With a skilled technical team and thorough preparation—including planning, execution procedures, and spare parts—repair work is carried out on schedule, meeting technical requirements and ensuring high quality standards",
+        "title": "Fast, Effective Repairs with Optimized Cost-Efficiency",
+        "description": [
+          "With a highly skilled technical team and meticulous preparation—including detailed planning, execution methods, and high-quality spare parts—we commit to completing all repair work on time, meeting the most stringent technical requirements, and ensuring superior quality.",
+          "Our repair service scope covers all critical marine electrical and electronic systems, from essential <b>navigational instruments</b> like radar and positioning devices, to modern <b>communication solutions</b> such as GMDSS and VSAT. We also specialize in <b>engine room electrical automation</b> (including boilers and main switchboards) and resolve any issues related to <b>deck equipment</b> (such as cranes and cargo hold sensors). We are always prepared to support all specific needs of every vessel."
+        ],
         "image": {
           "src": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
           "alt": "wheelhouse service engineer repairing VSAT"
         }
       },
       {
-        "title": "Comprehensive maintenance solutions",
-        "description": "Shipboard equipment and systems require regular maintenance to extend their lifespan, maintain stability, and ensure safe operation.",
+        "title": "Optimizing Reliability and Extending Service Life with Standardized Routine Maintenance.",
+        "description": [
+          "All onboard equipment and systems require maintenance conducted on schedule and to standard specifications to maximize their lifespan, sustain operational stability, and ensure absolute safety throughout the voyage.",
+          "Our maintenance scope covers systems requiring scheduled part replacement: Equipment within the <b>Communication Systems</b> (GMDSS), <b>Navigational Instruments</b> (RADAR, Gyrocompass), and <b>Electrical Distribution</b> systems (Main Switchboards, emergency battery banks...). We apply maintenance procedures in compliance with manufacturer recommendations and Classification Society rules."
+        ],
         "image": {
           "src": "/images/services/wheelhouse-engineer-in-ship-bridge.webp",
           "alt": "wheelhouse engineer performing maintenance"
         }
       },
       {
-        "title": "24/7 remote technical support",
-        "description": "We provide user guidance, scheduled maintenance, as well as prompt consultation and troubleshooting to optimize operational performance.",
+        "title": "Technical Support: Fast and Efficient",
+        "description": [
+          "The primary challenge for operating officers is maximizing the functionality of equipment, especially new technologies, while ensuring their longest possible service life. Our dedicated support team is established to help you decisively overcome this challenge.",
+          "By choosing our services, you gain access to knowledge on the latest technologies in the marine electronics industry, along with standardized troubleshooting methods provided directly by the equipment manufacturers."
+        ],
         "image": {
-          "src": "/images/services/wheelhouse-engineer-remote-supporting.webp",
-          "alt": "wheelhouse technician supporting up via internet"
+          "src": "/images/services/wheelhouse-engineer-supporting.webp",
+          "alt": "wheelhouse technician remoting support"
         }
       }
     ],

@@ -6,7 +6,7 @@
     "slug": "dich-vu"
   },
   "hero": {
-    "title": "Dịch Vụ Điện tử Hàng hải",
+    "title": "Vụ Điện Tử Hàng Hải",
     "subtitle": "Dịch vụ chuyên nghiệp cho thiết bị điện tử hàng hải.",
     "images": {
       "back": {
@@ -44,33 +44,34 @@
     "items": [
       {
         "title": "Sửa chữa nhanh chóng, hiệu quả với chi phí tối ưu",
-        "description": "Với đội kỹ thuật lành nghề và chuẩn bị kỹ lưỡng—bao gồm kế hoạch, phương án thực hiện và vật tư phụ tùng—công việc sửa chữa được thực hiện đúng tiến độ, đáp ứng yêu cầu kỹ thuật và đảm bảo chất lượng cao.",
+        "description": [
+          "Với đội ngũ kỹ thuật lành nghề cùng sự chuẩn bị kỹ lưỡng—bao gồm kế hoạch chi tiết, phương án thực hiện và vật tư phụ tùng chất lượng cao—chúng tôi cam kết mọi công việc sửa chữa đều được hoàn thành đúng tiến độ, đáp ứng các yêu cầu kỹ thuật khắt khe nhất và đảm bảo chất lượng vượt trội.",
+          "Phạm vi dịch vụ sửa chữa của chúng tôi bao trùm toàn bộ các hệ thống điện tử hàng hải quan trọng, từ <b>nghi khí hàng hải</b> thiết yếu như radar, định vị, cho đến các giải pháp <b>thông tin liên lạc</b> hiện đại như GMDSS, VSAT. Chúng tôi đồng thời chuyên sâu trong lĩnh vực <b>điện tự động buồng máy</b> (bao gồm nồi hơi, bảng điện chính) và xử lý mọi sự cố liên quan đến <b>thiết bị boong</b> (như cần cẩu và cảm biến hầm hàng). Chúng tôi luôn sẵn sàng hỗ trợ mọi nhu cầu đặc thù trên từng con tàu."
+        ],
         "image": {
           "src": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
           "alt": "Kỹ thuật viên Wheelhouse sửa chữa VSAT"
         }
       },
       {
-        "title": "Bảo dưỡng định kỳ để duy trì độ tin cậy và kéo dài tuổi thọ.",
-        "description": "Các thiết bị, hệ thống trang bị trên tàu, cần được bảo dưỡng đúng kỳ hạn, để kéo dài tuổi thọ, tăng sự ổn định, và đảm bảo an toàn khi tàu hành trình.",
+        "title": "Tối ưu độ tin cậy và Kéo dài tuổi thọ bằng Bảo dưỡng Định kỳ.",
+        "description": [
+          "Mọi thiết bị và hệ thống trên tàu đều cần được bảo dưỡng theo đúng kỳ hạn tiêu chuẩn để tối đa hóa tuổi thọ, duy trì sự ổn định vận hành, và đảm bảo an toàn tuyệt đối trong suốt hành trình.",
+          "Phạm vi bảo dưỡng bao trùm các hệ thống cần thay thế phụ tùng định kỳ: Các thiết bị trong <b>Hệ thống Thông tin liên lạc</b> (GMDSS), <b>Nghi khí Hàng hải</b> (RADAR, La bàn con quay), và các hệ thống <b>Phân phối Điện</b> (Bảng điện chính, Ắc-quy dự phòng...). Chúng tôi áp dụng quy trình bảo dưỡng phù hợp với khuyến nghị của nhà sản xuất và quy định của Tổ chức Phân cấp."
+        ],
         "image": {
           "src": "/images/services/wheelhouse-engineer-in-ship-bridge.webp",
           "alt": "Kỹ thuật viên Wheelhouse thực hiện bảo dưỡng"
         }
       },
       {
-        "title": "Cung cấp và lắp đặt theo yêu cầu",
-        "description": "Chúng tôi cung cấp hướng dẫn sử dụng, bảo trì định kỳ, cũng như tư vấn và xử lý sự cố nhanh chóng để tối ưu hiệu suất vận hành",
+        "title": "Hỗ trợ Kỹ thuật: Nhanh chóng và Hiệu quả",
+        "description": [
+          "Khó khăn lớn nhất của Sĩ quan vận hành là làm thế nào để tận dụng tối đa các tính năng của thiết bị, đặc biệt là công nghệ mới, và đồng thời đảm bảo tuổi thọ dài nhất cho chúng. Đội ngũ hỗ trợ chuyên nghiệp của chúng tôi được thiết lập để giúp bạn giải quyết triệt để vấn đề này.",
+          "Đến với chúng tôi, bạn sẽ được tiếp cận với kiến thức về các công nghệ mới nhất trong ngành điện tử hàng hải, cũng như các phương pháp xử lý sự cố chuẩn mực được chuyển giao trực tiếp từ các nhà sản xuất thiết bị hàng đầu."
+        ],
         "image": {
-          "src": "/images/services/wheelhouse-engineer-installing-equipment.webp",
-          "alt": "Kỹ thuật viên Wheelhouse hỗ trợ từ xa"
-        }
-      },
-      {
-        "title": "Hỗ trợ kỹ thuật nhanh chóng, hiệu quả từ xa",
-        "description": "Chúng tôi cung cấp hướng dẫn sử dụng, bảo trì định kỳ, cũng như tư vấn và xử lý sự cố nhanh chóng để tối ưu hiệu suất vận hành",
-        "image": {
-          "src": "/images/services/wheelhouse-engineer-installing-equipment.webp",
+          "src": "/images/services/wheelhouse-engineer-supporting.webp",
           "alt": "Kỹ thuật viên Wheelhouse hỗ trợ từ xa"
         }
       }

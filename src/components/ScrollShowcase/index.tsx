@@ -59,7 +59,7 @@ export default function ScrollShowcase({
           >
             <div className="flex flex-col gap-4 lg:gap-8">
               <div className="text-4xl font-bold">{item.title}</div>
-              <div>{item.description}</div>
+              <div className="flex flex-col gap-4">{item.description}</div>
               <div className="relative w-full aspect-[16/9] lg:hidden">
                 <BackgroundScanline />
                 <Image
@@ -81,7 +81,7 @@ export default function ScrollShowcase({
       </div>
 
       {/* Pinned Image Container */}
-      <div className="sticky top-0 h-screen lg:col-span-7 lg:col-start-6 flex items-center justify-end relative order-2 hidden lg:block">
+      <div className="sticky top-0 h-screen lg:col-span-7 lg:col-start-6  items-center justify-end relative order-2 hidden lg:flex">
         <BackgroundScanline
           opacity={0.1}
           className="inset-auto w-6/7 h-full"

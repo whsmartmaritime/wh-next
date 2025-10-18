@@ -31,9 +31,7 @@ export default function Hero({
   isHome = false,
 }: HeroProps) {
   return (
-    <div
-      className={`relative grid grid-cols-12 gap-8 items-center ${className}`}
-    >
+    <div className={`relative grid grid-cols-12 items-center ${className}`}>
       <div className="col-span-12 lg:col-span-3 flex flex-col gap-8">
         <div className="text-3xl lg:text-5xl xl:text-7xl font-semibold leading-tight tracking-tight text-balance w-full lg:w-[150%]">
           {title}
@@ -61,7 +59,7 @@ export default function Hero({
         )}
       </div>
 
-      <div className="relative col-span-12 lg:col-span-7 lg:col-start-6 ">
+      <div className="relative col-span-12 lg:col-span-7 lg:col-start-6 mt-8">
         <div className="relative w-full lg:w-[calc(var(--column)*10)] aspect-[16/9] ">
           {images.fore && (
             <div
