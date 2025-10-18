@@ -47,7 +47,9 @@ export default function ScrollShowcase({
   }, [items.length]);
 
   return (
-    <div className={`relative grid grid-cols-1 lg:grid-cols-12 ${className}`}>
+    <article
+      className={`relative grid grid-cols-1 lg:grid-cols-12 ${className}`}
+    >
       <div className="lg:col-span-4 order-1">
         {items.map((item, index) => (
           <div
@@ -71,10 +73,9 @@ export default function ScrollShowcase({
                   fill
                   priority={index === 0}
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-opacity duration-300 p-8"
-                  style={{
-                    opacity: activeIndex === index ? 1 : 0,
-                  }}
+                  className={`object-cover transition-opacity duration-1000 ease-out p-8 ${
+                    activeIndex === index ? "opacity-100" : "opacity-0"
+                  }`}
                 />
               </div>
             </div>
@@ -98,14 +99,15 @@ export default function ScrollShowcase({
               fill
               priority={index === 0}
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover transition-opacity duration-300"
-              style={{
-                opacity: activeIndex === index ? 1 : 0,
-              }}
+              className={`object-cover transition-all duration-1000 ease-out ${
+                activeIndex === index
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-[-30px]"
+              }`}
             />
           ))}
         </div>
       </div>
-    </div>
+    </article>
   );
 }
