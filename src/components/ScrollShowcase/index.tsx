@@ -58,8 +58,10 @@ export default function ScrollShowcase({
             className="lg:h-screen flex items-center justify-center"
           >
             <div className="flex flex-col gap-4 lg:gap-8">
-              <div className="text-4xl font-bold">{item.title}</div>
-              <div className="flex flex-col gap-4">{item.description}</div>
+              <div className="text-3xl lg:text-4xl font-bold">{item.title}</div>
+              <div className="flex flex-col text-sm sm:text-lg lg:text-2xl text-justify gap-4">
+                {item.description}
+              </div>
               <div className="relative w-full aspect-[16/9] lg:hidden">
                 <BackgroundScanline />
                 <Image
