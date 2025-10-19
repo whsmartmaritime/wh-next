@@ -6,7 +6,7 @@ import ContactInfo from "@/components/ContactInfo";
 import LogoSvg from "@/components/LogoSvg";
 
 export default async function footer() {
-  const t = await getTranslations("footer");
+  const t = await getTranslations("common");
   const year = new Date().getFullYear();
   return (
     <footer className="relative bg-black text-white/60  overflow-hidden pt-32 pb-24">
@@ -19,9 +19,11 @@ export default async function footer() {
               <Link href="/" className="inline-block">
                 <LogoSvg className="h-10 w-auto" />
               </Link>
-              <h2 className="text-2xl font-bold mt-4">{t("companyName")}</h2>
+              <h2 className="text-2xl font-bold mt-4">
+                {t("brand.companyName")}
+              </h2>
             </div>
-            <p className=" mb-6 leading-relaxed">{t("description")}</p>
+            <p className=" mb-6 leading-relaxed">{t("brand.description")}</p>
             {/*  <div aria-label="Social Media Links" className="flex space-x-4">
               <Link
                 href="#"
@@ -81,7 +83,7 @@ export default async function footer() {
           {/* Quick Links */}
           <nav aria-label="Quick Links">
             <h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
-              {t("quickLinks", { defaultValue: "Quick Links" })}
+              {t("common.quickLinks", { defaultValue: "Quick Links" })}
             </h3>
             <ul className="space-y-3">
               <li>
@@ -89,7 +91,7 @@ export default async function footer() {
                   href="/about"
                   className="text-white/60 hover:text-white transition-colors"
                 >
-                  {t("about", { defaultValue: "About Us" })}
+                  {t("nav.about", { defaultValue: "About Us" })}
                 </Link>
               </li>
               <li>
@@ -97,7 +99,7 @@ export default async function footer() {
                   href="/services"
                   className="text-white/60 hover:text-white transition-colors"
                 >
-                  {t("services", { defaultValue: "Services" })}
+                  {t("nav.services.title", { defaultValue: "Services" })}
                 </Link>
               </li>
               <li>
@@ -105,7 +107,7 @@ export default async function footer() {
                   href="/solutions"
                   className="text-white/60 hover:text-white transition-colors"
                 >
-                  {t("solutions", { defaultValue: "Solutions" })}
+                  {t("nav.solutions.title", { defaultValue: "Solutions" })}
                 </Link>
               </li>
 
@@ -114,7 +116,7 @@ export default async function footer() {
                   href="/about#contact"
                   className="text-white/60 hover:text-white transition-colors"
                 >
-                  {t("contact", { defaultValue: "Contact" })}
+                  {t("nav.contact", { defaultValue: "Contact" })}
                 </Link>
               </li>
             </ul>
@@ -123,7 +125,9 @@ export default async function footer() {
           {/* Services */}
           <nav aria-label="Services and Solutions">
             <h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
-              {t("ssTitle", { defaultValue: "Services & Solutions" })}
+              {t("common.servicesAndSolutions", {
+                defaultValue: "Services & Solutions",
+              })}
             </h3>
             <ul className="space-y-3">
               <li>
@@ -131,7 +135,7 @@ export default async function footer() {
                   href="/services#repair"
                   className="text-white/60 hover:text-white transition-colors"
                 >
-                  {t("repairMaintenance", {
+                  {t("nav.services.repairMaintenance", {
                     defaultValue: "Repair & Maintenance",
                   })}
                 </Link>
@@ -142,7 +146,9 @@ export default async function footer() {
                   href="/solutions/navigation"
                   className="text-white/60 hover:text-white transition-colors"
                 >
-                  {t("navigation", { defaultValue: "Navigation Systems" })}
+                  {t("nav.solutions.navigation", {
+                    defaultValue: "Navigation Systems",
+                  })}
                 </Link>
               </li>
               <li>
@@ -150,7 +156,7 @@ export default async function footer() {
                   href="/solutions/gmdss"
                   className="text-white/60 hover:text-white transition-colors"
                 >
-                  {t("gmdss", { defaultValue: "GMDSS" })}
+                  {t("nav.solutions.gmdss", { defaultValue: "GMDSS" })}
                 </Link>
               </li>
 
@@ -159,7 +165,7 @@ export default async function footer() {
                   href="/solutions/connectivity"
                   className="text-white/60 hover:text-white transition-colors"
                 >
-                  {t("connectivity", {
+                  {t("nav.solutions.connectivity", {
                     defaultValue: "Connectivity Solutions",
                   })}
                 </Link>
@@ -170,7 +176,7 @@ export default async function footer() {
           {/* Contact Info */}
           <div>
             <h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
-              {t("contactInfo", { defaultValue: "Contact Info" })}
+              {t("common.contactInfo", { defaultValue: "Contact Info" })}
             </h3>
             <div className="space-y-4">
               <ContactInfo />
@@ -183,7 +189,9 @@ export default async function footer() {
       <div className="relative z-30 border-t border-white/10 container-gutter py-6">
         <div className="md:flex md:items-center md:justify-between text-sm text-white/60">
           <div className="mb-4 md:mb-0">
-            <p>© {year} Wheelhouse Co.,Ltd. All rights reserved.</p>
+            <p>
+              © {year} Wheelhouse Co.,Ltd. {t("common.allRightsReserved")}
+            </p>
           </div>
           {/* <div className="flex flex-wrap gap-6">
               <Link href="/privacy-policy" className="hover:text-white transition-colors">

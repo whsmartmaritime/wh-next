@@ -14,12 +14,12 @@ export default async function LogoSvg({
       viewBox="0 0 100 25"
       className={`text-current ${className}`}
       role="img"
-      aria-label={t("logoAlt")}
+      aria-label={t("brand.logo.alt")}
       aria-labelledby="logoTitle logoDesc"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <title id="logoTitle">{t("logoTitle")}</title>
-      <desc id="logoDesc">{t("logoDesc")}</desc>
+      <title id="logoTitle">{t("brand.logo.title")}</title>
+      <desc id="logoDesc">{t("brand.logo.desc")}</desc>
       <text
         x="0.29"
         y="14.97"

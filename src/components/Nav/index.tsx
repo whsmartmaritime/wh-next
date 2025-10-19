@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
 export default async function NavMenu() {
-  const t = await getTranslations("header");
+  const t = await getTranslations("common");
   return (
     <>
       <ul aria-label="Main menu" className="flex">
@@ -55,7 +55,7 @@ export default async function NavMenu() {
                 href={{ pathname: "/services", hash: "repair-maintenance" }}
                 className="block px-4 py-2 hover:bg-gray-100"
               >
-                {t("nav.services.repair-maintenance")}
+                {t("nav.services.repairMaintenance")}
               </Link>
             </li>
             <li>
@@ -71,7 +71,7 @@ export default async function NavMenu() {
                 href={{ pathname: "/services", hash: "survey" }}
                 className="block px-4 py-2 hover:bg-gray-100"
               >
-                {t("nav.services.annual-survey")}
+                {t("nav.services.annualSurvey")}
               </Link>
             </li>
           </ul>
