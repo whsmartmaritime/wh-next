@@ -49,7 +49,12 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   return (
-    <html className="scroll-smooth" lang={locale} suppressHydrationWarning>
+    <html
+      className="scroll-smooth"
+      data-scroll-behavior="smooth"
+      lang={locale}
+      suppressHydrationWarning
+    >
       <body>{children}</body>
     </html>
   );
