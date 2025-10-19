@@ -21,8 +21,8 @@ const withMDX = createMDX({
 
 const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  htmlLimitedBots: /.*/,
   async headers() {
-    // Skip CSP in development to avoid conflicts with Next.js built-in CSP
     const isProduction = process.env.NODE_ENV === "production";
 
     if (!isProduction) {
