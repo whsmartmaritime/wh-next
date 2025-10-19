@@ -1,9 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import Image from "next/image";
 import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { LogoEffect } from "./LogoEffect";
 import ContactInfo from "@/components/ContactInfo";
+import LogoSvg from "@/components/LogoSvg";
 
 export default async function footer() {
   const t = await getTranslations("footer");
@@ -17,13 +17,7 @@ export default async function footer() {
           <div className="lg:col-span-1">
             <div className="mb-6">
               <Link href="/" className="inline-block">
-                <Image
-                  src="/images/whlogo.svg"
-                  alt="Wheelhouse Logo"
-                  width={160}
-                  height={40}
-                  className="h-10 w-auto"
-                />
+                <LogoSvg className="h-10 w-auto" />
               </Link>
               <h2 className="text-2xl font-bold mt-4">{t("companyName")}</h2>
             </div>

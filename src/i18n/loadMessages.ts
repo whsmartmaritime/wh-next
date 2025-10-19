@@ -1,6 +1,7 @@
 // Static JSON imports (no fs) so it works on Edge/Serverless and during SSG
 // EN
 import en_about from "@messages/en/about.json";
+import en_common from "@messages/en/common.json";
 import en_entry from "@messages/en/entry.json";
 import en_footer from "@messages/en/footer.json";
 import en_header from "@messages/en/header.json";
@@ -15,6 +16,7 @@ import en_solutions_navigation from "@messages/en/solutions/navigation.json";
 
 // VI
 import vi_about from "@messages/vi/about.json";
+import vi_common from "@messages/vi/common.json";
 import vi_entry from "@messages/vi/entry.json";
 import vi_footer from "@messages/vi/footer.json";
 import vi_header from "@messages/vi/header.json";
@@ -30,6 +32,7 @@ import vi_solutions_navigation from "@messages/vi/solutions/navigation.json";
 const MAP: Record<string, Record<string, unknown>> = {
   en: {
     about: en_about,
+    common: en_common,
     entry: en_entry,
     footer: en_footer,
     header: en_header,
@@ -44,6 +47,7 @@ const MAP: Record<string, Record<string, unknown>> = {
   },
   vi: {
     about: vi_about,
+    common: vi_common,
     entry: vi_entry,
     footer: vi_footer,
     header: vi_header,
