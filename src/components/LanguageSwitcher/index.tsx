@@ -1,14 +1,13 @@
 "use client";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { usePathname } from "@/i18n/navigation";
-
 export default function LanguageSwitcher() {
   const pathname = usePathname();
-
   return (
     <div className="flex gap-2 items-end">
       <Link
-        href={`/vi${pathname}`}
+        href={pathname}
+        locale="vi"
         className="w-5 h-3 text-md font-normal opacity-70 hover:opacity-100 transition-opacity"
       >
         <svg
@@ -25,7 +24,8 @@ export default function LanguageSwitcher() {
         </svg>
       </Link>
       <Link
-        href={`/en${pathname}`}
+        href={pathname}
+        locale="en"
         className="w-5 h-3 text-md font-normal opacity-70 hover:opacity-100 transition-opacity"
       >
         <svg
