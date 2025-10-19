@@ -50,12 +50,12 @@ export const PageHero: React.FC<PageHeroProps> = ({
     </div>
     {/* Right: Image */}
     {imgSrc && (
-      <div className="lg:col-span-6 lg:col-start-7 flex justify-center items-center aspect-[16/9] my-8 lg:my-16 w-full">
+      <div className="relative lg:col-span-6 lg:col-start-7 flex justify-center items-center aspect-[16/9] my-8 lg:my-16">
         <Image
           src={imgSrc}
           alt={imgAlt}
-          width={800}
-          height={320}
+          fill
+          sizes="800px, (max-width: 1024px) 450px"
           className="object-cover w-full h-full transition-transform duration-300 ease-in-out "
           priority={true}
         />
