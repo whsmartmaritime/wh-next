@@ -3,11 +3,10 @@
   width="100"
   height="25"
   role="img"
-  aria-label="Wheelhouse Maritime logo"
+  aria-label="Wheelhouse logo"
   xmlns="http://www.w3.org/2000/svg"
 >
-  <title>Wheelhouse Maritime logo</title>
-  <!-- Wordmark: Wheelhouse -->
+  <title>Wheelhouse logo</title>
   <text
     x="0.29"
     y="14.97"
@@ -16,7 +15,6 @@
     font-weight="700"
     fill="#fff"
   >Wheelhouse</text>
-  <!-- Wordmark: MARIS -->
   <text
     x="69.46"
     y="24.66"
@@ -26,16 +24,9 @@
     fill="#fff"
     letter-spacing="2"
   >MARIS</text>
-  <!-- Bars -->
   <rect x="0.29" y="19.82" width="21.19" height="4.84" fill="#fff" />
   <rect x="23.53" y="19.82" width="12.71" height="4.84" fill="#fff" />
   <rect x="40.48" y="19.82" width="7.87" height="4.84" fill="#fff" />
   <rect x="52.77" y="19.82" width="4.84" height="4.84" fill="#fff" />
   <rect x="63.43" y="19.82" width="3.03" height="4.84" fill="#fff" />
-  <text
-    x="94.37"
-    y="4.84"
-    font-size="5.47"
-    fill="#fff"
-  >©</text>
 </svg>

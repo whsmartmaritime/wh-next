@@ -27,7 +27,8 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og-default.jpg",
+        url: "/images/og/og-home-en.png",
+
         width: 1200,
         height: 630,
         alt: "Wheelhouse",
