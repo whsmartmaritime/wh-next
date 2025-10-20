@@ -8,10 +8,22 @@
   "hero": {
     "title": "About Wheelhouse",
     "subtitle": "Providing Professional Installation, Maintenance, and Repair Services for Shipborne Electronics",
-    "imgAlt": "wheelhouse service engineer insstalling iridium",
-    "description": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
-    "ctaPrimary": "Start Working With Us",
-    "ctaSecondary": "Want to Chat First?"
+    "images": {
+      "back": {
+        "src": "/images/Picture1.png",
+        "alt": "ship"
+      },
+      "fore": {
+        "src": "/images/Picture2.png",
+        "alt": "ship"
+      }
+    },
+    "ctas": [
+      {
+        "label": "Want to Chat First?",
+        "href": "https://wa.me/84981829002"
+      }
+    ]
   },
   "whoWeAre": {
     "title": "Who Are We",

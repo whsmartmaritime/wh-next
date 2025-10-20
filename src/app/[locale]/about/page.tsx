@@ -5,7 +5,6 @@ import HeroPage from "@/components/Hero/HeroPage";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BackgroundScanline from "@/components/BackgroundScanline";
 import BgGrid from "@/components/BgGrid";
-import BackgroundGrid from "@/components/BackgroundGrid";
 import ContactInfo from "@/components/ContactInfo";
 
 export async function generateMetadata(props: {
@@ -89,7 +88,6 @@ export default async function AboutPage(props: {
       </section>
 
       <section className="relative" aria-label="About who we are section">
-        <BackgroundGrid />
         <div className="container-gutter py-16 lg:py-32">
           <div className="relative bg-neutral-200 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
             <BackgroundScanline
@@ -155,7 +153,6 @@ export default async function AboutPage(props: {
         className="relative scroll-mt-16 container-gutter mx-auto  pt-8 px-4 lg:px-8"
         aria-label="About contact section"
       >
-        <BackgroundGrid />
         <h2 className="uppercase tracking-[0.25em] font-bold text-xl lg:text-2xl mb-8">
           {t("contact.title")}
         </h2>
