@@ -56,7 +56,7 @@ export default async function RootLayout({
       lang={locale}
       suppressHydrationWarning
     >
-      <body>{children}</body>
+      <body className="overflow-x-hidden">{children}</body>
     </html>
   );
 }
