@@ -88,7 +88,7 @@ export default function Hero({
                 (images.fore ? "w-[calc(var(--column)*10)]" : "w-full")
               }
             >
-              <div className="relative w-full rounded-md border border-white/5 bg-gray-900 shadow-[0px_0rem_0.25rem_0rem_rgba(0,0,0,0.5)] overflow-hidden aspect-[16/9]">
+              <div className="relative w-full rounded-md border border-white/5 shadow-[0px_0rem_0.25rem_0rem_rgba(0,0,0,0.5)] overflow-hidden aspect-[16/9]">
                 <Image
                   src={images.back.src}
                   alt={images.back.alt}
