@@ -3,10 +3,10 @@ import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 import BackgroundScanline from "@/components/BackgroundScanline";
 import BgGrid from "@/components/BgGrid";
-import Hero from "@/components/Hero";
 import Button from "@/components/Button";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ScrollShowcase from "@/components/ScrollShowcase";
+import HeroPage from "@/components/Hero/HeroPage";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -59,10 +59,10 @@ export default async function ServicesPage(props: {
 
   return (
     <>
-      <section className="relative" aria-label="Services hero section">
-        <div className="container-gutter ">
+      <section className="relative " aria-label="Services hero section">
+        <div className="container-gutter">
           <BgGrid className="fixed" />
-          <Hero
+          <HeroPage
             title={
               <h1>
                 {t.rich("hero.title", {
