@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { PageHero } from "@/components/PageHero";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { BackgroundGrid } from "@/components/BackgroundGrid";
+import HeroPage from "@/components/Hero/HeroPage";
+import BgGrid from "@/components/BgGrid";
 import { BackgroundScanline } from "@/components/BackgroundScanline";
 import MediaCard from "@/components/MediaCard";
 import Button from "@/components/Button";
@@ -59,22 +59,9 @@ export default async function SolutionsPage(props: {
 
   return (
     <>
-      <section
-        className=" bg-gradient-to-br from-sky-900 via-slate-900 to-black w-full text-neutral-300"
-        aria-label="Solutions hero section"
-      >
-        <PageHero
-          className="container-gutter"
-          imgSrc="/images/about/wheelhouse-engineer-with-iridium.webp"
-          imgAlt={t("hero.imgAlt")}
-          title={t("hero.title")}
-          subtitle={t("hero.subtitle")}
-          ctaPrimary={t("hero.ctaPrimary")}
-          ctaSecondary={t("hero.ctaSecondary")}
-        />
-      </section>
-      <div className="container-gutter mt-4">
+      <div className="relative bg-white border-b border-neutral-800/20 z-30">
         <Breadcrumbs
+          className="text-lg lg:text-xl container-gutter flex items-center gap-8 h-[66px] sm:h-[76px] xl:h-[90px]"
           items={[
             {
               label: locale === "vi" ? "Trang chủ" : "Home",
@@ -86,9 +73,23 @@ export default async function SolutionsPage(props: {
           ]}
         />
       </div>
+      <section
+        className="relative  mt-8 lg:mt-16"
+        aria-label="Services hero section"
+      >
+        <div className="container-gutter">
+          <BgGrid className="fixed" />
+          <HeroPage
+            title={<h1>{t("hero.title")}</h1>}
+            subtitle={<h2>{t("hero.subtitle")}</h2>}
+            images={t.raw("hero.images")}
+            ctas={t.raw("hero.ctas")}
+          />
+        </div>
+      </section>
+
       {/** section overview **/}
       <section className="relative" aria-label="Solutions intro section">
-        <BackgroundGrid />
         <div className="container-gutter py-16 lg:py-32">
           <div className="relative bg-neutral-50 w-full h-full items-center justify-center  border border-neutral-500/20 pb-16">
             <BackgroundScanline
@@ -111,7 +112,6 @@ export default async function SolutionsPage(props: {
         className="relative container-gutter"
         aria-label="Solutions list section"
       >
-        <BackgroundGrid />
         <div className="grid grid-cols-12 items-stretch gap-y-16">
           {(["item1", "item2", "item3", "item4"] as const).map((key, i) => (
             <MediaCard

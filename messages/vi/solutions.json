@@ -5,13 +5,30 @@
     "ogImage": "/images/og/og-home-vi.png",
     "slug": "giai-phap"
   },
+
   "hero": {
     "title": "Giải pháp thiết bị điện tử trên tàu",
     "subtitle": "Giải pháp cho các hệ thống thông tin liên lạc, nghi khí hàng hải và internet vệ tinh",
-    "imgAlt": "Kỹ thuật viên Wheelhouse lắp đặt Iridium",
-    "description": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, đáng tin cậy và đổi mới.",
-    "ctaPrimary": "Liên Hệ Hợp Tác",
-    "ctaSecondary": "Trò Chuyện Whatsapp?"
+    "images": {
+      "back": {
+        "src": "/images/solutions/radar-testing.webp",
+        "alt": "Kỹ thuật viên Wheelhouse chạy thử RADAR"
+      },
+      "fore": {
+        "src": "/images/solutions/gyro-compass-testing.webp",
+        "alt": "Kỹ thuật viên Wheelhouse chạy thử la bàn con quay"
+      }
+    },
+    "ctas": [
+      {
+        "label": "Liên hệ với chúng tôi",
+        "href": "/about#contact"
+      },
+      {
+        "label": "Muốn trò chuyện trước?",
+        "href": "https://wa.me/84981829002"
+      }
+    ]
   },
   "overview": {
     "title": "Chất lượng giải pháp",
