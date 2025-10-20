@@ -67,7 +67,7 @@ export default async function HomePage(props: {
   return (
     <>
       <section
-        className="relative w-full min-h-screen text-neutral-200"
+        className="relative w-full min-h-screen bg-black text-neutral-200"
         aria-label="Hero section"
       >
         <BackgroundGrid gradient={true} />
@@ -104,7 +104,6 @@ export default async function HomePage(props: {
                 { id: "3", src: "/images/logos/partnerLogo3.png" },
                 { id: "4", src: "/images/logos/partnerLogo4.png" },
                 { id: "5", src: "/images/logos/partnerLogo5.png" },
-                { id: "6", src: "/images/logos/partnerLogo6.png" },
                 { id: "7", src: "/images/logos/partnerLogo7.png" },
                 { id: "8", src: "/images/logos/partnerLogo8.png" },
                 { id: "9", src: "/images/logos/partnerLogo9.png" },
