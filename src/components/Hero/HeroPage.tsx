@@ -10,7 +10,7 @@ interface HeroPageProps {
       src: string;
       alt: string;
     };
-    fore?: {
+    fore: {
       src: string;
       alt: string;
     };
@@ -29,14 +29,15 @@ export default function HeroPage({
   className = "",
 }: HeroPageProps) {
   return (
-    <div className={`relative grid grid-cols-12 items-center ${className}`}>
-      <div className="col-span-12 lg:col-span-3 flex flex-col gap-8">
-        <div className="text-3xl lg:text-5xl xl:text-7xl font-semibold leading-tight tracking-tight text-balance w-full lg:w-[150%]">
+    <div
+      className={`relative grid grid-cols-12
+         ${className}`}
+    >
+      <div className="col-span-12 lg:col-span-3 flex flex-col justify-center gap-8">
+        <div className="text-2xl lg:text-4xl xl:text-6xl font-semibold leading-tight tracking-tight text-balance w-full lg:w-[175%]">
           {title}
         </div>
-        <div className="text-xl lg:text-2xl font-medium text-muted-foreground">
-          {subtitle}
-        </div>
+        <div className="text-lg lg:text-xl font-medium">{subtitle}</div>
         {ctas.length > 0 && (
           <div className="relative flex flex-col sm:flex-row lg:flex-col">
             {ctas.map((cta, i) => (
@@ -54,17 +55,34 @@ export default function HeroPage({
         )}
       </div>
 
-      <div className="relative col-span-12 lg:col-span-7 lg:col-start-6">
-        <div className="relative w-full lg:w-[calc(var(--column)*10)] h-auto ">
-          <Image
-            src={images.back.src}
-            alt={images.back.alt}
-            width={1920}
-            height={1080}
-            sizes="(min-width:1280px) 75vw, 100vw"
-            className="object-cover"
-            priority
-          />
+      <div className="col-span-12 lg:col-span-7 lg:col-start-6">
+        <div
+          className="flex items-center justify-center w-full p-8 lg:p-0 lg:w-[calc(var(--column)*8)] aspect-[16/10] relative before:content-[''] before:absolute 
+        before:top-0 before:bottom-0 before:w-full lg:before:w-3/4 
+        before:bg-[url('/images/decorative/gradient-square.webp')] 
+        before:bg-no-repeat 
+        before:bg-right before:bg-cover"
+        >
+          <div className="relative w-full aspect-[16/9] ">
+            <Image
+              src={images.back.src}
+              alt={images.back.alt}
+              width={1600}
+              height={900}
+              sizes="(min-width:1280px) 50vw, 70vw"
+              className="absolute object-cover top-0 left-0 origin-top-left scale-60"
+              priority
+            />
+            <Image
+              src={images.fore.src}
+              alt={images.fore.alt}
+              width={1600}
+              height={900}
+              sizes="(min-width:1280px) 50vw, 70vw"
+              className="absolute object-cover bottom-0 right-0 origin-bottom-right scale-65"
+              priority
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -8,10 +8,22 @@
   "hero": {
     "title": "Giới thiệu về Wheelhouse",
     "subtitle": "Chuyên lắp đặt, bảo dưỡng và sửa chữa thiết bị điện tử trên tàu",
-    "imgAlt": "Kỹ thuật viên Wheelhouse lắp đặt Iridium",
-    "description": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, đáng tin cậy và đổi mới.",
-    "ctaPrimary": "Liên Hệ Hợp Tác",
-    "ctaSecondary": "Trò Chuyện Whatsapp?"
+    "images": {
+      "back": {
+        "src": "/images/Picture1.png",
+        "alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị hàng hải"
+      },
+      "fore": {
+        "src": "/images/Picture2.png",
+        "alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị hàng hải"
+      }
+    },
+    "ctas": [
+      {
+        "label": "Trò chuyện vơi chúng tôi",
+        "href": "https://wa.me/84981829002"
+      }
+    ]
   },
   "whoWeAre": {
     "title": "Chúng Tôi Là Ai",

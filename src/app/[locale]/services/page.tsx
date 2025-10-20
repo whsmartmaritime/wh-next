@@ -60,7 +60,7 @@ export default async function ServicesPage(props: {
   return (
     <>
       <section className="relative " aria-label="Services hero section">
-        <div className="container-gutter">
+        <div className="container-gutter mt-8 lg:mt-16">
           <BgGrid className="fixed" />
           <HeroPage
             title={
