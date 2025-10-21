@@ -70,7 +70,7 @@ export default function HeroPage({
               width={1600}
               height={900}
               sizes="(min-width:1280px) 50vw, 70vw"
-              className="absolute object-cover top-0 left-0 origin-top-left scale-60"
+              className="absolute object-cover top-0 left-0 origin-top-left scale-65"
               priority
             />
             <Image
@@ -79,7 +79,7 @@ export default function HeroPage({
               width={1600}
               height={900}
               sizes="(min-width:1280px) 50vw, 70vw"
-              className="absolute object-cover bottom-0 right-0 origin-bottom-right scale-65"
+              className="absolute object-cover bottom-0 right-0 origin-bottom-right scale-70"
               priority
             />
           </div>
