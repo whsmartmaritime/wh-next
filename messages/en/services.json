@@ -12,6 +12,10 @@
       "back": {
         "src": "/images/services/wheelhouse-service-engineer-reparing-electric-equipment.webp",
         "alt": "Wheelhouse service engineer repairing electric equipment"
+      },
+      "fore": {
+        "src": "/images/services/wheelhouse-service-engineer-commisioning-VSAT.webp",
+        "alt": "Wheelhouse technician commissioning VSAT"
       }
     },
     "ctas": [

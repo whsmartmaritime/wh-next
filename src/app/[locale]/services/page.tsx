@@ -59,6 +59,20 @@ export default async function ServicesPage(props: {
 
   return (
     <>
+      <div className="relative bg-white border-b border-neutral-800/20 z-30">
+        <Breadcrumbs
+          className="text-lg lg:text-xl container-gutter flex items-center gap-8 h-[66px] sm:h-[76px] xl:h-[90px]"
+          items={[
+            {
+              label: locale === "vi" ? "Trang chủ" : "Home",
+              href: `/${locale}`,
+            },
+            {
+              label: locale === "vi" ? "Dịch vụ" : "Services",
+            },
+          ]}
+        />
+      </div>
       <section className="relative " aria-label="Services hero section">
         <div className="container-gutter mt-8 lg:mt-16">
           <BgGrid className="fixed" />
@@ -78,19 +92,6 @@ export default async function ServicesPage(props: {
           />
         </div>
       </section>
-      <div className="container-gutter mt-4">
-        <Breadcrumbs
-          items={[
-            {
-              label: locale === "vi" ? "Trang chủ" : "Home",
-              href: `/${locale}`,
-            },
-            {
-              label: locale === "vi" ? "Dịch vụ" : "Services",
-            },
-          ]}
-        />
-      </div>
 
       {/** section qualityOfService **/}
       <section className="relative " aria-label="Quality of service section">
