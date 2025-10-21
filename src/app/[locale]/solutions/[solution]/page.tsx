@@ -74,10 +74,10 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function SolutionPage(props: {
-  params: Promise<{ locale: string; solution: string }>;
-}) {
-  const { locale, solution } = await props.params;
+export default async function SolutionPage({
+  params,
+}: PageProps<"/[locale]/solutions/[solution]">) {
+  const { locale, solution } = await params;
   const t = await getTranslations({
     locale,
     namespace: `solutions/${solution}`,

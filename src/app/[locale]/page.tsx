@@ -54,10 +54,8 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function HomePage(props: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await props.params;
+export default async function HomePage({ params }: PageProps<"/[locale]">) {
+  const { locale } = await params;
 
   const t = await getTranslations({ locale, namespace: "home" });
   const l = locale as Locales;

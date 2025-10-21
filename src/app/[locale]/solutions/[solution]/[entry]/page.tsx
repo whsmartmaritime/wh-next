@@ -98,10 +98,10 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function EntryPage(props: {
-  params: Promise<{ locale: string; solution: string; entry: string }>;
-}) {
-  const { locale, solution, entry } = await props.params;
+export default async function EntryPage({
+  params,
+}: PageProps<"/[locale]/solutions/[solution]/[entry]">) {
+  const { locale, solution, entry } = await params;
   const t = await getTranslations("entry");
   const { default: Entry, frontmatter } = (await import(
     `@/content/${locale}/solutions/${solution}/${entry}.mdx`
