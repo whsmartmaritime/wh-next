@@ -82,7 +82,10 @@ export default async function SolutionPage({
     locale,
     namespace: `solutions/${solution}`,
   });
-
+  const b = await getTranslations({
+    locale,
+    namespace: `common.nav`,
+  });
   const l = locale as Locales;
   // Cho phép index bằng string mà không dùng any
   const featureMap = featureByCategory as unknown as Record<
@@ -128,15 +131,15 @@ export default async function SolutionPage({
         <Breadcrumbs
           items={[
             {
-              label: locale === "vi" ? "Trang chủ" : "Home",
+              label: b("home"),
               href: `/${locale}`,
             },
             {
-              label: locale === "vi" ? "Giải pháp" : "Solutions",
-              href: `/solutions`,
+              label: b("solutions.title"),
+              href: `/${locale}/solutions/`,
             },
             {
-              label: t("hero.title"),
+              label: b(`solutions.${solution}`),
             },
           ]}
         />

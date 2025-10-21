@@ -102,7 +102,8 @@ export default async function EntryPage({
   params,
 }: PageProps<"/[locale]/solutions/[solution]/[entry]">) {
   const { locale, solution, entry } = await params;
-  const t = await getTranslations("entry");
+  const t = await getTranslations({ locale, namespace: "entry" });
+  const b = await getTranslations({ locale, namespace: "common.nav" });
   const { default: Entry, frontmatter } = (await import(
     `@/content/${locale}/solutions/${solution}/${entry}.mdx`
   )) as MdxModule;
@@ -131,13 +132,16 @@ export default async function EntryPage({
         <Breadcrumbs
           className="col-span-8 col-start-4 mx-8 lg:mx-16"
           items={[
-            { label: locale === "vi" ? "Trang chủ" : "Home", href: `/` },
             {
-              label: locale === "vi" ? "Giải pháp" : "Solutions",
-              href: `/solutions`,
+              label: b("home"),
+              href: `/${locale}`,
             },
             {
-              label: locale === "vi" ? solution : solution,
+              label: b("solutions.title"),
+              href: `/${locale}/solutions/`,
+            },
+            {
+              label: b(`solutions.${solution}`),
               href: `/${locale}/solutions/${solution}`,
             },
             { label: frontmatter.publishedAt },

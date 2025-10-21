@@ -56,7 +56,7 @@ export default async function SolutionsPage({
   const { locale } = await params;
 
   const t = await getTranslations({ locale, namespace: "solutions" });
-
+  const b = await getTranslations({ locale, namespace: "common.nav" });
   return (
     <>
       <div className="relative bg-white border-b border-neutral-800/20 z-30">
@@ -64,11 +64,11 @@ export default async function SolutionsPage({
           className="text-lg lg:text-xl container-gutter flex items-center gap-8 h-[66px] sm:h-[76px] xl:h-[90px]"
           items={[
             {
-              label: locale === "vi" ? "Trang chủ" : "Home",
+              label: b("home"),
               href: `/${locale}`,
             },
             {
-              label: locale === "vi" ? "Giải pháp" : "Solutions",
+              label: b("solutions.title"),
             },
           ]}
         />

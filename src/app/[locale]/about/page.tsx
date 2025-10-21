@@ -55,7 +55,7 @@ export default async function AboutPage({
   const { locale } = await params;
 
   const t = await getTranslations({ locale, namespace: "about" });
-
+  const b = await getTranslations({ locale, namespace: "common.nav" });
   return (
     <>
       <div className="relative bg-white border-b border-neutral-800/20 z-30">
@@ -63,11 +63,11 @@ export default async function AboutPage({
           className="text-lg lg:text-xl container-gutter flex items-center gap-8 h-[66px] sm:h-[76px] xl:h-[90px]"
           items={[
             {
+              label: b("home"),
               href: `/${locale}`,
-              label: locale === "vi" ? "Trang chủ" : "Home",
             },
             {
-              label: locale === "vi" ? "Về chúng tôi" : "About Us",
+              label: b("about"),
             },
           ]}
         />
