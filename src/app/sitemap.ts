@@ -1,55 +1,45 @@
 import { MetadataRoute } from "next";
-import fs from "node:fs/promises";
-import path from "node:path";
+import { routing } from "../i18n/routing";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const entries: MetadataRoute.Sitemap = [];
 
-  // Read paths from sitemap.paths.json
-  const sitemapPaths: string[] = [];
-  try {
-    const filePath = path.join(process.cwd(), "sitemap.paths.json");
-    const raw = await fs.readFile(filePath, "utf8");
-    const paths = JSON.parse(raw);
-    sitemapPaths.push(...paths);
-  } catch (error) {
-    console.warn("Could not read sitemap.paths.json:", error);
-  }
+  for (const [routeKey, localePaths] of Object.entries(routing.pathnames)) {
+    for (const currentLocale of routing.locales) {
+      const currentPath =
+        localePaths[currentLocale as keyof typeof localePaths];
 
-  // Create sitemap entries with localization alternates
-  const sitemapEntries: MetadataRoute.Sitemap = [];
+      if (typeof currentPath === "string") {
+        const url =
+          routeKey === "/"
+            ? `${siteUrl}/${currentLocale}`
+            : `${siteUrl}/${currentLocale}${currentPath}`;
+        const alternates: Record<string, string> = {};
+        for (const altLocale of routing.locales) {
+          const altPath = localePaths[altLocale as keyof typeof localePaths];
+          if (typeof altPath === "string") {
+            alternates[altLocale] =
+              routeKey === "/"
+                ? `${siteUrl}/${altLocale}`
+                : `${siteUrl}/${altLocale}${altPath}`;
+          }
+        }
 
-  for (const urlPath of sitemapPaths) {
-    // Determine language from path
-    const isEnglish = urlPath.startsWith("/en");
-    const isVietnamese = urlPath.startsWith("/vi");
+        const depth =
+          routeKey === "/" ? 0 : currentPath.split("/").filter(Boolean).length;
+        const priority = Math.max(0.5, 1 - depth * 0.1);
 
-    if (isEnglish || isVietnamese) {
-      const englishPath = urlPath.replace("/vi", "/en");
-      const vietnamesePath = urlPath.replace("/en", "/vi");
-
-      sitemapEntries.push({
-        url: `${siteUrl}${urlPath}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: urlPath === "/en" || urlPath === "/vi" ? 1 : 0.8,
-        alternates: {
-          languages: {
-            en: `${siteUrl}${englishPath}`,
-            vi: `${siteUrl}${vietnamesePath}`,
-          },
-        },
-      });
-    } else {
-      // Root path or other paths
-      sitemapEntries.push({
-        url: `${siteUrl}${urlPath}`,
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 1,
-      });
+        entries.push({
+          url,
+          lastModified: new Date(),
+          changeFrequency: "monthly",
+          priority,
+          alternates: { languages: alternates },
+        });
+      }
     }
   }
 
-  return sitemapEntries;
+  return entries;
 }

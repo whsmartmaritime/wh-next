@@ -3,7 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { routing as existingRouting } from "../i18n/routing";
 
-// --- Config & Types -------------------------------------------------------
+// --- Types ---------------------------------------------------------------
 type RouteMap = Record<string, Record<string, string>>;
 interface FrontmatterMeta {
   slug?: string;
@@ -14,7 +14,7 @@ interface Frontmatter {
   slug?: string;
   meta?: FrontmatterMeta;
   title?: string;
-  featured?: boolean; // yêu cầu boolean chuẩn
+  featured?: boolean;
   publishedAt?: string;
   author?: string;
   category?: string;
@@ -33,7 +33,11 @@ export type PostEntry = {
   ogImage?: string;
 };
 
-// --- Helpers --------------------------------------------------------------
+// --- Core Functions ------------------------------------------------------
+
+/**
+ * Recursively walk directory and collect MDX files
+ */
 const walk = async (dir: string): Promise<string[]> => {
   try {
     const ents = await fs.readdir(dir, { withFileTypes: true });
@@ -48,14 +52,24 @@ const walk = async (dir: string): Promise<string[]> => {
     return [];
   }
 };
+
+/**
+ * Normalize path separators
+ */
 const norm = (p: string) => p.replace(/\\/g, "/");
 
+/**
+ * Validate date string
+ */
 function isValidDateStr(s?: string): boolean {
   if (!s) return false;
   const t = Date.parse(s);
   return Number.isFinite(t);
 }
 
+/**
+ * Create sort function by date descending
+ */
 function makeSortByDateDesc<T extends { publishedAt?: string }>() {
   return (a: T, b: T) => {
     const da = a.publishedAt ? Date.parse(a.publishedAt) : NaN;
@@ -67,72 +81,75 @@ function makeSortByDateDesc<T extends { publishedAt?: string }>() {
   };
 }
 
-// --- Core -----------------------------------------------------------------
-
-type GroupMap = Record<
-  string,
-  { canonical: string; perLocale: Record<string, string> }
->;
-
-type PostsByLocale = Record<string, Array<PostEntry>>;
-
+/**
+ * Collect content from MDX files
+ */
 async function collectContent(): Promise<{
-  groups: GroupMap;
-  postsByLocale: PostsByLocale;
+  groups: Record<
+    string,
+    { canonical: string; perLocale: Record<string, string> }
+  >;
+  postsByLocale: Record<string, Array<PostEntry>>;
 }> {
   const { locales, defaultLocale } = existingRouting;
-  const groups: GroupMap = {};
-  // Thu thập metadata cho card theo từng locale, chỉ đọc file 1 lần
-  const postsByLocale: PostsByLocale = Object.fromEntries(
+  const groups: Record<
+    string,
+    { canonical: string; perLocale: Record<string, string> }
+  > = {};
+  const postsByLocale: Record<string, Array<PostEntry>> = Object.fromEntries(
     locales.map((l) => [l, [] as PostEntry[]])
   );
 
-  // Resolve the deepest translated ancestor path for a given canonical dirRoute.
-  // Example: dirRoute=/solutions/navigation, locale=vi, existing mapping has
-  //   '/solutions/navigation': { vi: '/giai-phap/nghi-khi-hang-hai' }
-  // Returns '/giai-phap/nghi-khi-hang-hai'. If no translation found, returns original dirRoute.
+  // Localize directory route helper
   function localizeDirRoute(dirRoute: string, locale: string): string {
-    if (!dirRoute) return dirRoute;
-    if (locale === defaultLocale) return dirRoute; // canonical stays unchanged
+    if (!dirRoute || locale === defaultLocale) return dirRoute;
+
     const { pathnames } = existingRouting as unknown as {
       pathnames: Record<string, Record<string, string>>;
     };
-    // Build list of ancestor paths: '/solutions', '/solutions/navigation'
+
     const segs = dirRoute.split("/").filter(Boolean);
     const ancestors: string[] = [];
     for (let i = 0; i < segs.length; i++) {
       ancestors.push("/" + segs.slice(0, i + 1).join("/"));
     }
-    // Search deepest first for a translation.
+
     for (let i = ancestors.length - 1; i >= 0; i--) {
-      const a = ancestors[i];
-      const entry = pathnames[a];
+      const ancestor = ancestors[i];
+      const entry = pathnames[ancestor];
       if (entry && entry[locale]) {
         return entry[locale];
       }
     }
-    return dirRoute; // fallback unchanged
+    return dirRoute;
   }
+
+  // Process each locale
   for (const locale of locales) {
     const baseDir = path.join(process.cwd(), "src", "content", locale);
+
     for (const file of await walk(baseDir)) {
       const rel = norm(path.relative(baseDir, file));
       const parts = rel.split("/");
       const base = parts.pop()!.replace(/\.mdx$/, "");
       const dirRoute = parts.length ? `/${parts.join("/")}` : "";
-      const { data } = matter(await fs.readFile(file, "utf8")); // Đọc mỗi file đúng 1 lần
-      const fm = data as Frontmatter; // Parse frontmatter một lần, dùng cho cả route & posts
+
+      const { data } = matter(await fs.readFile(file, "utf8"));
+      const fm = data as Frontmatter;
+
       const slug = fm.slug ?? fm.meta?.slug;
       if (!slug) {
         console.warn("⚠️ Missing slug:", file);
         continue;
       }
-      // Build localized directory route (parent segments) if translation exists.
+
       const localizedDir = localizeDirRoute(dirRoute, locale);
       const route = `${localizedDir}/${slug}`.replace(/\/+/, "/");
+
       const groupId = `${dirRoute}|${base}`;
       groups[groupId] ||= { canonical: route, perLocale: {} };
       if (locale === defaultLocale) groups[groupId].canonical = route;
+
       const existing = groups[groupId].perLocale[locale];
       if (existing && existing !== route) {
         console.warn("⚠️ Slug conflict:", file);
@@ -140,8 +157,7 @@ async function collectContent(): Promise<{
       }
       groups[groupId].perLocale[locale] = route;
 
-      // Thu thập metadata cho bài viết để render card
-      // Quy ước: không có publishedAt (hoặc ngày không hợp lệ) => coi như draft, KHÔNG hiển thị
+      // Collect post metadata if published
       if (isValidDateStr(fm.publishedAt)) {
         const entry: PostEntry = {
           route,
@@ -158,15 +174,26 @@ async function collectContent(): Promise<{
       }
     }
   }
+
   return { groups, postsByLocale };
 }
 
-function merge(groups: GroupMap): RouteMap {
+/**
+ * Merge groups with existing routing
+ */
+function merge(
+  groups: Record<
+    string,
+    { canonical: string; perLocale: Record<string, string> }
+  >
+): RouteMap {
   const { defaultLocale, pathnames: existing } = existingRouting;
   const merged: RouteMap = { ...existing };
+
   for (const g of Object.values(groups)) {
     const key = g.canonical;
-    // Ensure parents
+
+    // Ensure parent paths exist
     key
       .split("/")
       .filter(Boolean)
@@ -175,12 +202,13 @@ function merge(groups: GroupMap): RouteMap {
         if (!merged[p]) merged[p] = { [defaultLocale]: p };
         return p;
       }, "");
+
     merged[key] ||= {};
     for (const [loc, locPath] of Object.entries(g.perLocale)) {
-      // Overwrite to ensure refreshed localized parent segments are applied.
       merged[key][loc] = locPath;
     }
   }
+
   return Object.fromEntries(
     Object.keys(merged)
       .sort()
@@ -188,19 +216,24 @@ function merge(groups: GroupMap): RouteMap {
   );
 }
 
-function printPathnames(map: RouteMap) {
+/**
+ * Generate routing.ts file content
+ */
+function printPathnames(map: RouteMap): string {
   const orderLocales = [...existingRouting.locales];
   const localeSet = new Set(orderLocales);
-  const isLocale = (s: string): s is (typeof orderLocales)[number] =>
-    localeSet.has(s as (typeof orderLocales)[number]);
+
   return [
     "{",
     ...Object.keys(map)
       .sort()
       .map((rk, i, arr) => {
-        const locales = Object.keys(map[rk])
-          .filter(isLocale)
+        const locales = (
+          Object.keys(map[rk]) as (typeof orderLocales)[number][]
+        )
+          .filter((s) => localeSet.has(s))
           .sort((a, b) => orderLocales.indexOf(a) - orderLocales.indexOf(b));
+
         const inner = locales
           .map(
             (l, li) =>
@@ -209,6 +242,7 @@ function printPathnames(map: RouteMap) {
               }`
           )
           .join("\n");
+
         return `  ${JSON.stringify(rk)}: {\n${inner}\n  }${
           i === arr.length - 1 ? "" : ","
         }`;
@@ -217,7 +251,10 @@ function printPathnames(map: RouteMap) {
   ].join("\n");
 }
 
-function computePosts(byLocale: PostsByLocale) {
+/**
+ * Compute posts data for UI
+ */
+function computePosts(byLocale: Record<string, Array<PostEntry>>) {
   const sortByDateDesc = makeSortByDateDesc<PostEntry>();
   const out: Record<
     string,
@@ -228,6 +265,7 @@ function computePosts(byLocale: PostsByLocale) {
       entriesByCategory: Record<string, PostEntry[]>;
     }
   > = {};
+
   for (const l of existingRouting.locales) {
     const list = byLocale[l] || [];
     const allSorted = list.slice().sort(sortByDateDesc);
@@ -240,7 +278,7 @@ function computePosts(byLocale: PostsByLocale) {
     // Group by category
     const groups: Record<string, PostEntry[]> = {};
     for (const p of allSorted) {
-      if (!p.category) continue; // chỉ nhóm khi có category rõ ràng
+      if (!p.category) continue;
       (groups[p.category] ||= []).push(p);
     }
 
@@ -262,14 +300,18 @@ function computePosts(byLocale: PostsByLocale) {
   return out;
 }
 
+/**
+ * Write routing.ts file
+ */
 async function writeRoutingFile(merged: RouteMap) {
-  const content = `import { defineRouting } from "next-intl/routing";\n\nexport const routing = defineRouting({\n  locales: ${JSON.stringify(
-    existingRouting.locales,
-    null,
-    2
-  )},\n  defaultLocale: ${JSON.stringify(
-    existingRouting.defaultLocale
-  )},\n  pathnames: ${printPathnames(merged)}\n});\n`;
+  const content = `import { defineRouting } from "next-intl/routing";
+
+export const routing = defineRouting({
+  locales: ${JSON.stringify(existingRouting.locales, null, 2)},
+  defaultLocale: ${JSON.stringify(existingRouting.defaultLocale)},
+  pathnames: ${printPathnames(merged)}
+});
+`;
   await fs.writeFile(
     path.join(process.cwd(), "src", "i18n", "routing.ts"),
     content,
@@ -277,8 +319,11 @@ async function writeRoutingFile(merged: RouteMap) {
   );
 }
 
+/**
+ * Write posts data file
+ */
 async function writePostsFile(
-  byLocaleEntries: Record<
+  computed: Record<
     string,
     {
       featureEntry: PostEntry | null;
@@ -288,7 +333,6 @@ async function writePostsFile(
     }
   >
 ) {
-  // Xuất maps theo locale
   const featureMap: Record<string, PostEntry | null> = {};
   const entriesMap: Record<string, PostEntry[]> = {};
   const featureByCategoryMap: Record<
@@ -296,30 +340,44 @@ async function writePostsFile(
     Record<string, PostEntry | null>
   > = {};
   const entriesByCategoryMap: Record<string, Record<string, PostEntry[]>> = {};
-  for (const [loc, obj] of Object.entries(byLocaleEntries)) {
+
+  for (const [loc, obj] of Object.entries(computed)) {
     featureMap[loc] = obj.featureEntry;
     entriesMap[loc] = obj.entries;
     featureByCategoryMap[loc] = obj.featureByCategory;
     entriesByCategoryMap[loc] = obj.entriesByCategory;
   }
 
-  const moduleText = `export type PostEntry = {\n  route: string;\n  locale: string;\n  title?: string;\n  featured?: boolean;\n  publishedAt?: string;\n  author?: string;\n  category?: string;\n  tags?: string[];\n  ogImage?: string;\n};\n\nexport const featureEntry = ${JSON.stringify(
-    featureMap,
-    null,
-    2
-  )} as const;\n\nexport const entries = ${JSON.stringify(
-    entriesMap,
-    null,
-    2
-  )} as const;\n\nexport const featureByCategory = ${JSON.stringify(
+  const moduleText = `export type PostEntry = {
+  route: string;
+  locale: string;
+  title?: string;
+  featured?: boolean;
+  publishedAt?: string;
+  author?: string;
+  category?: string;
+  tags?: string[];
+  ogImage?: string;
+};
+
+export const featureEntry = ${JSON.stringify(featureMap, null, 2)} as const;
+
+export const entries = ${JSON.stringify(entriesMap, null, 2)} as const;
+
+export const featureByCategory = ${JSON.stringify(
     featureByCategoryMap,
     null,
     2
-  )} as const;\n\nexport const entriesByCategory = ${JSON.stringify(
+  )} as const;
+
+export const entriesByCategory = ${JSON.stringify(
     entriesByCategoryMap,
     null,
     2
-  )} as const;\n\nexport type Locales = keyof typeof entries;\n`;
+  )} as const;
+
+export type Locales = keyof typeof entries;
+`;
 
   const libDir = path.join(process.cwd(), "src", "lib");
   await fs.mkdir(libDir, { recursive: true });
@@ -333,61 +391,25 @@ async function writePostsFile(
   );
 }
 
+// --- Main -----------------------------------------------------------------
+
 async function run() {
-  const { groups, postsByLocale } = await collectContent();
-  const merged = merge(groups);
-  await writeRoutingFile(merged);
-  const computed = computePosts(postsByLocale);
-  await writePostsFile(computed);
-  // Emit sitemap paths for next-sitemap additionalPaths
   try {
-    const routes = new Set<string>();
-    const prefix = (l: string, p: string) => {
-      const base = p === "/" ? "" : p;
-      const out = `/${l}${base}`.replace(/\/+$/, "");
-      return out || `/${l}`;
-    };
-    // Add base locale roots (e.g., /en, /vi)
-    for (const l of existingRouting.locales) routes.add(`/${l}`);
-    // Add localized static routes from merged pathnames, prefixed by locale
-    for (const [, locMap] of Object.entries(merged)) {
-      for (const l of existingRouting.locales) {
-        const p = (locMap as Record<string, string>)[l];
-        if (typeof p === "string" && p.startsWith("/"))
-          routes.add(prefix(l, p));
-      }
-    }
-    // Add dynamic post routes (feature + entries) per locale, prefixed by locale
-    for (const l of existingRouting.locales) {
-      const obj = computed[l];
-      if (!obj) continue;
-      const add = (p?: string) => {
-        if (typeof p === "string" && p.startsWith("/"))
-          routes.add(prefix(l, p));
-      };
-      add(obj.featureEntry?.route);
-      for (const e of obj.entries) add(e.route);
-      for (const arr of Object.values(obj.entriesByCategory)) {
-        for (const e of arr) add(e.route);
-      }
-    }
-    const list = Array.from(routes).sort();
-    await fs.writeFile(
-      path.join(process.cwd(), "sitemap.paths.json"),
-      JSON.stringify(list, null, 2) + "\n",
-      "utf8"
+    const { groups, postsByLocale } = await collectContent();
+    const merged = merge(groups);
+    await writeRoutingFile(merged);
+    const computed = computePosts(postsByLocale);
+    await writePostsFile(computed);
+
+    console.log(
+      `✅ updatePathname: groups=${Object.keys(groups).length}, totalRoutes=${
+        Object.keys(merged).length
+      }. Posts file generated.`
     );
   } catch (e) {
-    console.warn("⚠️ Failed to emit sitemap.paths.json:", e);
+    console.error("❌ updatePathname failed:", e);
+    process.exit(1);
   }
-  console.log(
-    `✅ updatePathname: groups=${Object.keys(groups).length}, totalRoutes=${
-      Object.keys(merged).length
-    }. Posts file generated.`
-  );
 }
 
-run().catch((e) => {
-  console.error("❌ updatePathname failed:", e);
-  process.exit(1);
-});
+run();
