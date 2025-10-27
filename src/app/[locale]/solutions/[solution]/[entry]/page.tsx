@@ -65,9 +65,11 @@ export async function generateMetadata({
 	const languages = Object.fromEntries(
 		routing.locales.map((l) => [
 			l,
-			(routing.pathnames as Record<string, { [key: string]: string }>)[
-				`/solutions/${solution}/${entry}`
-			]?.[l],
+			`/${l}${
+				(routing.pathnames as Record<string, { [key: string]: string }>)[
+					`/solutions/${solution}/${entry}`
+				]?.[l]
+			}`,
 		]),
 	);
 

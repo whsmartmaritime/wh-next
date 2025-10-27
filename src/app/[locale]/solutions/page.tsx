@@ -31,8 +31,12 @@ export async function generateMetadata({
 
 	// Create alternate language URLs from pre-defined canonicals
 	const languages = Object.fromEntries(
-		routing.locales.map((l) => [l, routing.pathnames['/solutions'][l]]),
+		routing.locales.map((l) => [
+			l,
+			`/${l}${routing.pathnames['/solutions'][l]}`,
+		]),
 	);
+	console.log(languages);
 	return {
 		title,
 		description,
