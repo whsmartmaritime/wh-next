@@ -65,7 +65,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   return (
     <>
       <section
-        className="relative w-full min-h-screen bg-black text-neutral-200"
+        className="relative w-full min-h-screen  text-neutral-200"
         aria-label="Hero section"
       >
         <BackgroundGrid gradient={true} />
