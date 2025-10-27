@@ -4,7 +4,7 @@ import { BackgroundGrid } from '@/components/BackgroundGrid';
 import { BackgroundScanline } from '@/components/BackgroundScanline';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Button from '@/components/Button';
-import MediaCard from '@/components/MediaCard';
+import MediaText from '@/components/MediaText';
 import { routing } from '@/i18n/routing';
 import {
 	entriesByCategory,
@@ -114,7 +114,7 @@ export default async function SolutionPage({
 						})}
 					</h2>
 				</div>
-				<MediaCard
+				<MediaText
 					className=" "
 					data={{
 						href: `#`,
@@ -197,7 +197,7 @@ export default async function SolutionPage({
 					<div className="grid grid-cols-1 md:grid-cols-2">
 						{feature ? (
 							<article>
-								<MediaCard
+								<MediaText
 									className=""
 									data={{
 										href: feature.route,
@@ -214,7 +214,7 @@ export default async function SolutionPage({
 						) : null}
 						{items.map((p: PostEntry) => (
 							<article key={p.route}>
-								<MediaCard
+								<MediaText
 									data={{
 										href: p.route,
 										title: p.title,

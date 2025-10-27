@@ -5,7 +5,7 @@ import BgGrid from '@/components/BgGrid';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Button from '@/components/Button';
 import HeroPage from '@/components/Hero/HeroPage';
-import MediaCard from '@/components/MediaCard';
+import MediaText from '@/components/MediaText';
 import { routing } from '@/i18n/routing';
 
 export async function generateMetadata(props: {
@@ -114,7 +114,7 @@ export default async function SolutionsPage({
 			>
 				<div className="grid grid-cols-12 items-stretch gap-y-16">
 					{(['item1', 'item2', 'item3', 'item4'] as const).map((key, _i) => (
-						<MediaCard
+						<MediaText
 							className="col-span-12 lg:col-span-6"
 							key={key}
 							data={{

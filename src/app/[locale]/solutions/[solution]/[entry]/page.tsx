@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import MediaCard from '@/components/MediaCard';
+import MediaText from '@/components/MediaText';
 import { routing } from '@/i18n/routing';
 import {
 	entries,
@@ -243,7 +243,7 @@ export default async function EntryPage({
 										className="mb-4 lg:mb-8 text-muted-foreground"
 										key={p.route}
 									>
-										<MediaCard
+										<MediaText
 											data={{
 												href: p.route,
 												title: p.title,

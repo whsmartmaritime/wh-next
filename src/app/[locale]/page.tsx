@@ -8,7 +8,7 @@ import Button from '@/components/Button';
 import Hero from '@/components/Hero';
 import Highlights from '@/components/Highlights';
 import LogoShowcase from '@/components/LogoShowcase';
-import MediaCard from '@/components/MediaCard';
+import MediaText from '@/components/MediaText';
 import Slider from '@/components/Slider';
 import { routing } from '@/i18n/routing';
 import { entries, featureEntry, type Locales } from '@/lib/postIndex.generated';
@@ -252,7 +252,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 				</div>
 				<article className="grid grid-cols-1 md:grid-cols-2 gap-y-8">
 					{feature ? (
-						<MediaCard
+						<MediaText
 							className="col-span-1 md:col-span-2"
 							data={{
 								href: feature.route,
@@ -267,7 +267,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 						/>
 					) : null}
 					{list.map((p) => (
-						<MediaCard
+						<MediaText
 							key={p.route}
 							data={{
 								href: p.route,
