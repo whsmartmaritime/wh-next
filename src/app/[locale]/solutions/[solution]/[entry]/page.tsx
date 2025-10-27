@@ -31,10 +31,12 @@ export function generateStaticParams() {
 	);
 }
 
-export async function generateMetadata(props: {
+export async function generateMetadata({
+	params,
+}: {
 	params: Promise<{ locale: string; solution: string; entry: string }>;
 }): Promise<Metadata> {
-	const { locale, solution, entry } = await props.params;
+	const { locale, solution, entry } = await params;
 	const filePath = path.join(
 		process.cwd(),
 		'src',

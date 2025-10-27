@@ -7,10 +7,12 @@ import ContactInfo from '@/components/ContactInfo';
 import HeroPage from '@/components/Hero/HeroPage';
 import { routing } from '@/i18n/routing';
 
-export async function generateMetadata(props: {
+export async function generateMetadata({
+	params,
+}: {
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-	const { locale } = await props.params;
+	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: 'about' });
 
 	const title = t('meta.title');

@@ -26,10 +26,12 @@ export function generateStaticParams() {
 	);
 }
 
-export async function generateMetadata(props: {
+export async function generateMetadata({
+	params,
+}: {
 	params: Promise<{ locale: string; solution: string }>;
 }): Promise<Metadata> {
-	const { locale, solution } = await props.params;
+	const { locale, solution } = await params;
 	const t = await getTranslations({
 		locale,
 		namespace: `solutions/${solution}`,

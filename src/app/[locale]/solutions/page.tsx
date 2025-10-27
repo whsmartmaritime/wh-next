@@ -8,10 +8,12 @@ import HeroPage from '@/components/Hero/HeroPage';
 import MediaText from '@/components/MediaText';
 import { routing } from '@/i18n/routing';
 
-export async function generateMetadata(props: {
+export async function generateMetadata({
+	params,
+}: {
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-	const { locale } = await props.params;
+	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: 'solutions' });
 
 	const title = t('meta.title');

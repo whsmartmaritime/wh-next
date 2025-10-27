@@ -13,10 +13,12 @@ import Slider from '@/components/Slider';
 import { routing } from '@/i18n/routing';
 import { entries, featureEntry, type Locales } from '@/lib/postIndex.generated';
 
-export async function generateMetadata(props: {
+export async function generateMetadata({
+	params,
+}: {
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-	const { locale } = await props.params;
+	const { locale } = await params;
 	const t = await getTranslations({ locale, namespace: 'home' });
 	const title = t('meta.title');
 	const description = t('meta.description');
