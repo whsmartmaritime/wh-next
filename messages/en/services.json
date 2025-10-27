@@ -1,152 +1,152 @@
 {
-  "meta": {
-    "title": "Maritime Electronics Services | Installation, Repair & Maintenance",
-    "description": "We provide professional maritime electronics services, including GMDSS, navigation, connectivity, and automation.",
-    "ogImage": "/images/og/og-home-en.png",
-    "slug": "services"
-  },
-  "hero": {
-    "title": "Maritime Electronic Services",
-    "subtitle": "Professional services for maritime electronic equipment.",
-    "images": {
-      "back": {
-        "src": "/images/services/wheelhouse-service-engineer-reparing-electric-equipment.webp",
-        "alt": "Wheelhouse service engineer repairing electric equipment"
-      },
-      "fore": {
-        "src": "/images/services/wheelhouse-service-engineer-commisioning-VSAT.webp",
-        "alt": "Wheelhouse technician commissioning VSAT"
-      }
-    },
-    "ctas": [
-      {
-        "label": "Contact Us",
-        "href": "/about#contact"
-      },
-      {
-        "label": "Want to Chat First?",
-        "href": "https://wa.me/84981829002"
-      }
-    ]
-  },
-  "qualityOfService": {
-    "title": "Why Our Clients Trust Us",
-    "description": [
-      "Wheelhouse not only delivers <b>high-quality services</b> but also accompanies clients comprehensively throughout their entire journey. Our <b>experienced engineers</b> proactively identify and strive to resolve issues before they impact equipment operations.",
-      "With <b>dedication, expertise</b>, and smart workflows, clients can be fully confident that every need is <b>prioritized</b>, and <b>service quality</b> is consistently maintained at the <b>highest level</b>."
-    ]
-  },
-  "rm": {
-    "title": "Repair & Maintenance",
-    "subtitle": "Professional repair and maintenance services for <b>maritime electronic equipment</b>.",
-    "details": [
-      "A ship's officer in today's maritime environment relies on a wide range of <b>marine electronic equipment</b> to ensure the safety of the vessel and its crew, while successfully completing missions at sea. Cutting-edge marine electronics has made the journey at sea <b>smoother and safer</b>.",
-      "You need the best services to keep your ship’s equipment in optimal working order without negatively impacting your financial bottom line. Wheelhouse is ready to provide <b>maintenance and repair services</b> that ensure your equipment operates reliably and efficiently, at the <b>most cost-effective approach possible</b>."
-    ],
-    "items": [
-      {
-        "title": "Fast, Effective Repairs with Optimized Cost-Efficiency",
-        "description": [
-          "With a highly skilled technical team and meticulous preparation—including detailed planning, execution methods, and high-quality spare parts—we commit to completing all repair work on time, meeting the most stringent technical requirements, and ensuring superior quality.",
-          "Our repair service scope covers all critical marine electrical and electronic systems, from essential <b>navigational instruments</b> like radar and positioning devices, to modern <b>communication solutions</b> such as GMDSS and VSAT. We also specialize in <b>engine room electrical automation</b> (including boilers and main switchboards) and resolve any issues related to <b>deck equipment</b> (such as cranes and cargo hold sensors). We are always prepared to support all specific needs of every vessel."
-        ],
-        "image": {
-          "src": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
-          "alt": "wheelhouse service engineer repairing VSAT"
-        }
-      },
-      {
-        "title": "Optimizing Reliability and Extending Service Life with Standardized Routine Maintenance.",
-        "description": [
-          "All onboard equipment and systems require maintenance conducted on schedule and to standard specifications to maximize their lifespan, sustain operational stability, and ensure absolute safety throughout the voyage.",
-          "Our maintenance scope covers systems requiring scheduled part replacement: Equipment within the <b>Communication Systems</b> (GMDSS), <b>Navigational Instruments</b> (RADAR, Gyrocompass), and <b>Electrical Distribution</b> systems (Main Switchboards, emergency battery banks...). We apply maintenance procedures in compliance with manufacturer recommendations and Classification Society rules."
-        ],
-        "image": {
-          "src": "/images/services/wheelhouse-engineer-in-ship-bridge.webp",
-          "alt": "wheelhouse engineer performing maintenance"
-        }
-      },
-      {
-        "title": "Technical Support: Fast and Efficient",
-        "description": [
-          "The primary challenge for operating officers is maximizing the functionality of equipment, especially new technologies, while ensuring their longest possible service life. Our dedicated support team is established to help you decisively overcome this challenge.",
-          "By choosing our services, you gain access to knowledge on the latest technologies in the marine electronics industry, along with standardized troubleshooting methods provided directly by the equipment manufacturers."
-        ],
-        "image": {
-          "src": "/images/services/wheelhouse-engineer-supporting.webp",
-          "alt": "wheelhouse technician remoting support"
-        }
-      }
-    ],
-    "ctaContent": {
-      "title": "Need repair, maintenance, or spare parts?",
-      "description": "We are always ready to assist you. Contact us for timely advice and support.",
-      "href": "/about#contact",
-      "label": "Book Your Service Now!"
-    }
-  },
-  "install": {
-    "title": "Installation & Deployment",
-    "subtitle": "Deploying <b>marine electronic systems</b>, ensuring high standards and efficiency.",
-    "details": [
-      "The installation process for marine electronic equipment demands precision and strict adherence to Classification Society and manufacturer standards. A system installed with <b>accuracy</b> provides the foundation for the vessel's <b>safe and stable</b> operation.",
-      "The expert engineers at <b>Wheelhouse</b> specialize in deploying complex systems, ranging from new builds to modernization upgrades. We commit to delivering installation solutions that are <b>technically sound, on schedule</b>, and ensure the <b>highest possible efficiency</b>."
-    ],
-    "items": [
-      {
-        "title": "Custom System Installation",
-        "description": [
-          "Whether adding new equipment or integrating existing systems, we conduct detailed surveys, prepare technical drawings, and specific installation plans. Our deployment process strictly complies with all technical requirements, ensuring maximum <b>compatibility</b> and <b>aesthetic integrity</b>.",
-          "Custom installation projects include <b>communication equipment</b>, supplemental <b>navigational instruments</b>, <b>power monitoring systems</b>, and <b>specialized sensors</b>."
-        ],
-        "image": {
-          "src": "/images/services/wheelhouse-engineer-installing-ecdis.webp",
-          "alt": "Wheelhouse technician installing ECDIS system"
-        }
-      },
-      {
-        "title": "Electronic System Upgrade & Modernization",
-        "description": [
-          "To maintain competitiveness and comply with new industry regulations, equipment upgrades are essential. We provide services to replace legacy systems with the latest technologies.",
-          "We manage the entire upgrade process, from <b>changeover planning</b> to sea trials, handover, and crew training, enabling the vessel to quickly access the superior features of modern equipment."
-        ],
-        "image": {
-          "src": "/images/services/wheelhouse-engineer-servicing-navigation-equipment.webp",
-          "alt": "Wheelhouse technician performing system upgrade"
-        }
-      },
-      {
-        "title": "New Building Installation",
-        "description": [
-          "We engage in new shipbuilding projects from the initial design phase. This early involvement ensures the seamless integration of marine electronic systems into the vessel's structure, strictly complying with <b>international standards</b> and owner requirements.",
-          "The service encompasses the complete installation of <b>Navigation, Communication, Safety Systems, and Electrical Automation</b>, ensuring the new vessel enters service with optimal technical performance and is ready for Classification Society certification."
-        ],
-        "image": {
-          "src": "/images/services/installing-on-new-ship.webp",
-          "alt": "Wheelhouse technician installing equipment on a new building vessel"
-        }
-      }
-    ],
-    "ctaContent": {
-      "title": "Do you need installation services or full solutions?",
-      "description": "We offer comprehensive solutions for marine electronic equipment, including product consultation, design, supply, installation, and commissioning. Visit our Solutions page to discover the potential and the latest technologies that can be applied to your vessel.",
-      "href": "/solutions",
-      "label": "Learn More About Our Solutions"
-    }
-  },
-  "survey": {
-    "title": "Annual Marine System Survey & Certification",
-    "subtitle": "Ensuring <b>strict compliance</b> with Classification and International requirements.",
-    "details": [
-      "Maintaining operational certificates according to the correct survey schedule is a <b>mandatory legal requirement</b> for every vessel. Periodic inspection not only confirms compliance but also helps in early detection of potential damage, ensuring <b>absolute safety</b> during the voyage.",
-      "The highly experienced technical team at <b>Wheelhouse</b>, in collaboration with our trusted partners and authorized service providers, ensures that annual surveys (GMDSS, VDR/S-VDR) are performed <b>quickly and accurately</b>, helping your vessel pass the inspection and receive new <b>certification</b> efficiently and on schedule.",
-      "Combined with our <b>reliable repair services</b>, we can promptly address any issue if a system component fails to meet the standards of IMO and the classification societies, helping your vessel become <b>safer</b> more <b>quickly</b> without the hassle of multiple troubleshooting steps."
-    ],
-    "ctaContent": {
-      "title": "Do You Need to Schedule an Annual Survey?",
-      "description": "To ensure your vessel's certificates are not interrupted, contact us immediately for consultation and timely survey planning.",
-      "href": "/about#contact",
-      "label": "Learn More About Our Solutions"
-    }
-  }
+	"meta": {
+		"title": "Maritime Electronics Services | Installation, Repair & Maintenance",
+		"description": "We provide professional maritime electronics services, including GMDSS, navigation, connectivity, and automation.",
+		"ogImage": "/images/og/og-home-en.png",
+		"slug": "services"
+	},
+	"hero": {
+		"title": "Maritime Electronic Services",
+		"subtitle": "Professional services for maritime electronic equipment.",
+		"images": {
+			"back": {
+				"src": "/images/services/wheelhouse-service-engineer-reparing-electric-equipment.webp",
+				"alt": "Wheelhouse service engineer repairing electric equipment"
+			},
+			"fore": {
+				"src": "/images/services/wheelhouse-service-engineer-commisioning-VSAT.webp",
+				"alt": "Wheelhouse technician commissioning VSAT"
+			}
+		},
+		"ctas": [
+			{
+				"label": "Contact Us",
+				"href": "/about#contact"
+			},
+			{
+				"label": "Want to Chat First?",
+				"href": "https://wa.me/84981829002"
+			}
+		]
+	},
+	"qualityOfService": {
+		"title": "Why Our Clients Trust Us",
+		"description": [
+			"Wheelhouse not only delivers <b>high-quality services</b> but also accompanies clients comprehensively throughout their entire journey. Our <b>experienced engineers</b> proactively identify and strive to resolve issues before they impact equipment operations.",
+			"With <b>dedication, expertise</b>, and smart workflows, clients can be fully confident that every need is <b>prioritized</b>, and <b>service quality</b> is consistently maintained at the <b>highest level</b>."
+		]
+	},
+	"rm": {
+		"title": "Repair & Maintenance",
+		"subtitle": "Professional repair and maintenance services for <b>maritime electronic equipment</b>.",
+		"details": [
+			"A ship's officer in today's maritime environment relies on a wide range of <b>marine electronic equipment</b> to ensure the safety of the vessel and its crew, while successfully completing missions at sea. Cutting-edge marine electronics has made the journey at sea <b>smoother and safer</b>.",
+			"You need the best services to keep your ship’s equipment in optimal working order without negatively impacting your financial bottom line. Wheelhouse is ready to provide <b>maintenance and repair services</b> that ensure your equipment operates reliably and efficiently, at the <b>most cost-effective approach possible</b>."
+		],
+		"items": [
+			{
+				"title": "Fast, Effective Repairs with Optimized Cost-Efficiency",
+				"description": [
+					"With a highly skilled technical team and meticulous preparation—including detailed planning, execution methods, and high-quality spare parts—we commit to completing all repair work on time, meeting the most stringent technical requirements, and ensuring superior quality.",
+					"Our repair service scope covers all critical marine electrical and electronic systems, from essential <b>navigational instruments</b> like radar and positioning devices, to modern <b>communication solutions</b> such as GMDSS and VSAT. We also specialize in <b>engine room electrical automation</b> (including boilers and main switchboards) and resolve any issues related to <b>deck equipment</b> (such as cranes and cargo hold sensors). We are always prepared to support all specific needs of every vessel."
+				],
+				"image": {
+					"src": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
+					"alt": "wheelhouse service engineer repairing VSAT"
+				}
+			},
+			{
+				"title": "Optimizing Reliability and Extending Service Life with Standardized Routine Maintenance.",
+				"description": [
+					"All onboard equipment and systems require maintenance conducted on schedule and to standard specifications to maximize their lifespan, sustain operational stability, and ensure absolute safety throughout the voyage.",
+					"Our maintenance scope covers systems requiring scheduled part replacement: Equipment within the <b>Communication Systems</b> (GMDSS), <b>Navigational Instruments</b> (RADAR, Gyrocompass), and <b>Electrical Distribution</b> systems (Main Switchboards, emergency battery banks...). We apply maintenance procedures in compliance with manufacturer recommendations and Classification Society rules."
+				],
+				"image": {
+					"src": "/images/services/wheelhouse-engineer-in-ship-bridge.webp",
+					"alt": "wheelhouse engineer performing maintenance"
+				}
+			},
+			{
+				"title": "Technical Support: Fast and Efficient",
+				"description": [
+					"The primary challenge for operating officers is maximizing the functionality of equipment, especially new technologies, while ensuring their longest possible service life. Our dedicated support team is established to help you decisively overcome this challenge.",
+					"By choosing our services, you gain access to knowledge on the latest technologies in the marine electronics industry, along with standardized troubleshooting methods provided directly by the equipment manufacturers."
+				],
+				"image": {
+					"src": "/images/services/wheelhouse-engineer-supporting.webp",
+					"alt": "wheelhouse technician remoting support"
+				}
+			}
+		],
+		"ctaContent": {
+			"title": "Need repair, maintenance, or spare parts?",
+			"description": "We are always ready to assist you. Contact us for timely advice and support.",
+			"href": "/about#contact",
+			"label": "Book Your Service Now!"
+		}
+	},
+	"install": {
+		"title": "Installation & Deployment",
+		"subtitle": "Deploying <b>marine electronic systems</b>, ensuring high standards and efficiency.",
+		"details": [
+			"The installation process for marine electronic equipment demands precision and strict adherence to Classification Society and manufacturer standards. A system installed with <b>accuracy</b> provides the foundation for the vessel's <b>safe and stable</b> operation.",
+			"The expert engineers at <b>Wheelhouse</b> specialize in deploying complex systems, ranging from new builds to modernization upgrades. We commit to delivering installation solutions that are <b>technically sound, on schedule</b>, and ensure the <b>highest possible efficiency</b>."
+		],
+		"items": [
+			{
+				"title": "Custom System Installation",
+				"description": [
+					"Whether adding new equipment or integrating existing systems, we conduct detailed surveys, prepare technical drawings, and specific installation plans. Our deployment process strictly complies with all technical requirements, ensuring maximum <b>compatibility</b> and <b>aesthetic integrity</b>.",
+					"Custom installation projects include <b>communication equipment</b>, supplemental <b>navigational instruments</b>, <b>power monitoring systems</b>, and <b>specialized sensors</b>."
+				],
+				"image": {
+					"src": "/images/services/wheelhouse-engineer-installing-ecdis.webp",
+					"alt": "Wheelhouse technician installing ECDIS system"
+				}
+			},
+			{
+				"title": "Electronic System Upgrade & Modernization",
+				"description": [
+					"To maintain competitiveness and comply with new industry regulations, equipment upgrades are essential. We provide services to replace legacy systems with the latest technologies.",
+					"We manage the entire upgrade process, from <b>changeover planning</b> to sea trials, handover, and crew training, enabling the vessel to quickly access the superior features of modern equipment."
+				],
+				"image": {
+					"src": "/images/services/wheelhouse-engineer-servicing-navigation-equipment.webp",
+					"alt": "Wheelhouse technician performing system upgrade"
+				}
+			},
+			{
+				"title": "New Building Installation",
+				"description": [
+					"We engage in new shipbuilding projects from the initial design phase. This early involvement ensures the seamless integration of marine electronic systems into the vessel's structure, strictly complying with <b>international standards</b> and owner requirements.",
+					"The service encompasses the complete installation of <b>Navigation, Communication, Safety Systems, and Electrical Automation</b>, ensuring the new vessel enters service with optimal technical performance and is ready for Classification Society certification."
+				],
+				"image": {
+					"src": "/images/services/installing-on-new-ship.webp",
+					"alt": "Wheelhouse technician installing equipment on a new building vessel"
+				}
+			}
+		],
+		"ctaContent": {
+			"title": "Do you need installation services or full solutions?",
+			"description": "We offer comprehensive solutions for marine electronic equipment, including product consultation, design, supply, installation, and commissioning. Visit our Solutions page to discover the potential and the latest technologies that can be applied to your vessel.",
+			"href": "/solutions",
+			"label": "Learn More About Our Solutions"
+		}
+	},
+	"survey": {
+		"title": "Annual Marine System Survey & Certification",
+		"subtitle": "Ensuring <b>strict compliance</b> with Classification and International requirements.",
+		"details": [
+			"Maintaining operational certificates according to the correct survey schedule is a <b>mandatory legal requirement</b> for every vessel. Periodic inspection not only confirms compliance but also helps in early detection of potential damage, ensuring <b>absolute safety</b> during the voyage.",
+			"The highly experienced technical team at <b>Wheelhouse</b>, in collaboration with our trusted partners and authorized service providers, ensures that annual surveys (GMDSS, VDR/S-VDR) are performed <b>quickly and accurately</b>, helping your vessel pass the inspection and receive new <b>certification</b> efficiently and on schedule.",
+			"Combined with our <b>reliable repair services</b>, we can promptly address any issue if a system component fails to meet the standards of IMO and the classification societies, helping your vessel become <b>safer</b> more <b>quickly</b> without the hassle of multiple troubleshooting steps."
+		],
+		"ctaContent": {
+			"title": "Do You Need to Schedule an Annual Survey?",
+			"description": "To ensure your vessel's certificates are not interrupted, contact us immediately for consultation and timely survey planning.",
+			"href": "/about#contact",
+			"label": "Learn More About Our Solutions"
+		}
+	}
 }

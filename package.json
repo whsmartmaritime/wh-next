@@ -1,41 +1,41 @@
 {
-  "name": "wh-next",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack -H 0.0.0.0",
-    "prebuild": "tsx src/scripts/updatePathname.ts",
-    "build": "next build --turbopack",
-    "start": "next start",
-    "lint": "biome lint .",
-    "format": "biome format ."
-  },
-  "dependencies": {
-    "gray-matter": "^4.0.3",
-    "next": "16.0.0",
-    "next-intl": "^4.4.0",
-    "next-mdx-remote-client": "^2.1.7",
-    "next-themes": "^0.4.6",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "react-icons": "^5.5.0",
-    "reading-time": "^1.5.0",
-    "rehype-highlight": "^7.0.2",
-    "slugify": "^1.6.6",
-    "tailwindcss-animate": "^1.0.7",
-    "tsx": "^4.20.6"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^2.3.1",
-    "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^4.1.14",
-    "@types/node": "^20.19.21",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
-    "eslint-config-next": "15.5.0",
-    "rehype-katex": "^7.0.1",
-    "tailwindcss": "^4.1.14",
-    "typescript": "^5.9.3"
-  },
-  "packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8"
+	"name": "wh-next",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev --turbopack -H 0.0.0.0",
+		"prebuild": "tsx src/scripts/updatePathname.ts",
+		"build": "next build --turbopack",
+		"start": "next start",
+		"lint": "biome lint .",
+		"format": "biome format ."
+	},
+	"dependencies": {
+		"gray-matter": "^4.0.3",
+		"next": "16.0.0",
+		"next-intl": "^4.4.0",
+		"next-mdx-remote-client": "^2.1.7",
+		"next-themes": "^0.4.6",
+		"react": "19.2.0",
+		"react-dom": "19.2.0",
+		"react-icons": "^5.5.0",
+		"reading-time": "^1.5.0",
+		"rehype-highlight": "^7.0.2",
+		"slugify": "^1.6.6",
+		"tailwindcss-animate": "^1.0.7",
+		"tsx": "^4.20.6"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.3.1",
+		"@eslint/eslintrc": "^3.3.1",
+		"@tailwindcss/postcss": "^4.1.14",
+		"@types/node": "^20.19.21",
+		"@types/react": "^19.2.2",
+		"@types/react-dom": "^19.2.2",
+		"eslint-config-next": "15.5.0",
+		"rehype-katex": "^7.0.1",
+		"tailwindcss": "^4.1.14",
+		"typescript": "^5.9.3"
+	},
+	"packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8"
 }

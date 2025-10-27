@@ -1,78 +1,78 @@
 {
-  "meta": {
-    "title": "Giải pháp thiết bị điện tử hàng hải | GMDSS, Nghi Khí & thông tin liên lạc",
-    "description": "Wheelhouse cung cấp các giải pháp cho thiết bị điện tử hàng hải như GMDSS, Nghi khí hàng hải, thông tin liên lạc.",
-    "ogImage": "/images/og/og-home-vi.png",
-    "slug": "giai-phap"
-  },
+	"meta": {
+		"title": "Giải pháp thiết bị điện tử hàng hải | GMDSS, Nghi Khí & thông tin liên lạc",
+		"description": "Wheelhouse cung cấp các giải pháp cho thiết bị điện tử hàng hải như GMDSS, Nghi khí hàng hải, thông tin liên lạc.",
+		"ogImage": "/images/og/og-home-vi.png",
+		"slug": "giai-phap"
+	},
 
-  "hero": {
-    "title": "Giải pháp thiết bị điện tử trên tàu",
-    "subtitle": "Giải pháp cho các hệ thống thông tin liên lạc, nghi khí hàng hải và internet vệ tinh",
-    "images": {
-      "back": {
-        "src": "/images/solutions/radar-testing.webp",
-        "alt": "Kỹ thuật viên Wheelhouse chạy thử RADAR"
-      },
-      "fore": {
-        "src": "/images/solutions/gyro-compass-testing.webp",
-        "alt": "Kỹ thuật viên Wheelhouse chạy thử la bàn con quay"
-      }
-    },
-    "ctas": [
-      {
-        "label": "Liên hệ với chúng tôi",
-        "href": "/about#contact"
-      },
-      {
-        "label": "Muốn trò chuyện trước?",
-        "href": "https://wa.me/84981829002"
-      }
-    ]
-  },
-  "overview": {
-    "title": "Chất lượng giải pháp",
-    "subtitle": "Hành Trình Cùng Wheelhouse",
-    "desc": "Tại Wheelhouse, mỗi giải pháp điện tử hàng hải bắt đầu từ việc hiểu rõ nhu cầu của tàu và thủy thủ đoàn. Chúng tôi đồng hành từ tư vấn, thiết kế, cung cấp thiết bị đến lắp đặt và chạy thử, đảm bảo mọi hệ thống vận hành trơn tru, an toàn và đáng tin cậy trên biển."
-  },
-  "solutionList": {
-    "title": "Giải Pháp Của Chúng Tôi",
-    "subtitle": "Giải Pháp Điện Tử Hàng Hải Toàn Diện",
-    "items": {
-      "item1": {
-        "title": "Nghi Khí Hàng Hải",
-        "description": "Là nhà cung cấp độc lập, Wheelhouse cung cấp các thiết bị định vị hàng hải chất lượng cao từ những thương hiệu uy tín hàng đầu thế giới.",
-        "href": "solutions/navigation",
-        "imgSrc": "/images/solutions/wheelhouse-engineer-with-navigation-equipment.webp",
-        "imgAlt": "kỹ thuật viên wheelhouse với thiết bị nghi khí hàng hải"
-      },
-      "item2": {
-        "title": "Thiết Bị GMDSS",
-        "description": "Giải pháp GMDSS đáng tin cậy giúp tàu duy trì liên lạc, tuân thủ SOLAS và đảm bảo an toàn cho mọi hành trình.",
-        "href": "solutions/gmdss",
-        "imgSrc": "/images/solutions/gmdss-console-equipment.webp",
-        "imgAlt": "gmdss console equipment"
-      },
-      "item3": {
-        "title": "Thông tin vệ tinh",
-        "description": "Giải pháp kết nối vệ tinh tốc độ cao giúp tàu luôn trực tuyến, vận hành ổn định ở bất kỳ vùng biển nào.",
-        "href": "solutions/connectivity",
-        "imgSrc": "/images/solutions/satellite-connectivity.webp",
-        "imgAlt": "satellite connectivity"
-      },
-      "item4": {
-        "title": "Hải đồ - Ấn phẩm điện tử",
-        "description": "Giải pháp e-navigation kết hợp thiết bị ECDIS, dữ liệu ENC và ấn phẩm điện tử, mang đến sự hỗ trợ tối ưu cho lập kế hoạch và điều hướng an toàn.",
-        "href": "solutions/e-navigation",
-        "imgSrc": "/images/solutions/e-navigation.webp",
-        "imgAlt": "e-navigation"
-      }
-    },
-    "ctaContent": {
-      "title": "Từ giải pháp đến vận hành bền vững",
-      "description": "Bên cạnh các giải pháp mà chúng tôi mang đến, Wheelhouse còn cung cấp nhiều dịch vụ hỗ trợ chuyên sâu — từ bảo trì định kỳ, sửa chữa tại chỗ, đến hỗ trợ từ xa — giúp hệ thống vận hành ổn định, tối ưu chi phí và nâng cao hiệu suất.",
-      "href": "/services",
-      "label": "Khám phá dịch vụ của chúng tôi"
-    }
-  }
+	"hero": {
+		"title": "Giải pháp thiết bị điện tử trên tàu",
+		"subtitle": "Giải pháp cho các hệ thống thông tin liên lạc, nghi khí hàng hải và internet vệ tinh",
+		"images": {
+			"back": {
+				"src": "/images/solutions/radar-testing.webp",
+				"alt": "Kỹ thuật viên Wheelhouse chạy thử RADAR"
+			},
+			"fore": {
+				"src": "/images/solutions/gyro-compass-testing.webp",
+				"alt": "Kỹ thuật viên Wheelhouse chạy thử la bàn con quay"
+			}
+		},
+		"ctas": [
+			{
+				"label": "Liên hệ với chúng tôi",
+				"href": "/about#contact"
+			},
+			{
+				"label": "Muốn trò chuyện trước?",
+				"href": "https://wa.me/84981829002"
+			}
+		]
+	},
+	"overview": {
+		"title": "Chất lượng giải pháp",
+		"subtitle": "Hành Trình Cùng Wheelhouse",
+		"desc": "Tại Wheelhouse, mỗi giải pháp điện tử hàng hải bắt đầu từ việc hiểu rõ nhu cầu của tàu và thủy thủ đoàn. Chúng tôi đồng hành từ tư vấn, thiết kế, cung cấp thiết bị đến lắp đặt và chạy thử, đảm bảo mọi hệ thống vận hành trơn tru, an toàn và đáng tin cậy trên biển."
+	},
+	"solutionList": {
+		"title": "Giải Pháp Của Chúng Tôi",
+		"subtitle": "Giải Pháp Điện Tử Hàng Hải Toàn Diện",
+		"items": {
+			"item1": {
+				"title": "Nghi Khí Hàng Hải",
+				"description": "Là nhà cung cấp độc lập, Wheelhouse cung cấp các thiết bị định vị hàng hải chất lượng cao từ những thương hiệu uy tín hàng đầu thế giới.",
+				"href": "solutions/navigation",
+				"imgSrc": "/images/solutions/wheelhouse-engineer-with-navigation-equipment.webp",
+				"imgAlt": "kỹ thuật viên wheelhouse với thiết bị nghi khí hàng hải"
+			},
+			"item2": {
+				"title": "Thiết Bị GMDSS",
+				"description": "Giải pháp GMDSS đáng tin cậy giúp tàu duy trì liên lạc, tuân thủ SOLAS và đảm bảo an toàn cho mọi hành trình.",
+				"href": "solutions/gmdss",
+				"imgSrc": "/images/solutions/gmdss-console-equipment.webp",
+				"imgAlt": "gmdss console equipment"
+			},
+			"item3": {
+				"title": "Thông tin vệ tinh",
+				"description": "Giải pháp kết nối vệ tinh tốc độ cao giúp tàu luôn trực tuyến, vận hành ổn định ở bất kỳ vùng biển nào.",
+				"href": "solutions/connectivity",
+				"imgSrc": "/images/solutions/satellite-connectivity.webp",
+				"imgAlt": "satellite connectivity"
+			},
+			"item4": {
+				"title": "Hải đồ - Ấn phẩm điện tử",
+				"description": "Giải pháp e-navigation kết hợp thiết bị ECDIS, dữ liệu ENC và ấn phẩm điện tử, mang đến sự hỗ trợ tối ưu cho lập kế hoạch và điều hướng an toàn.",
+				"href": "solutions/e-navigation",
+				"imgSrc": "/images/solutions/e-navigation.webp",
+				"imgAlt": "e-navigation"
+			}
+		},
+		"ctaContent": {
+			"title": "Từ giải pháp đến vận hành bền vững",
+			"description": "Bên cạnh các giải pháp mà chúng tôi mang đến, Wheelhouse còn cung cấp nhiều dịch vụ hỗ trợ chuyên sâu — từ bảo trì định kỳ, sửa chữa tại chỗ, đến hỗ trợ từ xa — giúp hệ thống vận hành ổn định, tối ưu chi phí và nâng cao hiệu suất.",
+			"href": "/services",
+			"label": "Khám phá dịch vụ của chúng tôi"
+		}
+	}
 }

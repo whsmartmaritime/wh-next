@@ -1,74 +1,74 @@
 {
-  "meta": {
-    "title": "About Us | Wheelhouse",
-    "description": "Learn about Wheelhouse's mission, values, and commitment to excellence in maritime services. Discover our story and expertise.",
-    "ogImage": "/images/og/og-home-en.png",
-    "canonical": "/en/about"
-  },
-  "hero": {
-    "title": "About Wheelhouse",
-    "subtitle": "Providing Professional Installation, Maintenance, and Repair Services for Shipborne Electronics",
-    "images": {
-      "back": {
-        "src": "/images/Picture1.png",
-        "alt": "ship"
-      },
-      "fore": {
-        "src": "/images/Picture2.png",
-        "alt": "ship"
-      }
-    },
-    "ctas": [
-      {
-        "label": "Want to Chat First?",
-        "href": "https://wa.me/84981829002"
-      }
-    ]
-  },
-  "whoWeAre": {
-    "title": "Who Are We",
-    "description": [
-      "Wheelhouse Co., Ltd is a maritime technology and service provider dedicated to optimizing the performance of ships and fleets.",
-      "Our strength lies in experienced people who listen, innovate, and deliver tailored solutions."
-    ]
-  },
-  "ourValues": {
-    "title": "Our Value",
-    "value1": "By providing high-quality products and services, we are committed to being a trusted partner, walking alongside our Customers for the long term.",
-    "value2": "In cooperation with Manufacturers, we create a reliable, quality and sustainable network to serve Customers.",
-    "value3": "We create the best conditions to meet the needs and expectations at work in order to promote the creativity, dedication and enthusiasm of Employees, which contributes to the success of Wheelhouse.",
-    "value4": "Wheelhouse actively contributes to the development of the Vietnamese maritime industry and remains aware that social responsibility is an integral part of our commitment to the Community"
-  },
-  "ourMission": {
-    "title": "Our Mission",
-    "desc": "To be a preferred supplier of “One-stop” solution for marine electronic services, communication and navigation equipment throughout the region, all underpinned by the Wheelhouse values:",
-    "value1": "We conduct business with Honesty & Transparency.",
-    "value2": "We offer equal terms of treatment and Integrity without Prejudice.",
-    "value3": "Our team is characterized by a Desire to Listen & Willingness to Advise.",
-    "value4": "We move forward with an Unapologetically Optimistic View of the Future.",
-    "value5": "While remembering the Responsibilities of Today.."
-  },
-  "contact": {
-    "title": "Contact Information",
-    "name": "Wheelhouse Co., Ltd",
-    "address": "Address: 21 An Loc Str, An Hai Dist, HaiPhong City, Vietnam",
-    "email": "Email: info@wheelhouse.vn",
-    "phone": {
-      "display": "Phone: 84-865716079",
-      "link": "+84865716079"
-    },
+	"meta": {
+		"title": "About Us | Wheelhouse",
+		"description": "Learn about Wheelhouse's mission, values, and commitment to excellence in maritime services. Discover our story and expertise.",
+		"ogImage": "/images/og/og-home-en.png",
+		"canonical": "/en/about"
+	},
+	"hero": {
+		"title": "About Wheelhouse",
+		"subtitle": "Providing Professional Installation, Maintenance, and Repair Services for Shipborne Electronics",
+		"images": {
+			"back": {
+				"src": "/images/Picture1.png",
+				"alt": "ship"
+			},
+			"fore": {
+				"src": "/images/Picture2.png",
+				"alt": "ship"
+			}
+		},
+		"ctas": [
+			{
+				"label": "Want to Chat First?",
+				"href": "https://wa.me/84981829002"
+			}
+		]
+	},
+	"whoWeAre": {
+		"title": "Who Are We",
+		"description": [
+			"Wheelhouse Co., Ltd is a maritime technology and service provider dedicated to optimizing the performance of ships and fleets.",
+			"Our strength lies in experienced people who listen, innovate, and deliver tailored solutions."
+		]
+	},
+	"ourValues": {
+		"title": "Our Value",
+		"value1": "By providing high-quality products and services, we are committed to being a trusted partner, walking alongside our Customers for the long term.",
+		"value2": "In cooperation with Manufacturers, we create a reliable, quality and sustainable network to serve Customers.",
+		"value3": "We create the best conditions to meet the needs and expectations at work in order to promote the creativity, dedication and enthusiasm of Employees, which contributes to the success of Wheelhouse.",
+		"value4": "Wheelhouse actively contributes to the development of the Vietnamese maritime industry and remains aware that social responsibility is an integral part of our commitment to the Community"
+	},
+	"ourMission": {
+		"title": "Our Mission",
+		"desc": "To be a preferred supplier of “One-stop” solution for marine electronic services, communication and navigation equipment throughout the region, all underpinned by the Wheelhouse values:",
+		"value1": "We conduct business with Honesty & Transparency.",
+		"value2": "We offer equal terms of treatment and Integrity without Prejudice.",
+		"value3": "Our team is characterized by a Desire to Listen & Willingness to Advise.",
+		"value4": "We move forward with an Unapologetically Optimistic View of the Future.",
+		"value5": "While remembering the Responsibilities of Today.."
+	},
+	"contact": {
+		"title": "Contact Information",
+		"name": "Wheelhouse Co., Ltd",
+		"address": "Address: 21 An Loc Str, An Hai Dist, HaiPhong City, Vietnam",
+		"email": "Email: info@wheelhouse.vn",
+		"phone": {
+			"display": "Phone: 84-865716079",
+			"link": "+84865716079"
+		},
 
-    "social": {
-      "facebook": "https://facebook.com",
-      "linkedin": "https://linkedin.com"
-    },
-    "contactForm": {
-      "messageTitle": "Send us a message",
-      "namePlaceholder": "Your name",
-      "emailPlaceholder": "Your email",
-      "phonePlaceholder": "Your phone number",
-      "messagePlaceholder": "Your message",
-      "submitButton": "Send"
-    }
-  }
+		"social": {
+			"facebook": "https://facebook.com",
+			"linkedin": "https://linkedin.com"
+		},
+		"contactForm": {
+			"messageTitle": "Send us a message",
+			"namePlaceholder": "Your name",
+			"emailPlaceholder": "Your email",
+			"phonePlaceholder": "Your phone number",
+			"messagePlaceholder": "Your message",
+			"submitButton": "Send"
+		}
+	}
 }

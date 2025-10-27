@@ -1,7 +1,7 @@
 {
-  "author": "Tác giả",
-  "publishedAt": "Ngày xuất bản",
-  "updatedAt": "Ngày cập nhật",
-  "category": "Danh mục",
-  "relatedPosts": "Bài viết liên quan"
+	"author": "Tác giả",
+	"publishedAt": "Ngày xuất bản",
+	"updatedAt": "Ngày cập nhật",
+	"category": "Danh mục",
+	"relatedPosts": "Bài viết liên quan"
 }

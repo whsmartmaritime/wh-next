@@ -1,74 +1,74 @@
 {
-  "meta": {
-    "title": "Về chúng tôi | Wheelhouse",
-    "description": "Sứ mệnh, giá trị và cam kết xuất sắc của Wheelhouse trong các dịch vụ hàng hải. Khám phá câu chuyện và chuyên môn của chúng tôi.",
-    "ogImage": "/images/og/og-home-vi.png",
-    "canonical": "/vi/gioi-thieu"
-  },
-  "hero": {
-    "title": "Giới thiệu về Wheelhouse",
-    "subtitle": "Chuyên lắp đặt, bảo dưỡng và sửa chữa thiết bị điện tử trên tàu",
-    "images": {
-      "back": {
-        "src": "/images/Picture1.png",
-        "alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị hàng hải"
-      },
-      "fore": {
-        "src": "/images/Picture2.png",
-        "alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị hàng hải"
-      }
-    },
-    "ctas": [
-      {
-        "label": "Trò chuyện vơi chúng tôi",
-        "href": "https://wa.me/84981829002"
-      }
-    ]
-  },
-  "whoWeAre": {
-    "title": "Chúng Tôi Là Ai",
-    "description": [
-      "Wheelhouse Co., Ltd là công ty công nghệ và dịch vụ hàng hải, hướng tới mục tiêu tối ưu hóa hiệu suất tàu và đội tàu.",
-      "Sức mạnh của chúng tôi đến từ đội ngũ giàu kinh nghiệm, luôn lắng nghe và mang đến giải pháp phù hợp, bền vững cho ngành hàng hải."
-    ]
-  },
-  "ourValues": {
-    "title": "Sứ Mệnh",
-    "value1": "Bằng việc cung cấp các sản phẩm và dịch vụ chất lượng, chúng tôi cam kết là người bạn thân thiết, tiến bước lâu dài cùng Khách hàng.",
-    "value2": "Cùng với các Nhà sản xuất, chúng tôi tạo ra mạng lưới phục vụ khách hàng tin cậy, chất lượng, và có giá trị bền vững",
-    "value3": "Chúng tôi tạo mọi điều kiện tốt nhất để đáp ứng các nhu cầu và kỳ vọng trong công việc nhằm phát huy tính sáng tạo, sự toàn tâm và lòng nhiệt huyết của Nhân viên, đóng góp vào sự thành công của Wheelhouse.",
-    "value4": "Chúng tôi tích cực đóng góp vào sự phát triển của ngành hàng hải Việt Nam và luôn nhận thức rằng các hoạt động xã hội là một phần trách nhiệm của Wheelhouse đối với Cộng đồng."
-  },
-  "ourMission": {
-    "title": "Tầm Nhìn",
-    "desc": "Chúng tôi đang trên con đường trở thành nhà cung cấp dịch vụ hàng hải được ưa chuộng nhất khu vực, được củng cố bởi các giá trị của Wheelhouse:",
-    "value1": "Chúng tôi tiến hành kinh doanh với sự trung thực và minh bạch.",
-    "value2": "Chúng tôi đưa ra các điều khoản đối xử bình đẳng và không định kiến.",
-    "value3": "Chúng tôi được đặc trưng bởi mong muốn lắng nghe và sẵn sàng tư vấn.",
-    "value4": "Chúng tôi tiến về phía trước với một cái nhìn lạc quan không hối tiếc về tương lai.",
-    "value5": "Trong khi nhớ về những trách nhiệm của hôm nay."
-  },
-  "contact": {
-    "title": "Thông tin liên hệ",
-    "name": "Công ty TNHH Wheelhouse",
-    "address": "Địa chỉ:21 An Lộc, Phường An Hải, TP Hải Phòng",
-    "email": "Email:info@wheelhouse.vn",
-    "phone": {
-      "display": "Điện thoại: 84-865716079",
-      "link": "+84865716079"
-    },
+	"meta": {
+		"title": "Về chúng tôi | Wheelhouse",
+		"description": "Sứ mệnh, giá trị và cam kết xuất sắc của Wheelhouse trong các dịch vụ hàng hải. Khám phá câu chuyện và chuyên môn của chúng tôi.",
+		"ogImage": "/images/og/og-home-vi.png",
+		"canonical": "/vi/gioi-thieu"
+	},
+	"hero": {
+		"title": "Giới thiệu về Wheelhouse",
+		"subtitle": "Chuyên lắp đặt, bảo dưỡng và sửa chữa thiết bị điện tử trên tàu",
+		"images": {
+			"back": {
+				"src": "/images/Picture1.png",
+				"alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị hàng hải"
+			},
+			"fore": {
+				"src": "/images/Picture2.png",
+				"alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị hàng hải"
+			}
+		},
+		"ctas": [
+			{
+				"label": "Trò chuyện vơi chúng tôi",
+				"href": "https://wa.me/84981829002"
+			}
+		]
+	},
+	"whoWeAre": {
+		"title": "Chúng Tôi Là Ai",
+		"description": [
+			"Wheelhouse Co., Ltd là công ty công nghệ và dịch vụ hàng hải, hướng tới mục tiêu tối ưu hóa hiệu suất tàu và đội tàu.",
+			"Sức mạnh của chúng tôi đến từ đội ngũ giàu kinh nghiệm, luôn lắng nghe và mang đến giải pháp phù hợp, bền vững cho ngành hàng hải."
+		]
+	},
+	"ourValues": {
+		"title": "Sứ Mệnh",
+		"value1": "Bằng việc cung cấp các sản phẩm và dịch vụ chất lượng, chúng tôi cam kết là người bạn thân thiết, tiến bước lâu dài cùng Khách hàng.",
+		"value2": "Cùng với các Nhà sản xuất, chúng tôi tạo ra mạng lưới phục vụ khách hàng tin cậy, chất lượng, và có giá trị bền vững",
+		"value3": "Chúng tôi tạo mọi điều kiện tốt nhất để đáp ứng các nhu cầu và kỳ vọng trong công việc nhằm phát huy tính sáng tạo, sự toàn tâm và lòng nhiệt huyết của Nhân viên, đóng góp vào sự thành công của Wheelhouse.",
+		"value4": "Chúng tôi tích cực đóng góp vào sự phát triển của ngành hàng hải Việt Nam và luôn nhận thức rằng các hoạt động xã hội là một phần trách nhiệm của Wheelhouse đối với Cộng đồng."
+	},
+	"ourMission": {
+		"title": "Tầm Nhìn",
+		"desc": "Chúng tôi đang trên con đường trở thành nhà cung cấp dịch vụ hàng hải được ưa chuộng nhất khu vực, được củng cố bởi các giá trị của Wheelhouse:",
+		"value1": "Chúng tôi tiến hành kinh doanh với sự trung thực và minh bạch.",
+		"value2": "Chúng tôi đưa ra các điều khoản đối xử bình đẳng và không định kiến.",
+		"value3": "Chúng tôi được đặc trưng bởi mong muốn lắng nghe và sẵn sàng tư vấn.",
+		"value4": "Chúng tôi tiến về phía trước với một cái nhìn lạc quan không hối tiếc về tương lai.",
+		"value5": "Trong khi nhớ về những trách nhiệm của hôm nay."
+	},
+	"contact": {
+		"title": "Thông tin liên hệ",
+		"name": "Công ty TNHH Wheelhouse",
+		"address": "Địa chỉ:21 An Lộc, Phường An Hải, TP Hải Phòng",
+		"email": "Email:info@wheelhouse.vn",
+		"phone": {
+			"display": "Điện thoại: 84-865716079",
+			"link": "+84865716079"
+		},
 
-    "social": {
-      "facebook": "https://facebook.com",
-      "linkedin": "https://linkedin.com"
-    },
-    "contactForm": {
-      "messageTitle": "Gửi tin nhắn",
-      "namePlaceholder": "Họ và tên",
-      "emailPlaceholder": "Email",
-      "phonePlaceholder": "Số điện thoại",
-      "messagePlaceholder": "Nội dung",
-      "submitButton": "Gửi"
-    }
-  }
+		"social": {
+			"facebook": "https://facebook.com",
+			"linkedin": "https://linkedin.com"
+		},
+		"contactForm": {
+			"messageTitle": "Gửi tin nhắn",
+			"namePlaceholder": "Họ và tên",
+			"emailPlaceholder": "Email",
+			"phonePlaceholder": "Số điện thoại",
+			"messagePlaceholder": "Nội dung",
+			"submitButton": "Gửi"
+		}
+	}
 }

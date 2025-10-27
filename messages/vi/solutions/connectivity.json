@@ -1,30 +1,30 @@
 {
-  "meta": {
-    "title": "Thông tin vệ tinh | Cung cấp & lắp đặt VSAT, Starlink",
-    "description": "Giải pháp thông tin vệ tinh từ Wheelhouse: cung cấp và lắp đặt VSAT, Starlink, Iridium… giúp tàu duy trì liên lạc toàn cầu ổn định và tốc độ cao.",
-    "ogImage": "/images/og/og-home-vi.png",
-    "slug": "thong-tin-ve-tinh"
-  },
-  "hero": {
-    "title": "Thông tin liên lạc vệ tinh",
-    "subtitle": "Xuất sắc trong các giải pháp thiết bị hàng hải từ khi thành lập",
-    "cardTitle": "VSAT, STARLINK, IRIDIUM, COASTAL 4G LTE ...",
-    "cardDescription": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, độ tin cậy và đổi mới.",
-    "imgSrc": "/images/solutions/connectivity/starlink-antenna-on-ship.webp",
-    "imgAlt": "Starlink trên tàu"
-  },
-  "overview": {
-    "title": "Giải pháp mạng thông minh, linh hoạt và sẵn sàng cho tương lai",
-    "description": "Cùng với các nhà sản xuất hàng đầu, Wheelhouse thiết kế và triển khai giải pháp mạng vệ tinh thông minh được tùy chỉnh theo nhu cầu vận hành của từng khách hàng. Chúng tôi mang đến sự kết hợp linh hoạt giữa nhiều phương thức kết nối – từ Starlink, VSAT, Iridium cho đến 4G LTE – nhằm đảm bảo tàu của bạn luôn duy trì kết nối ổn định dù ở bất kỳ đâu trên thế giới. Thông qua các dịch vụ quản lý toàn diện, Wheelhouse chủ động chịu trách nhiệm tích hợp và vận hành toàn bộ hệ thống, từ xử lý dữ liệu quan trọng, tối ưu băng thông đến triển khai các giải pháp an ninh mạng tiên tiến, giúp bạn tập trung vào hoạt động kinh doanh cốt lõi với sự an tâm tuyệt đối về mạng lưới từ xa. Hiệu quả vận hành luôn là ưu tiên hàng đầu của mọi doanh nghiệp hàng hải. Vì vậy, bạn cần nhiều hơn một nhà cung cấp dịch vụ truyền thông. Bạn cần một đối tác đáng tin cậy – người có thể đồng hành trong việc xây dựng một hạ tầng kết nối thông minh, linh hoạt và sẵn sàng cho tương lai."
-  },
-  "ctaContent": {
-    "title": "Liên hệ",
-    "description": "Đừng ngần ngại liên hệ với đội ngũ chuyên gia của chúng tôi – chúng ta sẽ cùng tạo nên giải pháp hiệu quả nhất, dù đó là thiết bị đơn lẻ hay hệ thống tích hợp hoàn chỉnh.",
-    "label": "Kết nối với chúng tôi!"
-  },
-  "blogPosts": {
-    "title": "Bài viết & Phân tích",
-    "description": "Phần bài viết này nhằm phân tích và chia sẻ các góc nhìn chuyên sâu giúp làm rõ và mở rộng các giải pháp mà chúng tôi cung cấp",
-    "seeAll": "Xem tất cả bài viết"
-  }
+	"meta": {
+		"title": "Thông tin vệ tinh | Cung cấp & lắp đặt VSAT, Starlink",
+		"description": "Giải pháp thông tin vệ tinh từ Wheelhouse: cung cấp và lắp đặt VSAT, Starlink, Iridium… giúp tàu duy trì liên lạc toàn cầu ổn định và tốc độ cao.",
+		"ogImage": "/images/og/og-home-vi.png",
+		"slug": "thong-tin-ve-tinh"
+	},
+	"hero": {
+		"title": "Thông tin liên lạc vệ tinh",
+		"subtitle": "Xuất sắc trong các giải pháp thiết bị hàng hải từ khi thành lập",
+		"cardTitle": "VSAT, STARLINK, IRIDIUM, COASTAL 4G LTE ...",
+		"cardDescription": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, độ tin cậy và đổi mới.",
+		"imgSrc": "/images/solutions/connectivity/starlink-antenna-on-ship.webp",
+		"imgAlt": "Starlink trên tàu"
+	},
+	"overview": {
+		"title": "Giải pháp mạng thông minh, linh hoạt và sẵn sàng cho tương lai",
+		"description": "Cùng với các nhà sản xuất hàng đầu, Wheelhouse thiết kế và triển khai giải pháp mạng vệ tinh thông minh được tùy chỉnh theo nhu cầu vận hành của từng khách hàng. Chúng tôi mang đến sự kết hợp linh hoạt giữa nhiều phương thức kết nối – từ Starlink, VSAT, Iridium cho đến 4G LTE – nhằm đảm bảo tàu của bạn luôn duy trì kết nối ổn định dù ở bất kỳ đâu trên thế giới. Thông qua các dịch vụ quản lý toàn diện, Wheelhouse chủ động chịu trách nhiệm tích hợp và vận hành toàn bộ hệ thống, từ xử lý dữ liệu quan trọng, tối ưu băng thông đến triển khai các giải pháp an ninh mạng tiên tiến, giúp bạn tập trung vào hoạt động kinh doanh cốt lõi với sự an tâm tuyệt đối về mạng lưới từ xa. Hiệu quả vận hành luôn là ưu tiên hàng đầu của mọi doanh nghiệp hàng hải. Vì vậy, bạn cần nhiều hơn một nhà cung cấp dịch vụ truyền thông. Bạn cần một đối tác đáng tin cậy – người có thể đồng hành trong việc xây dựng một hạ tầng kết nối thông minh, linh hoạt và sẵn sàng cho tương lai."
+	},
+	"ctaContent": {
+		"title": "Liên hệ",
+		"description": "Đừng ngần ngại liên hệ với đội ngũ chuyên gia của chúng tôi – chúng ta sẽ cùng tạo nên giải pháp hiệu quả nhất, dù đó là thiết bị đơn lẻ hay hệ thống tích hợp hoàn chỉnh.",
+		"label": "Kết nối với chúng tôi!"
+	},
+	"blogPosts": {
+		"title": "Bài viết & Phân tích",
+		"description": "Phần bài viết này nhằm phân tích và chia sẻ các góc nhìn chuyên sâu giúp làm rõ và mở rộng các giải pháp mà chúng tôi cung cấp",
+		"seeAll": "Xem tất cả bài viết"
+	}
 }

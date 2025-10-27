@@ -1,30 +1,30 @@
 {
-  "meta": {
-    "title": "Thiết bị Nghi Khí Hàng Hải | Cung cấp & Lắp đặt",
-    "description": "Giải pháp Nghi Khí Hàng Hải chuyên nghiệp từ Wheelhouse: Cung cấp và lắp đặt thiết bị RADAR, ECDIS, AIS, GPS, La bàn điện, đo sâu, đo tốc... theo chuẩn SOLAS V.",
-    "ogImage": "/images/og/og-home-vi.png",
-    "slug": "nghi-khi-hang-hai"
-  },
-  "hero": {
-    "title": "Nghi Khí Hàng Hải",
-    "subtitle": "Xuất sắc trong các giải pháp thiết bị hàng hải từ khi thành lập",
-    "cardTitle": "AIS, RADAR, ECDIS, GNSS, COMPASS, AUTOPILOT, ECHO SOUNDER, SPEED LOG ...",
-    "cardDescription": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, độ tin cậy và đổi mới.",
-    "imgSrc": "/images/solutions/navigation/navigation-equipment-overview.webp",
-    "imgAlt": "thiết bị nghi khí hàng hải trên tàu"
-  },
-  "overview": {
-    "title": "Đóng góp vào sự an toàn của tàu thuyền và thủy thủ đoàn",
-    "description": "Tại Wheelhouse, chúng tôi hiểu rằng an toàn trên biển luôn là ưu tiên hàng đầu. Các hệ thống điều hướng hiện đại không chỉ cho phép tàu thuyền di chuyển chính xác và hiệu quả, mà còn giảm thiểu rủi ro hoạt động và hỗ trợ các thành viên trong thủy thủ đoàn đưa ra quyết định kịp thời trong bất kỳ tình huống nào. Với các giải pháp điều hướng tuân thủ SOLAS V và dịch vụ hỗ trợ vòng đời chuyên nghiệp của chúng tôi, Wheelhouse đóng vai trò quan trọng trong việc bảo vệ tàu thuyền, hàng hóa và sinh mạng con người trong suốt mỗi chuyến đi."
-  },
-  "ctaContent": {
-    "title": "Liên hệ",
-    "description": "Đừng ngần ngại liên hệ với đội ngũ chuyên gia của chúng tôi – chúng ta sẽ cùng tạo nên giải pháp hiệu quả nhất, dù đó là thiết bị đơn lẻ hay hệ thống tích hợp hoàn chỉnh.",
-    "label": "Kết nối với chúng tôi!"
-  },
-  "blogPosts": {
-    "title": "Bài viết & Phân tích",
-    "description": "Phần bài viết này nhằm phân tích và chia sẻ các góc nhìn chuyên sâu giúp làm rõ và mở rộng các giải pháp mà chúng tôi cung cấp",
-    "seeAll": "Xem tất cả bài viết"
-  }
+	"meta": {
+		"title": "Thiết bị Nghi Khí Hàng Hải | Cung cấp & Lắp đặt",
+		"description": "Giải pháp Nghi Khí Hàng Hải chuyên nghiệp từ Wheelhouse: Cung cấp và lắp đặt thiết bị RADAR, ECDIS, AIS, GPS, La bàn điện, đo sâu, đo tốc... theo chuẩn SOLAS V.",
+		"ogImage": "/images/og/og-home-vi.png",
+		"slug": "nghi-khi-hang-hai"
+	},
+	"hero": {
+		"title": "Nghi Khí Hàng Hải",
+		"subtitle": "Xuất sắc trong các giải pháp thiết bị hàng hải từ khi thành lập",
+		"cardTitle": "AIS, RADAR, ECDIS, GNSS, COMPASS, AUTOPILOT, ECHO SOUNDER, SPEED LOG ...",
+		"cardDescription": "Chúng tôi cam kết cung cấp các giải pháp hàng hải đẳng cấp thế giới với trọng tâm là an toàn, độ tin cậy và đổi mới.",
+		"imgSrc": "/images/solutions/navigation/navigation-equipment-overview.webp",
+		"imgAlt": "thiết bị nghi khí hàng hải trên tàu"
+	},
+	"overview": {
+		"title": "Đóng góp vào sự an toàn của tàu thuyền và thủy thủ đoàn",
+		"description": "Tại Wheelhouse, chúng tôi hiểu rằng an toàn trên biển luôn là ưu tiên hàng đầu. Các hệ thống điều hướng hiện đại không chỉ cho phép tàu thuyền di chuyển chính xác và hiệu quả, mà còn giảm thiểu rủi ro hoạt động và hỗ trợ các thành viên trong thủy thủ đoàn đưa ra quyết định kịp thời trong bất kỳ tình huống nào. Với các giải pháp điều hướng tuân thủ SOLAS V và dịch vụ hỗ trợ vòng đời chuyên nghiệp của chúng tôi, Wheelhouse đóng vai trò quan trọng trong việc bảo vệ tàu thuyền, hàng hóa và sinh mạng con người trong suốt mỗi chuyến đi."
+	},
+	"ctaContent": {
+		"title": "Liên hệ",
+		"description": "Đừng ngần ngại liên hệ với đội ngũ chuyên gia của chúng tôi – chúng ta sẽ cùng tạo nên giải pháp hiệu quả nhất, dù đó là thiết bị đơn lẻ hay hệ thống tích hợp hoàn chỉnh.",
+		"label": "Kết nối với chúng tôi!"
+	},
+	"blogPosts": {
+		"title": "Bài viết & Phân tích",
+		"description": "Phần bài viết này nhằm phân tích và chia sẻ các góc nhìn chuyên sâu giúp làm rõ và mở rộng các giải pháp mà chúng tôi cung cấp",
+		"seeAll": "Xem tất cả bài viết"
+	}
 }

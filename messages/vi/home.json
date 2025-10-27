@@ -1,146 +1,146 @@
 {
-  "meta": {
-    "title": "THIẾT BỊ HÀNG HẢI - DỊCH VỤ SỬA CHỮA| WHEELHOUSE",
-    "description": "Chuyên về GMDSS, Nghi Khí Hàng Hải, Thông tin vệ tinh và các dịch vụ kỹ thuật hàng hải. Wheelhouse đảm bảo hoạt động tàu thuyền an toàn và hiệu quả.",
-    "ogImage": "/images/og/og-home-vi.png",
-    "slug": ""
-  },
-  "hero": {
-    "title": " <highlight> Wheelhouse </highlight> - đối tác tin cậy trong dịch vụ điện tử Hàng hải",
-    "subtitle": "Chuyên môn trong GMDSS, Nghi Khí Hàng Hải, Thông tin vệ tinh & Dịch vụ trên tàu.",
-    "images": {
-      "back": {
-        "src": "/images/Picture1.png",
-        "alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
-      },
-      "fore": {
-        "src": "/images/Picture2.png",
-        "alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
-      }
-    },
-    "ctas": [
-      {
-        "label": "Liên hệ với chúng tôi",
-        "href": "/about#contact"
-      }
-    ],
-    "partnerShowcase": "Các khách hàng và đối tác"
-  },
-  "ourPurpose": {
-    "title": "Nhiệm vụ của chúng tôi",
-    "description": "Thúc đẩy hành trình hàng hải bằng sự chính xác, tin cậy và giá trị bền vững — vì mỗi chuyến đi đều xứng đáng với sự tận tâm.\nChúng tôi cung cấp giải pháp tối ưu, đảm bảo an toàn và hiệu quả, kết hợp công nghệ tiên tiến với kinh nghiệm dày dạn.\nLuôn cam kết minh bạch, tin cậy và tôn trọng môi trường biển để phát triển bền vững.",
-    "images": [
-      {
-        "src": "/images/whywh/wave-ship.webp",
-        "alt": "Tàu trên đại dương"
-      },
-      {
-        "src": "/images/whywh/wheelhouse-engineer-with-radar.webp",
-        "alt": "Kỹ sư dịch vụ Wheelhouse kiểm tra ăng-ten radar trên tàu"
-      },
-      {
-        "src": "/images/whywh/wheelhouse-engineer-with-bridge.webp",
-        "alt": "Kỹ sư dịch vụ Wheelhouse kiểm tra thiết bị trên buồng lái"
-      }
-    ]
-  },
-  "keyValues": {
-    "title": "Tại sao khách hàng chọn Wheelhouse?",
-    "description": "Cam kết của chúng tôi trong việc cung cấp các dịch vụ và hỗ trợ tiên tiến, liên tục, cùng với niềm tin vững chắc của chúng tôi vào các hoạt động kinh doanh có đạo đức, giúp Wheelhouse trở thành một đối tác lâu dài đáng tin cậy.",
-    "items": [
-      {
-        "title": "Uy Tín",
-        "description": "Luôn đặt chữ Tín lên hàng đầu, với phương châm \"Lòng tin của khách hàng giúp Wheelhouse khẳng định thương hiệu\"."
-      },
-      {
-        "title": "Tận Tâm",
-        "description": "Phục vụ khách hàng bằng sự tận tâm với sứ mệnh \"Phục vụ khách hàng tốt là phục vụ chính tương lai của mình\"."
-      },
-      {
-        "title": "Chất Lượng",
-        "description": "Wheelhouse cam kết mang đến khách hàng những sản phẩm và dịch vụ với chất lượng tốt nhất."
-      },
-      {
-        "title": "Nhân Lực Xuất Sắc",
-        "description": "Bằng kinh nghiệm, kiến thức và sự nhạy bén trong xử lý tình huống, đội ngũ nhân lực của chúng tôi luôn nỗ lực mang lại lợi ích thiết thực cho khách hàng."
-      }
-    ],
-    "ctaPrimary": "Về Chúng Tôi"
-  },
-  "keyOfferings": {
-    "title": "Giải pháp chủ lực",
-    "lead": "Tại Wheelhouse, chúng tôi cung cấp các giải pháp và dịch vụ để giúp tàu của bạn hoạt động an toàn hơn.",
-    "closing": "Hãy để chúng tôi trở thành người bạn đồng hành đáng tin cậy trên hành trình của bạn.",
-    "items": [
-      {
-        "title": "Nghi Khí Hàng Hải",
-        "href": "/solutions/navigation",
-        "images": {
-          "bg": {
-            "src": "/images/key-offerings/navigation-key-offering-back.webp",
-            "alt": "kỹ sư Wheelhouse sửa chữa thiết bị nghi khí hàng hải trên tàu"
-          },
-          "fg": {
-            "src": "/images/key-offerings/navigation-key-offering-fore.webp",
-            "alt": "kỹ sư Wheelhouse sửa chữa ăng ten trên tàu"
-          }
-        }
-      },
-      {
-        "title": "Thiết bị GMDSS",
-        "href": "/solutions/gmdss",
-        "images": {
-          "bg": {
-            "src": "/images/key-offerings/gmdss-key-offering-back.webp",
-            "alt": "GMDSS"
-          },
-          "fg": {
-            "src": "/images/key-offerings/gmdss-key-offering-fore.webp",
-            "alt": "GMDSS"
-          }
-        }
-      },
-      {
-        "title": "Internet trên biển",
-        "href": "/solutions/connectivity",
-        "images": {
-          "bg": {
-            "src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
-            "alt": "kỹ sư Wheelhouse sửa chữa thiết bị VSAT trên tàu"
-          },
-          "fg": {
-            "src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
-            "alt": "kỹ sư Wheelhouse sửa chữa thiết bị VSAT trên tàu"
-          }
-        }
-      },
-      {
-        "title": "Sửa chữa, Bảo dưỡng",
-        "href": "/services#repair-maintenance",
-        "images": {
-          "bg": {
-            "src": "/images/key-offerings/wheelhouse-engineer-repairing-equipment-on-bridge.webp",
-            "alt": "kỹ sư Wheelhouse sửa chữa thiết bị nghi khí hàng hải trên tàu"
-          },
-          "fg": {
-            "src": "/images/key-offerings/wheelhouse-engineer-repairing-auto-pilot.webp",
-            "alt": "kỹ sư Wheelhouse sửa chữa thiết bị lái tự động trên tàu"
-          }
-        }
-      }
-    ],
-    "primaryButton": {
-      "label": "Xem thêm các giải pháp",
-      "href": "/solutions"
-    },
-    "secondaryButton": {
-      "label": "Xem thêm các dịch vụ",
-      "href": "/services"
-    }
-  },
-  "recentArticles": {
-    "title": "Bài viết gần đây",
-    "description": "Cập nhật những thông tin mới nhất về ngành hàng hải, công nghệ và các xu hướng phát triển.",
-    "viewAll": "Xem tất cả bài viết"
-  }
+	"meta": {
+		"title": "THIẾT BỊ HÀNG HẢI - DỊCH VỤ SỬA CHỮA| WHEELHOUSE",
+		"description": "Chuyên về GMDSS, Nghi Khí Hàng Hải, Thông tin vệ tinh và các dịch vụ kỹ thuật hàng hải. Wheelhouse đảm bảo hoạt động tàu thuyền an toàn và hiệu quả.",
+		"ogImage": "/images/og/og-home-vi.png",
+		"slug": ""
+	},
+	"hero": {
+		"title": " <highlight> Wheelhouse </highlight> - đối tác tin cậy trong dịch vụ điện tử Hàng hải",
+		"subtitle": "Chuyên môn trong GMDSS, Nghi Khí Hàng Hải, Thông tin vệ tinh & Dịch vụ trên tàu.",
+		"images": {
+			"back": {
+				"src": "/images/Picture1.png",
+				"alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
+			},
+			"fore": {
+				"src": "/images/Picture2.png",
+				"alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
+			}
+		},
+		"ctas": [
+			{
+				"label": "Liên hệ với chúng tôi",
+				"href": "/about#contact"
+			}
+		],
+		"partnerShowcase": "Các khách hàng và đối tác"
+	},
+	"ourPurpose": {
+		"title": "Nhiệm vụ của chúng tôi",
+		"description": "Thúc đẩy hành trình hàng hải bằng sự chính xác, tin cậy và giá trị bền vững — vì mỗi chuyến đi đều xứng đáng với sự tận tâm.\nChúng tôi cung cấp giải pháp tối ưu, đảm bảo an toàn và hiệu quả, kết hợp công nghệ tiên tiến với kinh nghiệm dày dạn.\nLuôn cam kết minh bạch, tin cậy và tôn trọng môi trường biển để phát triển bền vững.",
+		"images": [
+			{
+				"src": "/images/whywh/wave-ship.webp",
+				"alt": "Tàu trên đại dương"
+			},
+			{
+				"src": "/images/whywh/wheelhouse-engineer-with-radar.webp",
+				"alt": "Kỹ sư dịch vụ Wheelhouse kiểm tra ăng-ten radar trên tàu"
+			},
+			{
+				"src": "/images/whywh/wheelhouse-engineer-with-bridge.webp",
+				"alt": "Kỹ sư dịch vụ Wheelhouse kiểm tra thiết bị trên buồng lái"
+			}
+		]
+	},
+	"keyValues": {
+		"title": "Tại sao khách hàng chọn Wheelhouse?",
+		"description": "Cam kết của chúng tôi trong việc cung cấp các dịch vụ và hỗ trợ tiên tiến, liên tục, cùng với niềm tin vững chắc của chúng tôi vào các hoạt động kinh doanh có đạo đức, giúp Wheelhouse trở thành một đối tác lâu dài đáng tin cậy.",
+		"items": [
+			{
+				"title": "Uy Tín",
+				"description": "Luôn đặt chữ Tín lên hàng đầu, với phương châm \"Lòng tin của khách hàng giúp Wheelhouse khẳng định thương hiệu\"."
+			},
+			{
+				"title": "Tận Tâm",
+				"description": "Phục vụ khách hàng bằng sự tận tâm với sứ mệnh \"Phục vụ khách hàng tốt là phục vụ chính tương lai của mình\"."
+			},
+			{
+				"title": "Chất Lượng",
+				"description": "Wheelhouse cam kết mang đến khách hàng những sản phẩm và dịch vụ với chất lượng tốt nhất."
+			},
+			{
+				"title": "Nhân Lực Xuất Sắc",
+				"description": "Bằng kinh nghiệm, kiến thức và sự nhạy bén trong xử lý tình huống, đội ngũ nhân lực của chúng tôi luôn nỗ lực mang lại lợi ích thiết thực cho khách hàng."
+			}
+		],
+		"ctaPrimary": "Về Chúng Tôi"
+	},
+	"keyOfferings": {
+		"title": "Giải pháp chủ lực",
+		"lead": "Tại Wheelhouse, chúng tôi cung cấp các giải pháp và dịch vụ để giúp tàu của bạn hoạt động an toàn hơn.",
+		"closing": "Hãy để chúng tôi trở thành người bạn đồng hành đáng tin cậy trên hành trình của bạn.",
+		"items": [
+			{
+				"title": "Nghi Khí Hàng Hải",
+				"href": "/solutions/navigation",
+				"images": {
+					"bg": {
+						"src": "/images/key-offerings/navigation-key-offering-back.webp",
+						"alt": "kỹ sư Wheelhouse sửa chữa thiết bị nghi khí hàng hải trên tàu"
+					},
+					"fg": {
+						"src": "/images/key-offerings/navigation-key-offering-fore.webp",
+						"alt": "kỹ sư Wheelhouse sửa chữa ăng ten trên tàu"
+					}
+				}
+			},
+			{
+				"title": "Thiết bị GMDSS",
+				"href": "/solutions/gmdss",
+				"images": {
+					"bg": {
+						"src": "/images/key-offerings/gmdss-key-offering-back.webp",
+						"alt": "GMDSS"
+					},
+					"fg": {
+						"src": "/images/key-offerings/gmdss-key-offering-fore.webp",
+						"alt": "GMDSS"
+					}
+				}
+			},
+			{
+				"title": "Internet trên biển",
+				"href": "/solutions/connectivity",
+				"images": {
+					"bg": {
+						"src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
+						"alt": "kỹ sư Wheelhouse sửa chữa thiết bị VSAT trên tàu"
+					},
+					"fg": {
+						"src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
+						"alt": "kỹ sư Wheelhouse sửa chữa thiết bị VSAT trên tàu"
+					}
+				}
+			},
+			{
+				"title": "Sửa chữa, Bảo dưỡng",
+				"href": "/services#repair-maintenance",
+				"images": {
+					"bg": {
+						"src": "/images/key-offerings/wheelhouse-engineer-repairing-equipment-on-bridge.webp",
+						"alt": "kỹ sư Wheelhouse sửa chữa thiết bị nghi khí hàng hải trên tàu"
+					},
+					"fg": {
+						"src": "/images/key-offerings/wheelhouse-engineer-repairing-auto-pilot.webp",
+						"alt": "kỹ sư Wheelhouse sửa chữa thiết bị lái tự động trên tàu"
+					}
+				}
+			}
+		],
+		"primaryButton": {
+			"label": "Xem thêm các giải pháp",
+			"href": "/solutions"
+		},
+		"secondaryButton": {
+			"label": "Xem thêm các dịch vụ",
+			"href": "/services"
+		}
+	},
+	"recentArticles": {
+		"title": "Bài viết gần đây",
+		"description": "Cập nhật những thông tin mới nhất về ngành hàng hải, công nghệ và các xu hướng phát triển.",
+		"viewAll": "Xem tất cả bài viết"
+	}
 }

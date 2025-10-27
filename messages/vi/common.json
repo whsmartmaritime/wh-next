@@ -1,35 +1,35 @@
 {
-  "nav": {
-    "home": "Trang chủ",
-    "about": "Giới thiệu",
-    "contact": "Liên hệ",
-    "solutions": {
-      "title": "Giải pháp",
-      "gmdss": "GMDSS",
-      "navigation": "Nghi Khí Hàng Hải",
-      "connectivity": "Thông tin liên lạc vệ tinh",
-      "e-navigation": "Hải đồ, ấn phẩm điện tử"
-    },
-    "services": {
-      "title": "Dịch vụ",
-      "repairMaintenance": "Sửa chữa & Bảo dưỡng",
-      "installation": "Lắp đặt",
-      "annualSurvey": "Kiểm tra định kỳ"
-    }
-  },
-  "brand": {
-    "logo": {
-      "alt": "Logo Wheelhouse",
-      "title": "Logo Wheelhouse",
-      "desc": "Logo của Wheelhouse, gồm chữ Wheelhouse, MARIS và các thanh ngang cách điệu, dùng cho nhận diện thương hiệu"
-    },
-    "companyName": "Công ty TNHH Wheelhouse",
-    "description": "Chuyên cung cấp dịch vụ và giải pháp cho thiết bị điện tử hàng hải: sửa chữa - bảo dưỡng, lắp đặt các thiết bị nghi khí hàng hải, gmdss, thông tin liên lạc vệ tinh, tự động hóa tàu biển..."
-  },
-  "common": {
-    "quickLinks": "Liên kết nhanh",
-    "servicesAndSolutions": "Dịch vụ & Giải pháp",
-    "contactInfo": "Thông tin liên hệ",
-    "allRightsReserved": "All rights reserved."
-  }
+	"nav": {
+		"home": "Trang chủ",
+		"about": "Giới thiệu",
+		"contact": "Liên hệ",
+		"solutions": {
+			"title": "Giải pháp",
+			"gmdss": "GMDSS",
+			"navigation": "Nghi Khí Hàng Hải",
+			"connectivity": "Thông tin liên lạc vệ tinh",
+			"e-navigation": "Hải đồ, ấn phẩm điện tử"
+		},
+		"services": {
+			"title": "Dịch vụ",
+			"repairMaintenance": "Sửa chữa & Bảo dưỡng",
+			"installation": "Lắp đặt",
+			"annualSurvey": "Kiểm tra định kỳ"
+		}
+	},
+	"brand": {
+		"logo": {
+			"alt": "Logo Wheelhouse",
+			"title": "Logo Wheelhouse",
+			"desc": "Logo của Wheelhouse, gồm chữ Wheelhouse, MARIS và các thanh ngang cách điệu, dùng cho nhận diện thương hiệu"
+		},
+		"companyName": "Công ty TNHH Wheelhouse",
+		"description": "Chuyên cung cấp dịch vụ và giải pháp cho thiết bị điện tử hàng hải: sửa chữa - bảo dưỡng, lắp đặt các thiết bị nghi khí hàng hải, gmdss, thông tin liên lạc vệ tinh, tự động hóa tàu biển..."
+	},
+	"common": {
+		"quickLinks": "Liên kết nhanh",
+		"servicesAndSolutions": "Dịch vụ & Giải pháp",
+		"contactInfo": "Thông tin liên hệ",
+		"allRightsReserved": "All rights reserved."
+	}
 }

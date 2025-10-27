@@ -1,35 +1,35 @@
 {
-  "nav": {
-    "home": "Home",
-    "about": "About Us",
-    "contact": "Contact",
-    "solutions": {
-      "title": "Solutions",
-      "gmdss": "GMDSS",
-      "navigation": "Navigation",
-      "connectivity": "SatComm",
-      "e-navigation": "E-Navigation"
-    },
-    "services": {
-      "title": "Services",
-      "repairMaintenance": "Repair & Maintenance",
-      "installation": "Installation",
-      "annualSurvey": "Annual Survey"
-    }
-  },
-  "brand": {
-    "logo": {
-      "alt": "Wheelhouse logo",
-      "title": "Wheelhouse logo",
-      "desc": "Wheelhouse logo featuring the company name and MARIS text with stylized horizontal bars for brand identification"
-    },
-    "companyName": "Wheelhouse Co., Ltd.",
-    "description": "We specialize in providing comprehensive services and solutions for marine electronic equipment, including repair and maintenance, installation of navigational instruments, GMDSS systems, satellite communications, automation..."
-  },
-  "common": {
-    "quickLinks": "Quick Links",
-    "servicesAndSolutions": "Services & Solutions",
-    "contactInfo": "Contact Information",
-    "allRightsReserved": "All rights reserved."
-  }
+	"nav": {
+		"home": "Home",
+		"about": "About Us",
+		"contact": "Contact",
+		"solutions": {
+			"title": "Solutions",
+			"gmdss": "GMDSS",
+			"navigation": "Navigation",
+			"connectivity": "SatComm",
+			"e-navigation": "E-Navigation"
+		},
+		"services": {
+			"title": "Services",
+			"repairMaintenance": "Repair & Maintenance",
+			"installation": "Installation",
+			"annualSurvey": "Annual Survey"
+		}
+	},
+	"brand": {
+		"logo": {
+			"alt": "Wheelhouse logo",
+			"title": "Wheelhouse logo",
+			"desc": "Wheelhouse logo featuring the company name and MARIS text with stylized horizontal bars for brand identification"
+		},
+		"companyName": "Wheelhouse Co., Ltd.",
+		"description": "We specialize in providing comprehensive services and solutions for marine electronic equipment, including repair and maintenance, installation of navigational instruments, GMDSS systems, satellite communications, automation..."
+	},
+	"common": {
+		"quickLinks": "Quick Links",
+		"servicesAndSolutions": "Services & Solutions",
+		"contactInfo": "Contact Information",
+		"allRightsReserved": "All rights reserved."
+	}
 }

@@ -1,152 +1,152 @@
 {
-  "meta": {
-    "title": "Dịch vụ Điện tử Hàng hải | Lắp đặt, Sửa chữa và Bảo dưỡng",
-    "description": "Wheelhouse cung cấp dịch vụ cho các thiết bị điện tử hàng hải như GMDSS, Nghi Khí Hàng Hải, và thiết bị tự động buồng máy.",
-    "ogImage": "/images/og/og-home-vi.png",
-    "slug": "dich-vu"
-  },
-  "hero": {
-    "title": "Dịch Vụ Điện Tử Hàng Hải",
-    "subtitle": "Dịch vụ chuyên nghiệp cho thiết bị điện tử hàng hải.",
-    "images": {
-      "back": {
-        "src": "/images/services/wheelhouse-service-engineer-reparing-electric-equipment.webp",
-        "alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị hàng hải"
-      },
-      "fore": {
-        "src": "/images/services/wheelhouse-service-engineer-commisioning-VSAT.webp",
-        "alt": "Kỹ thuật viên Wheelhouse cài đặt thiết bị VSAT"
-      }
-    },
-    "ctas": [
-      {
-        "label": "Liên hệ với chúng tôi",
-        "href": "/about#contact"
-      },
-      {
-        "label": "Muốn trò chuyện trước?",
-        "href": "https://wa.me/84981829002"
-      }
-    ]
-  },
-  "qualityOfService": {
-    "title": "Tại sao khách hàng tin tưởng chúng tôi",
-    "description": [
-      "Wheelhouse không chỉ cung cấp <b>dịch vụ chất lượng cao</b>, mà còn đồng hành cùng khách hàng trong suốt hành trình. Đội ngũ kỹ sư <b>giàu kinh nghiệm</b> của chúng tôi chủ động phát hiện và cố gắng giải quyết vấn đề trước khi ảnh hưởng đến vận hành thiết bị.",
-      "Nhờ sự <b>tận tâm, chuyên môn</b> và quy trình làm việc thông minh, khách hàng có thể hoàn toàn yên tâm rằng mọi nhu cầu đều được <b>ưu tiên hàng đầu</b>, và <b>chất lượng dịch vụ</b> luôn được duy trì ở mức <b>cao nhất</b>."
-    ]
-  },
-  "rm": {
-    "title": "Sửa chữa & Bảo dưỡng",
-    "subtitle": "Dịch vụ sửa chữa và bảo dưỡng chuyên nghiệp cho <b>thiết bị điện tử hàng hải</b>.",
-    "details": [
-      "Sĩ quan vận hành trong môi trường hàng hải ngày nay dựa vào một loạt các <b>thiết bị điện tử hàng hải</b> để đảm bảo an toàn cho con tàu và thủy thủ đoàn, đồng thời hoàn thành chuyến đi một cách nhanh chóng. Các thiết bị điện tử tiên tiến đã làm cho hành trình trên biển <b>dễ dàng và an toàn hơn</b>.",
-      "Bạn cần các dịch vụ tốt nhất cho các thiết bị điện tử trên tàu để duy trì tình trạng hoạt động ổn định và ảnh hưởng nhỏ nhất đến lợi nhuận tài chính của bạn. <b>Wheelhouse</b> sẵn lòng cung cấp cho bạn những dịch vụ <b>sửa chữa, bảo dưỡng</b> các thiết bị nhằm đạt được mục đích trên với <b>chi phí tiết kiệm nhất có thể</b>."
-    ],
-    "items": [
-      {
-        "title": "Sửa chữa nhanh chóng, hiệu quả với chi phí tối ưu",
-        "description": [
-          "Với đội ngũ kỹ thuật lành nghề cùng sự chuẩn bị kỹ lưỡng—bao gồm kế hoạch chi tiết, phương án thực hiện và vật tư phụ tùng chất lượng cao—chúng tôi cam kết mọi công việc sửa chữa đều được hoàn thành đúng tiến độ, đáp ứng các yêu cầu kỹ thuật khắt khe nhất và đảm bảo chất lượng vượt trội.",
-          "Phạm vi dịch vụ sửa chữa của chúng tôi bao trùm toàn bộ các hệ thống điện tử hàng hải quan trọng, từ <b>nghi khí hàng hải</b> thiết yếu như radar, định vị, cho đến các giải pháp <b>thông tin liên lạc</b> hiện đại như GMDSS, VSAT. Chúng tôi đồng thời chuyên sâu trong lĩnh vực <b>điện tự động buồng máy</b> (bao gồm nồi hơi, bảng điện chính) và xử lý mọi sự cố liên quan đến <b>thiết bị boong</b> (như cần cẩu và cảm biến hầm hàng). Chúng tôi luôn sẵn sàng hỗ trợ mọi nhu cầu đặc thù trên từng con tàu."
-        ],
-        "image": {
-          "src": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
-          "alt": "Kỹ thuật viên Wheelhouse sửa chữa VSAT"
-        }
-      },
-      {
-        "title": "Tối ưu độ tin cậy và Kéo dài tuổi thọ bằng Bảo dưỡng Định kỳ.",
-        "description": [
-          "Mọi thiết bị và hệ thống trên tàu đều cần được bảo dưỡng theo đúng kỳ hạn tiêu chuẩn để tối đa hóa tuổi thọ, duy trì sự ổn định vận hành, và đảm bảo an toàn tuyệt đối trong suốt hành trình.",
-          "Phạm vi bảo dưỡng bao trùm các hệ thống cần thay thế phụ tùng định kỳ: Các thiết bị trong <b>Hệ thống Thông tin liên lạc</b> (GMDSS), <b>Nghi khí Hàng hải</b> (RADAR, La bàn con quay), và các hệ thống <b>Phân phối Điện</b> (Bảng điện chính, Ắc-quy dự phòng...). Chúng tôi áp dụng quy trình bảo dưỡng phù hợp với khuyến nghị của nhà sản xuất và quy định của Tổ chức Phân cấp."
-        ],
-        "image": {
-          "src": "/images/services/wheelhouse-engineer-in-ship-bridge.webp",
-          "alt": "Kỹ thuật viên Wheelhouse thực hiện bảo dưỡng"
-        }
-      },
-      {
-        "title": "Hỗ trợ Kỹ thuật: Nhanh chóng và Hiệu quả",
-        "description": [
-          "Khó khăn lớn nhất của Sĩ quan vận hành là làm thế nào để tận dụng tối đa các tính năng của thiết bị, đặc biệt là công nghệ mới, và đồng thời đảm bảo tuổi thọ dài nhất cho chúng. Đội ngũ hỗ trợ chuyên nghiệp của chúng tôi được thiết lập để giúp bạn giải quyết triệt để vấn đề này.",
-          "Đến với chúng tôi, bạn sẽ được tiếp cận với kiến thức về các công nghệ mới nhất trong ngành điện tử hàng hải, cũng như các phương pháp xử lý sự cố chuẩn mực được chuyển giao trực tiếp từ các nhà sản xuất thiết bị hàng đầu."
-        ],
-        "image": {
-          "src": "/images/services/wheelhouse-engineer-supporting.webp",
-          "alt": "Kỹ thuật viên Wheelhouse hỗ trợ từ xa"
-        }
-      }
-    ],
-    "ctaContent": {
-      "title": "Bạn cần sửa chữa, bảo dưỡng hay phụ tùng?",
-      "description": "Chúng tôi luôn sẵn sàng hỗ trợ bạn. Hãy liên hệ với chúng tôi để được tư vấn và hỗ trợ kịp thời.",
-      "href": "/about#contact",
-      "label": "Yêu cầu dịch vụ ngay!"
-    }
-  },
-  "install": {
-    "title": "Lắp đặt & Triển khai",
-    "subtitle": "Triển khai hệ thống <b>điện tử hàng hải</b>, đảm bảo tiêu chuẩn và hiệu suất cao.",
-    "details": [
-      "Quá trình lắp đặt thiết bị điện tử hàng hải đòi hỏi sự chính xác, tuân thủ nghiêm ngặt các tiêu chuẩn của Tổ chức Phân cấp và nhà sản xuất. Một hệ thống được lắp đặt <b>chính xác</b> sẽ là nền tảng cho sự vận hành <b>an toàn và ổn định</b> của con tàu.",
-      "Đội ngũ kỹ sư của <b>Wheelhouse</b> chuyên sâu trong việc triển khai các hệ thống phức tạp, từ tàu đóng mới đến nâng cấp hiện đại hóa. Chúng tôi cam kết mang lại giải pháp lắp đặt <b>đúng kỹ thuật, đúng tiến độ</b> với <b>hiệu suất cao nhất</b>."
-    ],
-    "items": [
-      {
-        "title": "Lắp đặt Hệ thống theo Yêu cầu",
-        "description": [
-          "Dù là lắp đặt thêm thiết bị mới hay tích hợp các hệ thống đã có, chúng tôi đều thực hiện khảo sát chi tiết, lập bản vẽ kỹ thuật và phương án lắp đặt cụ thể. Quy trình triển khai của chúng tôi tuân thủ mọi yêu cầu kỹ thuật, đảm bảo <b>tính tương thích</b> và <b>tính thẩm mỹ</b> cao nhất.",
-          "Các hạng mục lắp đặt theo yêu cầu bao gồm thiết bị <b>thông tin liên lạc</b>, <b>nghi khí hàng hải</b> bổ sung, các hệ thống <b>giám sát năng lượng</b> và <b>cảm biến chuyên dụng</b>."
-        ],
-        "image": {
-          "src": "/images/services/wheelhouse-engineer-installing-ecdis.webp",
-          "alt": "Kỹ thuật viên Wheelhouse lắp đặt hệ thống ECDIS"
-        }
-      },
-      {
-        "title": "Nâng cấp & Hiện đại hóa Hệ thống Điện tử",
-        "description": [
-          "Để duy trì khả năng cạnh tranh và đáp ứng các quy định mới của ngành, việc nâng cấp thiết bị là rất cần thiết. Chúng tôi cung cấp dịch vụ thay thế các hệ thống cũ bằng các công nghệ mới nhất.",
-          "Chúng tôi quản lý toàn bộ quá trình nâng cấp, từ việc <b>lập kế hoạch chuyển đổi</b> đến chạy thử, bàn giao và huấn luyện thuyền viên, giúp tàu nhanh chóng tiếp cận tính năng vượt trội của thiết bị hiện đại."
-        ],
-        "image": {
-          "src": "/images/services/wheelhouse-engineer-servicing-navigation-equipment.webp",
-          "alt": "Kỹ thuật viên Wheelhouse thực hiện nâng cấp hệ thống"
-        }
-      },
-      {
-        "title": "Lắp đặt Tàu đóng mới",
-        "description": [
-          "Chúng tôi tham gia vào các dự án đóng tàu mới ngay từ giai đoạn thiết kế ban đầu. Sự tham gia sớm này đảm bảo việc tích hợp hoàn hảo các hệ thống điện tử hàng hải vào cấu trúc tàu, tuân thủ chặt chẽ các <b>quy chuẩn quốc tế</b> và yêu cầu của chủ tàu.",
-          "Dịch vụ bao gồm việc lắp đặt toàn bộ các hệ thống <b>Nghi Khí Hàng Hải, Thông Tin Liên Lạc, Hệ thống an toàn và điện tự động</b>, đảm bảo tàu mới ra đời với hiệu suất kỹ thuật tối ưu và sẵn sàng được Tổ chức Phân cấp chứng nhận."
-        ],
-        "image": {
-          "src": "/images/services/installing-on-new-ship.webp",
-          "alt": "Kỹ thuật viên Wheelhouse lắp đặt thiết bị trên tàu đóng mới"
-        }
-      }
-    ],
-    "ctaContent": {
-      "title": "Bạn cần một giải pháp triển khai hệ thống mới?",
-      "description": "Chúng tôi cung cấp các giải pháp toàn diện cho thiết bị điện tử hàng hải, bao gồm tư vấn sản phẩm, thiết kế, cung cấp, lắp đặt và chạy thử. Hãy truy cập trang Giải pháp của chúng tôi để khám phá tiềm năng và các công nghệ mới nhất có thể ứng dụng cho con tàu của bạn.",
-      "href": "/solutions",
-      "label": "Tìm hiểu thêm về giải pháp của chúng tôi"
-    }
-  },
-  "survey": {
-    "title": "Kiểm tra & Chứng nhận Hệ thống Hàng hải Hàng năm",
-    "subtitle": "Đảm bảo <b>tuân thủ nghiêm ngặt</b> các yêu cầu của Tổ chức Phân cấp và Quốc tế.",
-    "details": [
-      "Việc duy trì các chứng chỉ hoạt động theo đúng kỳ hạn kiểm tra là <b>yêu cầu pháp lý bắt buộc</b> đối với mọi con tàu. Việc kiểm tra định kỳ không chỉ xác nhận sự tuân thủ mà còn giúp phát hiện sớm các hư hỏng tiềm ẩn, đảm bảo <b>an toàn tuyệt đối</b> khi hành trình.",
-      "Đội ngũ kỹ thuật viên giàu kinh nghiệm của <b>Wheelhouse</b>, kết hợp cùng các đối tác và nhà cung cấp dịch vụ ủy nhiệm uy tín, đảm bảo thực hiện các đợt kiểm tra hàng năm (GMDSS, VDR/S-VDR) một cách <b>nhanh chóng, chính xác</b>, giúp tàu của bạn vượt qua kỳ kiểm tra và nhận được <b>chứng nhận mới</b> đúng thời hạn với hiệu suất cao nhất.",
-      "Kết hợp cùng với <b>dịch vụ sửa chữa uy tín</b>, chúng tôi có thể xử lý vấn đề một cách nhanh chóng nếu bất kỳ thành phần nào của hệ thống không đáp ứng được các tiêu chuẩn của IMO và các tổ chức đăng kiểm, giúp tàu của bạn <b>nhanh chóng</b> trở lên <b>an toàn hơn</b> mà không cần trải qua nhiều khâu khắc phục sự cố."
-    ],
-    "ctaContent": {
-      "title": "Bạn cần lên lịch kiểm tra hàng năm?",
-      "description": "Để đảm bảo các chứng chỉ của tàu không bị gián đoạn, hãy liên hệ với chúng tôi ngay để được tư vấn và lập kế hoạch kiểm tra kịp thời.",
-      "href": "/about#contact",
-      "label": "Tìm hiểu thêm về giải pháp của chúng tôi"
-    }
-  }
+	"meta": {
+		"title": "Dịch vụ Điện tử Hàng hải | Lắp đặt, Sửa chữa và Bảo dưỡng",
+		"description": "Wheelhouse cung cấp dịch vụ cho các thiết bị điện tử hàng hải như GMDSS, Nghi Khí Hàng Hải, và thiết bị tự động buồng máy.",
+		"ogImage": "/images/og/og-home-vi.png",
+		"slug": "dich-vu"
+	},
+	"hero": {
+		"title": "Dịch Vụ Điện Tử Hàng Hải",
+		"subtitle": "Dịch vụ chuyên nghiệp cho thiết bị điện tử hàng hải.",
+		"images": {
+			"back": {
+				"src": "/images/services/wheelhouse-service-engineer-reparing-electric-equipment.webp",
+				"alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị hàng hải"
+			},
+			"fore": {
+				"src": "/images/services/wheelhouse-service-engineer-commisioning-VSAT.webp",
+				"alt": "Kỹ thuật viên Wheelhouse cài đặt thiết bị VSAT"
+			}
+		},
+		"ctas": [
+			{
+				"label": "Liên hệ với chúng tôi",
+				"href": "/about#contact"
+			},
+			{
+				"label": "Muốn trò chuyện trước?",
+				"href": "https://wa.me/84981829002"
+			}
+		]
+	},
+	"qualityOfService": {
+		"title": "Tại sao khách hàng tin tưởng chúng tôi",
+		"description": [
+			"Wheelhouse không chỉ cung cấp <b>dịch vụ chất lượng cao</b>, mà còn đồng hành cùng khách hàng trong suốt hành trình. Đội ngũ kỹ sư <b>giàu kinh nghiệm</b> của chúng tôi chủ động phát hiện và cố gắng giải quyết vấn đề trước khi ảnh hưởng đến vận hành thiết bị.",
+			"Nhờ sự <b>tận tâm, chuyên môn</b> và quy trình làm việc thông minh, khách hàng có thể hoàn toàn yên tâm rằng mọi nhu cầu đều được <b>ưu tiên hàng đầu</b>, và <b>chất lượng dịch vụ</b> luôn được duy trì ở mức <b>cao nhất</b>."
+		]
+	},
+	"rm": {
+		"title": "Sửa chữa & Bảo dưỡng",
+		"subtitle": "Dịch vụ sửa chữa và bảo dưỡng chuyên nghiệp cho <b>thiết bị điện tử hàng hải</b>.",
+		"details": [
+			"Sĩ quan vận hành trong môi trường hàng hải ngày nay dựa vào một loạt các <b>thiết bị điện tử hàng hải</b> để đảm bảo an toàn cho con tàu và thủy thủ đoàn, đồng thời hoàn thành chuyến đi một cách nhanh chóng. Các thiết bị điện tử tiên tiến đã làm cho hành trình trên biển <b>dễ dàng và an toàn hơn</b>.",
+			"Bạn cần các dịch vụ tốt nhất cho các thiết bị điện tử trên tàu để duy trì tình trạng hoạt động ổn định và ảnh hưởng nhỏ nhất đến lợi nhuận tài chính của bạn. <b>Wheelhouse</b> sẵn lòng cung cấp cho bạn những dịch vụ <b>sửa chữa, bảo dưỡng</b> các thiết bị nhằm đạt được mục đích trên với <b>chi phí tiết kiệm nhất có thể</b>."
+		],
+		"items": [
+			{
+				"title": "Sửa chữa nhanh chóng, hiệu quả với chi phí tối ưu",
+				"description": [
+					"Với đội ngũ kỹ thuật lành nghề cùng sự chuẩn bị kỹ lưỡng—bao gồm kế hoạch chi tiết, phương án thực hiện và vật tư phụ tùng chất lượng cao—chúng tôi cam kết mọi công việc sửa chữa đều được hoàn thành đúng tiến độ, đáp ứng các yêu cầu kỹ thuật khắt khe nhất và đảm bảo chất lượng vượt trội.",
+					"Phạm vi dịch vụ sửa chữa của chúng tôi bao trùm toàn bộ các hệ thống điện tử hàng hải quan trọng, từ <b>nghi khí hàng hải</b> thiết yếu như radar, định vị, cho đến các giải pháp <b>thông tin liên lạc</b> hiện đại như GMDSS, VSAT. Chúng tôi đồng thời chuyên sâu trong lĩnh vực <b>điện tự động buồng máy</b> (bao gồm nồi hơi, bảng điện chính) và xử lý mọi sự cố liên quan đến <b>thiết bị boong</b> (như cần cẩu và cảm biến hầm hàng). Chúng tôi luôn sẵn sàng hỗ trợ mọi nhu cầu đặc thù trên từng con tàu."
+				],
+				"image": {
+					"src": "/images/services/wheelhouse-engineer-repairing-VSAT.webp",
+					"alt": "Kỹ thuật viên Wheelhouse sửa chữa VSAT"
+				}
+			},
+			{
+				"title": "Tối ưu độ tin cậy và Kéo dài tuổi thọ bằng Bảo dưỡng Định kỳ.",
+				"description": [
+					"Mọi thiết bị và hệ thống trên tàu đều cần được bảo dưỡng theo đúng kỳ hạn tiêu chuẩn để tối đa hóa tuổi thọ, duy trì sự ổn định vận hành, và đảm bảo an toàn tuyệt đối trong suốt hành trình.",
+					"Phạm vi bảo dưỡng bao trùm các hệ thống cần thay thế phụ tùng định kỳ: Các thiết bị trong <b>Hệ thống Thông tin liên lạc</b> (GMDSS), <b>Nghi khí Hàng hải</b> (RADAR, La bàn con quay), và các hệ thống <b>Phân phối Điện</b> (Bảng điện chính, Ắc-quy dự phòng...). Chúng tôi áp dụng quy trình bảo dưỡng phù hợp với khuyến nghị của nhà sản xuất và quy định của Tổ chức Phân cấp."
+				],
+				"image": {
+					"src": "/images/services/wheelhouse-engineer-in-ship-bridge.webp",
+					"alt": "Kỹ thuật viên Wheelhouse thực hiện bảo dưỡng"
+				}
+			},
+			{
+				"title": "Hỗ trợ Kỹ thuật: Nhanh chóng và Hiệu quả",
+				"description": [
+					"Khó khăn lớn nhất của Sĩ quan vận hành là làm thế nào để tận dụng tối đa các tính năng của thiết bị, đặc biệt là công nghệ mới, và đồng thời đảm bảo tuổi thọ dài nhất cho chúng. Đội ngũ hỗ trợ chuyên nghiệp của chúng tôi được thiết lập để giúp bạn giải quyết triệt để vấn đề này.",
+					"Đến với chúng tôi, bạn sẽ được tiếp cận với kiến thức về các công nghệ mới nhất trong ngành điện tử hàng hải, cũng như các phương pháp xử lý sự cố chuẩn mực được chuyển giao trực tiếp từ các nhà sản xuất thiết bị hàng đầu."
+				],
+				"image": {
+					"src": "/images/services/wheelhouse-engineer-supporting.webp",
+					"alt": "Kỹ thuật viên Wheelhouse hỗ trợ từ xa"
+				}
+			}
+		],
+		"ctaContent": {
+			"title": "Bạn cần sửa chữa, bảo dưỡng hay phụ tùng?",
+			"description": "Chúng tôi luôn sẵn sàng hỗ trợ bạn. Hãy liên hệ với chúng tôi để được tư vấn và hỗ trợ kịp thời.",
+			"href": "/about#contact",
+			"label": "Yêu cầu dịch vụ ngay!"
+		}
+	},
+	"install": {
+		"title": "Lắp đặt & Triển khai",
+		"subtitle": "Triển khai hệ thống <b>điện tử hàng hải</b>, đảm bảo tiêu chuẩn và hiệu suất cao.",
+		"details": [
+			"Quá trình lắp đặt thiết bị điện tử hàng hải đòi hỏi sự chính xác, tuân thủ nghiêm ngặt các tiêu chuẩn của Tổ chức Phân cấp và nhà sản xuất. Một hệ thống được lắp đặt <b>chính xác</b> sẽ là nền tảng cho sự vận hành <b>an toàn và ổn định</b> của con tàu.",
+			"Đội ngũ kỹ sư của <b>Wheelhouse</b> chuyên sâu trong việc triển khai các hệ thống phức tạp, từ tàu đóng mới đến nâng cấp hiện đại hóa. Chúng tôi cam kết mang lại giải pháp lắp đặt <b>đúng kỹ thuật, đúng tiến độ</b> với <b>hiệu suất cao nhất</b>."
+		],
+		"items": [
+			{
+				"title": "Lắp đặt Hệ thống theo Yêu cầu",
+				"description": [
+					"Dù là lắp đặt thêm thiết bị mới hay tích hợp các hệ thống đã có, chúng tôi đều thực hiện khảo sát chi tiết, lập bản vẽ kỹ thuật và phương án lắp đặt cụ thể. Quy trình triển khai của chúng tôi tuân thủ mọi yêu cầu kỹ thuật, đảm bảo <b>tính tương thích</b> và <b>tính thẩm mỹ</b> cao nhất.",
+					"Các hạng mục lắp đặt theo yêu cầu bao gồm thiết bị <b>thông tin liên lạc</b>, <b>nghi khí hàng hải</b> bổ sung, các hệ thống <b>giám sát năng lượng</b> và <b>cảm biến chuyên dụng</b>."
+				],
+				"image": {
+					"src": "/images/services/wheelhouse-engineer-installing-ecdis.webp",
+					"alt": "Kỹ thuật viên Wheelhouse lắp đặt hệ thống ECDIS"
+				}
+			},
+			{
+				"title": "Nâng cấp & Hiện đại hóa Hệ thống Điện tử",
+				"description": [
+					"Để duy trì khả năng cạnh tranh và đáp ứng các quy định mới của ngành, việc nâng cấp thiết bị là rất cần thiết. Chúng tôi cung cấp dịch vụ thay thế các hệ thống cũ bằng các công nghệ mới nhất.",
+					"Chúng tôi quản lý toàn bộ quá trình nâng cấp, từ việc <b>lập kế hoạch chuyển đổi</b> đến chạy thử, bàn giao và huấn luyện thuyền viên, giúp tàu nhanh chóng tiếp cận tính năng vượt trội của thiết bị hiện đại."
+				],
+				"image": {
+					"src": "/images/services/wheelhouse-engineer-servicing-navigation-equipment.webp",
+					"alt": "Kỹ thuật viên Wheelhouse thực hiện nâng cấp hệ thống"
+				}
+			},
+			{
+				"title": "Lắp đặt Tàu đóng mới",
+				"description": [
+					"Chúng tôi tham gia vào các dự án đóng tàu mới ngay từ giai đoạn thiết kế ban đầu. Sự tham gia sớm này đảm bảo việc tích hợp hoàn hảo các hệ thống điện tử hàng hải vào cấu trúc tàu, tuân thủ chặt chẽ các <b>quy chuẩn quốc tế</b> và yêu cầu của chủ tàu.",
+					"Dịch vụ bao gồm việc lắp đặt toàn bộ các hệ thống <b>Nghi Khí Hàng Hải, Thông Tin Liên Lạc, Hệ thống an toàn và điện tự động</b>, đảm bảo tàu mới ra đời với hiệu suất kỹ thuật tối ưu và sẵn sàng được Tổ chức Phân cấp chứng nhận."
+				],
+				"image": {
+					"src": "/images/services/installing-on-new-ship.webp",
+					"alt": "Kỹ thuật viên Wheelhouse lắp đặt thiết bị trên tàu đóng mới"
+				}
+			}
+		],
+		"ctaContent": {
+			"title": "Bạn cần một giải pháp triển khai hệ thống mới?",
+			"description": "Chúng tôi cung cấp các giải pháp toàn diện cho thiết bị điện tử hàng hải, bao gồm tư vấn sản phẩm, thiết kế, cung cấp, lắp đặt và chạy thử. Hãy truy cập trang Giải pháp của chúng tôi để khám phá tiềm năng và các công nghệ mới nhất có thể ứng dụng cho con tàu của bạn.",
+			"href": "/solutions",
+			"label": "Tìm hiểu thêm về giải pháp của chúng tôi"
+		}
+	},
+	"survey": {
+		"title": "Kiểm tra & Chứng nhận Hệ thống Hàng hải Hàng năm",
+		"subtitle": "Đảm bảo <b>tuân thủ nghiêm ngặt</b> các yêu cầu của Tổ chức Phân cấp và Quốc tế.",
+		"details": [
+			"Việc duy trì các chứng chỉ hoạt động theo đúng kỳ hạn kiểm tra là <b>yêu cầu pháp lý bắt buộc</b> đối với mọi con tàu. Việc kiểm tra định kỳ không chỉ xác nhận sự tuân thủ mà còn giúp phát hiện sớm các hư hỏng tiềm ẩn, đảm bảo <b>an toàn tuyệt đối</b> khi hành trình.",
+			"Đội ngũ kỹ thuật viên giàu kinh nghiệm của <b>Wheelhouse</b>, kết hợp cùng các đối tác và nhà cung cấp dịch vụ ủy nhiệm uy tín, đảm bảo thực hiện các đợt kiểm tra hàng năm (GMDSS, VDR/S-VDR) một cách <b>nhanh chóng, chính xác</b>, giúp tàu của bạn vượt qua kỳ kiểm tra và nhận được <b>chứng nhận mới</b> đúng thời hạn với hiệu suất cao nhất.",
+			"Kết hợp cùng với <b>dịch vụ sửa chữa uy tín</b>, chúng tôi có thể xử lý vấn đề một cách nhanh chóng nếu bất kỳ thành phần nào của hệ thống không đáp ứng được các tiêu chuẩn của IMO và các tổ chức đăng kiểm, giúp tàu của bạn <b>nhanh chóng</b> trở lên <b>an toàn hơn</b> mà không cần trải qua nhiều khâu khắc phục sự cố."
+		],
+		"ctaContent": {
+			"title": "Bạn cần lên lịch kiểm tra hàng năm?",
+			"description": "Để đảm bảo các chứng chỉ của tàu không bị gián đoạn, hãy liên hệ với chúng tôi ngay để được tư vấn và lập kế hoạch kiểm tra kịp thời.",
+			"href": "/about#contact",
+			"label": "Tìm hiểu thêm về giải pháp của chúng tôi"
+		}
+	}
 }

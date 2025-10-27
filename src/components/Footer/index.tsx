@@ -1,30 +1,30 @@
-import { getTranslations } from "next-intl/server";
-import Link from "next/link";
-import { BackgroundGrid } from "@/components/BackgroundGrid";
-import { LogoEffect } from "./LogoEffect";
-import ContactInfo from "@/components/ContactInfo";
-import LogoSvg from "@/components/LogoSvg";
+import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
+import { BackgroundGrid } from '@/components/BackgroundGrid';
+import ContactInfo from '@/components/ContactInfo';
+import LogoSvg from '@/components/LogoSvg';
+import { LogoEffect } from './LogoEffect';
 
 export default async function footer() {
-  const t = await getTranslations("common");
-  const year = new Date().getFullYear();
-  return (
-    <footer className="relative bg-black text-white/60  overflow-hidden pt-32 pb-24">
-      <BackgroundGrid />
-      <div className="relative z-30 container-gutter">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
-          {/* Company Info */}
-          <div className="lg:col-span-1">
-            <div className="mb-6">
-              <Link href="/" className="inline-block">
-                <LogoSvg className="h-10 w-auto" />
-              </Link>
-              <h2 className="text-2xl font-bold mt-4">
-                {t("brand.companyName")}
-              </h2>
-            </div>
-            <p className=" mb-6 leading-relaxed">{t("brand.description")}</p>
-            {/*  <div aria-label="Social Media Links" className="flex space-x-4">
+	const t = await getTranslations('common');
+	const year = new Date().getFullYear();
+	return (
+		<footer className="relative bg-black text-white/60  overflow-hidden pt-32 pb-24">
+			<BackgroundGrid />
+			<div className="relative z-30 container-gutter">
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
+					{/* Company Info */}
+					<div className="lg:col-span-1">
+						<div className="mb-6">
+							<Link href="/" className="inline-block">
+								<LogoSvg className="h-10 w-auto" />
+							</Link>
+							<h2 className="text-2xl font-bold mt-4">
+								{t('brand.companyName')}
+							</h2>
+						</div>
+						<p className=" mb-6 leading-relaxed">{t('brand.description')}</p>
+						{/*  <div aria-label="Social Media Links" className="flex space-x-4">
               <Link
                 href="#"
                 className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
@@ -78,122 +78,122 @@ export default async function footer() {
                 </svg>
               </Link>
             </div> */}
-          </div>
+					</div>
 
-          {/* Quick Links */}
-          <nav aria-label="Quick Links">
-            <h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
-              {t("common.quickLinks", { defaultValue: "Quick Links" })}
-            </h3>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {t("nav.about", { defaultValue: "About Us" })}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {t("nav.services.title", { defaultValue: "Services" })}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/solutions"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {t("nav.solutions.title", { defaultValue: "Solutions" })}
-                </Link>
-              </li>
+					{/* Quick Links */}
+					<nav aria-label="Quick Links">
+						<h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
+							{t('common.quickLinks', { defaultValue: 'Quick Links' })}
+						</h3>
+						<ul className="space-y-3">
+							<li>
+								<Link
+									href="/about"
+									className="text-white/60 hover:text-white transition-colors"
+								>
+									{t('nav.about', { defaultValue: 'About Us' })}
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/services"
+									className="text-white/60 hover:text-white transition-colors"
+								>
+									{t('nav.services.title', { defaultValue: 'Services' })}
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/solutions"
+									className="text-white/60 hover:text-white transition-colors"
+								>
+									{t('nav.solutions.title', { defaultValue: 'Solutions' })}
+								</Link>
+							</li>
 
-              <li>
-                <Link
-                  href="/about#contact"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {t("nav.contact", { defaultValue: "Contact" })}
-                </Link>
-              </li>
-            </ul>
-          </nav>
+							<li>
+								<Link
+									href="/about#contact"
+									className="text-white/60 hover:text-white transition-colors"
+								>
+									{t('nav.contact', { defaultValue: 'Contact' })}
+								</Link>
+							</li>
+						</ul>
+					</nav>
 
-          {/* Services */}
-          <nav aria-label="Services and Solutions">
-            <h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
-              {t("common.servicesAndSolutions", {
-                defaultValue: "Services & Solutions",
-              })}
-            </h3>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  href="/services#repair"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {t("nav.services.repairMaintenance", {
-                    defaultValue: "Repair & Maintenance",
-                  })}
-                </Link>
-              </li>
+					{/* Services */}
+					<nav aria-label="Services and Solutions">
+						<h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
+							{t('common.servicesAndSolutions', {
+								defaultValue: 'Services & Solutions',
+							})}
+						</h3>
+						<ul className="space-y-3">
+							<li>
+								<Link
+									href="/services#repair"
+									className="text-white/60 hover:text-white transition-colors"
+								>
+									{t('nav.services.repairMaintenance', {
+										defaultValue: 'Repair & Maintenance',
+									})}
+								</Link>
+							</li>
 
-              <li>
-                <Link
-                  href="/solutions/navigation"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {t("nav.solutions.navigation", {
-                    defaultValue: "Navigation Systems",
-                  })}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/solutions/gmdss"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {t("nav.solutions.gmdss", { defaultValue: "GMDSS" })}
-                </Link>
-              </li>
+							<li>
+								<Link
+									href="/solutions/navigation"
+									className="text-white/60 hover:text-white transition-colors"
+								>
+									{t('nav.solutions.navigation', {
+										defaultValue: 'Navigation Systems',
+									})}
+								</Link>
+							</li>
+							<li>
+								<Link
+									href="/solutions/gmdss"
+									className="text-white/60 hover:text-white transition-colors"
+								>
+									{t('nav.solutions.gmdss', { defaultValue: 'GMDSS' })}
+								</Link>
+							</li>
 
-              <li>
-                <Link
-                  href="/solutions/connectivity"
-                  className="text-white/60 hover:text-white transition-colors"
-                >
-                  {t("nav.solutions.connectivity", {
-                    defaultValue: "Connectivity Solutions",
-                  })}
-                </Link>
-              </li>
-            </ul>
-          </nav>
+							<li>
+								<Link
+									href="/solutions/connectivity"
+									className="text-white/60 hover:text-white transition-colors"
+								>
+									{t('nav.solutions.connectivity', {
+										defaultValue: 'Connectivity Solutions',
+									})}
+								</Link>
+							</li>
+						</ul>
+					</nav>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
-              {t("common.contactInfo", { defaultValue: "Contact Info" })}
-            </h3>
-            <div className="space-y-4">
-              <ContactInfo />
-            </div>
-          </div>
-        </div>
-      </div>
+					{/* Contact Info */}
+					<div>
+						<h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
+							{t('common.contactInfo', { defaultValue: 'Contact Info' })}
+						</h3>
+						<div className="space-y-4">
+							<ContactInfo />
+						</div>
+					</div>
+				</div>
+			</div>
 
-      {/* Bottom Footer */}
-      <div className="relative z-30 border-t border-white/10 container-gutter py-6">
-        <div className="md:flex md:items-center md:justify-between text-sm text-white/60">
-          <div className="mb-4 md:mb-0">
-            <p>
-              © {year} Wheelhouse Co.,Ltd. {t("common.allRightsReserved")}
-            </p>
-          </div>
-          {/* <div className="flex flex-wrap gap-6">
+			{/* Bottom Footer */}
+			<div className="relative z-30 border-t border-white/10 container-gutter py-6">
+				<div className="md:flex md:items-center md:justify-between text-sm text-white/60">
+					<div className="mb-4 md:mb-0">
+						<p>
+							© {year} Wheelhouse Co.,Ltd. {t('common.allRightsReserved')}
+						</p>
+					</div>
+					{/* <div className="flex flex-wrap gap-6">
               <Link href="/privacy-policy" className="hover:text-white transition-colors">
                 {t('privacyPolicy', { defaultValue: 'Privacy Policy' })}
               </Link>
@@ -207,10 +207,10 @@ export default async function footer() {
                 {t('sitemap', { defaultValue: 'Sitemap' })}
               </Link>
             </div> */}
-        </div>
-      </div>
+				</div>
+			</div>
 
-      <LogoEffect />
-    </footer>
-  );
+			<LogoEffect />
+		</footer>
+	);
 }

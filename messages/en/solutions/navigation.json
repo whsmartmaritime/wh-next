@@ -1,31 +1,31 @@
 {
-  "meta": {
-    "title": "Maritime Navigation Solutions | Supply & Installation",
-    "description": "Professional Maritime Navigation Solutions from Wheelhouse: supplying and installing RADAR, ECDIS, AIS, GPS, electronic compasses, depth and speed measuring equipment… in compliance with SOLAS V.",
-    "ogImage": "/images/og/og-home-en.png",
-    "slug": "navigation"
-  },
-  "hero": {
-    "title": "Navigation Solutions",
-    "subtitle": "Excellence in maritime navigation solutions since inception",
-    "cardTitle": "AIS, RADAR, ECDIS, GNSS, COMPASS, AUTOPILOT, ECHO SOUNDER, SPEED LOG and more",
-    "cardDescription": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
-    "imgSrc": "/images/solutions/navigation/navigation-equipment-overview.webp",
-    "imgAlt": "navigation equipment on a ship bridge"
-  },
-  "overview": {
-    "title": "Contributing to the Safety of Vessels and Crews",
-    "description": "At Wheelhouse, we understand that safety at sea is always the top priority. Modern navigation systems not only enable vessels to sail accurately and efficiently, but also reduce operational risks and support crew members in making timely decisions in any situation. With SOLAS V-compliant navigation solutions and our professional lifecycle support services, Wheelhouse plays a crucial role in safeguarding vessels, cargo, and human lives throughout every voyage."
-  },
-  "ctaContent": {
-    "title": "Contact Us",
-    "description": "Don't hesitate to contact our team of experts – together, we will create the most effective solution, whether it's a single device or a fully integrated system.",
-    "label": "Let's Connect",
-    "href": "/about#contact"
-  },
-  "blogPosts": {
-    "title": "Insights & Articles",
-    "description": "This section aims to analyze and share in-depth perspectives that help clarify and expand upon the solutions we provide.",
-    "seeAll": "See All Articles"
-  }
+	"meta": {
+		"title": "Maritime Navigation Solutions | Supply & Installation",
+		"description": "Professional Maritime Navigation Solutions from Wheelhouse: supplying and installing RADAR, ECDIS, AIS, GPS, electronic compasses, depth and speed measuring equipment… in compliance with SOLAS V.",
+		"ogImage": "/images/og/og-home-en.png",
+		"slug": "navigation"
+	},
+	"hero": {
+		"title": "Navigation Solutions",
+		"subtitle": "Excellence in maritime navigation solutions since inception",
+		"cardTitle": "AIS, RADAR, ECDIS, GNSS, COMPASS, AUTOPILOT, ECHO SOUNDER, SPEED LOG and more",
+		"cardDescription": "We are committed to providing world-class maritime solutions with a focus on safety, reliability, and innovation.",
+		"imgSrc": "/images/solutions/navigation/navigation-equipment-overview.webp",
+		"imgAlt": "navigation equipment on a ship bridge"
+	},
+	"overview": {
+		"title": "Contributing to the Safety of Vessels and Crews",
+		"description": "At Wheelhouse, we understand that safety at sea is always the top priority. Modern navigation systems not only enable vessels to sail accurately and efficiently, but also reduce operational risks and support crew members in making timely decisions in any situation. With SOLAS V-compliant navigation solutions and our professional lifecycle support services, Wheelhouse plays a crucial role in safeguarding vessels, cargo, and human lives throughout every voyage."
+	},
+	"ctaContent": {
+		"title": "Contact Us",
+		"description": "Don't hesitate to contact our team of experts – together, we will create the most effective solution, whether it's a single device or a fully integrated system.",
+		"label": "Let's Connect",
+		"href": "/about#contact"
+	},
+	"blogPosts": {
+		"title": "Insights & Articles",
+		"description": "This section aims to analyze and share in-depth perspectives that help clarify and expand upon the solutions we provide.",
+		"seeAll": "See All Articles"
+	}
 }

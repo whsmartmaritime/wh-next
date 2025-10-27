@@ -1,146 +1,146 @@
 {
-  "meta": {
-    "title": "GMDSS - NAVIGATION - CONNECTIVITY - SERVICES | WHEELHOUSE",
-    "description": "Specializing in GMDSS, Navigation, Connectivity, and maritime technical services. Wheelhouse ensures safe and efficient vessel operations.",
-    "ogImage": "/images/og/og-home-en.png",
-    "slug": ""
-  },
-  "hero": {
-    "title": "<highlight> Wheelhouse </highlight> - Your Partner In Maritime Electronics",
-    "subtitle": "Specialized in GMDSS, Navigation, Connectivity & Onboard Services.",
-    "images": {
-      "back": {
-        "src": "/images/Picture1.png",
-        "alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
-      },
-      "fore": {
-        "src": "/images/Picture2.png",
-        "alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
-      }
-    },
-    "ctas": [
-      {
-        "label": "Liên hệ với chúng tôi",
-        "href": "/about#contact"
-      }
-    ],
-    "partnerShowcase": "Các khách hàng và đối tác"
-  },
-  "ourPurpose": {
-    "title": "Our Purpose",
-    "description": "Empowering maritime journeys with precision, trust, and sustainable value — because every voyage deserves dedication.\nWe deliver optimized solutions for safety and efficiency, combining advanced technology with extensive expertise.\nCommitted to transparency, reliability, and respect for the marine environment, we drive sustainable growth.",
-    "images": [
-      {
-        "src": "/images/whywh/wave-ship.webp",
-        "alt": "Ship on ocean"
-      },
-      {
-        "src": "/images/whywh/wheelhouse-engineer-with-radar.webp",
-        "alt": "Wheelhouse service engineer inspecting the radar antenna on board"
-      },
-      {
-        "src": "/images/whywh/wheelhouse-engineer-with-bridge.webp",
-        "alt": "Wheelhouse service engineer inspecting the equipment on bridge"
-      }
-    ]
-  },
-  "keyValues": {
-    "title": "Trusted Marine Solutions — Why Clients Choose Wheelhouse",
-    "description": "Our commitment to offering advanced, continuous support and services, together with our firm belief in ethical business practices, makes Wheelhouse a trusted long-term partner.",
-    "items": [
-      {
-        "title": "Reliability",
-        "description": "Always putting Reliability first, with the motto \"Customers trust helps Wheelhouse affirm the brand\"."
-      },
-      {
-        "title": "Wholeheartedness",
-        "description": "Serving customers whole-heartedly with the mission \"Serving customers well is serving our own future\"."
-      },
-      {
-        "title": "Enduring Quality",
-        "description": "Wheelhouse is committed to providing customers with the best quality products and services."
-      },
-      {
-        "title": "Excellent Human Resource",
-        "description": "With our experience, knowledge and acumen in handling situations, our human resources always strive to bring practical benefits to customers."
-      }
-    ],
-    "ctaPrimary": "About Us"
-  },
-  "keyOfferings": {
-    "title": "Our Key Offerings",
-    "lead": "At Wheelhouse, we provide solutions and services to make your vessel operate more safely.",
-    "closing": "Let us be your trusted companion on your journey.",
-    "items": [
-      {
-        "title": "Navigation solution",
-        "href": "/solutions/navigation",
-        "images": {
-          "bg": {
-            "src": "/images/key-offerings/navigation-key-offering-back.webp",
-            "alt": "wheelhouse service engineer repairing navigation equipment on board"
-          },
-          "fg": {
-            "src": "/images/key-offerings/navigation-key-offering-fore.webp",
-            "alt": "wheelhouse service engineer repairing navigation antenna on board"
-          }
-        }
-      },
-      {
-        "title": "GMDSS solution",
-        "href": "/solutions/gmdss",
-        "images": {
-          "bg": {
-            "src": "/images/key-offerings/gmdss-key-offering-back.webp",
-            "alt": "GMDSS"
-          },
-          "fg": {
-            "src": "/images/key-offerings/gmdss-key-offering-fore.webp",
-            "alt": "GMDSS"
-          }
-        }
-      },
-      {
-        "title": "Satellite Communication",
-        "href": "/solutions/connectivity",
-        "images": {
-          "bg": {
-            "src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
-            "alt": "wheelhouse service engineer repairing VSAT antenna on board"
-          },
-          "fg": {
-            "src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
-            "alt": "wheelhouse service engineer repairing VSAT equipment on board"
-          }
-        }
-      },
-      {
-        "title": "Repair & Maintenance",
-        "href": "/services#repair-maintenance",
-        "images": {
-          "bg": {
-            "src": "/images/key-offerings/wheelhouse-engineer-repairing-equipment-on-bridge.webp",
-            "alt": "wheelhouse service engineer repairing equipment on bridge"
-          },
-          "fg": {
-            "src": "/images/key-offerings/wheelhouse-engineer-repairing-auto-pilot.webp",
-            "alt": "wheelhouse service engineer repairing auto pilot on board"
-          }
-        }
-      }
-    ],
-    "primaryButton": {
-      "label": "Discover more our solutions",
-      "href": "/solutions"
-    },
-    "secondaryButton": {
-      "label": "Discover more our services",
-      "href": "/services"
-    }
-  },
-  "recentArticles": {
-    "title": "Recent Articles",
-    "description": "Stay updated with our latest insights, industry news, and maritime technology developments.",
-    "viewAll": "View all articles"
-  }
+	"meta": {
+		"title": "GMDSS - NAVIGATION - CONNECTIVITY - SERVICES | WHEELHOUSE",
+		"description": "Specializing in GMDSS, Navigation, Connectivity, and maritime technical services. Wheelhouse ensures safe and efficient vessel operations.",
+		"ogImage": "/images/og/og-home-en.png",
+		"slug": ""
+	},
+	"hero": {
+		"title": "<highlight> Wheelhouse </highlight> - Your Partner In Maritime Electronics",
+		"subtitle": "Specialized in GMDSS, Navigation, Connectivity & Onboard Services.",
+		"images": {
+			"back": {
+				"src": "/images/Picture1.png",
+				"alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
+			},
+			"fore": {
+				"src": "/images/Picture2.png",
+				"alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
+			}
+		},
+		"ctas": [
+			{
+				"label": "Liên hệ với chúng tôi",
+				"href": "/about#contact"
+			}
+		],
+		"partnerShowcase": "Các khách hàng và đối tác"
+	},
+	"ourPurpose": {
+		"title": "Our Purpose",
+		"description": "Empowering maritime journeys with precision, trust, and sustainable value — because every voyage deserves dedication.\nWe deliver optimized solutions for safety and efficiency, combining advanced technology with extensive expertise.\nCommitted to transparency, reliability, and respect for the marine environment, we drive sustainable growth.",
+		"images": [
+			{
+				"src": "/images/whywh/wave-ship.webp",
+				"alt": "Ship on ocean"
+			},
+			{
+				"src": "/images/whywh/wheelhouse-engineer-with-radar.webp",
+				"alt": "Wheelhouse service engineer inspecting the radar antenna on board"
+			},
+			{
+				"src": "/images/whywh/wheelhouse-engineer-with-bridge.webp",
+				"alt": "Wheelhouse service engineer inspecting the equipment on bridge"
+			}
+		]
+	},
+	"keyValues": {
+		"title": "Trusted Marine Solutions — Why Clients Choose Wheelhouse",
+		"description": "Our commitment to offering advanced, continuous support and services, together with our firm belief in ethical business practices, makes Wheelhouse a trusted long-term partner.",
+		"items": [
+			{
+				"title": "Reliability",
+				"description": "Always putting Reliability first, with the motto \"Customers trust helps Wheelhouse affirm the brand\"."
+			},
+			{
+				"title": "Wholeheartedness",
+				"description": "Serving customers whole-heartedly with the mission \"Serving customers well is serving our own future\"."
+			},
+			{
+				"title": "Enduring Quality",
+				"description": "Wheelhouse is committed to providing customers with the best quality products and services."
+			},
+			{
+				"title": "Excellent Human Resource",
+				"description": "With our experience, knowledge and acumen in handling situations, our human resources always strive to bring practical benefits to customers."
+			}
+		],
+		"ctaPrimary": "About Us"
+	},
+	"keyOfferings": {
+		"title": "Our Key Offerings",
+		"lead": "At Wheelhouse, we provide solutions and services to make your vessel operate more safely.",
+		"closing": "Let us be your trusted companion on your journey.",
+		"items": [
+			{
+				"title": "Navigation solution",
+				"href": "/solutions/navigation",
+				"images": {
+					"bg": {
+						"src": "/images/key-offerings/navigation-key-offering-back.webp",
+						"alt": "wheelhouse service engineer repairing navigation equipment on board"
+					},
+					"fg": {
+						"src": "/images/key-offerings/navigation-key-offering-fore.webp",
+						"alt": "wheelhouse service engineer repairing navigation antenna on board"
+					}
+				}
+			},
+			{
+				"title": "GMDSS solution",
+				"href": "/solutions/gmdss",
+				"images": {
+					"bg": {
+						"src": "/images/key-offerings/gmdss-key-offering-back.webp",
+						"alt": "GMDSS"
+					},
+					"fg": {
+						"src": "/images/key-offerings/gmdss-key-offering-fore.webp",
+						"alt": "GMDSS"
+					}
+				}
+			},
+			{
+				"title": "Satellite Communication",
+				"href": "/solutions/connectivity",
+				"images": {
+					"bg": {
+						"src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
+						"alt": "wheelhouse service engineer repairing VSAT antenna on board"
+					},
+					"fg": {
+						"src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
+						"alt": "wheelhouse service engineer repairing VSAT equipment on board"
+					}
+				}
+			},
+			{
+				"title": "Repair & Maintenance",
+				"href": "/services#repair-maintenance",
+				"images": {
+					"bg": {
+						"src": "/images/key-offerings/wheelhouse-engineer-repairing-equipment-on-bridge.webp",
+						"alt": "wheelhouse service engineer repairing equipment on bridge"
+					},
+					"fg": {
+						"src": "/images/key-offerings/wheelhouse-engineer-repairing-auto-pilot.webp",
+						"alt": "wheelhouse service engineer repairing auto pilot on board"
+					}
+				}
+			}
+		],
+		"primaryButton": {
+			"label": "Discover more our solutions",
+			"href": "/solutions"
+		},
+		"secondaryButton": {
+			"label": "Discover more our services",
+			"href": "/services"
+		}
+	},
+	"recentArticles": {
+		"title": "Recent Articles",
+		"description": "Stay updated with our latest insights, industry news, and maritime technology developments.",
+		"viewAll": "View all articles"
+	}
 }

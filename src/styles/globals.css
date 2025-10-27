@@ -2,67 +2,69 @@
 @import "./animations.css";
 
 @layer base {
-  :root {
-    --background: #f9fafb;
-    --foreground: #171717;
-    --gutter-h: 1rem;
-    --block-spacing: 2rem;
-    --header-height: 66px;
-    --column: calc((100vw - (var(--gutter-h) * 2)) / 12);
-    --radius: 0.625rem;
-  }
+	:root {
+		--background: #f9fafb;
+		--foreground: #171717;
+		--gutter-h: 1rem;
+		--block-spacing: 2rem;
+		--header-height: 66px;
+		--column: calc((100vw - (var(--gutter-h) * 2)) / 12);
+		--radius: 0.625rem;
+	}
 
-  .dark {
-    --background: #000000;
-    --foreground: #e5e5e5;
-  }
+	.dark {
+		--background: #000000;
+		--foreground: #e5e5e5;
+	}
 }
 
 @media (min-width: 640px) {
-  :root {
-    --gutter-h: 1.5rem;
-    --block-spacing: 2.5rem;
-  }
+	:root {
+		--gutter-h: 1.5rem;
+		--block-spacing: 2.5rem;
+	}
 }
 
 @media (min-width: 768px) {
-  :root {
-    --gutter-h: 2rem;
-    --block-spacing: 3.5rem;
-  }
+	:root {
+		--gutter-h: 2rem;
+		--block-spacing: 3.5rem;
+	}
 }
 
 @media (min-width: 1024px) {
-  :root {
-    --gutter-h: 4rem;
-    --block-spacing: 5rem;
-    --header-height: 76px;
-  }
+	:root {
+		--gutter-h: 4rem;
+		--block-spacing: 5rem;
+		--header-height: 76px;
+	}
 }
 
 @media (min-width: 1600px) {
-  :root {
-    --gutter-h: 10rem;
-    --header-height: 90px;
-  }
+	:root {
+		--gutter-h: 10rem;
+		--header-height: 90px;
+	}
 }
 
 @media (min-width: 1920px) {
-  :root {
-    --gutter-h: calc(50vw - 50rem);
-  }
+	:root {
+		--gutter-h: calc(50vw - 50rem);
+	}
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--background);
-  color: var(--foreground);
-  transition: background 0.2s, color 0.2s;
+	font-family: Arial, Helvetica, sans-serif;
+	background: var(--background);
+	color: var(--foreground);
+	transition:
+		background 0.2s,
+		color 0.2s;
 }
 
 @layer utilities {
-  .container-gutter {
-    width: 100%;
-    padding-inline: var(--gutter-h);
-  }
+	.container-gutter {
+		width: 100%;
+		padding-inline: var(--gutter-h);
+	}
 }
