@@ -7,7 +7,8 @@
     "prebuild": "tsx src/scripts/updatePathname.ts",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "biome lint .",
+    "format": "biome format ."
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
@@ -25,12 +26,12 @@
     "tsx": "^4.20.6"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.3.1",
     "@eslint/eslintrc": "^3.3.1",
     "@tailwindcss/postcss": "^4.1.14",
     "@types/node": "^20.19.21",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "eslint": "^9.37.0",
     "eslint-config-next": "15.5.0",
     "rehype-katex": "^7.0.1",
     "tailwindcss": "^4.1.14",
