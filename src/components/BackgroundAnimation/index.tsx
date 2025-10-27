@@ -10,7 +10,7 @@ interface Props {
 export const BackgroundAnimation: React.FC<Props> = ({
   className,
   style,
-  videoSrc = "/images/glass-animation.mp4",
+  videoSrc = "/images/decorative/glass-animation.mp4",
   enableCrtEffect = true,
 }: Props) => {
   return (
@@ -37,7 +37,7 @@ export const BackgroundAnimation: React.FC<Props> = ({
         <div
           className="absolute inset-0 z-10 bg-repeat bg-center mix-blend-multiply"
           style={{
-            backgroundImage: "url('/images/crt.gif')",
+            backgroundImage: "url('/images/decorative/crt.gif')",
             backgroundSize: "256px",
           }}
         />
