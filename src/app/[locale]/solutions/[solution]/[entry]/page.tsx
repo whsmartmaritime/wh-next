@@ -5,6 +5,8 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import MediaText from '@/components/MediaText';
 import { routing } from '@/i18n/routing';
@@ -208,7 +210,15 @@ export default async function EntryPage({
 					</div>
 				</div>
 				<div className="col-span-8 col-start-5">
-					<MDXRemote source={mdxContent} />
+					<MDXRemote
+						source={mdxContent}
+						options={{
+							mdxOptions: {
+								remarkPlugins: [remarkMath],
+								rehypePlugins: [rehypeKatex],
+							},
+						}}
+					/>
 				</div>
 			</article>
 			{/* Lọc bài liên quan theo tag chung, loại bỏ bài hiện tại */}

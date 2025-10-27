@@ -12,6 +12,7 @@
 	},
 	"dependencies": {
 		"gray-matter": "^4.0.3",
+		"katex": "^0.16.25",
 		"next": "16.0.0",
 		"next-intl": "^4.4.0",
 		"next-mdx-remote-client": "^2.1.7",
@@ -21,6 +22,7 @@
 		"react-icons": "^5.5.0",
 		"reading-time": "^1.5.0",
 		"rehype-highlight": "^7.0.2",
+		"remark-math": "^6.0.0",
 		"slugify": "^1.6.6",
 		"tailwindcss-animate": "^1.0.7",
 		"tsx": "^4.20.6"
