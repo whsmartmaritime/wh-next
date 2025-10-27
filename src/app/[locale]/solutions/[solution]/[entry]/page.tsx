@@ -9,18 +9,10 @@ import {
   type Locales,
   type PostEntry,
 } from "@/lib/postIndex.generated";
-type EntryFrontmatter = {
-  author?: string;
-  publishedAt?: string;
-  updatedAt?: string;
-  category?: string;
-  tags?: string[];
-  meta: { title: string; description?: string; ogImage: string };
-};
-type MdxModule = {
-  default: React.ComponentType;
-  frontmatter: EntryFrontmatter;
-};
+import fs from "node:fs/promises";
+import path from "node:path";
+import matter from "gray-matter";
+import { MDXRemote } from "next-mdx-remote-client/rsc";
 
 export function generateStaticParams() {
   // Lấy toàn bộ path dạng /solutions/[solution]/[entry]
@@ -41,13 +33,20 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string; solution: string; entry: string }>;
 }): Promise<Metadata> {
   const { locale, solution, entry } = await props.params;
-  const { frontmatter } = (await import(
-    `@/content/${locale}/solutions/${solution}/${entry}.mdx`
-  )) as { frontmatter: EntryFrontmatter };
-
-  const title = frontmatter.meta.title;
-  const description = frontmatter.meta.description;
-  const ogImage = frontmatter.meta.ogImage;
+  const filePath = path.join(
+    process.cwd(),
+    "src",
+    "content",
+    locale,
+    "solutions",
+    solution,
+    `${entry}.mdx`
+  );
+  const raw = await fs.readFile(filePath, "utf8");
+  const { data: frontmatter } = matter(raw);
+  const title = frontmatter.meta?.title ?? "";
+  const description = frontmatter.meta?.description ?? "";
+  const ogImage = frontmatter.meta?.ogImage ?? "";
 
   // 📍 URL gốc của trang
   const base = new URL(
@@ -56,7 +55,6 @@ export async function generateMetadata(props: {
       ""
     )
   );
-
   const url = new URL(`${locale}/solutions/${solution}/${entry}`, base);
 
   // 🌐 Tạo alternate URL cho đa ngôn ngữ
@@ -104,9 +102,17 @@ export default async function EntryPage({
   const { locale, solution, entry } = await params;
   const t = await getTranslations({ locale, namespace: "entry" });
   const b = await getTranslations({ locale, namespace: "common.nav" });
-  const { default: Entry, frontmatter } = (await import(
-    `@/content/${locale}/solutions/${solution}/${entry}.mdx`
-  )) as MdxModule;
+  const filePath = path.join(
+    process.cwd(),
+    "src",
+    "content",
+    locale,
+    "solutions",
+    solution,
+    `${entry}.mdx`
+  );
+  const raw = await fs.readFile(filePath, "utf8");
+  const { data: frontmatter, content: mdxContent } = matter(raw);
   const l = locale as Locales;
 
   // Lấy toàn bộ bài viết theo locale để lọc theo tag
@@ -188,12 +194,12 @@ export default async function EntryPage({
         <div className="col-span-16 lg:col-span-13 ">
           <div className="  flex flex-col items-start justify-center ">
             <h1 className="text-4xl lg:text-6xl font-bold m-8 lg:m-16">
-              {frontmatter.meta.title}
+              {frontmatter.meta?.title}
             </h1>
             <div className="relative aspect-[16/9] w-full ">
               <Image
-                src={frontmatter.meta.ogImage}
-                alt={frontmatter.meta.title}
+                src={frontmatter.meta?.ogImage}
+                alt={frontmatter.meta?.title}
                 fill
                 className="object-cover"
                 priority
@@ -202,7 +208,7 @@ export default async function EntryPage({
           </div>
         </div>
         <div className="col-span-8 col-start-5">
-          <Entry />
+          <MDXRemote source={mdxContent} />
         </div>
       </article>
       {/* Lọc bài liên quan theo tag chung, loại bỏ bài hiện tại */}
