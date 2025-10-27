@@ -3,13 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 0.0.0.0",
+    "dev": "next dev --turbopack -H 0.0.0.0",
     "prebuild": "tsx src/scripts/updatePathname.ts",
-    "build": "next build",
+    "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint",
-    "dev:tp": "next dev --turbopack -H 0.0.0.0",
-    "build:tp": "next build --turbopack"
+    "lint": "eslint"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
