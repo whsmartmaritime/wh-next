@@ -127,18 +127,18 @@ export default async function SolutionPage({
 				<Breadcrumbs
 					items={[
 						{
-							label: commonMessages.nav.home,
+							label: commonMessages.nav.home.label,
 							href: `/${locale}`,
 						},
 						{
-							label: commonMessages.nav.solutions.title,
-							href: `/${locale}/solutions/`,
+							label: commonMessages.nav.solutions.label,
+							href: `/${locale}${commonMessages.nav.solutions.href}`,
 						},
 						{
 							label:
-								commonMessages.nav.solutions[
-									solution as keyof typeof commonMessages.nav.solutions
-								],
+								commonMessages.nav.solutions.items[
+									solution as keyof typeof commonMessages.nav.solutions.items
+								].label,
 						},
 					]}
 				/>

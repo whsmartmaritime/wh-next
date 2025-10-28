@@ -146,19 +146,19 @@ export default async function EntryPage({
 					className="col-span-8 col-start-4 mx-8 lg:mx-16"
 					items={[
 						{
-							label: commonMessages.nav.home,
+							label: commonMessages.nav.home.label,
 							href: `/${locale}`,
 						},
 						{
-							label: commonMessages.nav.solutions.title,
-							href: `/${locale}/solutions/`,
+							label: commonMessages.nav.solutions.label,
+							href: `/${locale}${commonMessages.nav.solutions.href}`,
 						},
 						{
 							label:
-								commonMessages.nav.solutions[
-									solution as keyof typeof commonMessages.nav.solutions
-								],
-							href: `/${locale}/solutions/${solution}`,
+								commonMessages.nav.solutions.items[
+									solution as keyof typeof commonMessages.nav.solutions.items
+								].label,
+							href: `/${locale}${commonMessages.nav.solutions.items[solution as keyof typeof commonMessages.nav.solutions.items].href}`,
 						},
 						{ label: frontmatter.publishedAt },
 					]}

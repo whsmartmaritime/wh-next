@@ -1,20 +1,47 @@
 {
 	"nav": {
-		"home": "Home",
-		"about": "About Us",
-		"contact": "Contact",
+		"home": { "label": "Home", "href": "/" },
+		"about": { "label": "About Us", "href": "/about" },
+		"contact": { "label": "Contact", "href": "/about#contact" },
 		"solutions": {
-			"title": "Solutions",
-			"gmdss": "GMDSS",
-			"navigation": "Navigation",
-			"connectivity": "SatComm",
-			"e-navigation": "E-Navigation"
+			"label": "Solutions",
+			"href": "/solutions",
+			"items": {
+				"gmdss": {
+					"label": "GMDSS",
+					"href": "/solutions/gmdss"
+				},
+				"navigation": {
+					"label": "Navigation",
+					"href": "/solutions/navigation"
+				},
+				"connectivity": {
+					"label": "SatComm",
+					"href": "/solutions/connectivity"
+				},
+				"eNavigation": {
+					"label": "E-Navigation",
+					"href": "/solutions/e-navigation"
+				}
+			}
 		},
 		"services": {
-			"title": "Services",
-			"repairMaintenance": "Repair & Maintenance",
-			"installation": "Installation",
-			"annualSurvey": "Annual Survey"
+			"label": "Services",
+			"href": "/services",
+			"items": {
+				"rm": {
+					"label": "Repair & Maintenance",
+					"href": "/services#repair-maintenance"
+				},
+				"installation": {
+					"label": "Installation",
+					"href": "/services#installation"
+				},
+				"annualSurvey": {
+					"label": "Annual Survey",
+					"href": "/services#annual-survey"
+				}
+			}
 		}
 	},
 	"brand": {

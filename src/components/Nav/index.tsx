@@ -1,4 +1,4 @@
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 
 interface NavProps {
 	locale: string;
@@ -10,86 +10,95 @@ export default async function NavMenu({ locale }: NavProps) {
 	return (
 		<ul aria-label="Main menu" className="flex">
 			<li className="relative group p-6">
-				<Link href="/solutions" className=" font-semibold">
-					{commonMessages.nav.solutions.title}
+				<Link
+					href={`/${locale}${commonMessages.nav.solutions.href}`}
+					className=" font-semibold"
+				>
+					{commonMessages.nav.solutions.label}
 				</Link>
 				<ul className="absolute uppercase left-0 mt-2 w-40 border bg-white opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-200">
 					<li>
 						<Link
-							href="/solutions/navigation"
+							href={`/${locale}${commonMessages.nav.solutions.items.navigation.href}`}
 							className="block px-4 py-2 hover:bg-gray-100"
 						>
-							{commonMessages.nav.solutions.navigation}
+							{commonMessages.nav.solutions.items.navigation.label}
 						</Link>
 					</li>
 					<li>
 						<Link
-							href="/solutions/gmdss"
+							href={`/${locale}${commonMessages.nav.solutions.items.gmdss.href}`}
 							className="block px-4 py-2 hover:bg-gray-100"
 						>
-							{commonMessages.nav.solutions.gmdss}
+							{commonMessages.nav.solutions.items.gmdss.label}
 						</Link>
 					</li>
 					<li>
 						<Link
-							href="/solutions/connectivity"
+							href={`/${locale}${commonMessages.nav.solutions.items.connectivity.href}`}
 							className="block px-4 py-2 hover:bg-gray-100"
 						>
-							{commonMessages.nav.solutions.connectivity}
+							{commonMessages.nav.solutions.items.connectivity.label}
 						</Link>
 					</li>
 					<li>
 						<Link
-							href="/solutions/e-navigation"
+							href={`/${locale}${commonMessages.nav.solutions.items.eNavigation.href}`}
 							className="block px-4 py-2 hover:bg-gray-100"
 						>
-							{commonMessages.nav.solutions['e-navigation']}
+							{commonMessages.nav.solutions.items.eNavigation.label}
 						</Link>
 					</li>
 				</ul>
 			</li>
 			<li className="relative group p-6">
-				<Link href="/services" className="font-semibold">
-					{commonMessages.nav.services.title}
+				<Link
+					href={`/${locale}${commonMessages.nav.services.href}`}
+					className="font-semibold"
+				>
+					{commonMessages.nav.services.label}
 				</Link>
 				<ul className="absolute uppercase left-0 mt-2 w-40 bg-white border rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-200">
 					<li>
 						<Link
-							href={{ pathname: '/services', hash: 'repair-maintenance' }}
+							href={`/${locale}${commonMessages.nav.services.items.rm.href}`}
 							className="block px-4 py-2 hover:bg-gray-100"
 						>
-							{commonMessages.nav.services.repairMaintenance}
+							{commonMessages.nav.services.items.rm.label}
 						</Link>
 					</li>
 					<li>
 						<Link
-							href={{ pathname: '/services', hash: 'installation' }}
+							href={`/${locale}${commonMessages.nav.services.items.installation.href}`}
 							className="block px-4 py-2 hover:bg-gray-100"
 						>
-							{commonMessages.nav.services.installation}
+							{commonMessages.nav.services.items.installation.label}
 						</Link>
 					</li>
 					<li>
 						<Link
-							href={{ pathname: '/services', hash: 'survey' }}
+							href={`/${locale}${commonMessages.nav.services.items.annualSurvey.href}`}
 							className="block px-4 py-2 hover:bg-gray-100"
 						>
-							{commonMessages.nav.services.annualSurvey}
+							{commonMessages.nav.services.items.annualSurvey.label}
 						</Link>
 					</li>
 				</ul>
 			</li>
 			<li className="p-6">
-				<Link href="/about" className="font-semibold">
-					{commonMessages.nav.about}
+				<Link
+					href={`/${locale}${commonMessages.nav.about.href}`}
+					className="font-semibold"
+				>
+					{commonMessages.nav.about.label}
 				</Link>
 			</li>
 			<li className="p-6">
 				<Link
-					href={{ pathname: '/about', hash: 'contact' }}
+					href={`/${locale}${commonMessages.nav.contact.href}`}
 					className="font-semibold"
 				>
-					{commonMessages.nav.contact}
+					{commonMessages.nav.contact.label}
 				</Link>
 			</li>
 		</ul>

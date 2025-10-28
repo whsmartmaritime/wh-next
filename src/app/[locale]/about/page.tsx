@@ -66,11 +66,11 @@ export default async function AboutPage({
 					className="text-lg lg:text-xl container-gutter flex items-center gap-8 h-[66px] sm:h-[76px] xl:h-[90px]"
 					items={[
 						{
-							label: commonMessages.nav.home,
+							label: commonMessages.nav.home.label,
 							href: `/${locale}`,
 						},
 						{
-							label: commonMessages.nav.about,
+							label: commonMessages.nav.about.label,
 						},
 					]}
 				/>

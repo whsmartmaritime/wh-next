@@ -1,20 +1,44 @@
 {
 	"nav": {
-		"home": "Trang chủ",
-		"about": "Giới thiệu",
-		"contact": "Liên hệ",
+		"home": { "label": "Trang chủ", "href": "/" },
+		"about": { "label": "Giới thiệu", "href": "/gioi-thieu" },
+		"contact": { "label": "Liên hệ", "href": "/gioi-thieu#contact" },
 		"solutions": {
-			"title": "Giải pháp",
-			"gmdss": "GMDSS",
-			"navigation": "Nghi Khí Hàng Hải",
-			"connectivity": "Thông tin liên lạc vệ tinh",
-			"e-navigation": "Hải đồ, ấn phẩm điện tử"
+			"label": "Giải pháp",
+			"href": "/giai-phap",
+			"items": {
+				"gmdss": { "label": "GMDSS", "href": "/giai-phap/gmdss" },
+				"navigation": {
+					"label": "Nghi Khí Hàng Hải",
+					"href": "/giai-phap/nghi-khi-hang-hai"
+				},
+				"connectivity": {
+					"label": "Thông tin liên lạc vệ tinh",
+					"href": "/giai-phap/thong-tin-ve-tinh"
+				},
+				"eNavigation": {
+					"label": "Hải đồ, ấn phẩm điện tử",
+					"href": "/giai-phap/hai-do-an-pham-dien-tu"
+				}
+			}
 		},
 		"services": {
-			"title": "Dịch vụ",
-			"repairMaintenance": "Sửa chữa & Bảo dưỡng",
-			"installation": "Lắp đặt",
-			"annualSurvey": "Kiểm tra định kỳ"
+			"label": "Dịch vụ",
+			"href": "/dich-vu",
+			"items": {
+				"rm": {
+					"label": "Sửa chữa & Bảo dưỡng",
+					"href": "/dich-vu#repair-maintenance"
+				},
+				"installation": {
+					"label": "Lắp đặt",
+					"href": "/dich-vu#installation"
+				},
+				"annualSurvey": {
+					"label": "Kiểm tra định kỳ",
+					"href": "/dich-vu#annual-survey"
+				}
+			}
 		}
 	},
 	"brand": {

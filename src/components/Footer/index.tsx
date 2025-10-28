@@ -20,7 +20,7 @@ export default async function footer({ locale }: FooterProps) {
 					{/* Company Info */}
 					<div className="lg:col-span-1">
 						<div className="mb-6">
-							<Link href="/" className="inline-block">
+							<Link href={`/${locale}`} className="inline-block">
 								<LogoSvg className="h-10 w-auto" locale={locale} />
 							</Link>
 							<h2 className="text-2xl font-bold mt-4">
@@ -94,35 +94,35 @@ export default async function footer({ locale }: FooterProps) {
 						<ul className="space-y-3">
 							<li>
 								<Link
-									href="/about"
+									href={`/${locale}${commonMessages.nav.about.href}`}
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{commonMessages.nav.about}
+									{commonMessages.nav.about.label}
 								</Link>
 							</li>
 							<li>
 								<Link
-									href="/services"
+									href={`/${locale}${commonMessages.nav.services.href}`}
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{commonMessages.nav.services.title}
+									{commonMessages.nav.services.label}
 								</Link>
 							</li>
 							<li>
 								<Link
-									href="/solutions"
+									href={`/${locale}${commonMessages.nav.solutions.href}`}
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{commonMessages.nav.solutions.title}
+									{commonMessages.nav.solutions.label}
 								</Link>
 							</li>
 
 							<li>
 								<Link
-									href="/about#contact"
+									href={`/${locale}${commonMessages.nav.contact.href}`}
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{commonMessages.nav.contact}
+									{commonMessages.nav.contact.label}
 								</Link>
 							</li>
 						</ul>
@@ -136,36 +136,36 @@ export default async function footer({ locale }: FooterProps) {
 						<ul className="space-y-3">
 							<li>
 								<Link
-									href="/services#repair"
+									href={`/${locale}${commonMessages.nav.services.href}#repair`}
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{commonMessages.nav.services.repairMaintenance}
+									{commonMessages.nav.services.items.rm.label}
 								</Link>
 							</li>
 
 							<li>
 								<Link
-									href="/solutions/navigation"
+									href={`/${locale}${commonMessages.nav.solutions.items.navigation.href}`}
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{commonMessages.nav.solutions.navigation}
+									{commonMessages.nav.solutions.items.navigation.label}
 								</Link>
 							</li>
 							<li>
 								<Link
-									href="/solutions/gmdss"
+									href={`/${locale}${commonMessages.nav.solutions.items.gmdss.href}`}
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{commonMessages.nav.solutions.gmdss}
+									{commonMessages.nav.solutions.items.gmdss.label}
 								</Link>
 							</li>
 
 							<li>
 								<Link
-									href="/solutions/connectivity"
+									href={`/${locale}${commonMessages.nav.solutions.items.connectivity.href}`}
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{commonMessages.nav.solutions.connectivity}
+									{commonMessages.nav.solutions.items.connectivity.label}
 								</Link>
 							</li>
 						</ul>

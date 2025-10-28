@@ -70,11 +70,11 @@ export default async function ServicesPage({
 					className="text-lg lg:text-xl container-gutter flex items-center gap-8 h-[66px] sm:h-[76px] xl:h-[90px]"
 					items={[
 						{
-							label: commonMessages.nav.home,
+							label: commonMessages.nav.home.label,
 							href: `/${locale}`,
 						},
 						{
-							label: commonMessages.nav.services.title,
+							label: commonMessages.nav.services.label,
 						},
 					]}
 				/>
