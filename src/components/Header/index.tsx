@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import TopBar from '@/components/TopBar';
 import LogoSvg from '../LogoSvg';
-import MobileNavToggle from '../MobileNavToggle';
 import Nav from '../Nav';
 
 interface HeaderProps {
@@ -28,7 +27,7 @@ export default async function Header({ locale }: HeaderProps) {
 
 					{/* Mobile toggle button */}
 					<div className="col-span-3 lg:hidden ml-auto flex items-center justify-end">
-						<MobileNavToggle />
+						<Nav locale={locale} />
 					</div>
 
 					{/* Main nav / Main menu */}
