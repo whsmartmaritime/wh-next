@@ -22,11 +22,11 @@
 		"ctas": [
 			{
 				"label": "Liên hệ với chúng tôi",
-				"href": "/about#contact"
+				"href": "/gioi-thieu#contact"
 			},
 			{
 				"label": "Muốn trò chuyện trước?",
-				"href": "https://wa.me/84981829002"
+				"href": "https://wa.me/84865716079"
 			}
 		]
 	},
@@ -42,28 +42,28 @@
 			"item1": {
 				"title": "Nghi Khí Hàng Hải",
 				"description": "Là nhà cung cấp độc lập, Wheelhouse cung cấp các thiết bị định vị hàng hải chất lượng cao từ những thương hiệu uy tín hàng đầu thế giới.",
-				"href": "solutions/navigation",
+				"href": "giai-phap/nghi-khi-hang-hai",
 				"imgSrc": "/images/solutions/wheelhouse-engineer-with-navigation-equipment.webp",
 				"imgAlt": "kỹ thuật viên wheelhouse với thiết bị nghi khí hàng hải"
 			},
 			"item2": {
 				"title": "Thiết Bị GMDSS",
 				"description": "Giải pháp GMDSS đáng tin cậy giúp tàu duy trì liên lạc, tuân thủ SOLAS và đảm bảo an toàn cho mọi hành trình.",
-				"href": "solutions/gmdss",
+				"href": "giai-phap/gmdss",
 				"imgSrc": "/images/solutions/gmdss-console-equipment.webp",
 				"imgAlt": "gmdss console equipment"
 			},
 			"item3": {
 				"title": "Thông tin vệ tinh",
 				"description": "Giải pháp kết nối vệ tinh tốc độ cao giúp tàu luôn trực tuyến, vận hành ổn định ở bất kỳ vùng biển nào.",
-				"href": "solutions/connectivity",
+				"href": "giai-phap/thong-tin-ve-tinh",
 				"imgSrc": "/images/solutions/satellite-connectivity.webp",
 				"imgAlt": "satellite connectivity"
 			},
 			"item4": {
 				"title": "Hải đồ - Ấn phẩm điện tử",
 				"description": "Giải pháp e-navigation kết hợp thiết bị ECDIS, dữ liệu ENC và ấn phẩm điện tử, mang đến sự hỗ trợ tối ưu cho lập kế hoạch và điều hướng an toàn.",
-				"href": "solutions/e-navigation",
+				"href": "giai-phap/hai-do-an-pham-dien-tu",
 				"imgSrc": "/images/solutions/e-navigation.webp",
 				"imgAlt": "e-navigation"
 			}
@@ -71,7 +71,7 @@
 		"ctaContent": {
 			"title": "Từ giải pháp đến vận hành bền vững",
 			"description": "Bên cạnh các giải pháp mà chúng tôi mang đến, Wheelhouse còn cung cấp nhiều dịch vụ hỗ trợ chuyên sâu — từ bảo trì định kỳ, sửa chữa tại chỗ, đến hỗ trợ từ xa — giúp hệ thống vận hành ổn định, tối ưu chi phí và nâng cao hiệu suất.",
-			"href": "/services",
+			"href": "/dich-vu",
 			"label": "Khám phá dịch vụ của chúng tôi"
 		}
 	}

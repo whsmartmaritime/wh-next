@@ -21,11 +21,11 @@
 		"ctas": [
 			{
 				"label": "Liên hệ với chúng tôi",
-				"href": "/about#contact"
+				"href": "/gioi-thieu#contact"
 			},
 			{
 				"label": "Muốn trò chuyện trước?",
-				"href": "https://wa.me/84981829002"
+				"href": "https://wa.me/84865716079"
 			}
 		]
 	},
@@ -81,7 +81,7 @@
 		"ctaContent": {
 			"title": "Bạn cần sửa chữa, bảo dưỡng hay phụ tùng?",
 			"description": "Chúng tôi luôn sẵn sàng hỗ trợ bạn. Hãy liên hệ với chúng tôi để được tư vấn và hỗ trợ kịp thời.",
-			"href": "/about#contact",
+			"href": "/gioi-thieu#contact",
 			"label": "Yêu cầu dịch vụ ngay!"
 		}
 	},
@@ -130,7 +130,7 @@
 		"ctaContent": {
 			"title": "Bạn cần một giải pháp triển khai hệ thống mới?",
 			"description": "Chúng tôi cung cấp các giải pháp toàn diện cho thiết bị điện tử hàng hải, bao gồm tư vấn sản phẩm, thiết kế, cung cấp, lắp đặt và chạy thử. Hãy truy cập trang Giải pháp của chúng tôi để khám phá tiềm năng và các công nghệ mới nhất có thể ứng dụng cho con tàu của bạn.",
-			"href": "/solutions",
+			"href": "/giai-phap",
 			"label": "Tìm hiểu thêm về giải pháp của chúng tôi"
 		}
 	},
@@ -145,8 +145,8 @@
 		"ctaContent": {
 			"title": "Bạn cần lên lịch kiểm tra hàng năm?",
 			"description": "Để đảm bảo các chứng chỉ của tàu không bị gián đoạn, hãy liên hệ với chúng tôi ngay để được tư vấn và lập kế hoạch kiểm tra kịp thời.",
-			"href": "/about#contact",
-			"label": "Tìm hiểu thêm về giải pháp của chúng tôi"
+			"href": "/gioi-thieu#contact",
+			"label": "Yêu cầu dịch vụ!"
 		}
 	}
 }

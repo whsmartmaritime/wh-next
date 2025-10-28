@@ -21,7 +21,7 @@
 		"ctas": [
 			{
 				"label": "Liên hệ với chúng tôi",
-				"href": "/about#contact"
+				"href": "/gioi-thieu#contact"
 			}
 		],
 		"partnerShowcase": "Các khách hàng và đối tác"
@@ -74,7 +74,7 @@
 		"items": [
 			{
 				"title": "Nghi Khí Hàng Hải",
-				"href": "/solutions/navigation",
+				"href": "/giai-phap/nghi-khi-hang-hai",
 				"images": {
 					"bg": {
 						"src": "/images/key-offerings/navigation-key-offering-back.webp",
@@ -88,7 +88,7 @@
 			},
 			{
 				"title": "Thiết bị GMDSS",
-				"href": "/solutions/gmdss",
+				"href": "/giai-phap/gmdss",
 				"images": {
 					"bg": {
 						"src": "/images/key-offerings/gmdss-key-offering-back.webp",
@@ -102,7 +102,7 @@
 			},
 			{
 				"title": "Internet trên biển",
-				"href": "/solutions/connectivity",
+				"href": "/giai-phap/thong-tin-ve-tinh",
 				"images": {
 					"bg": {
 						"src": "/images/key-offerings/wheelhouse-engineer-repairing-vsat-equipment.webp",
@@ -116,7 +116,7 @@
 			},
 			{
 				"title": "Sửa chữa, Bảo dưỡng",
-				"href": "/services#repair-maintenance",
+				"href": "/dich-vu#repair-maintenance",
 				"images": {
 					"bg": {
 						"src": "/images/key-offerings/wheelhouse-engineer-repairing-equipment-on-bridge.webp",
@@ -131,11 +131,11 @@
 		],
 		"primaryButton": {
 			"label": "Xem thêm các giải pháp",
-			"href": "/solutions"
+			"href": "/giai-phap"
 		},
 		"secondaryButton": {
 			"label": "Xem thêm các dịch vụ",
-			"href": "/services"
+			"href": "/dich-vu"
 		}
 	},
 	"recentArticles": {

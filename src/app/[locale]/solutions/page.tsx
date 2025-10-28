@@ -144,7 +144,7 @@ export default async function SolutionsPage({
 						</p>
 						<Button
 							className="col-span-12 md:col-span-6 lg:col-start-4 min-h-20 my-8 bg-white text-black hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
-							href={`/${locale}/solutions`}
+							href={`/${locale}${solutionsMessages.solutionList.ctaContent.href}`}
 						>
 							{solutionsMessages.solutionList.ctaContent.label}
 						</Button>
