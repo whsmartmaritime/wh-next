@@ -36,7 +36,6 @@ export async function generateMetadata({
 			`/${l}${routing.pathnames['/solutions'][l]}`,
 		]),
 	);
-	console.log(languages);
 	return {
 		title,
 		description,
