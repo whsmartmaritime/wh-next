@@ -4,10 +4,14 @@ import LogoSvg from '../LogoSvg';
 import MobileNavToggle from '../MobileNavToggle';
 import Nav from '../Nav';
 
-export default async function Header() {
+interface HeaderProps {
+	locale: string;
+}
+
+export default async function Header({ locale }: HeaderProps) {
 	return (
 		<>
-			<TopBar />
+			<TopBar locale={locale} />
 
 			<header className="sticky top-0 z-50 w-full py-0 bg-white dark:bg-zinc-900 overflow-visible border-b border-neutral-800/20 dark:border-neutral-100/20">
 				<nav
@@ -19,7 +23,7 @@ export default async function Header() {
 						className="col-span-9 lg:col-span-3 flex items-center"
 						aria-label="Wheelhouse logo"
 					>
-						<LogoSvg />
+						<LogoSvg locale={locale} />
 					</Link>
 
 					{/* Mobile toggle button */}
@@ -29,7 +33,7 @@ export default async function Header() {
 
 					{/* Main nav / Main menu */}
 					<div className="hidden lg:block lg:col-span-7 lg:col-start-6 static">
-						<Nav />
+						<Nav locale={locale} />
 					</div>
 				</nav>
 			</header>

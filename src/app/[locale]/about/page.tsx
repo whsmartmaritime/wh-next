@@ -164,7 +164,10 @@ export default async function AboutPage({
 				<div className="grid grid-cols-1 lg:grid-cols-2">
 					{/* Contact Info */}
 					<div className="items-end leading-relaxed aspect-[25/10] bg-neutral-500/20 border border-neutral-500/20 mb-8">
-						<ContactInfo className="text-xl lg:text-2xl w-full h-full " />
+						<ContactInfo
+							className="text-xl lg:text-2xl w-full h-full "
+							locale={locale}
+						/>
 					</div>
 
 					<div className="relative w-full aspect-[25/10] mb-8 border border-neutral-500/20">

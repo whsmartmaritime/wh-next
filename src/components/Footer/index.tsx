@@ -1,12 +1,16 @@
 import Link from 'next/link';
-import { getTranslations } from 'next-intl/server';
 import { BackgroundGrid } from '@/components/BackgroundGrid';
 import ContactInfo from '@/components/ContactInfo';
 import LogoSvg from '@/components/LogoSvg';
 import { LogoEffect } from './LogoEffect';
 
-export default async function footer() {
-	const t = await getTranslations('common');
+interface FooterProps {
+	locale: string;
+}
+
+export default async function footer({ locale }: FooterProps) {
+	const commonMessages = (await import(`@messages/${locale}/common.json`))
+		.default;
 	const year = new Date().getFullYear();
 	return (
 		<footer className="relative bg-black text-white/60  overflow-hidden pt-32 pb-24">
@@ -17,13 +21,15 @@ export default async function footer() {
 					<div className="lg:col-span-1">
 						<div className="mb-6">
 							<Link href="/" className="inline-block">
-								<LogoSvg className="h-10 w-auto" />
+								<LogoSvg className="h-10 w-auto" locale={locale} />
 							</Link>
 							<h2 className="text-2xl font-bold mt-4">
-								{t('brand.companyName')}
+								{commonMessages.brand.companyName}
 							</h2>
 						</div>
-						<p className=" mb-6 leading-relaxed">{t('brand.description')}</p>
+						<p className=" mb-6 leading-relaxed">
+							{commonMessages.brand.description}
+						</p>
 						{/*  <div aria-label="Social Media Links" className="flex space-x-4">
               <Link
                 href="#"
@@ -83,7 +89,7 @@ export default async function footer() {
 					{/* Quick Links */}
 					<nav aria-label="Quick Links">
 						<h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
-							{t('common.quickLinks', { defaultValue: 'Quick Links' })}
+							{commonMessages.common.quickLinks}
 						</h3>
 						<ul className="space-y-3">
 							<li>
@@ -91,7 +97,7 @@ export default async function footer() {
 									href="/about"
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{t('nav.about', { defaultValue: 'About Us' })}
+									{commonMessages.nav.about}
 								</Link>
 							</li>
 							<li>
@@ -99,7 +105,7 @@ export default async function footer() {
 									href="/services"
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{t('nav.services.title', { defaultValue: 'Services' })}
+									{commonMessages.nav.services.title}
 								</Link>
 							</li>
 							<li>
@@ -107,7 +113,7 @@ export default async function footer() {
 									href="/solutions"
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{t('nav.solutions.title', { defaultValue: 'Solutions' })}
+									{commonMessages.nav.solutions.title}
 								</Link>
 							</li>
 
@@ -116,7 +122,7 @@ export default async function footer() {
 									href="/about#contact"
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{t('nav.contact', { defaultValue: 'Contact' })}
+									{commonMessages.nav.contact}
 								</Link>
 							</li>
 						</ul>
@@ -125,9 +131,7 @@ export default async function footer() {
 					{/* Services */}
 					<nav aria-label="Services and Solutions">
 						<h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
-							{t('common.servicesAndSolutions', {
-								defaultValue: 'Services & Solutions',
-							})}
+							{commonMessages.common.servicesAndSolutions}
 						</h3>
 						<ul className="space-y-3">
 							<li>
@@ -135,9 +139,7 @@ export default async function footer() {
 									href="/services#repair"
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{t('nav.services.repairMaintenance', {
-										defaultValue: 'Repair & Maintenance',
-									})}
+									{commonMessages.nav.services.repairMaintenance}
 								</Link>
 							</li>
 
@@ -146,9 +148,7 @@ export default async function footer() {
 									href="/solutions/navigation"
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{t('nav.solutions.navigation', {
-										defaultValue: 'Navigation Systems',
-									})}
+									{commonMessages.nav.solutions.navigation}
 								</Link>
 							</li>
 							<li>
@@ -156,7 +156,7 @@ export default async function footer() {
 									href="/solutions/gmdss"
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{t('nav.solutions.gmdss', { defaultValue: 'GMDSS' })}
+									{commonMessages.nav.solutions.gmdss}
 								</Link>
 							</li>
 
@@ -165,9 +165,7 @@ export default async function footer() {
 									href="/solutions/connectivity"
 									className="text-white/60 hover:text-white transition-colors"
 								>
-									{t('nav.solutions.connectivity', {
-										defaultValue: 'Connectivity Solutions',
-									})}
+									{commonMessages.nav.solutions.connectivity}
 								</Link>
 							</li>
 						</ul>
@@ -176,10 +174,10 @@ export default async function footer() {
 					{/* Contact Info */}
 					<div>
 						<h3 className="uppercase tracking-[0.25em] !text-xs opacity-95 mb-16">
-							{t('common.contactInfo', { defaultValue: 'Contact Info' })}
+							{commonMessages.common.contactInfo}
 						</h3>
 						<div className="space-y-4">
-							<ContactInfo />
+							<ContactInfo locale={locale} />
 						</div>
 					</div>
 				</div>
@@ -190,7 +188,8 @@ export default async function footer() {
 				<div className="md:flex md:items-center md:justify-between text-sm text-white/60">
 					<div className="mb-4 md:mb-0">
 						<p>
-							© {year} Wheelhouse Co.,Ltd. {t('common.allRightsReserved')}
+							© {year} Wheelhouse Co.,Ltd.{' '}
+							{commonMessages.common.allRightsReserved}
 						</p>
 					</div>
 					{/* <div className="flex flex-wrap gap-6">

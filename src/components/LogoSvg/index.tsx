@@ -1,25 +1,26 @@
-import { getTranslations } from 'next-intl/server';
-
 interface LogoSvgProps {
 	className?: string;
+	locale: string;
 }
 
 export default async function LogoSvg({
 	className = 'h-12 w-auto',
+	locale,
 }: LogoSvgProps) {
-	const t = await getTranslations('common');
+	const commonMessages = (await import(`@messages/${locale}/common.json`))
+		.default;
 
 	return (
 		<svg
 			viewBox="0 0 100 25"
 			className={`text-current ${className}`}
 			role="img"
-			aria-label={t('brand.logo.alt')}
+			aria-label={commonMessages.brand.logo.alt}
 			aria-labelledby="logoTitle logoDesc"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<title id="logoTitle">{t('brand.logo.title')}</title>
-			<desc id="logoDesc">{t('brand.logo.desc')}</desc>
+			<title id="logoTitle">{commonMessages.brand.logo.title}</title>
+			<desc id="logoDesc">{commonMessages.brand.logo.desc}</desc>
 			<text
 				x="0.29"
 				y="14.97"

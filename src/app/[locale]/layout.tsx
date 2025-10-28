@@ -20,9 +20,9 @@ export default async function LocaleLayout({
 	const messages = await getMessages({ locale: locale });
 	return (
 		<NextIntlClientProvider locale={locale} messages={messages}>
-			<Header />
+			<Header locale={locale} />
 			<main aria-label="Main content">{children}</main>
-			<Footer />
+			<Footer locale={locale} />
 		</NextIntlClientProvider>
 	);
 }
