@@ -1,7 +1,6 @@
 import '@/styles/globals.css';
 import 'katex/dist/katex.min.css';
 import type { Metadata, Viewport } from 'next';
-import { getLocale } from 'next-intl/server';
 
 export const viewport: Viewport = {
 	themeColor: [
@@ -41,22 +40,11 @@ export const metadata: Metadata = {
 	},
 	icons: [{ rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' }],
 };
+
 export default async function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
 }) {
-	// Current locale for <html lang>
-	const locale = await getLocale();
-
-	return (
-		<html
-			className="scroll-smooth"
-			data-scroll-behavior="smooth"
-			lang={locale}
-			suppressHydrationWarning
-		>
-			<body className="overflow-x-hidden">{children}</body>
-		</html>
-	);
+	return children;
 }

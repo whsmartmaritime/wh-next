@@ -18,10 +18,19 @@ export default async function LocaleLayout({
 	}
 
 	return (
-		<NextIntlClientProvider locale={locale} messages={{}}>
-			<Header locale={locale} />
-			<main aria-label="Main content">{children}</main>
-			<Footer locale={locale} />
-		</NextIntlClientProvider>
+		<html
+			className="scroll-smooth"
+			data-scroll-behavior="smooth"
+			lang={locale}
+			suppressHydrationWarning
+		>
+			<body className="overflow-x-hidden">
+				<NextIntlClientProvider locale={locale} messages={{}}>
+					<Header locale={locale} />
+					<main aria-label="Main content">{children}</main>
+					<Footer locale={locale} />
+				</NextIntlClientProvider>
+			</body>
+		</html>
 	);
 }
