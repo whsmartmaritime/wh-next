@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { hasLocale, NextIntlClientProvider } from 'next-intl';
+import { hasLocale } from 'next-intl';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { routing } from '@/i18n/routing';
@@ -25,11 +25,9 @@ export default async function LocaleLayout({
 			suppressHydrationWarning
 		>
 			<body className="overflow-x-hidden">
-				<NextIntlClientProvider locale={locale} messages={{}}>
-					<Header locale={locale} />
-					<main aria-label="Main content">{children}</main>
-					<Footer locale={locale} />
-				</NextIntlClientProvider>
+				<Header locale={locale} />
+				<main aria-label="Main content">{children}</main>
+				<Footer locale={locale} />
 			</body>
 		</html>
 	);
