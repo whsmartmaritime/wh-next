@@ -1,5 +1,5 @@
+import Link from 'next/link';
 import TopBar from '@/components/TopBar';
-import { Link } from '@/i18n/navigation';
 import LogoSvg from '../LogoSvg';
 import MobileNavToggle from '../MobileNavToggle';
 import Nav from '../Nav';
@@ -19,7 +19,7 @@ export default async function Header({ locale }: HeaderProps) {
 					aria-label="Main site navigation"
 				>
 					<Link
-						href="/"
+						href={`/${locale}`}
 						className="col-span-9 lg:col-span-3 flex items-center"
 						aria-label="Wheelhouse logo"
 					>
