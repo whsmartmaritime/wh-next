@@ -3,7 +3,6 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { getTranslations } from 'next-intl/server';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
@@ -106,8 +105,10 @@ export default async function EntryPage({
 	params,
 }: PageProps<'/[locale]/solutions/[solution]/[entry]'>) {
 	const { locale, solution, entry } = await params;
-	const t = await getTranslations({ locale, namespace: 'entry' });
-	const b = await getTranslations({ locale, namespace: 'common.nav' });
+	const entryMessages = (await import(`@messages/${locale}/entry.json`))
+		.default;
+	const commonMessages = (await import(`@messages/${locale}/common.json`))
+		.default;
 	const filePath = path.join(
 		process.cwd(),
 		'src',
@@ -145,15 +146,18 @@ export default async function EntryPage({
 					className="col-span-8 col-start-4 mx-8 lg:mx-16"
 					items={[
 						{
-							label: b('home'),
+							label: commonMessages.nav.home,
 							href: `/${locale}`,
 						},
 						{
-							label: b('solutions.title'),
+							label: commonMessages.nav.solutions.title,
 							href: `/${locale}/solutions/`,
 						},
 						{
-							label: b(`solutions.${solution}`),
+							label:
+								commonMessages.nav.solutions[
+									solution as keyof typeof commonMessages.nav.solutions
+								],
 							href: `/${locale}/solutions/${solution}`,
 						},
 						{ label: frontmatter.publishedAt },
@@ -165,7 +169,7 @@ export default async function EntryPage({
 				<div className="col-span-3 hidden lg:block flex flex-col">
 					<div className="border-y border-neutral-500/20 flex flex-col py-8">
 						<div className="text-xl md:text-2xl font-semibold ml-4 lg:ml-8 mb-2">
-							{t('author')}
+							{entryMessages.author}
 						</div>
 						<div className="text-muted-foreground self-center">
 							{frontmatter.author}
@@ -173,7 +177,7 @@ export default async function EntryPage({
 					</div>
 					<div className="border-y border-neutral-500/20 flex flex-col py-8">
 						<div className="text-xl md:text-2xl font-semibold ml-4 lg:ml-8 mb-2">
-							{t('publishedAt')}
+							{entryMessages.publishedAt}
 						</div>
 						<div className="text-muted-foreground self-center">
 							{frontmatter.publishedAt}
@@ -181,7 +185,7 @@ export default async function EntryPage({
 					</div>
 					<div className="border-y border-neutral-500/20 flex flex-col py-8">
 						<div className="text-xl md:text-2xl font-semibold ml-4 lg:ml-8 mb-2">
-							{t('updatedAt')}
+							{entryMessages.updatedAt}
 						</div>
 						<div className="text-muted-foreground self-center">
 							{frontmatter.updatedAt ?? frontmatter.publishedAt}
@@ -189,7 +193,7 @@ export default async function EntryPage({
 					</div>
 					<div className="border-y border-neutral-500/20 flex flex-col py-8">
 						<div className="text-xl md:text-2xl font-semibold ml-4 lg:ml-8 mb-2">
-							{t('category')}
+							{entryMessages.category}
 						</div>
 						<div className="text-muted-foreground self-center">
 							{frontmatter.category}
@@ -249,7 +253,7 @@ export default async function EntryPage({
 					>
 						<div className="w-1/2">
 							<h2 className="font-semibold text-2xl lg:text-4xl mb-4 lg:mb-8">
-								{t('relatedPosts')}
+								{entryMessages.relatedPosts}
 							</h2>
 							<div className="mb-4 lg:mb-8">
 								{related.slice(0, 3).map((p: PostEntry) => (
