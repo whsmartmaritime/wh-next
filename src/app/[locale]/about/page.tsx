@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 import BackgroundScanline from '@/components/BackgroundScanline';
 import BgGrid from '@/components/BgGrid';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -13,11 +12,11 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
 	const { locale } = await params;
-	const t = await getTranslations({ locale, namespace: 'about' });
-
-	const title = t('meta.title');
-	const description = t('meta.description');
-	const ogImage = t('meta.ogImage');
+	const aboutMessages = (await import(`@messages/${locale}/about.json`))
+		.default;
+	const title = aboutMessages.meta.title;
+	const description = aboutMessages.meta.description;
+	const ogImage = aboutMessages.meta.ogImage;
 
 	const base = new URL(
 		(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000').replace(
@@ -56,8 +55,10 @@ export default async function AboutPage({
 }: PageProps<'/[locale]/about'>) {
 	const { locale } = await params;
 
-	const t = await getTranslations({ locale, namespace: 'about' });
-	const b = await getTranslations({ locale, namespace: 'common.nav' });
+	const aboutMessages = (await import(`@messages/${locale}/about.json`))
+		.default;
+	const commonMessages = (await import(`@messages/${locale}/common.json`))
+		.default;
 	return (
 		<>
 			<div className="relative bg-white border-b border-neutral-800/20 z-30">
@@ -65,11 +66,11 @@ export default async function AboutPage({
 					className="text-lg lg:text-xl container-gutter flex items-center gap-8 h-[66px] sm:h-[76px] xl:h-[90px]"
 					items={[
 						{
-							label: b('home'),
+							label: commonMessages.nav.home,
 							href: `/${locale}`,
 						},
 						{
-							label: b('about'),
+							label: commonMessages.nav.about,
 						},
 					]}
 				/>
@@ -81,10 +82,10 @@ export default async function AboutPage({
 				<div className="container-gutter">
 					<BgGrid className="fixed" />
 					<HeroPage
-						title={<h1>{t('hero.title')}</h1>}
-						subtitle={<h2>{t('hero.subtitle')}</h2>}
-						images={t.raw('hero.images')}
-						ctas={t.raw('hero.ctas')}
+						title={<h1>{aboutMessages.hero.title}</h1>}
+						subtitle={<h2>{aboutMessages.hero.subtitle}</h2>}
+						images={aboutMessages.hero.images}
+						ctas={aboutMessages.hero.ctas}
 					/>
 				</div>
 			</section>
@@ -98,10 +99,10 @@ export default async function AboutPage({
 							opacity={0.1}
 						/>
 						<h2 className="uppercase tracking-[0.25em] opacity-95 font-bold py-8">
-							{t('whoWeAre.title')}
+							{aboutMessages.whoWeAre.title}
 						</h2>
 						<div className="text-sm sm:text-lg lg:text-4xl text-justify mx-[calc(var(--gutter-h))]">
-							{[t.raw('whoWeAre.description')]
+							{aboutMessages.whoWeAre.description
 								.flat()
 								.map((p: unknown, _i: number) => (
 									<p key={String(p)} className="block mb-8">
@@ -119,30 +120,30 @@ export default async function AboutPage({
 						{/* Cột Values */}
 						<div className=" ">
 							<h2 className="uppercase tracking-[0.25em] text-xl lg:text-2xl font-bold my-6">
-								{t('ourValues.title')}
+								{aboutMessages.ourValues.title}
 							</h2>
 							<ul className="space-y-4 text-lg lg:text-xl text-justify px-4 lg:px-8 mb-4 lg:mb-8">
-								<li>{t('ourValues.value1')}</li>
-								<li>{t('ourValues.value2')}</li>
-								<li>{t('ourValues.value3')}</li>
-								<li>{t('ourValues.value4')}</li>
+								<li>{aboutMessages.ourValues.value1}</li>
+								<li>{aboutMessages.ourValues.value2}</li>
+								<li>{aboutMessages.ourValues.value3}</li>
+								<li>{aboutMessages.ourValues.value4}</li>
 							</ul>
 						</div>
 
 						{/* Cột Mission */}
 						<div className="">
 							<h2 className="uppercase tracking-[0.25em] font-bold text-xl lg:text-2xl my-6">
-								{t('ourMission.title')}
+								{aboutMessages.ourMission.title}
 							</h2>
 							<p className="text-lg lg:text-xl leading-relaxed text-justify  px-4 lg:px-8">
-								{t('ourMission.desc')}
+								{aboutMessages.ourMission.desc}
 							</p>
 							<ul className="space-y-4 text-lg lg:text-xl text-justify  px-4 lg:px-8 mb-4 lg:mb-8">
-								<li>{t('ourMission.value1')}</li>
-								<li>{t('ourMission.value2')}</li>
-								<li>{t('ourMission.value3')}</li>
-								<li>{t('ourMission.value4')}</li>
-								<li>{t('ourMission.value5')}</li>
+								<li>{aboutMessages.ourMission.value1}</li>
+								<li>{aboutMessages.ourMission.value2}</li>
+								<li>{aboutMessages.ourMission.value3}</li>
+								<li>{aboutMessages.ourMission.value4}</li>
+								<li>{aboutMessages.ourMission.value5}</li>
 							</ul>
 						</div>
 					</div>
@@ -156,7 +157,7 @@ export default async function AboutPage({
 				aria-label="About contact section"
 			>
 				<h2 className="uppercase tracking-[0.25em] font-bold text-xl lg:text-2xl mb-8">
-					{t('contact.title')}
+					{aboutMessages.contact.title}
 				</h2>
 
 				{/* Info + Map */}

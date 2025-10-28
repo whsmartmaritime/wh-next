@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 import BackgroundScanline from '@/components/BackgroundScanline';
 import BgGrid from '@/components/BgGrid';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -14,11 +13,11 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
 	const { locale } = await params;
-	const t = await getTranslations({ locale, namespace: 'services' });
-
-	const title = t('meta.title');
-	const description = t('meta.description');
-	const ogImage = t('meta.ogImage');
+	const servicesMessages = (await import(`@messages/${locale}/services.json`))
+		.default;
+	const title = servicesMessages.meta.title;
+	const description = servicesMessages.meta.description;
+	const ogImage = servicesMessages.meta.ogImage;
 
 	const base = new URL(
 		(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000').replace(
@@ -60,8 +59,10 @@ export default async function ServicesPage({
 }: PageProps<'/[locale]/services'>) {
 	const { locale } = await params;
 
-	const t = await getTranslations({ locale, namespace: 'services' });
-	const b = await getTranslations({ locale, namespace: 'common.nav' });
+	const servicesMessages = (await import(`@messages/${locale}/services.json`))
+		.default;
+	const commonMessages = (await import(`@messages/${locale}/common.json`))
+		.default;
 	return (
 		<>
 			<div className="relative bg-white border-b border-neutral-800/20 z-30">
@@ -69,11 +70,11 @@ export default async function ServicesPage({
 					className="text-lg lg:text-xl container-gutter flex items-center gap-8 h-[66px] sm:h-[76px] xl:h-[90px]"
 					items={[
 						{
-							label: b('home'),
+							label: commonMessages.nav.home,
 							href: `/${locale}`,
 						},
 						{
-							label: b('services.title'),
+							label: commonMessages.nav.services.title,
 						},
 					]}
 				/>
@@ -82,18 +83,10 @@ export default async function ServicesPage({
 				<div className="container-gutter mt-8 lg:mt-16">
 					<BgGrid className="fixed" />
 					<HeroPage
-						title={
-							<h1>
-								{t.rich('hero.title', {
-									highlight: (chunk) => (
-										<span className="text-sky-700">{chunk}</span>
-									),
-								})}
-							</h1>
-						}
-						subtitle={<h2>{t('hero.subtitle')}</h2>}
-						images={t.raw('hero.images')}
-						ctas={t.raw('hero.ctas')}
+						title={<h1>{servicesMessages.hero.title}</h1>}
+						subtitle={<h2>{servicesMessages.hero.subtitle}</h2>}
+						images={servicesMessages.hero.images}
+						ctas={servicesMessages.hero.ctas}
 					/>
 				</div>
 			</section>
@@ -104,23 +97,17 @@ export default async function ServicesPage({
 					<div className="relative flex flex-col gap-8 bg-neutral-200 w-full h-full border border-neutral-500/20 mt-16 pb-16 ">
 						<BackgroundScanline crosshairs="all" opacity={0.1} />
 						<h2 className="uppercase tracking-[0.25em] opacity-95 font-bold mt-8">
-							{t('qualityOfService.title')}
+							{servicesMessages.qualityOfService.title}
 						</h2>
 						<div className="flex flex-col gap-8 mx-[calc(var(--gutter-h))] ">
-							{t
-								.raw('qualityOfService.description')
+							{servicesMessages.qualityOfService.description
 								.flat()
-								.map((_: unknown, i: number) => (
+								.map((desc: string, i: number) => (
 									<p
 										key={`quality-${i}`}
 										className="block text-sm sm:text-lg lg:text-3xl text-justify "
-									>
-										{t.rich(`qualityOfService.description.${i}`, {
-											b: (chunks) => (
-												<strong className="font-bold">{chunks}</strong>
-											),
-										})}
-									</p>
+										dangerouslySetInnerHTML={{ __html: desc }}
+									/>
 								))}
 						</div>
 					</div>
@@ -137,55 +124,52 @@ export default async function ServicesPage({
 					<div className="grid grid-cols-12">
 						<div className="col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
 							<h2 className="text-4xl lg:text-6xl font-bold">
-								{t('rm.title')}
+								{servicesMessages.rm.title}
 							</h2>
-							{[t.raw('rm.details')].flat().map((_, i: number) => (
-								<p
-									key={`rm-${i}`}
-									className=" text-justify text-sm sm:text-lg lg:text-2xl"
-								>
-									{t.rich(`rm.details.${i}`, {
-										b: (chunks) => (
-											<strong className="font-bold">{chunks}</strong>
-										),
-									})}
-								</p>
-							))}
+							{servicesMessages.rm.details
+								.flat()
+								.map((detail: string, i: number) => (
+									<p
+										key={`rm-${i}`}
+										className=" text-justify text-sm sm:text-lg lg:text-2xl"
+										dangerouslySetInnerHTML={{ __html: detail }}
+									/>
+								))}
 						</div>
 					</div>
 					<ScrollShowcase
-						items={(
-							t.raw('rm.items') as Array<{
+						items={servicesMessages.rm.items.map(
+							(item: {
 								title: string;
 								description: string[];
 								image: { src: string; alt: string };
-							}>
-						).map((item) => ({
-							title: <h3>{item.title}</h3>,
-							description: item.description.map(
-								(desc: string, descIndex: number) => (
-									<p
-										key={`rm-desc-${descIndex}`}
-										dangerouslySetInnerHTML={{ __html: desc }}
-									/>
+							}) => ({
+								title: <h3>{item.title}</h3>,
+								description: item.description.map(
+									(desc: string, descIndex: number) => (
+										<p
+											key={`rm-desc-${descIndex}`}
+											dangerouslySetInnerHTML={{ __html: desc }}
+										/>
+									),
 								),
-							),
-							image: { src: item.image.src, alt: item.image.alt },
-						}))}
+								image: { src: item.image.src, alt: item.image.alt },
+							}),
+						)}
 					/>
 					<div className="grid grid-cols-12 ">
 						<div className="relative col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
 							<h3 className="text-xl lg:text-3xl font-semibold">
-								{t('rm.ctaContent.title')}
+								{servicesMessages.rm.ctaContent.title}
 							</h3>
 							<p className="text-sm sm:text-lg lg:text-2xl">
-								{t('rm.ctaContent.description')}
+								{servicesMessages.rm.ctaContent.description}
 							</p>
 							<Button
 								className="w-1/2 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-								href={t('rm.ctaContent.href')}
+								href={servicesMessages.rm.ctaContent.href}
 							>
-								{t('rm.ctaContent.label')}
+								{servicesMessages.rm.ctaContent.label}
 							</Button>
 						</div>
 					</div>
@@ -201,55 +185,52 @@ export default async function ServicesPage({
 					<div className="grid grid-cols-12">
 						<div className="col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
 							<h2 className="text-4xl lg:text-6xl font-bold">
-								{t('install.title')}
+								{servicesMessages.install.title}
 							</h2>
-							{[t.raw('install.details')].flat().map((_, i: number) => (
-								<p
-									key={`install-${i}`}
-									className=" text-justify text-sm sm:text-lg lg:text-2xl"
-								>
-									{t.rich(`install.details.${i}`, {
-										b: (chunks) => (
-											<strong className="font-bold">{chunks}</strong>
-										),
-									})}
-								</p>
-							))}
+							{servicesMessages.install.details
+								.flat()
+								.map((detail: string, i: number) => (
+									<p
+										key={`install-${i}`}
+										className=" text-justify text-sm sm:text-lg lg:text-2xl"
+										dangerouslySetInnerHTML={{ __html: detail }}
+									/>
+								))}
 						</div>
 					</div>
 					<ScrollShowcase
-						items={(
-							t.raw('install.items') as Array<{
+						items={servicesMessages.install.items.map(
+							(item: {
 								title: string;
 								description: string[];
 								image: { src: string; alt: string };
-							}>
-						).map((item) => ({
-							title: <h3>{item.title}</h3>,
-							description: item.description.map(
-								(desc: string, descIndex: number) => (
-									<p
-										key={`install-desc-${descIndex}`}
-										dangerouslySetInnerHTML={{ __html: desc }}
-									/>
+							}) => ({
+								title: <h3>{item.title}</h3>,
+								description: item.description.map(
+									(desc: string, descIndex: number) => (
+										<p
+											key={`install-desc-${descIndex}`}
+											dangerouslySetInnerHTML={{ __html: desc }}
+										/>
+									),
 								),
-							),
-							image: { src: item.image.src, alt: item.image.alt },
-						}))}
+								image: { src: item.image.src, alt: item.image.alt },
+							}),
+						)}
 					/>
 					<div className="grid grid-cols-12 ">
 						<div className="relative col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
 							<h3 className="text-xl lg:text-3xl font-semibold">
-								{t('install.ctaContent.title')}
+								{servicesMessages.install.ctaContent.title}
 							</h3>
 							<p className="text-sm sm:text-lg lg:text-2xl">
-								{t('install.ctaContent.description')}
+								{servicesMessages.install.ctaContent.description}
 							</p>
 							<Button
 								className="w-1/2 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-								href={t('install.ctaContent.href')}
+								href={servicesMessages.install.ctaContent.href}
 							>
-								{t('install.ctaContent.label')}
+								{servicesMessages.install.ctaContent.label}
 							</Button>
 						</div>
 					</div>
@@ -265,36 +246,33 @@ export default async function ServicesPage({
 					<div className="grid grid-cols-12">
 						<div className="col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
 							<h2 className="text-4xl lg:text-6xl font-bold">
-								{t('survey.title')}
+								{servicesMessages.survey.title}
 							</h2>
-							{[t.raw('survey.details')].flat().map((_, i: number) => (
-								<p
-									key={`survey-${i}`}
-									className=" text-justify text-sm sm:text-lg lg:text-2xl"
-								>
-									{t.rich(`survey.details.${i}`, {
-										b: (chunks) => (
-											<strong className="font-bold">{chunks}</strong>
-										),
-									})}
-								</p>
-							))}
+							{servicesMessages.survey.details
+								.flat()
+								.map((detail: string, i: number) => (
+									<p
+										key={`survey-${i}`}
+										className=" text-justify text-sm sm:text-lg lg:text-2xl"
+										dangerouslySetInnerHTML={{ __html: detail }}
+									/>
+								))}
 						</div>
 					</div>
 
 					<div className="grid grid-cols-12 ">
 						<div className="relative col-span-12 lg:col-span-6 lg:col-start-4 flex flex-col gap-8">
 							<h3 className="text-xl lg:text-3xl font-semibold">
-								{t('survey.ctaContent.title')}
+								{servicesMessages.survey.ctaContent.title}
 							</h3>
 							<p className="text-sm sm:text-lg lg:text-2xl">
-								{t('survey.ctaContent.description')}
+								{servicesMessages.survey.ctaContent.description}
 							</p>
 							<Button
 								className="w-1/2 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-								href={t('survey.ctaContent.href')}
+								href={servicesMessages.survey.ctaContent.href}
 							>
-								{t('survey.ctaContent.label')}
+								{servicesMessages.survey.ctaContent.label}
 							</Button>
 						</div>
 					</div>

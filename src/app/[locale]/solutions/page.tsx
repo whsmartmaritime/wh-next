@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 import { BackgroundScanline } from '@/components/BackgroundScanline';
 import BgGrid from '@/components/BgGrid';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -14,11 +13,12 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
 	const { locale } = await params;
-	const t = await getTranslations({ locale, namespace: 'solutions' });
+	const solutionsMessages = (await import(`@messages/${locale}/solutions.json`))
+		.default;
 
-	const title = t('meta.title');
-	const description = t('meta.description');
-	const ogImage = t('meta.ogImage');
+	const title = solutionsMessages.meta.title;
+	const description = solutionsMessages.meta.description;
+	const ogImage = solutionsMessages.meta.ogImage;
 
 	const base = new URL(
 		(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000').replace(
@@ -61,8 +61,10 @@ export default async function SolutionsPage({
 }: PageProps<'/[locale]/solutions'>) {
 	const { locale } = await params;
 
-	const t = await getTranslations({ locale, namespace: 'solutions' });
-	const b = await getTranslations({ locale, namespace: 'common.nav' });
+	const solutionsMessages = (await import(`@messages/${locale}/solutions.json`))
+		.default;
+	const commonMessages = (await import(`@messages/${locale}/common.json`))
+		.default;
 	return (
 		<>
 			<div className="relative bg-white border-b border-neutral-800/20 z-30">
@@ -70,11 +72,11 @@ export default async function SolutionsPage({
 					className="text-lg lg:text-xl container-gutter flex items-center gap-8 h-[66px] sm:h-[76px] xl:h-[90px]"
 					items={[
 						{
-							label: b('home'),
+							label: commonMessages.nav.home,
 							href: `/${locale}`,
 						},
 						{
-							label: b('solutions.title'),
+							label: commonMessages.nav.solutions.title,
 						},
 					]}
 				/>
@@ -86,10 +88,10 @@ export default async function SolutionsPage({
 				<div className="container-gutter">
 					<BgGrid className="fixed" />
 					<HeroPage
-						title={<h1>{t('hero.title')}</h1>}
-						subtitle={<h2>{t('hero.subtitle')}</h2>}
-						images={t.raw('hero.images')}
-						ctas={t.raw('hero.ctas')}
+						title={<h1>{solutionsMessages.hero.title}</h1>}
+						subtitle={<h2>{solutionsMessages.hero.subtitle}</h2>}
+						images={solutionsMessages.hero.images}
+						ctas={solutionsMessages.hero.ctas}
 					/>
 				</div>
 			</section>
@@ -103,12 +105,12 @@ export default async function SolutionsPage({
 							className="absolute inset-0 "
 							opacity={0.1}
 						/>
-						<h2 className="sr-only">{t('overview.title')}</h2>
+						<h2 className="sr-only">{solutionsMessages.overview.title}</h2>
 						<p className="uppercase tracking-[0.25em] opacity-95 font-bold py-8">
-							{t('overview.subtitle')}
+							{solutionsMessages.overview.subtitle}
 						</p>
 						<div className="text-sm sm:text-lg lg:text-4xl text-justify mx-[calc(var(--gutter-h))]">
-							<p className="block mb-8">{t('overview.desc')}</p>
+							<p className="block mb-8">{solutionsMessages.overview.desc}</p>
 						</div>
 					</div>
 				</div>
@@ -124,31 +126,28 @@ export default async function SolutionsPage({
 							className="col-span-12 lg:col-span-6"
 							key={key}
 							data={{
-								href: t(`solutionList.items.${key}.href`),
-								title: t(`solutionList.items.${key}.title`),
-								description: t(`solutionList.items.${key}.description`),
-								imgSrc: t.raw(`solutionList.items.${key}.imgSrc`),
-								imgAlt: t(`solutionList.items.${key}.imgAlt`),
+								href: solutionsMessages.solutionList.items[key].href,
+								title: solutionsMessages.solutionList.items[key].title,
+								description:
+									solutionsMessages.solutionList.items[key].description,
+								imgSrc: solutionsMessages.solutionList.items[key].imgSrc,
+								imgAlt: solutionsMessages.solutionList.items[key].imgAlt,
 							}}
 							variant="compact"
 						/>
 					))}
 					<div className="col-span-12 lg:col-span-6 lg:col-start-4 my-auto mx-auto ">
 						<h2 className="text-2xl lg:text-4xl font-bold ">
-							{t('solutionList.ctaContent.title')}
+							{solutionsMessages.solutionList.ctaContent.title}
 						</h2>
 						<p className=" ">
-							{t.rich('solutionList.ctaContent.description', {
-								bold: (chunks) => (
-									<strong className="font-bold">{chunks}</strong>
-								),
-							})}
+							{solutionsMessages.solutionList.ctaContent.description}
 						</p>
 						<Button
 							className="col-span-12 md:col-span-6 lg:col-start-4 min-h-20 my-8 bg-white text-black hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
 							href={`/${locale}/solutions`}
 						>
-							{t('solutionList.ctaContent.label')}
+							{solutionsMessages.solutionList.ctaContent.label}
 						</Button>
 					</div>
 				</div>

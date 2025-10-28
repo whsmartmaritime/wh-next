@@ -6,7 +6,7 @@
 		"slug": ""
 	},
 	"hero": {
-		"title": "<highlight> Wheelhouse </highlight> - Your Partner In Maritime Electronics",
+		"title": "<span class=\"text-sky-700\"> Wheelhouse </span> - Your Partner In Maritime Electronics",
 		"subtitle": "Specialized in GMDSS, Navigation, Connectivity & Onboard Services.",
 		"images": {
 			"back": {

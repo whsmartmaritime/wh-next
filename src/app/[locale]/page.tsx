@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 import { BackgroundAnimation } from '@/components/BackgroundAnimation';
 import { BackgroundGrid } from '@/components/BackgroundGrid';
 import { BackgroundScanline } from '@/components/BackgroundScanline';
@@ -19,10 +18,10 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
 	const { locale } = await params;
-	const t = await getTranslations({ locale, namespace: 'home' });
-	const title = t('meta.title');
-	const description = t('meta.description');
-	const ogImage = t('meta.ogImage');
+	const homeMessages = (await import(`@messages/${locale}/home.json`)).default;
+	const title = homeMessages.meta.title;
+	const description = homeMessages.meta.description;
+	const ogImage = homeMessages.meta.ogImage;
 
 	const base = new URL(
 		(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000').replace(
@@ -59,7 +58,7 @@ export async function generateMetadata({
 export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 	const { locale } = await params;
 
-	const t = await getTranslations({ locale, namespace: 'home' });
+	const homeMessages = (await import(`@messages/${locale}/home.json`)).default;
 	const l = locale as Locales;
 	const all = entries[l] || [];
 	const feature = featureEntry[l] ?? null;
@@ -77,24 +76,18 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 						className="pt-20 pb-16 lg:pt-32 lg:pb-24 mb-8"
 						isHome={true}
 						title={
-							<h1>
-								{t.rich('hero.title', {
-									highlight: (chunk) => (
-										<span className="text-sky-700">{chunk}</span>
-									),
-								})}
-							</h1>
+							<h1
+								dangerouslySetInnerHTML={{ __html: homeMessages.hero.title }}
+							/>
 						}
-						subtitle={<h2>{t('hero.subtitle')}</h2>}
-						images={t.raw('hero.images')}
-						ctas={t.raw('hero.ctas')}
+						subtitle={<h2>{homeMessages.hero.subtitle}</h2>}
+						images={homeMessages.hero.images}
+						ctas={homeMessages.hero.ctas}
 					/>
 
 					<div className="relative  text-center ">
 						<p className="text-sm uppercase tracking-widest font-medium mb-8 ">
-							{t('hero.partnerShowcase', {
-								defaultValue: 'Partners and Customers',
-							})}
+							{homeMessages.hero.partnerShowcase}
 						</p>
 						<LogoShowcase
 							className="pb-16"
@@ -126,16 +119,16 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 
 					<div className={'flex flex-col justify-center '}>
 						<h2 className="text-2xl lg:text-3xl xl:text-4xl font-semibold mb-8">
-							{t('ourPurpose.title')}
+							{homeMessages.ourPurpose.title}
 						</h2>
 						<p className="text-md xl:text-xl text-justify whitespace-pre-line mb-8">
-							{t('ourPurpose.description')}
+							{homeMessages.ourPurpose.description}
 						</p>
 					</div>
 					<div className={'relative aspect-[16/9] m-8 lg:m-12'}>
 						<Slider
 							aspectRatio="16/9"
-							images={t.raw('ourPurpose.images')}
+							images={homeMessages.ourPurpose.images}
 							className="col-span-12 lg:col-span-6 shadow-lg"
 						/>
 					</div>
@@ -148,38 +141,33 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 				<BgGrid />
 				<div className="container-gutter">
 					<h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold mb-8">
-						{t('keyValues.title')}
+						{homeMessages.keyValues.title}
 					</h2>
 					<p className="text-md xl:text-xl  text-justify whitespace-pre-line mb-8 max-w-2xl">
-						{t('keyValues.description')}
+						{homeMessages.keyValues.description}
 					</p>
 				</div>
 				<div className="relative mb-8 lg:mb-16">
 					<BackgroundScanline enableBorders={true} />
 					<div className="container-gutter grid grid-cols-12">
-						{t
-							.raw('keyValues.items')
-							.map(
-								(
-									item: { title: string; description: string },
-									index: number,
-								) => (
-									<div
-										key={item.title}
-										className="col-span-12 md:col-span-6 lg:col-span-3 bg-neutral-50 hover:bg-transparent  transition-colors duration-300  border border-neutral-500/20 z-10"
-									>
-										<p className="text-sm lg:text-base  leading-relaxed  m-4 lg:m-8">
-											{`0${index + 1}`}
-										</p>
-										<h3 className="text-xl lg:text-2xl font-semibold m-4 lg:m-8 uppercase ">
-											{item.title}
-										</h3>
-										<p className="text-sm lg:text-base  leading-relaxed  m-4 lg:m-8">
-											{item.description}
-										</p>
-									</div>
-								),
-							)}
+						{homeMessages.keyValues.items.map(
+							(item: { title: string; description: string }, index: number) => (
+								<div
+									key={item.title}
+									className="col-span-12 md:col-span-6 lg:col-span-3 bg-neutral-50 hover:bg-transparent  transition-colors duration-300  border border-neutral-500/20 z-10"
+								>
+									<p className="text-sm lg:text-base  leading-relaxed  m-4 lg:m-8">
+										{`0${index + 1}`}
+									</p>
+									<h3 className="text-xl lg:text-2xl font-semibold m-4 lg:m-8 uppercase ">
+										{item.title}
+									</h3>
+									<p className="text-sm lg:text-base  leading-relaxed  m-4 lg:m-8">
+										{item.description}
+									</p>
+								</div>
+							),
+						)}
 					</div>
 				</div>
 				<div className="container-gutter relative grid grid-cols-12">
@@ -187,7 +175,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 						className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 mb-8 hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
 						href="/about"
 					>
-						{t('keyValues.ctaPrimary')}
+						{homeMessages.keyValues.ctaPrimary}
 					</Button>
 				</div>
 			</section>
@@ -201,11 +189,11 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 				<div className="container-gutter grid grid-cols-12 before:hidden lg:before:block before:absolute before:inset-y-0 before:right-16 before:w-px before:bg-gradient-to-b before:from-transparent before:via-border before:to-transparent before:opacity-30 before:content-['']">
 					<div className="col-span-12 mb-4 lg:mb-8">
 						<Highlights
-							title={<h2>{t('keyOfferings.title')}</h2>}
-							lead={t('keyOfferings.lead')}
-							closing={t('keyOfferings.closing')}
+							title={<h2>{homeMessages.keyOfferings.title}</h2>}
+							lead={homeMessages.keyOfferings.lead}
+							closing={homeMessages.keyOfferings.closing}
 							items={
-								t.raw?.('keyOfferings.items')?.map(
+								homeMessages.keyOfferings.items?.map(
 									(it: {
 										title: string;
 										href: string;
@@ -225,16 +213,16 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 					<div className="col-span-12 lg:col-span-6 justify-center ">
 						<Button
 							className=" w-full md:w-1/2 min-h-20  text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-							href={t('keyOfferings.primaryButton.href')}
+							href={homeMessages.keyOfferings.primaryButton.href}
 						>
-							{t('keyOfferings.primaryButton.label')}
+							{homeMessages.keyOfferings.primaryButton.label}
 						</Button>
 
 						<Button
 							className=" w-full md:w-1/2 min-h-20 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white mb-4 lg:mb-8"
-							href={t('keyOfferings.secondaryButton.href')}
+							href={homeMessages.keyOfferings.secondaryButton.href}
 						>
-							{t('keyOfferings.secondaryButton.label')}
+							{homeMessages.keyOfferings.secondaryButton.label}
 						</Button>
 					</div>
 				</div>
@@ -249,7 +237,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 
 				<div className="mb-6 flex items-end justify-between">
 					<h2 className="text-2xl font-semibold">
-						{t('recentArticles.title', { defaultValue: 'Recent Articles' })}
+						{homeMessages.recentArticles.title}
 					</h2>
 				</div>
 				<article className="grid grid-cols-1 md:grid-cols-2 gap-y-8">
