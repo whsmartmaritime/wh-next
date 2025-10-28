@@ -4,7 +4,6 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev --turbopack -H 0.0.0.0",
-		"prebuild": "tsx src/scripts/updatePathname.ts",
 		"build": "next build --turbopack",
 		"start": "next start",
 		"lint": "biome lint .",
