@@ -225,6 +225,29 @@ export default async function AboutPage({
           */}
 				</div>
 			</section>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@type': 'BreadcrumbList',
+						itemListElement: [
+							{
+								'@type': 'ListItem',
+								position: 1,
+								name: commonMessages.nav.home.label,
+								item: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}`,
+							},
+							{
+								'@type': 'ListItem',
+								position: 2,
+								name: commonMessages.nav.about.label,
+								item: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}${commonMessages.nav.about.href}`,
+							},
+						],
+					}),
+				}}
+			/>
 		</>
 	);
 }

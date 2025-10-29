@@ -280,6 +280,43 @@ export default async function EntryPage({
 					</section>
 				) : null;
 			})()}
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@type': 'BreadcrumbList',
+						itemListElement: [
+							{
+								'@type': 'ListItem',
+								position: 1,
+								name: commonMessages.nav.home.label,
+								item: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}`,
+							},
+							{
+								'@type': 'ListItem',
+								position: 2,
+								name: commonMessages.nav.solutions.label,
+								item: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}${commonMessages.nav.solutions.href}`,
+							},
+							{
+								'@type': 'ListItem',
+								position: 3,
+								name: commonMessages.nav.solutions.items[
+									solution as keyof typeof commonMessages.nav.solutions.items
+								].label,
+								item: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}${commonMessages.nav.solutions.items[solution as keyof typeof commonMessages.nav.solutions.items].href}`,
+							},
+							{
+								'@type': 'ListItem',
+								position: 4,
+								name: frontmatter.meta?.title,
+								item: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}${commonMessages.nav.solutions.items[solution as keyof typeof commonMessages.nav.solutions.items].href}/${entry}`,
+							},
+						],
+					}),
+				}}
+			/>
 		</>
 	);
 }
