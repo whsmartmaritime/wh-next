@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 		),
 	),
 	title: {
-		default: 'Wheelhouse',
-		template: '%s | Wheelhouse',
+		default: 'Wheelhouse Maris',
+		template: '%s | Wheelhouse Maris',
 	},
-	description: 'Wheelhouse - Maritime Electronic Services and Solutions.',
+	description: 'Wheelhouse Maris - Maritime Electronic Services and Solutions.',
 	openGraph: {
-		siteName: 'Wheelhouse',
+		siteName: 'Wheelhouse Maris',
 		type: 'website',
 		images: [
 			{
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
 
 				width: 1200,
 				height: 630,
-				alt: 'Wheelhouse',
+				alt: 'Wheelhouse Maris',
 			},
 		],
 	},
 	twitter: {
 		card: 'summary_large_image',
-		site: '@wheelhouse',
+		site: '@Wheelhousemaris',
 	},
 	icons: [{ rel: 'icon', url: '/favicon.svg', type: 'image/svg+xml' }],
 };
@@ -48,20 +48,25 @@ export default async function LocaleLayout({
 	const websiteLd = {
 		'@context': 'https://schema.org',
 		'@type': 'WebSite',
-		name: 'Wheelhouse',
+		name: 'Wheelhouse Maris',
 		url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
 		description:
 			'Leading provider of maritime technology solutions for navigation, safety, and connectivity.',
 		publisher: {
 			'@type': 'Organization',
-			name: 'Wheelhouse',
+			name: 'Wheelhouse Maris',
 		},
 		inLanguage: ['en', 'vi'],
+		potentialAction: {
+			'@type': 'SearchAction',
+			target: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/search?q={search_term_string}`,
+			'query-input': 'required name=search_term_string',
+		},
 	};
 	const organizationLd = {
 		'@context': 'https://schema.org',
 		'@type': 'Organization',
-		name: 'Wheelhouse',
+		name: 'Wheelhouse Maris',
 		url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
 		logo: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/images/whlogo.svg`,
 		description:
