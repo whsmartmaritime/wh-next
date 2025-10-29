@@ -248,6 +248,46 @@ export default async function AboutPage({
 					}),
 				}}
 			/>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@type': 'LocalBusiness',
+						name: aboutMessages.contact.name,
+						description: aboutMessages.whoWeAre.description.join(' '),
+						url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+						telephone: aboutMessages.contact.phone.link,
+						email: 'info@wheelhouse.vn',
+						address: {
+							'@type': 'PostalAddress',
+							streetAddress: '21 An Loc Str',
+							addressLocality: 'An Hai Dist',
+							addressRegion: 'Hai Phong',
+							addressCountry: 'VN',
+						},
+						geo: {
+							'@type': 'GeoCoordinates',
+							latitude: 20.84433,
+							longitude: 106.64842,
+						},
+						sameAs: ['https://www.linkedin.com/company/wheelhousemaris/'],
+						serviceArea: {
+							'@type': 'Place',
+							name: 'Global Maritime Industry',
+						},
+						knowsAbout: [
+							'Maritime Electronics',
+							'GMDSS Systems',
+							'Navigation Equipment',
+							'Satellite Communication',
+							'Ship Repair Services',
+							'Marine Equipment Installation',
+						],
+						slogan: 'Maneuvering? Go Wheelhouse. Servicing? Call Wheelhouse.',
+					}),
+				}}
+			/>
 		</>
 	);
 }

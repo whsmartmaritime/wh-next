@@ -302,6 +302,64 @@ export default async function ServicesPage({
 					}),
 				}}
 			/>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@graph': [
+							{
+								'@type': 'Service',
+								name: servicesMessages.rm.title,
+								description:
+									servicesMessages.rm.subtitle ||
+									servicesMessages.rm.details?.[0] ||
+									'',
+								serviceType: 'Repair & Maintenance',
+								url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}${commonMessages.nav.services.items.rm.href}`,
+								provider: {
+									'@type': 'Organization',
+									name: 'Wheelhouse Maris',
+									url:
+										process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+								},
+							},
+							{
+								'@type': 'Service',
+								name: servicesMessages.install.title,
+								description:
+									servicesMessages.install.subtitle ||
+									servicesMessages.install.details?.[0] ||
+									'',
+								serviceType: 'Installation & Deployment',
+								url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}${commonMessages.nav.services.items.installation.href}`,
+								provider: {
+									'@type': 'Organization',
+									name: 'Wheelhouse Maris',
+									url:
+										process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+								},
+							},
+							{
+								'@type': 'Service',
+								name: servicesMessages.survey.title,
+								description:
+									servicesMessages.survey.subtitle ||
+									servicesMessages.survey.details?.[0] ||
+									'',
+								serviceType: 'Annual Survey & Certification',
+								url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}${commonMessages.nav.services.items.annualSurvey.href}`,
+								provider: {
+									'@type': 'Organization',
+									name: 'Wheelhouse Maris',
+									url:
+										process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+								},
+							},
+						],
+					}),
+				}}
+			/>
 		</>
 	);
 }

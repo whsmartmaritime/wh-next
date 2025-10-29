@@ -174,6 +174,72 @@ export default async function SolutionsPage({
 					}),
 				}}
 			/>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@graph': [
+							{
+								'@type': 'Product',
+								name: commonMessages.nav.solutions.items.navigation.label,
+								description:
+									solutionsMessages.solutionList.items.item1.description,
+								category: 'Navigation Equipment',
+								url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}${commonMessages.nav.solutions.items.navigation.href}`,
+								manufacturer: {
+									'@type': 'Organization',
+									name: 'Wheelhouse Maris',
+									url:
+										process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+								},
+							},
+							{
+								'@type': 'Product',
+								name: commonMessages.nav.solutions.items.gmdss.label,
+								description:
+									solutionsMessages.solutionList.items.item2.description,
+								category: 'GMDSS Equipment',
+								url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}${commonMessages.nav.solutions.items.gmdss.href}`,
+								manufacturer: {
+									'@type': 'Organization',
+									name: 'Wheelhouse Maris',
+									url:
+										process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+								},
+							},
+							{
+								'@type': 'Product',
+								name: commonMessages.nav.solutions.items.connectivity.label,
+								description:
+									solutionsMessages.solutionList.items.item3.description,
+								category: 'Satellite Connectivity',
+								url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}${commonMessages.nav.solutions.items.connectivity.href}`,
+								manufacturer: {
+									'@type': 'Organization',
+									name: 'Wheelhouse Maris',
+									url:
+										process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+								},
+							},
+							{
+								'@type': 'Product',
+								name: commonMessages.nav.solutions.items['e-navigation'].label,
+								description:
+									solutionsMessages.solutionList.items.item4.description,
+								category: 'E-Navigation Systems',
+								url: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/${locale}${commonMessages.nav.solutions.items['e-navigation'].href}`,
+								manufacturer: {
+									'@type': 'Organization',
+									name: 'Wheelhouse Maris',
+									url:
+										process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+								},
+							},
+						],
+					}),
+				}}
+			/>
 		</>
 	);
 }
