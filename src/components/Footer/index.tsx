@@ -28,7 +28,7 @@ export default async function footer({ locale }: FooterProps) {
 							</h2>
 						</div>
 						<p className=" mb-6 leading-relaxed">
-							{commonMessages.brand.description}
+							{commonMessages.brand.slogan}
 						</p>
 						{/*  <div aria-label="Social Media Links" className="flex space-x-4">
               <Link
