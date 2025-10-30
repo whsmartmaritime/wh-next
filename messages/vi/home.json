@@ -65,7 +65,12 @@
 				"description": "Bằng kinh nghiệm, kiến thức và sự nhạy bén trong xử lý tình huống, đội ngũ nhân lực của chúng tôi luôn nỗ lực mang lại lợi ích thiết thực cho khách hàng."
 			}
 		],
-		"ctaPrimary": "Về Chúng Tôi"
+		"ctas": [
+			{
+				"label": "Về Chúng Tôi",
+				"href": "/gioi-thieu"
+			}
+		]
 	},
 	"keyOfferings": {
 		"title": "Giải pháp chủ lực",
@@ -129,14 +134,16 @@
 				}
 			}
 		],
-		"primaryButton": {
-			"label": "Xem thêm các giải pháp",
-			"href": "/giai-phap"
-		},
-		"secondaryButton": {
-			"label": "Xem thêm các dịch vụ",
-			"href": "/dich-vu"
-		}
+		"ctas": [
+			{
+				"label": "Xem thêm các giải pháp",
+				"href": "/giai-phap"
+			},
+			{
+				"label": "Xem thêm các dịch vụ",
+				"href": "/dich-vu"
+			}
+		]
 	},
 	"recentArticles": {
 		"title": "Bài viết gần đây",

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
-import Button from '@/components/Button';
+import AnimatedLink from '@/components/AnimatedLink';
 
 interface HeroPageProps {
 	title: ReactNode;
@@ -40,16 +40,14 @@ export default function HeroPage({
 				<div className="text-lg lg:text-xl font-medium">{subtitle}</div>
 				{ctas.length > 0 && (
 					<div className="relative flex flex-col sm:flex-row lg:flex-col">
-						{ctas.map((cta, _i) => (
-							<Button
+						{ctas.map((cta) => (
+							<AnimatedLink
 								key={cta.href}
 								href={cta.href}
-								className={
-									'w-full min-h-20  border-t border-b border-neutral-500/20 focus:ring-white text-black hover:bg-black hover:text-white'
-								}
+								className={'w-full min-h-20'}
 							>
 								{cta.label}
-							</Button>
+							</AnimatedLink>
 						))}
 					</div>
 				)}

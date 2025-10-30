@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
-import Button from '@/components/Button';
+import AnimatedLink from '../AnimatedLink';
 
 interface HeroProps {
 	title: ReactNode;
@@ -28,7 +28,6 @@ export default function Hero({
 	images,
 	ctas = [],
 	className = '',
-	isHome = false,
 }: HeroProps) {
 	return (
 		<div className={`relative grid grid-cols-12 items-center ${className}`}>
@@ -41,19 +40,15 @@ export default function Hero({
 				</div>
 				{ctas.length > 0 && (
 					<div className="relative flex flex-col sm:flex-row lg:flex-col">
-						{ctas.map((cta, _i) => (
-							<Button
+						{ctas.map((cta) => (
+							<AnimatedLink
+								theme="dark"
 								key={cta.href}
 								href={cta.href}
-								className={
-									'w-full min-h-20  border-t border-b border-neutral-500/20 focus:ring-white' +
-									(isHome
-										? ' text-white hover:bg-white hover:text-black'
-										: ' text-black hover:bg-black hover:text-white')
-								}
+								className={'w-full min-h-20'}
 							>
 								{cta.label}
-							</Button>
+							</AnimatedLink>
 						))}
 					</div>
 				)}

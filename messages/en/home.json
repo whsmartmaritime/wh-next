@@ -65,7 +65,12 @@
 				"description": "With our experience, knowledge and acumen in handling situations, our human resources always strive to bring practical benefits to customers."
 			}
 		],
-		"ctaPrimary": "About Us"
+		"ctas": [
+			{
+				"label": "About Us",
+				"href": "/about"
+			}
+		]
 	},
 	"keyOfferings": {
 		"title": "Our Key Offerings",
@@ -129,14 +134,16 @@
 				}
 			}
 		],
-		"primaryButton": {
-			"label": "Discover more our solutions",
-			"href": "/solutions"
-		},
-		"secondaryButton": {
-			"label": "Discover more our services",
-			"href": "/services"
-		}
+		"ctas": [
+			{
+				"label": "Discover more our solutions",
+				"href": "/solutions"
+			},
+			{
+				"label": "Discover more our services",
+				"href": "/services"
+			}
+		]
 	},
 	"recentArticles": {
 		"title": "Recent Articles",

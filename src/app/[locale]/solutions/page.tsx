@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import AnimatedLink from '@/components/AnimatedLink';
 import { BackgroundScanline } from '@/components/BackgroundScanline';
 import BgGrid from '@/components/BgGrid';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import Button from '@/components/Button';
 import HeroPage from '@/components/Hero/HeroPage';
 import MediaText from '@/components/MediaText';
 import { routing } from '@/i18n/routing';
@@ -142,12 +142,12 @@ export default async function SolutionsPage({
 						<p className=" ">
 							{solutionsMessages.solutionList.ctaContent.description}
 						</p>
-						<Button
-							className="col-span-12 md:col-span-6 lg:col-start-4 min-h-20 my-8 bg-white text-black hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
+						<AnimatedLink
+							className="col-span-12 md:col-span-6 lg:col-start-4 min-h-20 my-8"
 							href={`/${locale}${solutionsMessages.solutionList.ctaContent.href}`}
 						>
 							{solutionsMessages.solutionList.ctaContent.label}
-						</Button>
+						</AnimatedLink>
 					</div>
 				</div>
 			</section>

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import AnimatedLink from '@/components/AnimatedLink';
 import { BackgroundGrid } from '@/components/BackgroundGrid';
 import { BackgroundScanline } from '@/components/BackgroundScanline';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import Button from '@/components/Button';
 import MediaText from '@/components/MediaText';
 import { routing } from '@/i18n/routing';
 import {
@@ -170,12 +170,12 @@ export default async function SolutionPage({
 						<p className="w-full lg:w-1/2 text-sm sm:text-lg lg:text-2xl text-justify mb-4 lg:mb-8">
 							{solutionMessages.ctaContent.description}
 						</p>
-						<Button
-							className="w-full lg:w-1/2 min-h-20 mb-4 lg:mb-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+						<AnimatedLink
+							className="w-full lg:w-1/2 min-h-20 mb-4 lg:mb-8"
 							href={`/about#contact`}
 						>
 							{solutionMessages.ctaContent.label}
-						</Button>
+						</AnimatedLink>
 					</div>
 				</div>
 			</section>

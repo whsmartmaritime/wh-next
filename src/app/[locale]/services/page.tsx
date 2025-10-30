@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import AnimatedLink from '@/components/AnimatedLink';
 import BackgroundScanline from '@/components/BackgroundScanline';
 import BgGrid from '@/components/BgGrid';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import Button from '@/components/Button';
 import HeroPage from '@/components/Hero/HeroPage';
 import ScrollShowcase from '@/components/ScrollShowcase';
 import { routing } from '@/i18n/routing';
@@ -166,12 +166,12 @@ export default async function ServicesPage({
 							<p className="text-sm sm:text-lg lg:text-2xl">
 								{servicesMessages.rm.ctaContent.description}
 							</p>
-							<Button
-								className="w-1/2 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+							<AnimatedLink
+								className="w-1/2 min-h-20 my-8"
 								href={servicesMessages.rm.ctaContent.href}
 							>
 								{servicesMessages.rm.ctaContent.label}
-							</Button>
+							</AnimatedLink>
 						</div>
 					</div>
 				</div>
@@ -227,12 +227,12 @@ export default async function ServicesPage({
 							<p className="text-sm sm:text-lg lg:text-2xl">
 								{servicesMessages.install.ctaContent.description}
 							</p>
-							<Button
-								className="w-1/2 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+							<AnimatedLink
+								className="w-1/2 min-h-20 my-8"
 								href={servicesMessages.install.ctaContent.href}
 							>
 								{servicesMessages.install.ctaContent.label}
-							</Button>
+							</AnimatedLink>
 						</div>
 					</div>
 				</div>
@@ -269,12 +269,12 @@ export default async function ServicesPage({
 							<p className="text-sm sm:text-lg lg:text-2xl">
 								{servicesMessages.survey.ctaContent.description}
 							</p>
-							<Button
-								className="w-1/2 min-h-20 my-8 bg-black text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
+							<AnimatedLink
+								className="w-1/2 min-h-20 my-8"
 								href={servicesMessages.survey.ctaContent.href}
 							>
 								{servicesMessages.survey.ctaContent.label}
-							</Button>
+							</AnimatedLink>
 						</div>
 					</div>
 				</div>

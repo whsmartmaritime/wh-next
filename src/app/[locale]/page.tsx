@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
+import AnimatedLink from '@/components/AnimatedLink';
 import { BackgroundAnimation } from '@/components/BackgroundAnimation';
 import { BackgroundGrid } from '@/components/BackgroundGrid';
 import { BackgroundScanline } from '@/components/BackgroundScanline';
 import BgGrid from '@/components/BgGrid';
-import Button from '@/components/Button';
 import Hero from '@/components/Hero';
 import Highlights from '@/components/Highlights';
 import LogoShowcase from '@/components/LogoShowcase';
@@ -135,7 +135,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 				</div>
 			</section>
 			<section
-				className="relative overflow-hidden"
+				className="relative overflow-hidden py-8 lg:py-16"
 				aria-label="why clients choose wheelhouse section"
 			>
 				<BgGrid className="z-20" />
@@ -172,12 +172,12 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 					</div>
 				</div>
 				<div className="container-gutter relative grid grid-cols-12">
-					<Button
-						className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 mb-8 hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
-						href="/about"
+					<AnimatedLink
+						className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20"
+						href={homeMessages.keyValues.ctas[0].href}
 					>
-						{homeMessages.keyValues.ctaPrimary}
-					</Button>
+						{homeMessages.keyValues.ctas[0].label}
+					</AnimatedLink>
 				</div>
 			</section>
 
@@ -218,18 +218,18 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 					</div>
 				</div>
 				<div className="container-gutter relative grid grid-cols-12">
-					<Button
-						className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 mb-8 hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
+					<AnimatedLink
+						className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 mb-8 border-t border-b border-neutral-500/20 focus:ring-white"
 						href="/about"
 					>
 						{homeMessages.keyValues.ctaPrimary}
-					</Button>
+					</AnimatedLink>
 				</div>
 			</section> */}
 
 			{/* key offerings section (inlined) */}
 			<section
-				className="bg-gradient-to-br pt-16 from-gray-900 via-black/90 to-black relative overflow-hidden text-neutral-300"
+				className="bg-gradient-to-br py-16 from-gray-900 via-black/90 to-black relative overflow-hidden text-neutral-300"
 				aria-label="key offerings section"
 			>
 				<BackgroundGrid />
@@ -258,19 +258,18 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 						/>
 					</div>
 					<div className="col-span-12 lg:col-span-6 justify-center ">
-						<Button
-							className=" w-full md:w-1/2 min-h-20  text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white"
-							href={homeMessages.keyOfferings.primaryButton.href}
-						>
-							{homeMessages.keyOfferings.primaryButton.label}
-						</Button>
-
-						<Button
-							className=" w-full md:w-1/2 min-h-20 text-white hover:bg-white hover:text-black border-t border-b border-neutral-500/20 focus:ring-white mb-4 lg:mb-8"
-							href={homeMessages.keyOfferings.secondaryButton.href}
-						>
-							{homeMessages.keyOfferings.secondaryButton.label}
-						</Button>
+						{homeMessages.keyOfferings.ctas.map(
+							(cta: { href: string; label: string }) => (
+								<AnimatedLink
+									key={cta.href}
+									theme="dark"
+									className={`w-full md:w-1/2 min-h-20 `}
+									href={cta.href}
+								>
+									{cta.label}
+								</AnimatedLink>
+							),
+						)}
 					</div>
 				</div>
 			</section>
