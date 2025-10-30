@@ -88,7 +88,7 @@ export default function ScrollShowcase({
 			</div>
 
 			{/* Pinned Image Container */}
-			<div className="sticky top-0 h-screen lg:col-span-7 lg:col-start-6  items-center justify-end relative order-2 hidden lg:flex">
+			<div className="sticky top-0 h-screen lg:col-span-7 lg:col-start-6  items-center justify-end order-2 hidden lg:flex">
 				<BackgroundScanline
 					opacity={0.1}
 					className="inset-auto w-6/7 h-full"

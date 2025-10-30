@@ -166,7 +166,7 @@ export default async function EntryPage({
 			</div>
 			<article className="container-gutter grid grid-cols-16">
 				{/** Cột 1 */}
-				<div className="col-span-3 hidden lg:block flex flex-col">
+				<div className="col-span-3 hidden lg:flex lg:flex-col">
 					<div className="border-y border-neutral-500/20 flex flex-col py-8">
 						<div className="text-xl md:text-2xl font-semibold ml-4 lg:ml-8 mb-2">
 							{entryMessages.author}
