@@ -71,13 +71,6 @@ export default async function LocaleLayout({
 		logo: `${process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'}/images/whlogo.svg`,
 		description:
 			'Wheelhouse provides advanced maritime solutions including navigation systems, GMDSS, e-navigation, and connectivity for the maritime industry.',
-		contactPoint: {
-			'@type': 'ContactPoint',
-			telephone: '+84-865716079',
-			contactType: 'Customer Service',
-			areaServed: 'Global',
-			availableLanguage: ['English', 'Vietnamese'],
-		},
 		sameAs: ['https://www.linkedin.com/company/wheelhousemaris/'],
 	};
 

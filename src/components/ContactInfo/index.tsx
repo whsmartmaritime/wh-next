@@ -9,12 +9,22 @@ export default async function ContactInfo({
 }: ContactInfoProps) {
 	const aboutMessages = (await import(`@messages/${locale}/about.json`))
 		.default;
-
+	const emailInfo = Buffer.from(
+		aboutMessages.contact.email.info.base64,
+		'base64',
+	).toString('utf-8');
+	const emailSales = Buffer.from(
+		aboutMessages.contact.email.sales.base64,
+		'base64',
+	).toString('utf-8');
+	const emailService = Buffer.from(
+		aboutMessages.contact.email.service.base64,
+		'base64',
+	).toString('utf-8');
 	return (
 		<div className={`space-y-4 ${className}`}>
-			<div className="flex items-start space-x-3">
-				<p>{aboutMessages.contact.name}</p>
-			</div>
+			<p>{aboutMessages.contact.name}</p>
+
 			<div className="flex items-start space-x-3">
 				<svg
 					className="w-5 h-5 text-nature-500 mt-1 flex-shrink-0"
@@ -36,7 +46,12 @@ export default async function ContactInfo({
 						d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
 					/>
 				</svg>
-				<p>{aboutMessages.contact.address}</p>
+				<p>
+					{aboutMessages.contact.address.streetAddress},{' '}
+					{aboutMessages.contact.address.district},{' '}
+					{aboutMessages.contact.address.city},{' '}
+					{aboutMessages.contact.address.country}
+				</p>
 			</div>
 
 			<div className="flex items-center space-x-3">
@@ -57,9 +72,9 @@ export default async function ContactInfo({
 				<p>{aboutMessages.contact.phone.display}</p>
 			</div>
 
-			<div className="flex items-center space-x-3">
+			<div className="flex items-start space-x-3">
 				<svg
-					className="w-5 h-5 text-nature-500 flex-shrink-0"
+					className="w-5 h-5 text-nature-500 mt-1 flex-shrink-0"
 					fill="none"
 					stroke="currentColor"
 					viewBox="0 0 24 24"
@@ -72,7 +87,17 @@ export default async function ContactInfo({
 						d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
 					/>
 				</svg>
-				<p>{aboutMessages.contact.email}</p>
+				<div className="space-y-1">
+					<p>
+						{aboutMessages.contact.email.info.label} {emailInfo}
+					</p>
+					<p>
+						{aboutMessages.contact.email.sales.label} {emailSales}
+					</p>
+					<p>
+						{aboutMessages.contact.email.service.label} {emailService}
+					</p>
+				</div>
 			</div>
 		</div>
 	);

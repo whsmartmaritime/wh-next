@@ -51,16 +51,35 @@
 	"contact": {
 		"title": "Thông tin liên hệ",
 		"name": "Công ty TNHH Wheelhouse",
-		"address": "Địa chỉ:21 An Lộc, Phường An Hải, TP Hải Phòng",
-		"email": "Email:info@wheelhouse.vn",
+		"address": {
+			"label": "Địa chỉ:",
+			"streetAddress": "Số 21 Đường An Lộc",
+			"district": "Quận An Hải",
+			"city": "Thành phố Hải Phòng",
+			"country": "Việt Nam"
+		},
+		"email": {
+			"info": {
+				"base64": "aW5mb0B3aGVlbGhvdXNlbWFyaXMuY29t",
+				"label": "Liên hệ chung:"
+			},
+			"sales": {
+				"base64": "aW5mb0B3aGVlbGhvdXNlbWFyaXMuY29t",
+				"label": "Liên hệ bán hàng:"
+			},
+			"service": {
+				"base64": "c2VydmljZUB3aGVlbGhvdXNlbWFyaXMuY29t",
+				"label": "Liên hệ dịch vụ:"
+			}
+		},
 		"phone": {
-			"display": "Điện thoại: 84-865716079",
+			"label": "Điện thoại:",
+			"display": "84-865716079",
 			"link": "+84865716079"
 		},
 
 		"social": {
-			"facebook": "https://facebook.com",
-			"linkedin": "https://linkedin.com"
+			"linkedin": "https://linkedin.com/company/wheelhousemaris"
 		},
 		"contactForm": {
 			"messageTitle": "Gửi tin nhắn",

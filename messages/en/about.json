@@ -51,16 +51,35 @@
 	"contact": {
 		"title": "Contact Information",
 		"name": "Wheelhouse Co., Ltd",
-		"address": "Address: 21 An Loc Str, An Hai Dist, HaiPhong City, Vietnam",
-		"email": "Email: info@wheelhouse.vn",
+		"address": {
+			"label": "Address:",
+			"streetAddress": "21 An Loc Str",
+			"district": "An Hai District",
+			"city": "Hai Phong City",
+			"country": "Vietnam"
+		},
+		"email": {
+			"info": {
+				"base64": "aW5mb0B3aGVlbGhvdXNlbWFyaXMuY29t",
+				"label": "General Inquiries:"
+			},
+			"sales": {
+				"base64": "aW5mb0B3aGVlbGhvdXNlbWFyaXMuY29t",
+				"label": "Sales Inquiries:"
+			},
+			"service": {
+				"base64": "c2VydmljZUB3aGVlbGhvdXNlbWFyaXMuY29t",
+				"label": "Service Inquiries:"
+			}
+		},
 		"phone": {
-			"display": "Phone: 84-865716079",
+			"label": "Phone:",
+			"display": "84-865716079",
 			"link": "+84865716079"
 		},
 
 		"social": {
-			"facebook": "https://facebook.com",
-			"linkedin": "https://linkedin.com"
+			"linkedin": "https://linkedin.com/company/wheelhousemaris"
 		},
 		"contactForm": {
 			"messageTitle": "Send us a message",
