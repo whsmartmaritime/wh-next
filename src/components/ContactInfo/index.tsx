@@ -49,8 +49,8 @@ export default async function ContactInfo({
 				<p>
 					{aboutMessages.contact.address.streetAddress},{' '}
 					{aboutMessages.contact.address.district},{' '}
-					{aboutMessages.contact.address.city},{' '}
-					{aboutMessages.contact.address.country}
+					{aboutMessages.contact.address.city}
+					{locale === 'en' ? `, ${aboutMessages.contact.address.country}` : ' '}
 				</p>
 			</div>
 
@@ -89,13 +89,22 @@ export default async function ContactInfo({
 				</svg>
 				<div className="space-y-1">
 					<p>
-						{aboutMessages.contact.email.info.label} {emailInfo}
+						{aboutMessages.contact.email.info.label}{' '}
+						<a href={`mailto:${emailInfo}`} className="hover:underline">
+							{emailInfo}
+						</a>
 					</p>
 					<p>
-						{aboutMessages.contact.email.sales.label} {emailSales}
+						{aboutMessages.contact.email.sales.label}{' '}
+						<a href={`mailto:${emailSales}`} className="hover:underline">
+							{emailSales}
+						</a>
 					</p>
 					<p>
-						{aboutMessages.contact.email.service.label} {emailService}
+						{aboutMessages.contact.email.service.label}{' '}
+						<a href={`mailto:${emailService}`} className="hover:underline">
+							{emailService}
+						</a>
 					</p>
 				</div>
 			</div>
