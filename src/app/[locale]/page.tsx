@@ -138,6 +138,53 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 				className="relative overflow-hidden"
 				aria-label="why clients choose wheelhouse section"
 			>
+				<BgGrid className="z-20" />
+				<div className="container-gutter grid grid-cols-12 items-center">
+					<div className="col-span-12 lg:col-span-5 flex flex-col gap-8">
+						<h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold ">
+							{homeMessages.keyValues.title}
+						</h2>
+						<p className="text-md xl:text-xl  text-justify whitespace-pre-line">
+							{homeMessages.keyValues.description}
+						</p>
+					</div>
+
+					<div className="relative col-span-12 lg:col-span-6 lg:col-start-7 flex flex-wrap flex-row">
+						<BackgroundScanline enableBorders={false} />
+						{homeMessages.keyValues.items.map(
+							(item: { title: string; description: string }, index: number) => (
+								<div
+									key={item.title}
+									className="flex flex-col w-1/2 gap-4 lg:gap-8 bg-neutral-50 hover:bg-transparent  transition-all  z-10 hover:-translate-y-2 duration-500 ease-in-out"
+								>
+									<p className="text-sm lg:text-base  leading-relaxed mt-8">
+										{`0${index + 1}`}
+									</p>
+									<h3 className="text-xl lg:text-2xl font-semibold">
+										{item.title}
+									</h3>
+									<p className=" w-3/4 text-sm lg:text-base  leading-relaxed mb-8">
+										{item.description}
+									</p>
+								</div>
+							),
+						)}
+					</div>
+				</div>
+				<div className="container-gutter relative grid grid-cols-12">
+					<Button
+						className="col-span-12 md:col-span-6 lg:col-span-3 min-h-20 mb-8 hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
+						href="/about"
+					>
+						{homeMessages.keyValues.ctaPrimary}
+					</Button>
+				</div>
+			</section>
+
+			{/* <section
+				className="relative overflow-hidden"
+				aria-label="why clients choose wheelhouse section"
+			>
 				<BgGrid />
 				<div className="container-gutter">
 					<h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold mb-8">
@@ -178,7 +225,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 						{homeMessages.keyValues.ctaPrimary}
 					</Button>
 				</div>
-			</section>
+			</section> */}
 
 			{/* key offerings section (inlined) */}
 			<section
