@@ -290,6 +290,54 @@ export default async function ContactPage({
 					}),
 				}}
 			/>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@type': 'LocalBusiness',
+						name: contactMessages.contactInfo.companyName,
+						url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
+						telephone: contactMessages.contactInfo.phone.link,
+						email: Buffer.from(
+							(
+								Object.values(contactMessages.contactInfo.emails)[0] as {
+									base64: string;
+								}
+							).base64,
+							'base64',
+						).toString('utf-8'),
+						address: {
+							'@type': 'PostalAddress',
+							streetAddress: contactMessages.contactInfo.address.streetAddress,
+							addressLocality: contactMessages.contactInfo.address.ward,
+							addressRegion: contactMessages.contactInfo.address.city,
+							addressCountry: contactMessages.contactInfo.address.country,
+						},
+						geo: {
+							'@type': 'GeoCoordinates',
+							latitude: 20.84433,
+							longitude: 106.64842,
+						},
+						contactPoint: Object.entries(
+							contactMessages.contactInfo.emails,
+						).map(([key, email]) => {
+							const emailData = email as { label: string; base64: string };
+							return {
+								'@type': 'ContactPoint',
+								telephone: contactMessages.contactInfo.phone.link,
+								email: Buffer.from(emailData.base64, 'base64').toString(
+									'utf-8',
+								),
+								contactType: key,
+								areaServed: 'Global',
+								availableLanguage: ['English', 'Vietnamese'],
+							};
+						}),
+						slogan: 'Maneuvering? Go Wheelhouse. Servicing? Call Wheelhouse.',
+					}),
+				}}
+			/>
 		</>
 	);
 }
