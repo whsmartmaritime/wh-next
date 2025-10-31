@@ -143,7 +143,7 @@ export default async function SolutionsPage({
 							{solutionsMessages.solutionList.ctaContent.description}
 						</p>
 						<AnimatedLink
-							className="col-span-12 md:col-span-6 lg:col-start-4 min-h-20 my-8"
+							className=" bg-neutral-50 border-l col-span-12 md:col-span-6 lg:col-start-4 min-h-20 my-8"
 							href={`/${locale}${solutionsMessages.solutionList.ctaContent.href}`}
 						>
 							{solutionsMessages.solutionList.ctaContent.label}

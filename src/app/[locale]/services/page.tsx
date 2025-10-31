@@ -167,7 +167,7 @@ export default async function ServicesPage({
 								{servicesMessages.rm.ctaContent.description}
 							</p>
 							<AnimatedLink
-								className="w-1/2 min-h-20 my-8"
+								className="w-full md:w-1/2 min-h-20 my-8"
 								href={servicesMessages.rm.ctaContent.href}
 							>
 								{servicesMessages.rm.ctaContent.label}
@@ -228,7 +228,7 @@ export default async function ServicesPage({
 								{servicesMessages.install.ctaContent.description}
 							</p>
 							<AnimatedLink
-								className="w-1/2 min-h-20 my-8"
+								className="w-full md:w-1/2 min-h-20 my-8"
 								href={servicesMessages.install.ctaContent.href}
 							>
 								{servicesMessages.install.ctaContent.label}
@@ -270,7 +270,7 @@ export default async function ServicesPage({
 								{servicesMessages.survey.ctaContent.description}
 							</p>
 							<AnimatedLink
-								className="w-1/2 min-h-20 my-8"
+								className="w-full md:w-1/2 min-h-20 my-8"
 								href={servicesMessages.survey.ctaContent.href}
 							>
 								{servicesMessages.survey.ctaContent.label}
