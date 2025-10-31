@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import BackgroundScanline from '@/components/BackgroundScanline';
+import ArrowIcon from '@/components/icons/ArrowIcon';
 
 interface MobileMenuProps {
 	commonMessages: {
@@ -131,8 +132,8 @@ export default function MobileMenu({ commonMessages }: MobileMenuProps) {
 						<BackgroundScanline className="absolute inset-0" opacity={0.08} />
 						<div className="relative h-full overflow-y-auto">
 							<div className="container-gutter py-6">
-								<nav aria-label="Mobile navigation">
-									<ul className="flex flex-col text-neutral-800 dark:text-neutral-100">
+								<nav aria-label="Main navigation">
+									<ul className="flex flex-col lg:flex-row lg:flex-wrap text-neutral-800 dark:text-neutral-100">
 										{['solutions', 'services', 'about', 'contact'].map(
 											(key) => {
 												const item = nav[key];
@@ -140,14 +141,20 @@ export default function MobileMenu({ commonMessages }: MobileMenuProps) {
 													item.items && Object.keys(item.items).length > 0;
 
 												return (
-													<li key={key}>
+													<li key={key} className="w-full lg:w-1/4">
 														{/* Parent item */}
 														<Link
 															href={`/${locale}${item.href}`}
-															className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900 border-b border-neutral-200/30 dark:border-neutral-500/30"
+															className="flex items-center  gap-4 p-4 hover:bg-neutral-50 dark:hover:bg-neutral-900 border-b border-neutral-200/30 dark:border-neutral-500/30 uppercase font-semibold tracking-[0.25em] text-sm"
 															onClick={close}
 														>
-															{item.label}
+															<span>{item.label}</span>
+
+															<ArrowIcon
+																size={10}
+																rotation={45}
+																className="lg:rotate-0"
+															/>
 														</Link>
 
 														{/* Submenu items - always rendered, indented */}
@@ -158,10 +165,11 @@ export default function MobileMenu({ commonMessages }: MobileMenuProps) {
 																	<Link
 																		key={subKey}
 																		href={`/${locale}${subItem.href}`}
-																		className="block py-3 pl-8 pr-4 text-base hover:bg-neutral-50 dark:hover:bg-neutral-900 border-b border-neutral-200/20 dark:border-neutral-500/20"
+																		className="flex items-center justify-start gap-2 p-2 text-base hover:bg-neutral-50 dark:hover:bg-neutral-900 border-b border-neutral-200/20 dark:border-neutral-500/20"
 																		onClick={close}
 																	>
-																		{subItem.label}
+																		<span>{subItem.label}</span>
+																		<ArrowIcon size={10} />
 																	</Link>
 																),
 															)}
