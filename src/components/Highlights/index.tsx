@@ -53,7 +53,7 @@ export default function Highlights({
 								>
 									{item.title}
 									<ArrowIcon
-										size="large"
+										size={16}
 										className="ml-3 opacity-0 transition-all duration-1000 group-hover/key:opacity-100"
 									/>
 								</Link>

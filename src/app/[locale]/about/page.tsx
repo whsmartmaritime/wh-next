@@ -77,7 +77,7 @@ export default async function AboutPage({
 			</div>
 			<section
 				className="relative  mt-8 lg:mt-16"
-				aria-label="Services hero section"
+				aria-label="About hero section"
 			>
 				<div className="container-gutter">
 					<BgGrid className="fixed" />
