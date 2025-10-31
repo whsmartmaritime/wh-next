@@ -30,7 +30,7 @@ export default async function TopBar({ className, locale }: TopBarProps) {
 					</a>
 					<a
 						href={`tel:${aboutMessages.contact.phone.link}`}
-						className="tracking-tight text-gray-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 transition-colors gap-1 flex items-center"
+						className="hidden lg:flex tracking-tight text-gray-900 dark:text-white hover:text-blue-700 dark:hover:text-blue-400 transition-colors gap-1 items-center"
 					>
 						<span className="hidden lg:inline text-md">Hot Line:</span>
 						<span className="lg:hidden text-sm">T.</span>
