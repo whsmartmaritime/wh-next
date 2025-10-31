@@ -1,4 +1,5 @@
 {
+	"locale": "vi",
 	"nav": {
 		"home": { "label": "Trang chủ", "href": "/" },
 		"about": { "label": "Giới thiệu", "href": "/gioi-thieu" },

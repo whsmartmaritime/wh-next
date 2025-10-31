@@ -1,6 +1,4 @@
-'use client';
 import Link from 'next/link';
-import { useCallback, useEffect, useState } from 'react';
 import BackgroundScanline from '@/components/BackgroundScanline';
 
 interface NavProps {
@@ -24,56 +22,9 @@ interface Messages {
 	};
 }
 
-export default function NavMenu({ locale }: NavProps) {
-	const [isOpen, setIsOpen] = useState(false);
-	const [messages, setMessages] = useState<Messages | null>(null);
-
-	const toggle = useCallback(() => setIsOpen((prev) => !prev), []);
-	const close = useCallback(() => setIsOpen(false), []);
-
-	// Load messages
-	useEffect(() => {
-		import(`@messages/${locale}/common.json`).then((mod) =>
-			setMessages(mod.default),
-		);
-	}, [locale]);
-
-	// Scroll lock for mobile menu
-	useEffect(() => {
-		const body = document.body;
-		if (isOpen) {
-			const scrollY = window.scrollY;
-			body.style.cssText = `
-        position: fixed;
-        top: -${scrollY}px;
-        left: 0;
-        right: 0;
-        overflow: hidden;
-      `;
-		} else {
-			const scrollY = parseInt(body.style.top || '0', 10) * -1;
-			body.style.cssText = '';
-			window.scrollTo(0, scrollY);
-		}
-		return () => {
-			body.style.cssText = '';
-		};
-	}, [isOpen]);
-
-	// Auto-close on link click
-	useEffect(() => {
-		if (!isOpen) return;
-		const handleLinkClick = (e: Event) => {
-			const target = e.target as HTMLElement;
-			if (target.matches('a[href]') && target.closest('[data-mobile-menu]')) {
-				close();
-			}
-		};
-		document.addEventListener('click', handleLinkClick, { passive: true });
-		return () => document.removeEventListener('click', handleLinkClick);
-	}, [isOpen, close]);
-
-	if (!messages) return null; // Loading state
+export default async function NavMenu({ locale }: NavProps) {
+	const messages: Messages = (await import(`@messages/${locale}/common.json`))
+		.default;
 
 	return (
 		<>
@@ -179,98 +130,128 @@ export default function NavMenu({ locale }: NavProps) {
 				</ul>
 			</nav>
 
-			{/* Mobile Toggle Button */}
-			<div className="md:hidden">
-				<button
-					type="button"
-					onClick={toggle}
-					className="relative p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors z-50"
-					aria-label={isOpen ? 'Close menu' : 'Open menu'}
-					aria-expanded={isOpen}
-				>
-					<div className="relative w-6 h-6">
-						<svg
-							className={`absolute inset-0 transition-opacity duration-200 ${
-								isOpen ? 'opacity-0' : 'opacity-100'
-							}`}
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							aria-hidden="true"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M4 6h16M4 12h16M4 18h16"
-							/>
-						</svg>
-						<svg
-							className={`absolute inset-0 transition-opacity duration-200 ${
-								isOpen ? 'opacity-100' : 'opacity-0'
-							}`}
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							aria-hidden="true"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M6 18L18 6M6 6l12 12"
-							/>
-						</svg>
-					</div>
-				</button>
-			</div>
+			{/* Mobile Menu - CSS Only with Checkbox */}
+			<div className="hidden">
+				<input
+					type="checkbox"
+					id="mobile-menu-toggle"
+					className="hidden [&:checked+div_.hamburger]:opacity-0 [&:checked+div_.close]:opacity-100 [&:checked~.overlay]:pointer-events-auto [&:checked~.overlay]:opacity-100 [&:checked~.menu-panel]:translate-x-0"
+					aria-label="Toggle mobile menu"
+				/>
 
-			{/* Mobile Menu */}
-			{isOpen && (
-				<div className="fixed top-[120px] left-0 w-full h-[calc(100vh-120px)] z-40 bg-white dark:bg-black border-t border-neutral-200 dark:border-neutral-700 md:hidden">
+				<div className="relative inline-block">
+					<label
+						htmlFor="mobile-menu-toggle"
+						className="relative p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors z-50 cursor-pointer inline-block"
+					>
+						<div className="relative w-6 h-6">
+							{/* Hamburger Icon */}
+							<svg
+								className="hamburger absolute inset-0 transition-opacity duration-200"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+								aria-hidden="true"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth="2"
+									d="M4 6h16M4 12h16M4 18h16"
+								/>
+							</svg>
+							{/* Close Icon */}
+							<svg
+								className="close absolute inset-0 transition-opacity duration-200 opacity-0"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+								aria-hidden="true"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth="2"
+									d="M6 18L18 6M6 6l12 12"
+								/>
+							</svg>
+						</div>
+					</label>
+				</div>
+
+				{/* Overlay - Click to close */}
+				<label
+					htmlFor="mobile-menu-toggle"
+					className="overlay fixed inset-0 bg-black/50 z-30 opacity-0 pointer-events-none transition-opacity duration-300 cursor-pointer"
+				>
+					<span className="sr-only">Close menu</span>
+				</label>
+
+				{/* Mobile Menu Panel */}
+				<div className="menu-panel fixed top-[120px] left-0 w-full h-[calc(100vh-120px)] z-40 bg-white dark:bg-black border-t border-neutral-200 dark:border-neutral-700 translate-x-full transition-transform duration-300 ease-in-out">
 					<BackgroundScanline className="absolute inset-0" opacity={0.08} />
 					<div className="relative h-full overflow-y-auto">
-						<div className="container-gutter py-6" data-mobile-menu>
+						<div className="container-gutter py-6">
 							<nav aria-label="Mobile navigation">
 								<ul className="flex flex-col text-neutral-800 dark:text-neutral-100">
 									<li className="border border-neutral-200/30 dark:border-neutral-500/30">
-										<Link
-											href={`/${locale}${messages.nav.solutions.href}`}
-											className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
+										<label
+											htmlFor="mobile-menu-toggle"
+											className="block cursor-pointer"
 										>
-											{messages.nav.solutions.label}
-										</Link>
+											<a
+												href={`/${locale}${messages.nav.solutions.href}`}
+												className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
+											>
+												{messages.nav.solutions.label}
+											</a>
+										</label>
 									</li>
 									<li className="border border-neutral-200/30 dark:border-neutral-500/30">
-										<Link
-											href={`/${locale}${messages.nav.services.href}`}
-											className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
+										<label
+											htmlFor="mobile-menu-toggle"
+											className="block cursor-pointer"
 										>
-											{messages.nav.services.label}
-										</Link>
+											<a
+												href={`/${locale}${messages.nav.services.href}`}
+												className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
+											>
+												{messages.nav.services.label}
+											</a>
+										</label>
 									</li>
 									<li className="border border-neutral-200/30 dark:border-neutral-500/30">
-										<Link
-											href={`/${locale}${messages.nav.about.href}`}
-											className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
+										<label
+											htmlFor="mobile-menu-toggle"
+											className="block cursor-pointer"
 										>
-											{messages.nav.about.label}
-										</Link>
+											<a
+												href={`/${locale}${messages.nav.about.href}`}
+												className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
+											>
+												{messages.nav.about.label}
+											</a>
+										</label>
 									</li>
 									<li className="border border-neutral-200/30 dark:border-neutral-500/30">
-										<Link
-											href={`/${locale}${messages.nav.contact.href}`}
-											className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
+										<label
+											htmlFor="mobile-menu-toggle"
+											className="block cursor-pointer"
 										>
-											{messages.nav.contact.label}
-										</Link>
+											<a
+												href={`/${locale}${messages.nav.contact.href}`}
+												className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
+											>
+												{messages.nav.contact.label}
+											</a>
+										</label>
 									</li>
 								</ul>
 							</nav>
 						</div>
 					</div>
 				</div>
-			)}
+			</div>
 		</>
 	);
 }

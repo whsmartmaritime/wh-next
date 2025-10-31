@@ -1,13 +1,17 @@
 import Link from 'next/link';
 import TopBar from '@/components/TopBar';
 import LogoSvg from '../LogoSvg';
-import Nav from '../Nav';
+import MobileMenu from '../Nav/MobileMenu';
 
 interface HeaderProps {
 	locale: string;
 }
 
 export default async function Header({ locale }: HeaderProps) {
+	// Load messages on server
+	const commonMessages = (await import(`@messages/${locale}/common.json`))
+		.default;
+
 	return (
 		<>
 			<TopBar locale={locale} />
@@ -25,14 +29,9 @@ export default async function Header({ locale }: HeaderProps) {
 						<LogoSvg locale={locale} />
 					</Link>
 
-					{/* Mobile toggle button */}
-					<div className="col-span-3 lg:hidden ml-auto flex items-center justify-end">
-						<Nav locale={locale} />
-					</div>
-
-					{/* Main nav / Main menu */}
-					<div className="hidden lg:block lg:col-span-7 lg:col-start-6 static">
-						<Nav locale={locale} />
+					{/* Unified hamburger menu for all screen sizes */}
+					<div className="col-span-3 lg:col-span-9 ml-auto flex items-center justify-end">
+						<MobileMenu commonMessages={commonMessages} />
 					</div>
 				</nav>
 			</header>

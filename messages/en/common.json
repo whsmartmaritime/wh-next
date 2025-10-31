@@ -1,4 +1,5 @@
 {
+	"locale": "en",
 	"nav": {
 		"home": { "label": "Home", "href": "/" },
 		"about": { "label": "About Us", "href": "/about" },
