@@ -3,7 +3,7 @@
 	"nav": {
 		"home": { "label": "Trang chủ", "href": "/" },
 		"about": { "label": "Giới thiệu", "href": "/gioi-thieu" },
-		"contact": { "label": "Liên hệ", "href": "/gioi-thieu#contact" },
+		"contact": { "label": "Liên hệ", "href": "/lien-he" },
 		"solutions": {
 			"label": "Giải pháp",
 			"href": "/giai-phap",

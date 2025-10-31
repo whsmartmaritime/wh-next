@@ -20,7 +20,8 @@
 	"ctaContent": {
 		"title": "Liên hệ",
 		"description": "Đừng ngần ngại liên hệ với đội ngũ chuyên gia của chúng tôi – chúng ta sẽ cùng tạo nên giải pháp hiệu quả nhất, dù đó là thiết bị đơn lẻ hay hệ thống tích hợp hoàn chỉnh.",
-		"label": "Kết nối với chúng tôi!"
+		"label": "Kết nối với chúng tôi!",
+		"href": "/lien-he"
 	},
 	"blogPosts": {
 		"title": "Bài viết & Phân tích",

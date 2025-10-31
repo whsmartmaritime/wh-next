@@ -21,7 +21,7 @@
 		"ctas": [
 			{
 				"label": "Contact Us",
-				"href": "/about#contact"
+				"href": "/contact"
 			},
 			{
 				"label": "Want to Chat First?",
@@ -81,7 +81,7 @@
 		"ctaContent": {
 			"title": "Need repair, maintenance, or spare parts?",
 			"description": "We are always ready to assist you. Contact us for timely advice and support.",
-			"href": "/about#contact",
+			"href": "/contact",
 			"label": "Book Your Service Now!"
 		}
 	},
@@ -145,7 +145,7 @@
 		"ctaContent": {
 			"title": "Do You Need to Schedule an Annual Survey?",
 			"description": "To ensure your vessel's certificates are not interrupted, contact us immediately for consultation and timely survey planning.",
-			"href": "/about#contact",
+			"href": "/contact",
 			"label": "Order Service!"
 		}
 	}

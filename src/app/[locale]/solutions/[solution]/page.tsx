@@ -172,7 +172,7 @@ export default async function SolutionPage({
 						</p>
 						<AnimatedLink
 							className="w-full lg:w-1/2 min-h-20 mb-4 lg:mb-8"
-							href={`/about#contact`}
+							href={solutionMessages.ctaContent.href}
 						>
 							{solutionMessages.ctaContent.label}
 						</AnimatedLink>

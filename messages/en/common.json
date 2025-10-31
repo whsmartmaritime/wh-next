@@ -3,7 +3,7 @@
 	"nav": {
 		"home": { "label": "Home", "href": "/" },
 		"about": { "label": "About Us", "href": "/about" },
-		"contact": { "label": "Contact", "href": "/about#contact" },
+		"contact": { "label": "Contact", "href": "/contact" },
 		"solutions": {
 			"label": "Solutions",
 			"href": "/solutions",
