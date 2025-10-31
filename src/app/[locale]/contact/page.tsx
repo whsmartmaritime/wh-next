@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import BackgroundScanline from '@/components/BackgroundScanline';
 import BgGrid from '@/components/BgGrid';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import ContactForm from '@/components/ContactForm';
 import HeroPage from '@/components/Hero/HeroPage';
 import { routing } from '@/i18n/routing';
 
@@ -51,13 +52,50 @@ export async function generateMetadata({
 
 export default async function ContactPage({
 	params,
+	searchParams,
 }: PageProps<'/[locale]/contact'>) {
 	const { locale } = await params;
+	const search = await searchParams;
 
 	const contactMessages = (await import(`@messages/${locale}/contact.json`))
 		.default;
 	const commonMessages = (await import(`@messages/${locale}/common.json`))
 		.default;
+
+	// Parse search params for form state
+	const success = search?.success === 'true';
+	const error = search?.error;
+	const fieldsParam = search?.fields;
+	const errorFields =
+		typeof fieldsParam === 'string' ? fieldsParam.split(',') : [];
+
+	// Generate error/success messages
+	const successMessage = success ? 'Message sent successfully!' : undefined;
+	const errorMessage =
+		error === 'server'
+			? 'Failed to send message. Please try again.'
+			: error === 'validation'
+				? 'Please correct the errors below.'
+				: undefined;
+
+	const errors =
+		errorFields.length > 0
+			? {
+					name: errorFields.includes('name')
+						? ['Name must be at least 2 characters long']
+						: undefined,
+					email: errorFields.includes('email')
+						? ['Please enter a valid email address']
+						: undefined,
+					phone: errorFields.includes('phone')
+						? ['Please enter a valid phone number']
+						: undefined,
+					message: errorFields.includes('message')
+						? ['Message must be at least 10 characters long']
+						: undefined,
+				}
+			: undefined;
+
 	return (
 		<>
 			<div className="relative bg-white border-b border-neutral-800/20 z-30">
@@ -210,6 +248,7 @@ export default async function ContactPage({
 			</section>
 
 			<section
+				id="contact-form"
 				className="relative scroll-mt-16 container-gutter"
 				aria-label="contact contact section"
 			>
@@ -223,48 +262,14 @@ export default async function ContactPage({
 							{contactMessages.contactForm.description}
 						</p>
 					</div>
-					<div className=" bg-neutral-50 col-span-12 lg:col-span-6 lg:col-start-7 mx-auto z-30">
-						<form className="" aria-label="Contact form">
-							<input
-								type="text"
-								className="w-full border border-neutral-500/20 p-3 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
-								placeholder={`${contactMessages.contactForm.placeholder.name} *`}
-								required
-							/>
-
-							<input
-								type="email"
-								className="w-full border border-neutral-500/20 p-3 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
-								placeholder={`${contactMessages.contactForm.placeholder.email} *`}
-								required
-							/>
-
-							<input
-								type="tel"
-								className="w-full border border-neutral-500/20 p-3 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
-								placeholder={`${contactMessages.contactForm.placeholder.phone} *`}
-							/>
-							<input
-								type="subject"
-								className="w-full border border-neutral-500/20 p-3 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
-								placeholder={`${contactMessages.contactForm.placeholder.subject}`}
-							/>
-
-							<textarea
-								rows={6}
-								className="w-full border border-neutral-500/20  p-3 focus:outline-none focus:border-l-4 focus:border-l-black"
-								placeholder={`${contactMessages.contactForm.placeholder.message} *`}
-								required
-							></textarea>
-
-							<button
-								type="submit"
-								className="w-full min-h-20 my-8 hover:bg-black hover:text-white border border-neutral-500/20 focus:ring-white"
-							>
-								{contactMessages.contactForm.submitButton}
-							</button>
-						</form>
-					</div>
+					<ContactForm
+						placeholder={contactMessages.contactForm.placeholder}
+						submitButton={contactMessages.contactForm.submitButton}
+						locale={locale}
+						successMessage={successMessage}
+						errorMessage={errorMessage}
+						errors={errors}
+					/>
 				</div>
 			</section>
 			<script
