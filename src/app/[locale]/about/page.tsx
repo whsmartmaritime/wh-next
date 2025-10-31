@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import BackgroundScanline from '@/components/BackgroundScanline';
 import BgGrid from '@/components/BgGrid';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import ContactInfo from '@/components/ContactInfo';
 import HeroPage from '@/components/Hero/HeroPage';
 import { routing } from '@/i18n/routing';
 
@@ -150,81 +149,6 @@ export default async function AboutPage({
 				</div>
 			</section>
 
-			{/* Contact Section */}
-			<section
-				id="contact"
-				className="relative scroll-mt-16 container-gutter mx-auto  pt-8 px-4 lg:px-8"
-				aria-label="About contact section"
-			>
-				<h2 className="uppercase tracking-[0.25em] font-bold text-xl lg:text-2xl mb-8">
-					{aboutMessages.contact.title}
-				</h2>
-
-				{/* Info + Map */}
-				<div className="grid grid-cols-1 lg:grid-cols-2">
-					{/* Contact Info */}
-					<div className="items-end leading-relaxed aspect-[25/10] bg-neutral-500/20 border border-neutral-500/20 mb-8">
-						<ContactInfo
-							className="text-xl lg:text-2xl w-full h-full "
-							locale={locale}
-						/>
-					</div>
-
-					<div className="relative w-full aspect-[25/10] mb-8 border border-neutral-500/20">
-						<iframe
-							title="Google Maps - Wheelhouse Location"
-							className="absolute top-0 left-0 w-full h-full"
-							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d932.1718196709141!2d106.6484250696352!3d20.84433085212791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314a7a0c67daa899%3A0xc27080c90650adc5!2zMjEgQW4gTOG7mWMsIEFuIFRow6FpLCBI4bqjaSBBbiwgSOG6o2kgUGjDsm5nLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1758013786120!5m2!1svi!2s?hl=en"
-							style={{ border: 0 }}
-							allowFullScreen
-							loading="lazy"
-							referrerPolicy="no-referrer-when-downgrade"
-						></iframe>
-					</div>
-					{/*
-          <div id="contactForm" className=" bg-neutral-50 w-full  mx-auto ">
-            <form className="space-y-6 " aria-label="Contact form">
-              <h3 className="uppercase tracking-[0.25em]  text-lg lg:text-xl">
-                {t("contact.contactForm.messageTitle")}
-              </h3>
-              <input
-                type="text"
-                className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("contact.contactForm.namePlaceholder") + " *"}
-                required
-              />
-
-              <input
-                type="email"
-                className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("contact.contactForm.emailPlaceholder") + " *"}
-                required
-              />
-
-              <input
-                type="tel"
-                className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("contact.contactForm.phonePlaceholder")}
-              />
-
-              <textarea
-                rows={6}
-                className="w-full border border-neutral-300  p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder={t("contact.contactForm.messagePlaceholder") + " *"}
-                required
-              ></textarea>
-
-              <Submit
-                type="submit"
-                className="w-full min-h-20 my-8 hover:bg-black hover:text-white border-t border-b border-neutral-500/20 focus:ring-white"
-              >
-                {t("contact.contactForm.submitButton")}
-              </Submit>
-            </form> 
-          </div>
-          */}
-				</div>
-			</section>
 			<script
 				type="application/ld+json"
 				dangerouslySetInnerHTML={{
