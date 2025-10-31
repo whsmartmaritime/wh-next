@@ -188,64 +188,57 @@ export default async function NavMenu({ locale }: NavProps) {
 				</label>
 
 				{/* Mobile Menu Panel */}
-				<div className="menu-panel fixed top-[120px] left-0 w-full h-[calc(100vh-120px)] z-40 bg-white dark:bg-black border-t border-neutral-200 dark:border-neutral-700 translate-x-full transition-transform duration-300 ease-in-out">
+				<div className="menu-panel fixed top-[100px] left-0 w-full h-auto z-40 bg-white dark:bg-black border-t border-neutral-200 dark:border-neutral-700 translate-x-full transition-transform duration-300 ease-in-out">
 					<BackgroundScanline className="absolute inset-0" opacity={0.08} />
 					<div className="relative h-full overflow-y-auto">
 						<div className="container-gutter py-6">
 							<nav aria-label="Mobile navigation">
-								<ul className="flex flex-col text-neutral-800 dark:text-neutral-100">
-									<li className="border border-neutral-200/30 dark:border-neutral-500/30">
-										<label
-											htmlFor="mobile-menu-toggle"
-											className="block cursor-pointer"
-										>
-											<a
-												href={`/${locale}${messages.nav.solutions.href}`}
-												className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
-											>
-												{messages.nav.solutions.label}
-											</a>
-										</label>
-									</li>
-									<li className="border border-neutral-200/30 dark:border-neutral-500/30">
-										<label
-											htmlFor="mobile-menu-toggle"
-											className="block cursor-pointer"
-										>
-											<a
-												href={`/${locale}${messages.nav.services.href}`}
-												className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
-											>
-												{messages.nav.services.label}
-											</a>
-										</label>
-									</li>
-									<li className="border border-neutral-200/30 dark:border-neutral-500/30">
-										<label
-											htmlFor="mobile-menu-toggle"
-											className="block cursor-pointer"
-										>
-											<a
-												href={`/${locale}${messages.nav.about.href}`}
-												className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
-											>
-												{messages.nav.about.label}
-											</a>
-										</label>
-									</li>
-									<li className="border border-neutral-200/30 dark:border-neutral-500/30">
-										<label
-											htmlFor="mobile-menu-toggle"
-											className="block cursor-pointer"
-										>
-											<a
-												href={`/${locale}${messages.nav.contact.href}`}
-												className="block p-4 text-lg font-medium hover:bg-neutral-50 dark:hover:bg-neutral-900"
-											>
-												{messages.nav.contact.label}
-											</a>
-										</label>
-									</li>
+								<ul className="flex flex-col lg:flex-row lg:flex-wrap text-neutral-800 dark:text-neutral-100">
+									{['solutions', 'services', 'about', 'contact'].map((key) => {
+										const item = messages.nav[key as keyof typeof messages.nav];
+										const hasSubmenu =
+											'items' in item &&
+											item.items &&
+											Object.keys(item.items).length > 0;
+
+										return (
+											<li key={key} className="w-full lg:w-1/4">
+												{/* Parent item */}
+												<label
+													htmlFor="mobile-menu-toggle"
+													className="block cursor-pointer"
+												>
+													<a
+														href={`/${locale}${item.href}`}
+														className="flex items-center gap-4 p-4 hover:bg-neutral-50 dark:hover:bg-neutral-900 border-b border-neutral-200/30 dark:border-neutral-500/30 uppercase font-semibold tracking-[0.25em] text-sm"
+													>
+														<span>{item.label}</span>
+													</a>
+												</label>
+
+												{/* Submenu items - always rendered */}
+												{hasSubmenu &&
+													'items' in item &&
+													item.items &&
+													Object.entries(item.items).map(
+														([subKey, subItem]) => (
+															<label
+																key={subKey}
+																htmlFor="mobile-menu-toggle"
+																className="block cursor-pointer"
+															>
+																<a
+																	href={`/${locale}${subItem.href}`}
+																	className="flex items-center justify-start gap-2 p-2 text-base hover:bg-neutral-50 dark:hover:bg-neutral-900 border-b border-neutral-200/20 dark:border-neutral-500/20"
+																>
+																	<span>{subItem.label}</span>
+																</a>
+															</label>
+														),
+													)}
+											</li>
+										);
+									})}
 								</ul>
 							</nav>
 						</div>
