@@ -39,30 +39,41 @@ export default function MobileMenu({ commonMessages }: MobileMenuProps) {
 			}
 		};
 
-		// Scroll handler with debounce
-		let lastScrollY = window.scrollY;
-		let timeoutId: NodeJS.Timeout;
-		const handleScroll = () => {
-			clearTimeout(timeoutId);
-			timeoutId = setTimeout(() => {
-				const currentScrollY = window.scrollY;
-				if (currentScrollY - lastScrollY > 50) {
-					setIsOpen(false);
-				}
-				lastScrollY = currentScrollY;
-			}, 100);
+		// Touch/swipe handler for mobile
+		let touchStartY = 0;
+		let touchStartX = 0;
+
+		const handleTouchStart = (e: TouchEvent) => {
+			touchStartY = e.touches[0].clientY;
+			touchStartX = e.touches[0].clientX;
+		};
+
+		const handleTouchEnd = (e: TouchEvent) => {
+			const touchEndY = e.changedTouches[0].clientY;
+			const touchEndX = e.changedTouches[0].clientX;
+			const deltaY = touchEndY - touchStartY;
+			const deltaX = touchEndX - touchStartX;
+
+			// Close on any vertical swipe (>50px) or horizontal swipe right (>100px)
+			const isVerticalSwipe =
+				Math.abs(deltaY) > 50 && Math.abs(deltaY) > Math.abs(deltaX);
+			const isRightSwipe = deltaX > 100;
+
+			if (isVerticalSwipe || isRightSwipe) {
+				setIsOpen(false);
+			}
 		};
 
 		document.addEventListener('keydown', handleEscape);
-		window.addEventListener('scroll', handleScroll, { passive: true });
+		document.addEventListener('touchstart', handleTouchStart, {
+			passive: true,
+		});
+		document.addEventListener('touchend', handleTouchEnd, { passive: true });
 
-		// Cleanup
 		return () => {
 			document.removeEventListener('keydown', handleEscape);
-			window.removeEventListener('scroll', handleScroll);
-			clearTimeout(timeoutId);
-
-			// Restore scroll
+			document.removeEventListener('touchstart', handleTouchStart);
+			document.removeEventListener('touchend', handleTouchEnd);
 			document.body.style.overflow = '';
 		};
 	}, [isOpen]);
