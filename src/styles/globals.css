@@ -6,7 +6,7 @@
 	:root {
 		--background: #f9fafb;
 		--foreground: #171717;
-		--gutter-h: 1rem;
+		--gutter-h: 2rem;
 		--block-spacing: 2rem;
 		--header-height: 66px;
 		--column: calc((100vw - (var(--gutter-h) * 2)) / 12);
@@ -21,14 +21,14 @@
 
 @media (min-width: 640px) {
 	:root {
-		--gutter-h: 1.5rem;
+		--gutter-h: 2.5rem;
 		--block-spacing: 2.5rem;
 	}
 }
 
 @media (min-width: 768px) {
 	:root {
-		--gutter-h: 2rem;
+		--gutter-h: 3rem;
 		--block-spacing: 3.5rem;
 	}
 }
