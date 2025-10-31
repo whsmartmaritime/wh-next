@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { BackgroundGrid } from '@/components/BackgroundGrid';
 import ContactInfo from '@/components/ContactInfo';
 import LogoSvg from '@/components/LogoSvg';
-import { LogoEffect } from './LogoEffect';
 
 interface FooterProps {
 	locale: string;
@@ -208,8 +207,6 @@ export default async function footer({ locale }: FooterProps) {
             </div> */}
 				</div>
 			</div>
-
-			<LogoEffect />
 		</footer>
 	);
 }
