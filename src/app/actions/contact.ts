@@ -9,8 +9,8 @@ export async function submitContactForm(formData: FormData) {
 	// Extract and validate form data
 	const name = formData.get('name')?.toString().trim();
 	const email = formData.get('email')?.toString().trim();
-	const phone = formData.get('phone')?.toString().trim();
-	const subject = formData.get('subject')?.toString().trim();
+	const company = formData.get('company')?.toString().trim();
+	const topic = formData.get('topic')?.toString().trim();
 	const message = formData.get('message')?.toString().trim();
 	const locale = formData.get('locale')?.toString() || 'en';
 
@@ -25,8 +25,12 @@ export async function submitContactForm(formData: FormData) {
 		errors.push('email');
 	}
 
-	if (phone && !/^[+]?[\d\s()-]{8,}$/.test(phone)) {
-		errors.push('phone');
+	if (!company || company.length < 2) {
+		errors.push('company');
+	}
+
+	if (!topic) {
+		errors.push('topic');
 	}
 
 	if (!message || message.length < 10) {
@@ -42,18 +46,25 @@ export async function submitContactForm(formData: FormData) {
 		redirect(`/${locale}/contact?${params.toString()}#contact-form`);
 	}
 
+	// Load topic labels for email
+	const contactMessages = (await import(`@messages/${locale}/contact.json`))
+		.default;
+	const topicLabel =
+		contactMessages.contactForm.placeholder.topic.options[topic as string] ||
+		topic;
+
 	// Send email via Resend
 	try {
 		await resend.emails.send({
 			from: 'noreply@mail.wheelhousemaris.com',
 			to: 'info@wheelhousemaris.com',
-			subject: `New message from ${name} - ${email}`,
+			subject: `New message from ${name} - ${company}`,
 			html: `
-                <h3>CONTACT FORM SUBMISSION</h3>
+                <h3>CONTACT FORM WEBSITE</h3>
                 <p><strong>Name:</strong> ${name}</p>
                 <p><strong>Email:</strong> ${email}</p>
-                <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
-                ${subject ? `<p><strong>Subject:</strong> ${subject}</p>` : ''}
+                <p><strong>Company:</strong> ${company}</p>
+                <p><strong>Topic:</strong> ${topicLabel}</p>
                 <hr>
                 <p><strong>Message:</strong></p>
                 <p>${message}</p>

@@ -64,37 +64,11 @@ export default async function ContactPage({
 
 	// Parse search params for form state
 	const success = search?.success === 'true';
-	const error = search?.error;
+	const errorParam = search?.error;
+	const error = typeof errorParam === 'string' ? errorParam : undefined;
 	const fieldsParam = search?.fields;
 	const errorFields =
 		typeof fieldsParam === 'string' ? fieldsParam.split(',') : [];
-
-	// Generate error/success messages
-	const successMessage = success ? 'Message sent successfully!' : undefined;
-	const errorMessage =
-		error === 'server'
-			? 'Failed to send message. Please try again.'
-			: error === 'validation'
-				? 'Please correct the errors below.'
-				: undefined;
-
-	const errors =
-		errorFields.length > 0
-			? {
-					name: errorFields.includes('name')
-						? ['Name must be at least 2 characters long']
-						: undefined,
-					email: errorFields.includes('email')
-						? ['Please enter a valid email address']
-						: undefined,
-					phone: errorFields.includes('phone')
-						? ['Please enter a valid phone number']
-						: undefined,
-					message: errorFields.includes('message')
-						? ['Message must be at least 10 characters long']
-						: undefined,
-				}
-			: undefined;
 
 	return (
 		<>
@@ -263,12 +237,12 @@ export default async function ContactPage({
 						</p>
 					</div>
 					<ContactForm
-						placeholder={contactMessages.contactForm.placeholder}
-						submitButton={contactMessages.contactForm.submitButton}
+						className="col-span-12 lg:col-span-6 lg:col-start-7"
+						contactMessages={contactMessages}
 						locale={locale}
-						successMessage={successMessage}
-						errorMessage={errorMessage}
-						errors={errors}
+						success={success}
+						error={error}
+						errorFields={errorFields}
 					/>
 				</div>
 			</section>

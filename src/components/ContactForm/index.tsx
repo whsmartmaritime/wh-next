@@ -1,36 +1,57 @@
+import type contactMessagesEn from '@messages/en/contact.json';
 import { submitContactForm } from '@/app/actions/contact';
 
 type ContactFormProps = {
-	placeholder: {
-		name: string;
-		email: string;
-		phone: string;
-		subject: string;
-		message: string;
-	};
-	submitButton: string;
+	contactMessages: typeof contactMessagesEn;
 	locale: string;
-	successMessage?: string;
-	errorMessage?: string;
-	errors?: {
-		name?: string[];
-		email?: string[];
-		phone?: string[];
-		subject?: string[];
-		message?: string[];
-	};
+	success?: boolean;
+	error?: string;
+	errorFields?: string[];
+	className?: string;
 };
 
 export default function ContactForm({
-	placeholder,
-	submitButton,
+	contactMessages,
 	locale,
-	successMessage,
-	errorMessage,
-	errors,
+	success,
+	error,
+	errorFields = [],
+	className,
 }: ContactFormProps) {
+	const { placeholder, submitButton, feedback } = contactMessages.contactForm;
+
+	// Generate error/success messages
+	const successMessage = success ? feedback.success : undefined;
+	const errorMessage =
+		error === 'server'
+			? feedback.errors.server
+			: error === 'validation'
+				? feedback.errors.validation
+				: undefined;
+
+	const errors =
+		errorFields.length > 0
+			? {
+					name: errorFields.includes('name')
+						? [feedback.errors.name]
+						: undefined,
+					email: errorFields.includes('email')
+						? [feedback.errors.email]
+						: undefined,
+					company: errorFields.includes('company')
+						? [feedback.errors.company]
+						: undefined,
+					topic: errorFields.includes('topic')
+						? [feedback.errors.topic]
+						: undefined,
+					message: errorFields.includes('message')
+						? [feedback.errors.content]
+						: undefined,
+				}
+			: undefined;
+
 	return (
-		<div className="bg-neutral-50 col-span-12 lg:col-span-6 lg:col-start-7 mx-auto z-30">
+		<div className={`bg-neutral-50 z-30 ${className}`}>
 			<form action={submitContactForm} aria-label="Contact form">
 				<input type="hidden" name="locale" value={locale} />
 				{/* Success message */}
@@ -89,36 +110,46 @@ export default function ContactForm({
 					)}
 				</div>
 
-				{/* Phone field */}
+				{/* Company field */}
 				<div>
 					<input
-						type="tel"
-						name="phone"
+						type="text"
+						name="company"
 						className="w-full border border-neutral-500/20 p-3 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
-						placeholder={placeholder.phone}
-						aria-invalid={errors?.phone ? 'true' : 'false'}
-						aria-describedby={errors?.phone ? 'phone-error' : undefined}
+						placeholder={`${placeholder.company} *`}
+						required
+						aria-invalid={errors?.company ? 'true' : 'false'}
+						aria-describedby={errors?.company ? 'company-error' : undefined}
 					/>
-					{errors?.phone && (
-						<p id="phone-error" className="mt-1 text-sm text-red-600">
-							{errors.phone[0]}
+					{errors?.company && (
+						<p id="company-error" className="mt-1 text-sm text-red-600">
+							{errors.company[0]}
 						</p>
 					)}
 				</div>
 
-				{/* Subject field */}
+				{/* Topic dropdown field */}
 				<div>
-					<input
-						type="text"
-						name="subject"
-						className="w-full border border-neutral-500/20 p-3 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
-						placeholder={placeholder.subject}
-						aria-invalid={errors?.subject ? 'true' : 'false'}
-						aria-describedby={errors?.subject ? 'subject-error' : undefined}
-					/>
-					{errors?.subject && (
-						<p id="subject-error" className="mt-1 text-sm text-red-600">
-							{errors.subject[0]}
+					<select
+						name="topic"
+						className="w-full border border-neutral-500/20 p-3 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black bg-white"
+						required
+						defaultValue=""
+						aria-invalid={errors?.topic ? 'true' : 'false'}
+						aria-describedby={errors?.topic ? 'topic-error' : undefined}
+					>
+						<option value="" disabled>
+							{placeholder.topic.label} *
+						</option>
+						{Object.entries(placeholder.topic.options).map(([key, label]) => (
+							<option key={key} value={key}>
+								{label}
+							</option>
+						))}
+					</select>
+					{errors?.topic && (
+						<p id="topic-error" className="mt-1 text-sm text-red-600">
+							{errors.topic[0]}
 						</p>
 					)}
 				</div>
