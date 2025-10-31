@@ -59,11 +59,11 @@ export async function submitContactForm(formData: FormData) {
                 <p>${message}</p>
             `,
 		});
-
-		// Success - redirect with success message
-		redirect(`/${locale}/contact?success=true#contact-form`);
 	} catch (error) {
 		console.error('Resend Error:', error);
 		redirect(`/${locale}/contact?error=server#contact-form`);
 	}
+
+	// Success - redirect with success message
+	redirect(`/${locale}/contact?success=true#contact-form`);
 }
