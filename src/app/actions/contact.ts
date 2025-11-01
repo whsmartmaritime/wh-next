@@ -5,53 +5,48 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Validation helpers
+const validateField = {
+	name: (value: string | undefined) => value && value.length >= 2,
+	email: (value: string | undefined) =>
+		value && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+	company: (value: string | undefined) => value && value.length >= 2,
+	topic: (value: string | undefined) => !!value,
+	message: (value: string | undefined) => value && value.length >= 10,
+};
+
 export async function submitContactForm(formData: FormData) {
-	// Extract and validate form data
-	const name = formData.get('name')?.toString().trim();
-	const email = formData.get('email')?.toString().trim();
-	const company = formData.get('company')?.toString().trim();
-	const topic = formData.get('topic')?.toString().trim();
-	const message = formData.get('message')?.toString().trim();
+	// Extract form data
+	const name = formData.get('name')?.toString().trim() || '';
+	const email = formData.get('email')?.toString().trim() || '';
+	const company = formData.get('company')?.toString().trim() || '';
+	const topic = formData.get('topic')?.toString().trim() || '';
+	const message = formData.get('message')?.toString().trim() || '';
 	const locale = formData.get('locale')?.toString() || 'en';
 
-	const errors: string[] = [];
+	// Validate all fields
+	const invalidFields: string[] = [];
 
-	// Validation
-	if (!name || name.length < 2) {
-		errors.push('name');
-	}
+	if (!validateField.name(name)) invalidFields.push('name');
+	if (!validateField.email(email)) invalidFields.push('email');
+	if (!validateField.company(company)) invalidFields.push('company');
+	if (!validateField.topic(topic)) invalidFields.push('topic');
+	if (!validateField.message(message)) invalidFields.push('message');
 
-	if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-		errors.push('email');
-	}
-
-	if (!company || company.length < 2) {
-		errors.push('company');
-	}
-
-	if (!topic) {
-		errors.push('topic');
-	}
-
-	if (!message || message.length < 10) {
-		errors.push('message');
-	}
-
-	// If there are validation errors, redirect with error params
-	if (errors.length > 0) {
+	// Redirect if validation fails
+	if (invalidFields.length > 0) {
 		const params = new URLSearchParams({
 			error: 'validation',
-			fields: errors.join(','),
+			fields: invalidFields.join(','),
 		});
-		redirect(`/${locale}/contact?${params.toString()}#contact-form`);
+		redirect(`/${locale}/contact?${params.toString()}`);
 	}
 
-	// Load topic labels for email
+	// Load topic label for email
 	const contactMessages = (await import(`@messages/${locale}/contact.json`))
 		.default;
 	const topicLabel =
-		contactMessages.contactForm.placeholder.topic.options[topic as string] ||
-		topic;
+		contactMessages.contactForm.placeholder.topic.options[topic] || topic;
 
 	// Send email via Resend
 	try {
@@ -60,21 +55,21 @@ export async function submitContactForm(formData: FormData) {
 			to: 'info@wheelhousemaris.com',
 			subject: `New message from ${name} - ${company}`,
 			html: `
-                <h3>CONTACT FORM WEBSITE</h3>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
-                <p><strong>Company:</strong> ${company}</p>
-                <p><strong>Topic:</strong> ${topicLabel}</p>
-                <hr>
-                <p><strong>Message:</strong></p>
-                <p>${message}</p>
-            `,
+	                <h3>CONTACT FORM WEBSITE</h3>
+	                <p><strong>Name:</strong> ${name}</p>
+	                <p><strong>Email:</strong> ${email}</p>
+	                <p><strong>Company:</strong> ${company}</p>
+	                <p><strong>Topic:</strong> ${topicLabel}</p>
+	                <hr>
+	                <p><strong>Message:</strong></p>
+	                <p>${message}</p>
+                `,
 		});
 	} catch (error) {
 		console.error('Resend Error:', error);
-		redirect(`/${locale}/contact?error=server#contact-form`);
+		redirect(`/${locale}/contact?error=server`);
 	}
 
-	// Success - redirect with success message
-	redirect(`/${locale}/contact?success=true#contact-form`);
+	// Success redirect
+	redirect(`/${locale}/contact?success=true`);
 }
