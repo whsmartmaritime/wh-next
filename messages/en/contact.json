@@ -87,6 +87,7 @@
 			"errors": {
 				"validation": "Please correct the errors below.",
 				"server": "Failed to send message. Please try again later.",
+				"rate_limit": "Too many requests. Please try again in an hour.",
 				"name": "Name must be at least 2 characters long",
 				"email": "Please enter a valid email address",
 				"company": "Company name is required",

@@ -197,6 +197,16 @@ export default function FormContent({
 			</div>
 			<input type="hidden" name="locale" value={locale} />
 
+			{/* Honeypot field - hidden from users, bots will fill it */}
+			<input
+				type="text"
+				name="website"
+				className="absolute left-[-9999px] w-0 h-0 opacity-0"
+				tabIndex={-1}
+				autoComplete="off"
+				aria-hidden="true"
+			/>
+
 			{/* Success message */}
 			{successMessage && (
 				<div

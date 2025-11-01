@@ -27,7 +27,9 @@ export default function ContactForm({
 			? feedback.errors.server
 			: error === 'validation'
 				? feedback.errors.validation
-				: undefined;
+				: error === 'rate_limit'
+					? feedback.errors.rate_limit
+					: undefined;
 
 	// Map invalid fields to error messages
 	const fieldErrorMessages =

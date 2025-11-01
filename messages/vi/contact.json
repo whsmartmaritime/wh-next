@@ -86,6 +86,7 @@
 			"errors": {
 				"validation": "Vui lòng sửa các lỗi bên dưới.",
 				"server": "Gửi tin nhắn thất bại. Vui lòng thử lại sau.",
+				"rate_limit": "Quá nhiều yêu cầu. Vui lòng thử lại sau 1 giờ.",
 				"name": "Tên phải có ít nhất 2 ký tự",
 				"email": "Vui lòng nhập địa chỉ email hợp lệ",
 				"company": "Tên công ty là bắt buộc",

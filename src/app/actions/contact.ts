@@ -2,6 +2,7 @@
 
 import { redirect } from 'next/navigation';
 import { Resend } from 'resend';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -23,6 +24,27 @@ export async function submitContactForm(formData: FormData) {
 	const topic = formData.get('topic')?.toString().trim() || '';
 	const message = formData.get('message')?.toString().trim() || '';
 	const locale = formData.get('locale')?.toString() || 'en';
+	const honeypot = formData.get('website')?.toString() || '';
+
+	// Honeypot check - if filled, it's a bot
+	if (honeypot) {
+		console.warn('Bot submission detected via honeypot');
+		// Silent fail - pretend success to not alert bot
+		redirect(`/${locale}/contact?success=true`);
+	}
+
+	// Rate limiting check
+	const rateLimitResult = await checkRateLimit({
+		maxRequests: 5, // 5 submissions
+		windowMs: 60 * 60 * 1000, // per hour
+	});
+
+	if (!rateLimitResult.success) {
+		console.warn(
+			`Rate limit exceeded. Remaining: ${rateLimitResult.remaining}, Reset at: ${new Date(rateLimitResult.resetAt)}`,
+		);
+		redirect(`/${locale}/contact?error=rate_limit`);
+	}
 
 	// Validate all fields
 	const invalidFields: string[] = [];
