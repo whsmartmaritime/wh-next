@@ -1,6 +1,5 @@
 'use server';
 
-import { redirect } from 'next/navigation';
 import { Resend } from 'resend';
 import { checkRateLimit } from '@/lib/rate-limit';
 
@@ -8,15 +7,29 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Validation helpers
 const validateField = {
-	name: (value: string | undefined) => value && value.length >= 2,
+	name: (value: string | undefined) =>
+		value && value.length >= 2 && value.length <= 100,
 	email: (value: string | undefined) =>
-		value && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
-	company: (value: string | undefined) => value && value.length >= 2,
+		value &&
+		value.length <= 254 && // RFC 5321
+		/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
+	company: (value: string | undefined) =>
+		value && value.length >= 2 && value.length <= 200,
 	topic: (value: string | undefined) => !!value,
-	message: (value: string | undefined) => value && value.length >= 10,
+	message: (value: string | undefined) =>
+		value && value.length >= 10 && value.length <= 5000,
 };
 
-export async function submitContactForm(formData: FormData) {
+type FormState = {
+	success?: boolean;
+	error?: 'validation' | 'server' | 'rate_limit';
+	invalidFields?: string[];
+};
+
+export async function submitContactForm(
+	_prevState: FormState | null,
+	formData: FormData,
+): Promise<FormState> {
 	// Extract form data
 	const name = formData.get('name')?.toString().trim() || '';
 	const email = formData.get('email')?.toString().trim() || '';
@@ -30,7 +43,7 @@ export async function submitContactForm(formData: FormData) {
 	if (honeypot) {
 		console.warn('Bot submission detected via honeypot');
 		// Silent fail - pretend success to not alert bot
-		redirect(`/${locale}/contact?success=true`);
+		return { success: true };
 	}
 
 	// Rate limiting check
@@ -43,7 +56,7 @@ export async function submitContactForm(formData: FormData) {
 		console.warn(
 			`Rate limit exceeded. Remaining: ${rateLimitResult.remaining}, Reset at: ${new Date(rateLimitResult.resetAt)}`,
 		);
-		redirect(`/${locale}/contact?error=rate_limit`);
+		return { error: 'rate_limit' };
 	}
 
 	// Validate all fields
@@ -55,13 +68,9 @@ export async function submitContactForm(formData: FormData) {
 	if (!validateField.topic(topic)) invalidFields.push('topic');
 	if (!validateField.message(message)) invalidFields.push('message');
 
-	// Redirect if validation fails
+	// Return validation errors
 	if (invalidFields.length > 0) {
-		const params = new URLSearchParams({
-			error: 'validation',
-			fields: invalidFields.join(','),
-		});
-		redirect(`/${locale}/contact?${params.toString()}`);
+		return { error: 'validation', invalidFields };
 	}
 
 	// Load topic label for email
@@ -70,28 +79,37 @@ export async function submitContactForm(formData: FormData) {
 	const topicLabel =
 		contactMessages.contactForm.placeholder.topic.options[topic] || topic;
 
+	// Sanitize HTML to prevent XSS (basic escaping)
+	const escapeHtml = (text: string) =>
+		text
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;')
+			.replace(/'/g, '&#039;');
+
 	// Send email via Resend
 	try {
 		await resend.emails.send({
 			from: 'noreply@mail.wheelhousemaris.com',
 			to: 'info@wheelhousemaris.com',
-			subject: `New message from ${name} - ${company}`,
+			subject: `New message from ${escapeHtml(name)} - ${escapeHtml(company)}`,
 			html: `
 	                <h3>CONTACT FORM WEBSITE</h3>
-	                <p><strong>Name:</strong> ${name}</p>
-	                <p><strong>Email:</strong> ${email}</p>
-	                <p><strong>Company:</strong> ${company}</p>
-	                <p><strong>Topic:</strong> ${topicLabel}</p>
+	                <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+	                <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+	                <p><strong>Company:</strong> ${escapeHtml(company)}</p>
+	                <p><strong>Topic:</strong> ${escapeHtml(topicLabel)}</p>
 	                <hr>
 	                <p><strong>Message:</strong></p>
-	                <p>${message}</p>
+	                <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
                 `,
 		});
 	} catch (error) {
 		console.error('Resend Error:', error);
-		redirect(`/${locale}/contact?error=server`);
+		return { error: 'server' };
 	}
 
-	// Success redirect
-	redirect(`/${locale}/contact?success=true`);
+	// Success!
+	return { success: true };
 }

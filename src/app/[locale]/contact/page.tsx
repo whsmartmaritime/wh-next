@@ -52,23 +52,13 @@ export async function generateMetadata({
 
 export default async function ContactPage({
 	params,
-	searchParams,
 }: PageProps<'/[locale]/contact'>) {
 	const { locale } = await params;
-	const search = await searchParams;
 
 	const contactMessages = (await import(`@messages/${locale}/contact.json`))
 		.default;
 	const commonMessages = (await import(`@messages/${locale}/common.json`))
 		.default;
-
-	// Parse search params for form state
-	const success = search?.success === 'true';
-	const errorParam = search?.error;
-	const error = typeof errorParam === 'string' ? errorParam : undefined;
-	const fieldsParam = search?.fields;
-	const errorFields =
-		typeof fieldsParam === 'string' ? fieldsParam.split(',') : [];
 
 	return (
 		<>
@@ -240,9 +230,6 @@ export default async function ContactPage({
 						className="col-span-12 lg:col-span-6 lg:col-start-7"
 						contactMessages={contactMessages}
 						locale={locale}
-						success={success}
-						error={error}
-						errorFields={errorFields}
 					/>
 				</div>
 			</section>

@@ -1,33 +1,13 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import type contactMessagesEn from '@messages/en/contact.json';
+import { useActionState, useEffect, useRef } from 'react';
 import { useFormStatus } from 'react-dom';
 import { submitContactForm } from '@/app/actions/contact';
 
-type FieldErrors = {
-	name?: string[];
-	email?: string[];
-	company?: string[];
-	topic?: string[];
-	message?: string[];
-};
-
 type FormContentProps = {
+	contactMessages: typeof contactMessagesEn;
 	locale: string;
-	placeholder: {
-		name: string;
-		email: string;
-		company: string;
-		topic: {
-			label: string;
-			options: Record<string, string>;
-		};
-		message: string;
-	};
-	submitButton: string;
-	successMessage?: string;
-	errorMessage?: string;
-	fieldErrors?: FieldErrors;
 };
 
 function FormSubmitButton({ label }: { label: string }) {
@@ -73,14 +53,31 @@ function FormSubmitButton({ label }: { label: string }) {
 }
 
 export default function FormContent({
+	contactMessages,
 	locale,
-	placeholder,
-	submitButton,
-	successMessage,
-	errorMessage,
-	fieldErrors,
 }: FormContentProps) {
+	const [state, formAction] = useActionState(submitContactForm, null);
 	const formRef = useRef<HTMLFormElement>(null);
+
+	const { placeholder, submitButton, feedback } = contactMessages.contactForm;
+
+	// Generate messages from state
+	const successMessage = state?.success ? feedback.success : undefined;
+	const errorMessage = state?.error ? feedback.errors[state.error] : undefined;
+
+	// Map invalid fields to error messages
+	const fieldErrors = state?.invalidFields?.reduce(
+		(acc, field) => {
+			const errorKey = field === 'message' ? 'content' : field;
+			if (errorKey in feedback.errors) {
+				acc[field] = [
+					feedback.errors[errorKey as keyof typeof feedback.errors] as string,
+				];
+			}
+			return acc;
+		},
+		{} as Record<string, string[]>,
+	);
 
 	// Auto-scroll to form when there's a message
 	useEffect(() => {
@@ -97,13 +94,14 @@ export default function FormContent({
 	}, [successMessage]);
 
 	return (
-		<form ref={formRef} action={submitContactForm} aria-label="Contact form">
+		<form ref={formRef} action={formAction} aria-label="Contact form">
 			{/* Name field */}
 			<div className="relative">
 				<input
 					type="text"
 					name="name"
 					id="name"
+					maxLength={100}
 					className="peer w-full border border-neutral-500/20 p-3 pt-6 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
 					placeholder=" "
 					required
@@ -129,6 +127,7 @@ export default function FormContent({
 					type="email"
 					name="email"
 					id="email"
+					maxLength={254}
 					className="peer w-full border border-neutral-500/20 p-3 pt-6 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
 					placeholder=" "
 					required
@@ -154,6 +153,7 @@ export default function FormContent({
 					type="text"
 					name="company"
 					id="company"
+					maxLength={200}
 					className="peer w-full border border-neutral-500/20 p-3 pt-6 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
 					placeholder=" "
 					required
@@ -209,6 +209,7 @@ export default function FormContent({
 				<textarea
 					name="message"
 					id="message"
+					maxLength={5000}
 					className="peer w-full border border-neutral-500/20 p-3 pt-8 focus:outline-none focus:border-l-4 focus:border-l-black [field-sizing:content] min-h-[8lh]"
 					placeholder=" "
 					required
