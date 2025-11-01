@@ -99,16 +99,23 @@ export default function FormContent({
 	return (
 		<form ref={formRef} action={submitContactForm} aria-label="Contact form">
 			{/* Name field */}
-			<div>
+			<div className="relative">
 				<input
 					type="text"
 					name="name"
-					className="w-full border border-neutral-500/20 p-3 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
-					placeholder={`${placeholder.name} *`}
+					id="name"
+					className="peer w-full border border-neutral-500/20 p-3 pt-6 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
+					placeholder=" "
 					required
 					aria-invalid={fieldErrors?.name ? 'true' : 'false'}
 					aria-describedby={fieldErrors?.name ? 'name-error' : undefined}
 				/>
+				<label
+					htmlFor="name"
+					className="absolute left-3 top-1/2 -translate-y-1/2  transition-all duration-200 pointer-events-none peer-focus:top-5 peer-focus:text-sm peer-focus:text-black peer-[:not(:placeholder-shown)]:top-5 peer-[:not(:placeholder-shown)]:text-sm "
+				>
+					{placeholder.name} *
+				</label>
 				{fieldErrors?.name && (
 					<p id="name-error" className="mt-1 text-sm text-red-600">
 						{fieldErrors.name[0]}
@@ -117,16 +124,23 @@ export default function FormContent({
 			</div>
 
 			{/* Email field */}
-			<div>
+			<div className="relative">
 				<input
 					type="email"
 					name="email"
-					className="w-full border border-neutral-500/20 p-3 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
-					placeholder={`${placeholder.email} *`}
+					id="email"
+					className="peer w-full border border-neutral-500/20 p-3 pt-6 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
+					placeholder=" "
 					required
 					aria-invalid={fieldErrors?.email ? 'true' : 'false'}
 					aria-describedby={fieldErrors?.email ? 'email-error' : undefined}
 				/>
+				<label
+					htmlFor="email"
+					className="absolute left-3 top-1/2 -translate-y-1/2  transition-all duration-200 pointer-events-none peer-focus:top-5 peer-focus:text-sm peer-focus:text-black peer-[:not(:placeholder-shown)]:top-5 peer-[:not(:placeholder-shown)]:text-sm "
+				>
+					{placeholder.email} *
+				</label>
 				{fieldErrors?.email && (
 					<p id="email-error" className="mt-1 text-sm text-red-600">
 						{fieldErrors.email[0]}
@@ -135,16 +149,23 @@ export default function FormContent({
 			</div>
 
 			{/* Company field */}
-			<div>
+			<div className="relative">
 				<input
 					type="text"
 					name="company"
-					className="w-full border border-neutral-500/20 p-3 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
-					placeholder={`${placeholder.company} *`}
+					id="company"
+					className="peer w-full border border-neutral-500/20 p-3 pt-6 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black"
+					placeholder=" "
 					required
 					aria-invalid={fieldErrors?.company ? 'true' : 'false'}
 					aria-describedby={fieldErrors?.company ? 'company-error' : undefined}
 				/>
+				<label
+					htmlFor="company"
+					className="absolute left-3 top-1/2 -translate-y-1/2  transition-all duration-200 pointer-events-none peer-focus:top-5 peer-focus:text-sm peer-focus:text-black peer-[:not(:placeholder-shown)]:top-5 peer-[:not(:placeholder-shown)]:text-sm "
+				>
+					{placeholder.company} *
+				</label>
 				{fieldErrors?.company && (
 					<p id="company-error" className="mt-1 text-sm text-red-600">
 						{fieldErrors.company[0]}
@@ -153,24 +174,29 @@ export default function FormContent({
 			</div>
 
 			{/* Topic dropdown field */}
-			<div>
+			<div className="relative">
 				<select
 					name="topic"
-					className="w-full border border-neutral-500/20 p-3 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black bg-white"
+					id="topic"
+					className="peer w-full border border-neutral-500/20 p-3 pt-6 h-16 lg:h-22 focus:outline-none focus:border-l-4 focus:border-l-black bg-white appearance-none"
 					required
 					defaultValue=""
 					aria-invalid={fieldErrors?.topic ? 'true' : 'false'}
 					aria-describedby={fieldErrors?.topic ? 'topic-error' : undefined}
 				>
-					<option value="" disabled>
-						{placeholder.topic.label} *
-					</option>
+					<option value="" disabled></option>
 					{Object.entries(placeholder.topic.options).map(([key, label]) => (
 						<option key={key} value={key}>
 							{label}
 						</option>
 					))}
 				</select>
+				<label
+					htmlFor="topic"
+					className="absolute left-3 top-1/2 -translate-y-1/2  transition-all duration-200 pointer-events-none peer-focus:top-5 peer-focus:text-sm peer-focus:text-black peer-[:not(:invalid)]:top-5 peer-[:not(:invalid)]:text-sm peer-[:not(:invalid)]:text-neutral-600"
+				>
+					{placeholder.topic.label} *
+				</label>
 				{fieldErrors?.topic && (
 					<p id="topic-error" className="mt-1 text-sm text-red-600">
 						{fieldErrors.topic[0]}
@@ -179,16 +205,22 @@ export default function FormContent({
 			</div>
 
 			{/* Message field */}
-			<div>
+			<div className="relative">
 				<textarea
 					name="message"
-					rows={6}
-					className="w-full border border-neutral-500/20 p-3 focus:outline-none focus:border-l-4 focus:border-l-black"
-					placeholder={`${placeholder.message} *`}
+					id="message"
+					className="peer w-full border border-neutral-500/20 p-3 pt-8 focus:outline-none focus:border-l-4 focus:border-l-black [field-sizing:content] min-h-[8lh]"
+					placeholder=" "
 					required
 					aria-invalid={fieldErrors?.message ? 'true' : 'false'}
 					aria-describedby={fieldErrors?.message ? 'message-error' : undefined}
 				/>
+				<label
+					htmlFor="message"
+					className="absolute left-3 top-5  transition-all duration-200 pointer-events-none peer-focus:top-3 peer-focus:text-sm peer-focus:text-black peer-[:not(:placeholder-shown)]:top-3 peer-[:not(:placeholder-shown)]:text-sm "
+				>
+					{placeholder.message} *
+				</label>
 				{fieldErrors?.message && (
 					<p id="message-error" className="mt-1 text-sm text-red-600">
 						{fieldErrors.message[0]}
