@@ -19,6 +19,8 @@ export default function MobileMenuEnhancer() {
 			const target = e.target as HTMLElement;
 			if (target.closest('a') && checkbox) {
 				checkbox.checked = false;
+				// Immediately unlock scroll when closing
+				document.body.style.overflow = '';
 			}
 		};
 
@@ -26,6 +28,8 @@ export default function MobileMenuEnhancer() {
 		const handleEscape = (e: KeyboardEvent) => {
 			if (e.key === 'Escape' && checkbox?.checked) {
 				checkbox.checked = false;
+				// Immediately unlock scroll
+				document.body.style.overflow = '';
 			}
 		};
 
@@ -63,6 +67,8 @@ export default function MobileMenuEnhancer() {
 
 			if (isVerticalSwipe || isRightSwipe) {
 				checkbox.checked = false;
+				// Immediately unlock scroll
+				document.body.style.overflow = '';
 			}
 		};
 
