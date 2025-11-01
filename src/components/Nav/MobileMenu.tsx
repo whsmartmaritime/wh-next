@@ -133,13 +133,13 @@ export default function MobileMenu({ commonMessages }: MobileMenuProps) {
 				<>
 					{/* Overlay */}
 					<div
-						className="fixed inset-0 bg-black/50  animate-in fade-in duration-300"
+						className="fixed inset-0 bg-black/50 z-30 animate-in fade-in duration-300"
 						onClick={close}
 						aria-hidden="true"
 					/>
 
 					{/* Menu Panel - Fixed for full-width mobile takeover */}
-					<div className="fixed top-[100px] left-0 w-full h-auto  bg-white dark:bg-black border-t border-neutral-200 dark:border-neutral-700 animate-in slide-in-from-right duration-300">
+					<div className="fixed top-[var(--header-height,100px)] right-0 w-full max-h-[calc(100vh-var(--header-height,100px))] z-40 bg-white dark:bg-black border-t border-neutral-200 dark:border-neutral-700 animate-in slide-in-from-right duration-300 overflow-hidden">
 						<BackgroundScanline className="absolute inset-0" opacity={0.08} />
 						<div className="relative h-full overflow-y-auto">
 							<div className="container-gutter py-6">
@@ -156,15 +156,14 @@ export default function MobileMenu({ commonMessages }: MobileMenuProps) {
 														{/* Parent item */}
 														<Link
 															href={`/${locale}${item.href}`}
-															className="flex items-center  gap-4 p-4 hover:bg-neutral-50 dark:hover:bg-neutral-900 border-b border-neutral-200/30 dark:border-neutral-500/30 uppercase font-semibold tracking-[0.25em] text-sm"
+															className="group flex items-center gap-4 p-4 hover:bg-neutral-50 dark:hover:bg-neutral-900 border-b border-neutral-200/30 dark:border-neutral-500/30 uppercase font-semibold tracking-[0.25em] text-sm"
 															onClick={close}
 														>
 															<span>{item.label}</span>
 
 															<ArrowIcon
 																size={10}
-																rotation={45}
-																className="lg:rotate-0"
+																className="transition-transform group-hover:translate-x-1"
 															/>
 														</Link>
 
@@ -176,11 +175,15 @@ export default function MobileMenu({ commonMessages }: MobileMenuProps) {
 																	<Link
 																		key={subKey}
 																		href={`/${locale}${subItem.href}`}
-																		className="flex items-center justify-start gap-2 p-2 text-base hover:bg-neutral-50 dark:hover:bg-neutral-900 border-b border-neutral-200/20 dark:border-neutral-500/20"
+																		className="group flex items-center justify-start gap-2 pl-8 pr-2 py-2 text-base font-semibold hover:bg-neutral-50 dark:hover:bg-neutral-900 border-b border-neutral-200/20 dark:border-neutral-500/20"
 																		onClick={close}
 																	>
 																		<span>{subItem.label}</span>
-																		<ArrowIcon size={10} />
+																		<ArrowIcon
+																			size={10}
+																			rotation={45}
+																			className="transition-transform group-hover:translate-x-1"
+																		/>
 																	</Link>
 																),
 															)}
