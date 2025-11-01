@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import TopBar from '@/components/TopBar';
 import LogoSvg from '../LogoSvg';
-import MobileMenu from '../Nav/MobileMenu';
+import Nav from '../Nav';
 
 interface HeaderProps {
 	locale: string;
@@ -31,7 +31,7 @@ export default async function Header({ locale }: HeaderProps) {
 
 					{/* Unified hamburger menu for all screen sizes */}
 					<div className="col-span-3 lg:col-span-9 ml-auto flex items-center justify-end">
-						<MobileMenu commonMessages={commonMessages} />
+						<Nav commonMessages={commonMessages} />
 					</div>
 				</nav>
 			</header>
