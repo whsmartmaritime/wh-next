@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import AnimatedLink from '@/components/AnimatedLink';
-import { BackgroundGrid } from '@/components/BackgroundGrid';
-import { BackgroundScanline } from '@/components/BackgroundScanline';
-import Breadcrumbs from '@/components/Breadcrumbs';
-import MediaText from '@/components/MediaText';
+import { BackgroundGrid } from '@/components/effects/BackgroundGrid';
+import { BackgroundScanline } from '@/components/effects/BackgroundScanline';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import AnimatedLink from '@/components/ui/AnimatedLink';
+import MediaText from '@/components/ui/MediaText';
 import { routing } from '@/i18n/routing';
 import {
 	entriesByCategory,

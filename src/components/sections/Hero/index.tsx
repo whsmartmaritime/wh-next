@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
-import AnimatedLink from '../AnimatedLink';
+import AnimatedLink from '@/components/ui/AnimatedLink';
 
 interface HeroProps {
 	title: ReactNode;

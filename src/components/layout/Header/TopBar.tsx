@@ -1,4 +1,4 @@
-import LanguageSwitcher from '../LanguageSwitcher';
+import LanguageSwitcher from './LocaleSwitcher';
 
 interface TopBarProps {
 	className?: string;

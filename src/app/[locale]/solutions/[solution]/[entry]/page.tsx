@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
-import Breadcrumbs from '@/components/Breadcrumbs';
-import MediaText from '@/components/MediaText';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import MediaText from '@/components/ui/MediaText';
 import { routing } from '@/i18n/routing';
 import {
 	entries,

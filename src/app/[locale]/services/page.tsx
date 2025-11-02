@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import AnimatedLink from '@/components/AnimatedLink';
-import BackgroundScanline from '@/components/BackgroundScanline';
-import BgGrid from '@/components/BgGrid';
-import Breadcrumbs from '@/components/Breadcrumbs';
-import HeroPage from '@/components/Hero/HeroPage';
-import ScrollShowcase from '@/components/ScrollShowcase';
+import BackgroundScanline from '@/components/effects/BackgroundScanline';
+import BgGrid from '@/components/effects/BgGrid';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import HeroPage from '@/components/sections/Hero/HeroPage';
+import ScrollShowcase from '@/components/sections/ScrollShowcase';
+import AnimatedLink from '@/components/ui/AnimatedLink';
 import { routing } from '@/i18n/routing';
 
 export async function generateMetadata({

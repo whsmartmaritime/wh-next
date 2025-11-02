@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
-import AnimatedLink from '@/components/AnimatedLink';
-import { BackgroundAnimation } from '@/components/BackgroundAnimation';
-import { BackgroundGrid } from '@/components/BackgroundGrid';
-import { BackgroundScanline } from '@/components/BackgroundScanline';
-import BgGrid from '@/components/BgGrid';
-import Hero from '@/components/Hero';
-import Highlights from '@/components/Highlights';
-import LogoShowcase from '@/components/LogoShowcase';
-import MediaText from '@/components/MediaText';
-import Slider from '@/components/Slider';
+import { BackgroundAnimation } from '@/components/effects/BackgroundAnimation';
+import { BackgroundGrid } from '@/components/effects/BackgroundGrid';
+import { BackgroundScanline } from '@/components/effects/BackgroundScanline';
+import BgGrid from '@/components/effects/BgGrid';
+import Hero from '@/components/sections/Hero';
+import LogoShowcase from '@/components/sections/Hero/LogoShowcase';
+import Highlights from '@/components/sections/Highlights';
+import AnimatedLink from '@/components/ui/AnimatedLink';
+import MediaText from '@/components/ui/MediaText';
+import Slider from '@/components/ui/Slider';
 import { routing } from '@/i18n/routing';
 import { entries, featureEntry, type Locales } from '@/lib/postIndex.generated';
 

@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { type ReactNode, useEffect, useRef, useState } from 'react';
-import BackgroundScanline from '@/components/BackgroundScanline';
+import BackgroundScanline from '@/components/effects/BackgroundScanline';
 
 interface ScrollShowcaseProps {
 	items: {

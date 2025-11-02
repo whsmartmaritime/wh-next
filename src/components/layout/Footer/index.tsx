@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { BackgroundGrid } from '@/components/BackgroundGrid';
-import ContactInfo from '@/components/ContactInfo';
-import LogoSvg from '@/components/LogoSvg';
+import { BackgroundGrid } from '@/components/effects/BackgroundGrid';
+import ContactInfo from '@/components/layout/Footer/ContactInfo';
+import LogoSvg from '@/components/layout/LogoSvg';
 
 interface FooterProps {
 	locale: string;

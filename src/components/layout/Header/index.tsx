@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import TopBar from '@/components/TopBar';
 import LogoSvg from '../LogoSvg';
 import Nav from '../Nav';
+import TopBar from './TopBar';
 
 interface HeaderProps {
 	locale: string;

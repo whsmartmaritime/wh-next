@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import type * as React from 'react';
-import ArrowIcon from '../icons/ArrowIcon';
+import ArrowIcon from '../../icons/ArrowIcon';
 
 export type AnimatedLinkProps = {
 	children: React.ReactNode;

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import BackgroundScanline from '@/components/BackgroundScanline';
+import BackgroundScanline from '@/components/effects/BackgroundScanline';
 import ArrowIcon from '@/components/icons/ArrowIcon';
 
 interface MobileMenuProps {

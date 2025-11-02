@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import BackgroundScanline from '@/components/BackgroundScanline';
-import BgGrid from '@/components/BgGrid';
-import Breadcrumbs from '@/components/Breadcrumbs';
-import ContactForm from '@/components/ContactForm';
-import HeroPage from '@/components/Hero/HeroPage';
+import BackgroundScanline from '@/components/effects/BackgroundScanline';
+import BgGrid from '@/components/effects/BgGrid';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import ContactForm from '@/components/sections/ContactForm';
+import HeroPage from '@/components/sections/Hero/HeroPage';
 import { routing } from '@/i18n/routing';
 
 export async function generateMetadata({

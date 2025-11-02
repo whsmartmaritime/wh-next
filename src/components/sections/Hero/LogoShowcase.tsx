@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { BackgroundScanline } from '@/components/BackgroundScanline';
+import { BackgroundScanline } from '@/components/effects/BackgroundScanline';
 
 type LogoItem = { id: string; src: string; name?: string; alt?: string };
 type LogoShowcaseProps = { logos: LogoItem[]; className?: string };

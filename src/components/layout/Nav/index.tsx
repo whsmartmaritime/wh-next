@@ -1,7 +1,7 @@
 import type commonMessagesEn from '@messages/en/common.json';
 import Link from 'next/link';
-import BackgroundScanline from '@/components/BackgroundScanline';
-import ArrowIcon from '../icons/ArrowIcon';
+import BackgroundScanline from '@/components/effects/BackgroundScanline';
+import ArrowIcon from '../../icons/ArrowIcon';
 import MobileMenuEnhancer from './MobileMenuEnhancer';
 
 interface NavProps {
