@@ -22,18 +22,19 @@ export default function LanguageSwitcher() {
 	const pathname = usePathname();
 
 	return (
-		<div className="flex gap-2 items-end">
+		<div className="flex items-start gap-1">
 			<Link
 				href={getLocalizedPath(pathname, 'vi')}
-				className="w-5 h-3 text-md font-normal opacity-70 hover:opacity-100 transition-opacity"
+				className=" text-sm hover:font-semibold "
 			>
-				vi
+				VI
 			</Link>
+			<span className="text-xs">|</span>
 			<Link
 				href={getLocalizedPath(pathname, 'en')}
-				className="w-5 h-3 text-md font-normal opacity-70 hover:opacity-100 transition-opacity"
+				className=" text-sm hover:font-semibold "
 			>
-				en
+				EN
 			</Link>
 		</div>
 	);
