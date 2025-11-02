@@ -73,14 +73,18 @@ export async function generateMetadata({
 	);
 
 	return {
-		title,
+		title: {
+			absolute: title,
+		},
 		description,
 		alternates: {
 			canonical: url,
 			languages,
 		},
 		openGraph: {
-			title,
+			title: {
+				absolute: title,
+			},
 			description,
 			url,
 			images: [
@@ -94,7 +98,9 @@ export async function generateMetadata({
 		},
 		twitter: {
 			card: 'summary_large_image',
-			title,
+			title: {
+				absolute: title,
+			},
 			description,
 			images: [ogImage],
 		},
