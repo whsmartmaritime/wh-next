@@ -135,17 +135,14 @@ export default async function ContactPage({
 
 					<div className="relative col-span-12 lg:col-span-6 lg:col-start-7 flex flex-wrap flex-row">
 						<BackgroundScanline />
-						<div className="flex flex-col w-1/2 gap-4 lg:gap-8 bg-neutral-50 hover:bg-transparent  transition-all  z-10 hover:-translate-y-2 duration-500 ease-in-out">
-							<span className="text-sm lg:text-base  leading-relaxed mt-8">
-								{`01`}
-							</span>
-							<h3 className="text-sm uppercase tracking-[0.2em] font-semibold">
+						<div className="flex flex-col w-full md:w-1/2 gap-2 lg:gap-8 bg-neutral-50 hover:bg-transparent  transition-all  z-10 hover:-translate-y-2 duration-500 ease-in-out">
+							<h3 className="text-sm uppercase tracking-[0.2em] font-semibold mt-4 sm:mt-8 lg:mt-16">
 								{contactMessages.contactInfo.phone.label}
 							</h3>
 
 							<a
 								href={`tel:${contactMessages.contactInfo.phone.link}`}
-								className=" w-3/4 text-sm lg:text-base  leading-relaxed mb-8 flex gap-2 hover:underline hover:text-sky-500"
+								className="text-sm lg:text-base  leading-relaxed mb-2 sm:mb-4 lg:mb-8 flex gap-2 hover:underline hover:text-sky-500"
 							>
 								<svg
 									className="w-5 h-5 text-nature-500 flex-shrink-0"
@@ -165,17 +162,14 @@ export default async function ContactPage({
 							</a>
 						</div>
 						{Object.entries(contactMessages.contactInfo.emails).map(
-							([key, email], index) => {
+							([key, email]) => {
 								const emailData = email as { label: string; base64: string };
 								return (
 									<div
 										key={key}
-										className="flex flex-col w-1/2 gap-4 lg:gap-8 bg-neutral-50 hover:bg-transparent  transition-all  z-10 hover:-translate-y-2 duration-500 ease-in-out"
+										className="flex flex-col w-full md:w-1/2 gap-2 lg:gap-8 bg-neutral-50 hover:bg-transparent  transition-all  z-10 hover:-translate-y-2 duration-500 ease-in-out"
 									>
-										<span className="text-sm lg:text-base  leading-relaxed mt-8">
-											{`0${index + 2}`}
-										</span>
-										<h3 className="text-sm uppercase tracking-[0.2em] font-semibold">
+										<h3 className="text-sm uppercase tracking-[0.2em] font-semibold mt-4 sm:mt-8 lg:mt-16">
 											{emailData.label}
 										</h3>
 										<a
@@ -183,7 +177,7 @@ export default async function ContactPage({
 												emailData.base64,
 												'base64',
 											).toString('utf-8')}`}
-											className=" w-3/4 text-sm lg:text-base  leading-relaxed mb-8 flex gap-2 hover:underline hover:text-sky-500"
+											className=" w-3/4 text-sm lg:text-base  leading-relaxed mb-2 sm:mb-4 lg:mb-8 flex gap-2 hover:underline hover:text-sky-500"
 										>
 											<svg
 												className="w-5 h-5 text-nature-500 flex-shrink-0"

@@ -155,7 +155,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 							(item: { title: string; description: string }, index: number) => (
 								<div
 									key={item.title}
-									className="flex flex-col w-1/2 gap-4 lg:gap-8 bg-neutral-50 hover:bg-transparent  transition-all  z-10 hover:-translate-y-2 duration-500 ease-in-out"
+									className="flex flex-col w-full md:w-1/2 gap-4 lg:gap-8 bg-neutral-50 hover:bg-transparent  transition-all  z-10 hover:-translate-y-2 duration-500 ease-in-out"
 								>
 									<p className="text-sm lg:text-base  leading-relaxed mt-8">
 										{`0${index + 1}`}
@@ -163,7 +163,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
 									<h3 className="text-xl lg:text-2xl font-semibold">
 										{item.title}
 									</h3>
-									<p className=" w-3/4 text-sm lg:text-base  leading-relaxed mb-8">
+									<p className=" w-full md:w-4/5 text-sm lg:text-base  leading-relaxed mb-8">
 										{item.description}
 									</p>
 								</div>

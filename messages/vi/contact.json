@@ -62,13 +62,13 @@
 	},
 	"contactForm": {
 		"title": "Gửi tin nhắn cho chúng tôi",
-		"description": "Nếu bạn có bất kỳ câu hỏi hoặc cần thêm thông tin, đừng ngần ngại liên hệ với chúng tôi qua biểu mẫu bên cạnh. Đội ngũ tận tâm của chúng tôi sẽ phản hồi bạn trong thời gian sớm nhất.",
+		"description": "Nếu bạn có bất kỳ câu hỏi hoặc cần thêm thông tin, đừng ngần ngại liên hệ với chúng tôi qua biểu mẫu bên cạnh. Đội ngũ tận tâm của chúng tôi sẽ phản hồi Quý khách trong thời gian sớm nhất.",
 		"placeholder": {
 			"name": "Họ và tên",
 			"email": "Email",
 			"company": "Công ty",
 			"topic": {
-				"label": "Wheelhouse Maris có thể giúp gì cho quý khách?",
+				"label": "Wheelhouse Maris có thể giúp gì cho Quý khách?",
 				"options": {
 					"sales": "Mua hàng & Tư vấn Sản phẩm",
 					"service": "Yêu cầu dịch vụ",
@@ -78,11 +78,11 @@
 					"other": "Khác"
 				}
 			},
-			"message": "Chia sẻ chi tiết yêu cầu của Quý khách"
+			"message": "Chia sẻ thêm về chi tiết yêu cầu."
 		},
 		"submitButton": "Gửi",
 		"feedback": {
-			"success": "Tin nhắn đã được gửi thành công! Chúng tôi sẽ phản hồi bạn sớm nhất.",
+			"success": "Tin nhắn đã được gửi thành công! Chúng tôi sẽ phản hồi Quý khách sớm nhất.",
 			"errors": {
 				"validation": "Vui lòng sửa các lỗi bên dưới.",
 				"server": "Gửi tin nhắn thất bại. Vui lòng thử lại sau.",
