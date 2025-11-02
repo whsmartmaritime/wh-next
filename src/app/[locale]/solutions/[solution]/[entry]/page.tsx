@@ -79,12 +79,13 @@ export async function generateMetadata({
 		description,
 		alternates: {
 			canonical: url,
-			languages,
+			languages: {
+				...languages,
+				'x-default': '/',
+			},
 		},
 		openGraph: {
-			title: {
-				absolute: title,
-			},
+			title: title,
 			description,
 			url,
 			images: [
