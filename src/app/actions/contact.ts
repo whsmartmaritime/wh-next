@@ -93,9 +93,11 @@ export async function submitContactForm(
 		await resend.emails.send({
 			from: 'noreply@mail.wheelhousemaris.com',
 			to: 'info@wheelhousemaris.com',
+			bcc: 'admin@wheelhousemaris.com',
 			subject: `New message from ${escapeHtml(name)} - ${escapeHtml(company)}`,
+			replyTo: email,
 			html: `
-	                <h3>CONTACT FORM WEBSITE</h3>
+	                <h3>Contact Form Submission</h3>
 	                <p><strong>Name:</strong> ${escapeHtml(name)}</p>
 	                <p><strong>Email:</strong> ${escapeHtml(email)}</p>
 	                <p><strong>Company:</strong> ${escapeHtml(company)}</p>
