@@ -91,9 +91,9 @@ export async function submitContactForm(
 	// Send email via Resend
 	try {
 		await resend.emails.send({
-			from: 'noreply@mail.wheelhousemaris.com',
+			from: 'notifications@mail.wheelhousemaris.com',
 			to: 'info@wheelhousemaris.com',
-			bcc: 'admin@wheelhousemaris.com',
+			bcc: 'neo@wheelhousemaris.com',
 			subject: `New message from ${escapeHtml(name)} - ${escapeHtml(company)}`,
 			replyTo: email,
 			html: `
