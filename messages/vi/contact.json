@@ -11,11 +11,11 @@
 		"images": {
 			"back": {
 				"src": "/images/Picture1.png",
-				"alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị hàng hải"
+				"alt": ""
 			},
 			"fore": {
 				"src": "/images/Picture2.png",
-				"alt": "Kỹ thuật viên Wheelhouse sửa chữa thiết bị hàng hải"
+				"alt": ""
 			}
 		},
 		"ctas": [

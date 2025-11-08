@@ -11,11 +11,11 @@
 		"images": {
 			"back": {
 				"src": "/images/Picture1.png",
-				"alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
+				"alt": ""
 			},
 			"fore": {
 				"src": "/images/Picture2.png",
-				"alt": "Kỹ sư dịch vụ Wheelhouse làm việc trên tàu"
+				"alt": ""
 			}
 		},
 		"ctas": [
